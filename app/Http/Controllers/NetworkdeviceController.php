@@ -8,6 +8,7 @@ use App\Asset_use_statuses;
 use App\Section;
 use App\NetSubtype;
 use App\Networkdevices;
+use App\Owner;
 
 class NetworkdeviceController extends Controller
 {
@@ -22,12 +23,14 @@ class NetworkdeviceController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $NetSubtypes = NetSubtype::all();
+        $Owners = Owner::all();
 
         return view('addnetworkdevice')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'netsubtypes'=>$NetSubtypes,
+            'owners'=>$Owners,
         ]);
     }
 
@@ -106,6 +109,7 @@ class NetworkdeviceController extends Controller
             'pid'=>'nullable',
             'location_id' => 'required',
             'response_person' => 'required',
+            'owner' => 'required',
             'asset_status' => 'required',
             'asset_use_status' => 'required',
             'section' => 'required',
@@ -121,6 +125,7 @@ class NetworkdeviceController extends Controller
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
             'section.required' => 'กรุณาเลือกสาขา',
+            'owner.required' => 'x',
             'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งานครุภัณฑ์',
             'device_subtype.required' => 'กรุณาเลือกชนิดของอุปกรณ์',
