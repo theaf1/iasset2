@@ -8,6 +8,7 @@ use App\Asset_use_statuses;
 use App\Section;
 use App\Peripherals;
 use App\Peripheraltype;
+use App\Owner;
 
 class PeripheralsController extends Controller
 {
@@ -36,6 +37,7 @@ class PeripheralsController extends Controller
             ['id'=>'1', 'name'=>'OS share'],
             ['id'=>'2', 'name'=>'network share'],
         );
+        $Owners = Owner::all();
 
         return view('addperipherals')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -45,6 +47,7 @@ class PeripheralsController extends Controller
             'supplies'=>$Supplies,
             'peripheralconnections'=>$PeripheralConnections,
             'sharemethods'=>$ShareMethods,
+            'owners'=>$Owners,
          
         ]);
     }
