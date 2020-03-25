@@ -10,6 +10,7 @@ use App\Servers;
 use App\ServerOS;
 use App\ServerRoleClass;
 use App\NetworkConnection;
+use App\Owner;
 
 class ServerController extends Controller
 {
@@ -30,6 +31,7 @@ class ServerController extends Controller
             ['id'=>'1', 'name'=>'GB'],
             ['id'=>'2', 'name'=>'TB'],
         );
+        $Owners = Owner::all();
 
         return view('addserver')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -39,6 +41,7 @@ class ServerController extends Controller
             'server_role_classes'=>$ServerRoleClass,
             'network_connections'=>$NetworkConnections,
             'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
         ]);
     }
 
@@ -120,6 +123,7 @@ class ServerController extends Controller
             'section' => 'required',
             'tel_no' => 'required',
             'response_person' => 'required',
+            'owner' => 'required',
             'asset_status' => 'required',
             'asset_use_status' => 'required',
             'brand' => 'required',
@@ -146,6 +150,7 @@ class ServerController extends Controller
             'location_id.required' => 'กรุณาระบุสถานที่ตั้งเครื่อง',
             'section.required' => 'กรุณาเลือกหน่วยงาน',
             'tel_no.required' => 'กรุณาใส่หมาเลขโทรศัพท์',
+            'owner.required' => 'กรุณาระบุที่มา',
             'response_person.required' => 'กรุณาใส่ชื่อผู้รับผิดชอบ',
             'asset_status.required' => 'กรุณาเลือกสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required' => 'กรุณาเลือกสถานะการใช้งานครุภัณฑ์',
