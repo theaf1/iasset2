@@ -8,6 +8,7 @@ use App\Client;
 use App\Display;
 use App\Clienttype;
 use App\NetworkConnection;
+use App\Owner;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -33,6 +34,7 @@ class ClientController extends Controller
             ['id'=>'1', 'name'=>'GB'],
             ['id'=>'2', 'name'=>'TB'],
         );
+        $Owners = Owner::all();
 
         return view('addcomputer')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -42,6 +44,7 @@ class ClientController extends Controller
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
             'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
         ]);
     }
 
@@ -185,7 +188,7 @@ class ClientController extends Controller
             'asset_status.required'=>'กรุณาระบุสถานะของครุภัณฑ์',
             'asset_use_status.required'=>'กรุณาระบุสถานะการใช้งานของครุภัณฑ์',
             'user.required_if'=>'กรุณาระบุชื่อผู้ใช้งาน',
-            'section.required'=>'7กรุณาระบุหน่วยงาน',
+            'section.required'=>'กรุณาระบุหน่วยงาน',
             'owner.required'=>'กรุณาระบุเจ้าของเครือง',
             'tel_no.required'=>'กรุณาระบุหมายเลขโทรศัพท์',
             'permission.required'=>'กรุณาระบุสถานะของสิทธิ์ admin',
