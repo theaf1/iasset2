@@ -7,6 +7,7 @@ use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
 use App\storageperipherals;
+use App\Owner;
 
 class StorageperipheralsController extends Controller
 {
@@ -24,12 +25,14 @@ class StorageperipheralsController extends Controller
             ['id' => '1', 'name' => 'GB'],
             ['id' => '2', 'name' => 'TB'],
         );
+        $Owners= Owner::all();
 
         return view('addstorageperipherals')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
         ]);
     }
 
@@ -109,6 +112,7 @@ class StorageperipheralsController extends Controller
             'pid'=>'nullable',
             'location_id' => 'required',
             'user' => 'required',
+            'owner' => 'required',
             'section' => 'required',
             'asset_status' => 'required',
             'asset_use_status' => 'required',
@@ -126,6 +130,7 @@ class StorageperipheralsController extends Controller
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'section.required' => 'กรุณาเลือกสาขา',
             'user.required'=>'กรุณาระบุชื่อผู้ใช้งาน',
+            'owner.required' => 'กรุณาระบุที่มา',
             'asset_status.required'=>'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required'=>'กรุณาระบุสถานะการใช้งานครุภัณฑ์',
             'brand.required' => 'กรุณาใส่ยี่ห้อ',

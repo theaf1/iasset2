@@ -136,10 +136,15 @@
                                 <div class="form-group">
                                     <label for="owner">เจ้าของเครื่อง</label><br>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="owner" id="owner" value="1" checked>
-                                        <label class="form-check-label" for="owner">คณะ</label><br>
-                                        <input class="form-check-input" type="radio" name="owner" id="owner" value="2">
-                                        <label class="form-check-label" for="owner">ภาควิชา</label><br>
+                                        @foreach ($owners as $owner)
+                                            <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}" {{ old('owner') == $owner['id'] ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="owner">{{ $owner['name'] }}</label><br>
+                                        @endforeach
+                                        @error('owner')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
