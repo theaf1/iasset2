@@ -18,7 +18,7 @@
   <body>
     @section('header')
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color:ffff00;">
-        <a class="navbar-brand" href="#">ระบบติดตามครุภัณฑ์คอมพิวเตอร์</a>
+      <a class="navbar-brand" href="{{ url('/index') }}">ระบบติดตามครุภัณฑ์คอมพิวเตอร์</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,8 +30,13 @@
               เมนูหลัก
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href={{ url('/computer') }}>Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="{{ url('/computer') }}">เพิ่มข้อมูลคอมพิวเตอร์</a>
+              <a class="dropdown-item" href="{{ url('/peripherals') }}">เพิ่มข้อมูลอุปกรณต่อพ่วง</a>
+              <a class="dropdown-item" href="{{ url('/storage') }}">เพิ่มข้อมูลอุปกรณต่อพ่วงเก็บข้อมูล</a>
+              <a class="dropdown-item" href="{{ url('/server') }}">เพิ่มข้อมูลคอมพิวเตอร์แม่ข่าย</a>
+              <a class="dropdown-item" href="{{ url('/network') }}">เพิ่มข้อมูลอุปกรณเครือข่าย</a>
+              <a class="dropdown-item" href="{{ url('/ns') }}">เพิ่มข้อมูลอุปกรณ์เก็บข้อมูลเครือข่าย</a>
+              <a class="dropdown-item" href="{{ url('/ups') }}">เพิ่มข้อมูลเครื่องสำรองไฟฟ้า</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>

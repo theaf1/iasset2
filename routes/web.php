@@ -43,3 +43,6 @@ Route::post('/add-computer', 'ClientController@store');
 Route::post('/add-sp','StorageperipheralsController@store');
 Route::post('/add-peripheral','PeripheralsController@store');
 Route::get('/search', 'SearchController@index');
+Route::get('/index', function () {
+    return view('index');
+});
