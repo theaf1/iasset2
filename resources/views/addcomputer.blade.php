@@ -3,6 +3,12 @@
 <div class="container-fuild">
     <div class="col-12 mx-auto">
         <form action="{{ url('/add-computer') }}" method="post" id="computer_form">
+        @if ( $message = Session::get('success'))
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ $message }}
+            </div>
+        @endif
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
@@ -336,12 +342,17 @@
                             <div class="col-sm-12 col-lg-6"> <!--HDD capacity-->
                                 <div class="form-group">
                                     <label for=hdd_total_cap>ความจุรวมของ HDD</label>
+                                    <div class="form-check-inline pl-3">
                                         @foreach ($dataunits as $dataunit)
-                                        <div class="form-check-inline pl-1">
-                                            <input type="radio" class="form-check-input" name="data_unit" id="data_unit" value="{{ $dataunit['id'] }}">
-                                            <label for="data_unit" class="form-check-label">{{ $dataunit['name'] }}</label>
-                                        </div>
+                                            <input type="radio" class="form-check-input @error('data_unit') is-invalid @enderror pl-2" name="data_unit" id="data_unit" value="{{ $dataunit['id'] }}">
+                                            <label for="data_unit" class="form-check-label pl-1">{{ $dataunit['name'] }}</label>
                                         @endforeach
+                                        @error('data_unit')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
                                     <input class="form-control @error('hdd_total_cap') is-invalid @enderror" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" value="{{ old('hdd_total_cap') }}">
                                     @error('hdd_total_cap')
                                         <div class="invalid-feedback">

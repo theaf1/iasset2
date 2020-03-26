@@ -16,8 +16,8 @@ class Displays extends Migration
         Schema::create('displays', function (blueprint $table) {
             $table->bigincrements('id');
             $table->string('client_id');
-            $table->string('display_sapid');
-            $table->string('display_pid');
+            $table->string('display_sapid')->nullable();
+            $table->string('display_pid')->nullable();
             $table->integer('display_size');
             $table->string('display_ratio');
             $table->timestamps();

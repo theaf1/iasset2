@@ -71,7 +71,7 @@ class ClientController extends Controller
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
         $this->validateData($request);
-        //$client = Client::create($request->all());
+        $client = Client::create($request->all());
 
         $displayCount = request()->input('display_count');
         for ($i = 0; $i < $displayCount; $i++)
@@ -86,10 +86,10 @@ class ClientController extends Controller
             Display::create($display);
         } 
 
-        return redirect()->back()->with('displayCount', $displayCount)->withInput();
+        //return redirect()->back()->with('displayCount', $displayCount);
 
 
-        // return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+         return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**
@@ -158,7 +158,8 @@ class ClientController extends Controller
             'cpu_speed' => 'required',
             'cpu_socket_number' =>'required',
             'ram_size' => 'required',
-            'hdd_no'=> 'required',
+            'hdd_no' => 'required',
+            'data_unit' =>'required',
             'hdd_total_cap'=>'required',
             'display_count' => 'required',
             'os'=>'required',
@@ -197,6 +198,7 @@ class ClientController extends Controller
             'cpu_socket_number.required'=>'กรุณาระบุจำนวน socket CPU',
             'ram_size.required'=>'กรุณาระบุขนาดของหน่วยความจำ',
             'hdd_no.required'=>'กรุณาระบุจำนวน hard disk ในเครื่อง',
+            'data_unit.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'hdd_total_cap.required'=>'กรุณาระบุความจุข้อมูลรวมของเครื่อง',
             'display_count.required'=>'กรุณาระบุจำนวนจอภาพ',
             'os.required'=>'กรุณาระบุชื่อระบบปฏิบัติการ',

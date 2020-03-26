@@ -50,7 +50,7 @@ class Clients extends Migration
             $table->string('pdf_reader');
             $table->integer('ie_version');
             $table->string('chrome_version');
-            $table->integer('spss_version');
+            $table->integer('spss_version')->nullable();
             $table->boolean('ehis')->default(0);
             $table->boolean('sipacs')->default(0);
             $table->boolean('si_iscan')->default(0);
