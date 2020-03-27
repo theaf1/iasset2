@@ -174,12 +174,17 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ตำแหน่งผู้ใช้งาน -->
                                 <div class="form-group">
                                     <label for="position">ตำแหน่งผู้ใช้งาน</label> 
-                                    <select class="form-control" name="position" id="position">
+                                    <select class="form-control @error('position') is-i" name="position" id="position">
                                         <option value="" hidden></option>
                                         @foreach ($positions as $position)
                                             <option value="{{ $position['id'] }}">{{ $position['name'] }}</option>
                                         @endforeach
                                     </select>
+                                    @error('position')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
