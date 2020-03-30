@@ -72,6 +72,7 @@ class ClientController extends Controller
         }
         $this->validateData($request);
         $client = Client::create($request->all());
+        \Log::info(session());
 
         $displayCount = request()->input('display_count');
         for ($i = 0; $i < $displayCount; $i++)
@@ -86,10 +87,10 @@ class ClientController extends Controller
             Display::create($display);
         } 
 
-        //return redirect()->back()->with('displayCount', $displayCount);
+        return redirect()->back()->with('displayCount', $displayCount);
 
-
-         return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        
+         //return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**
@@ -173,7 +174,7 @@ class ClientController extends Controller
             'other_software_detail'=>'nullable',
             'lan_type'=>'required',
             'lan_outlet_no'=>'nullable',
-            'ip_address'=>'required_unless:lan_type,1|ipv4',
+            'ip_address'=>'required_unless:lan_type,1|bail|ipv4',
             'mac_address'=>'required_unless:lan_type,1|regex:/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/',
             'computer_name'=>'required',
             'remarks' => 'nullable',

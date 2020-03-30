@@ -3,12 +3,12 @@
 <div class="container-fuild">
     <div class="col-12 mx-auto">
         <form action="{{ url('/add-computer') }}" method="post" id="computer_form">
-        @if ( $message = Session::get('success'))
-            <div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{ $message }}
-            </div>
-        @endif
+            @if ( $message = Session::get('success'))
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ $message }}
+                </div>
+            @endif
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
@@ -623,7 +623,7 @@
                                 <div class="form-group">
                                     <label for="is_wireless">การใช้งานเครือข่ายไร้สาย</label>
                                     <div class="form-check">
-                                        <label class="checkbox"><input type="checkbox" name="is_wireless" value="1" {{ old('is_wireless') == 1 ? 'checked' : ''}} > ใช้เครือข่ายไร้สาย</label>
+                                        <label class="checkbox"><input type="checkbox" name="is_wireless" value="1" {{ old('is_wireless') == 1 ? 'checked' : ''}}> ใช้เครือข่ายไร้สาย</label>
                                     </div>
                                 </div>
                             </div>
