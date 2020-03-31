@@ -105,7 +105,7 @@ class NetworkedstorageController extends Controller
     {
         //
     }
-    private function validateData($data)
+    private function validateData($data) 
     {
         $rules = [
             'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
@@ -122,10 +122,13 @@ class NetworkedstorageController extends Controller
             'model' => 'required',
             'serial_no' => 'required',
             'hdd_total_cap' => 'required',
-            'data_unit' => 'requuired',
+            'data_unit' => 'required',
             'no_of_physical_drive_max' => 'required|gte:2',
             'no_of_physical_drive_populated' => 'required|lte:no_of_physical_drive_max',
             'lun_count' => 'required',
+            'device_name' => 'required',
+            'device_managemet_address' => 'required|ipv4',
+            'device_communication_address' => 'required',
         ];
 
         $messages = [
@@ -144,10 +147,14 @@ class NetworkedstorageController extends Controller
             'data_unit.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'hdd_total_cap.required' => 'กรุณาระบุความจุข้อมูล',
             'no_of_physical_drive_max.required' => 'กรุนาระบุจำนวน disk สูงสุดของเครื่อง',
-            'no_of_physical_drive_max.gte' => 'test1.1',
+            'no_of_physical_drive_max.lte' => 'test1.1',
             'no_of_physical_drive_populated.required' => 'กรุนาระบุจำนวน disk ในเครื่อง',
             'no_of_physical_drive_populated.lte' => 'จำนวน disk ในเครื่องไม่ถูกต้อง',
             'lun_count.required' => 'กรุณาระบุจำนวน disk จำลอง',
+            'device_name.required' => 'กรุณาใส่ชื่อเครื่อง',
+            'device_management_address.required' => 'กรุณาระบุ ip address ของเครื่อง',
+            'device_management_address.ipv4' => 'กรุณาตรวจสอบ ip address ของเครื่องให้ถูกต้อง',
+            'device_communication_address.required' =>'กรุณาระบุ address ที่ใช้รับส่งข้อมูลของเครื่อง',
 
         ];
 

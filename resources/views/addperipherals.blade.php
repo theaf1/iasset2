@@ -311,7 +311,7 @@
                             <label for="share_method">วิธีการ share</label>
                             <div class="form-check">
                                 @foreach ($sharemethods as $sharemethod)
-                                    <input type="radio" class="form-check-input @error('share_method') is-invalid @enderror" name="share_method" id="share_method" value="{{ $sharemethod['id'] }}">
+                                    <input type="radio" class="form-check-input @error('share_method') is-invalid @enderror" name="share_method" id="share_method" value="{{ $sharemethod['id'] }}" {{ old('share_method') == $sharemethod['id'] ? 'checked' : '' }}>
                                     <label for="share_method" class="form-check-label">{{ $sharemethod['name'] }}</label><br>
                                 @endforeach
                                 @error('share_method')

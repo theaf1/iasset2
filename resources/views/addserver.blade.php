@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input hidden type="number" name="location_id"><!--ค่า location_id-->    
+                        <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->    
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
@@ -273,7 +273,7 @@
                                 <div class="form-group">
                                     <label for="is_raid">RAID</label><br>
                                     <div class="form-check-inline">
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_raid" id="is_raid" value="1" {{ old('other_software') == 1 ? 'checked' : ''}}><label for="is_raid">RAID</label></label>
+                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_raid" id="is_raid" value="1" {{ old('is_raid') == 1 ? 'checked' : ''}}><label for="is_raid">RAID</label></label>
                                     </div>
                                 </div>
                             </div>
@@ -317,13 +317,23 @@
                             <div class="col-sm-12 col-lg-6"> <!--HDD capacity-->
                                 <div class="form-group">
                                     <label for=hdd_total_cap>ความจุรวมของ HDD</label>
-                                        @foreach ($dataunits as $dataunit)
-                                            <div class="form-check-inline pl-1">
-                                                <input type="radio" class="form-check-input" name="data_unit" id="data_unit" value="{{ $dataunit['id'] }}">
+                                        <div class="form-check-inline pl-1">
+                                            @foreach ($dataunits as $dataunit)
+                                                <input type="radio" class="form-check-input @error('data_unit') is-invalid @enderror" name="data_unit" id="data_unit" value="{{ $dataunit['id'] }}" {{ old('data_unit') == $dataunit['id'] ? 'checked' : '' }}>
                                                 <label for="data_unit" class="form-check-label">{{ $dataunit['name'] }}</label>
+                                            @endforeach
+                                            @error('data_unit')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    <input class="form-control @error('hdd_total_cap') is-invalid @enderror" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" value="{{ old('hdd_total_cap') }}">
+                                    @error('hdd_total_cap')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
                                             </div>
-                                        @endforeach
-                                    <input class="form-control" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" value="1">
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
@@ -338,7 +348,7 @@
                                 <div class="form-group">
                                     <label for="is_headless">จอภาพ</label><br>
                                     <div class="form-check-inline">
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_headless" id="is_headless" value="1" {{ old('is_headless') == 1 ? 'checked' : ''}}><label for="is_headless">มีจอภาพ</label></label>
+                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_headless" id="is_headless" value="1" {{ old('is_headless') == 1 ? 'checked' : '' }}><label for="is_headless">มีจอภาพ</label></label>
                                     </div>
                                 </div>
                             </div>
@@ -460,12 +470,17 @@
                             <div class="col-sm-12 col-lg-6"> <!--lan type-->
                                 <div class="form-group">
                                     <label for="lan_type">ประเภทเครือข่าย</label><br>
-                                    <select class="form-control" name="lan_type" id="lan_type">
+                                    <select class="form-control @error('lan_type') is-invalid @enderror" name="lan_type" id="lan_type">
                                         <option value="" hidden></option>
                                         @foreach($network_connections as $network_connection)
                                             <option value="{{ $network_connection['id'] }}" {{ old('network_connection') == $network_connection['id'] ? 'selected' : '' }}>{{ $network_connection['name'] }}</option>
                                         @endforeach
                                     </select>
+                                    @error('lan_type')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--lan outlet-->

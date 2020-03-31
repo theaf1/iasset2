@@ -226,17 +226,17 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="hdd_total_cap">ความจุข้อมูลรวม</label>
-                                    @foreach ($dataunits as $dataunit)
-                                        <div class="form-check-inline pl-1">
-                                            <input type="radio" name="data_unit" id="data_unit" value="{{ $dataunit['id']}}" class="form-check-input is-invalid" {{ old('data_unit') == $dataunit['id'] ? 'checked' : '' }}>
-                                            <label for="data_unit" class="form-check-label">{{ $dataunit['name'] }}</label>
-                                            {{-- @error('data_unit')
+                                        <div class="form-check-inline">
+                                            @foreach ($dataunits as $dataunit)
+                                                <input type="radio" name="data_unit" id="data_unit" value="{{ $dataunit['id']}}" class="form-check-input @error('data_unit') is-invalid @enderror pl-2" {{ old('data_unit') == $dataunit['id'] ? 'checked' : '' }}>
+                                                <label for="data_unit" class="form-check-label pl-1">{{ $dataunit['name'] }}</label>
+                                            @endforeach
+                                            @error('data_unit')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
-                                            @enderror --}}
+                                            @enderror
                                         </div>
-                                    @endforeach
                                     <input class="form-control @error('hdd_total_cap') is-invalid @enderror" type="number" name="hdd_total_cap" id="hdd_total_cap" value="{{ old('hdd_total_cap') }}">
                                     @error('hdd_total_cap')
                                         <div class="invalid-feedback">
@@ -285,7 +285,12 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="device_name">ชื่อเครื่อง</label>
-                                    <input type="text" name="device_name" id="device_name" class="form-control" value="{{ old('device_name') }}">
+                                    <input type="text" name="device_name" id="device_name" class="form-control @error('device_name') is-invalid @enderror" value="{{ old('device_name') }}">
+                                    @error('device_name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -293,13 +298,23 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="device_management_address">IP Address ที่ใช้ควบคุมเครื่อง</label>
-                                    <input type="text" name="device_management_address" id="device_management_address" class="form-control" value="{{ old('device_management_address') }}">
+                                    <input type="text" name="device_management_address" id="device_management_address" class="form-control @error('device_management_address') is-invalid @enderror" value="{{ old('device_management_address') }}">
+                                    @error('device_management_address')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>                       
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="device_communication_address">Address ที่ใช้รับส่งข้อมูล</label>
-                                    <input type="text" name="device_communication_address" id="device_communication_address" class="form-control" value="{{ old('device_communication_address') }}">
+                                    <input type="text" name="device_communication_address" id="device_communication_address" class="form-control @error('device_communication_address') is-invalid @enderror" value="{{ old('device_communication_address') }}">
+                                    @error('device_communication_address')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
