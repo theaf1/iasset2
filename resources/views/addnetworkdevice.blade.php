@@ -93,8 +93,12 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="tel_no">หมายเลขโทรศัพท์</label>
-                                <input type="text" class="form-control" name="tel_no" id="tel_no" placeholder="9-9999" value="{{ old('tel_no') }}">
-                                <small id="tel_no" class="form-text">กรุณาระบุหมายเลขโทรศัพท์ภายในและหมายเลขต่อในรูปแบบ *-****#***</small>
+                                <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" value="{{ old('tel_no') }}">
+                                @error('tel_no')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -115,7 +119,7 @@
                                 <label for="owner">เจ้าของเครื่อง</label><br>
                                 <div class="form-check">
                                     @foreach ($owners as $owner)
-                                        <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}">
+                                        <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}" {{ old('owner') == $owner['id'] ? 'checked' : '' }}>
                                         <label class="form-check-label" for="owner">{{ $owner['name'] }}</label><br>
                                     @endforeach
                                     @error('owner')
@@ -134,7 +138,7 @@
                                 <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_statuses as $asset_status)
-                                        <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
+                                        <option value="{{ $asset_status['id'] }}" {{ old('asset_status') == $asset_status['id'] ? 'selected' : '' }}>{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_status')
@@ -150,7 +154,7 @@
                                 <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_use_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
-                                        <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
+                                        <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status') == $asset_use_status['id'] ? 'selected' : '' }}>{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_use_status')
@@ -175,7 +179,7 @@
                                 <select class="form-control @error('device_subtype') is-invalid @enderror" name="device_subtype" id="device_subtype">
                                     <option value="" hidden></option>
                                     @foreach($netsubtypes as $netsubtype)
-                                        <option value="{{ $netsubtype['id'] }}">{{ $netsubtype['name'] }}</option>
+                                        <option value="{{ $netsubtype['id'] }}" {{ old('device_subtype') == $netsubtype['id'] ? 'selected' : '' }}>{{ $netsubtype['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('device_subtype')
@@ -226,7 +230,7 @@
                             <div class="form-group">
                                 <label for="is_modular">ความสามารถในการขยายขนาด</label>
                                 <div class="form-check">
-                                    <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_modular" id="is_modular" value="1"><label for="is_modular">ขยายขนาดได้</label></label>
+                                    <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_modular" id="is_modular" value="1" {{ old('is_modular') == 1 ? 'checked' : '' }}><label for="is_modular">ขยายขนาดได้</label></label>
                                 </div> 
                             </div>
                         </div>

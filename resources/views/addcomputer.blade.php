@@ -155,8 +155,8 @@
                                 <div class="form-group">
                                     <label for="multi_user">จำนวนผู้ใช้งาน</label>
                                     <div class="form-check">
-                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="0" {{ old('multi_user') == 0 ? 'checked' : ''}} > ใช้งานคนเดียว</label>
-                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="1" {{ old('multi_user') == 1 ? 'checked' : ''}} > ใช้งานหลายคน</label>
+                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="0" {{ old('multi_user') == 0 ? 'checked' : ''}}> ใช้งานคนเดียว</label>
+                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="1" {{ old('multi_user') == 1 ? 'checked' : ''}}> ใช้งานหลายคน</label>
                                     </div>
                                 </div>
                             </div>
@@ -210,7 +210,7 @@
                                     <label for="owner">เจ้าของเครื่อง</label><br>
                                     <div class="form-check-inline pl-2">
                                         @foreach ($owners as $owner)
-                                            <input type="radio" class="form-check-input ml-1 @error('owner') is-invalid @enderror" name="owner" id="owner1" value="{{ $owner['id'] }}" {{ old('owner') == $owner['id'] ? 'checked' : ''}}>
+                                            <input type="radio" class="form-check-input ml-1 @error('owner') is-invalid @enderror" name="owner" id="owner1" value="{{ $owner['id'] }}" {{ old('owner') == $owner['id'] ? 'checked' : '' }}>
                                             <label class="form-check-label" for="owner1">{{ $owner['name'] }}</label>    
                                         @endforeach
                                         @error('owner')
@@ -298,7 +298,7 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="cpu_speed">CPU Speed</label>
+                                    <label for="cpu_speed">CPU Speed (GHz)</label>
                                     <input class="form-control @error('cpu_speed') is-invalid @enderror" name="cpu_speed" id="cpu_speed" type="number" min="0" step="0.1" value="{{ old('cpu_speed') }}">
                                     @error('cpu_speed')
                                         <div class="invalid-feedback">
@@ -406,7 +406,7 @@
                                             </div>
                                             <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
                                                 <div class="form-group">
-                                                    <label for="display_size">ขนาดจอภาพ</label>
+                                                    <label for="display_size">ขนาดจอภาพ (นิ้ว)</label>
                                                     <input class="form-control" name="display_size[]" id="display_size" type="number" min="0" value="{{ old('display_size.' . $i) }}">
                                                 </div>
                                             </div>

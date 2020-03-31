@@ -87,7 +87,12 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
-                                    <input type="tel" class="form-control" name="tel_no" id="tel_no" placeholder="9-9999" value="{{ old('tel_no') }}">
+                                    <input type="tel" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" placeholder="9-9999" value="{{ old('tel_no') }}">
+                                    @error('tel_no')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -172,12 +177,13 @@
                                     <div class="form-check">
                                         <input class="form-check-input @error('type') is-invalid @enderror" type="radio" name="type" id="type" value="2">
                                         <label class="form-check-label" for="type">SAN</label><br>
+                                        @error('type')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
-                                    @error('type')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror                      
+                                                         
                                 </div>
                             </div>
                         </div>
@@ -222,8 +228,13 @@
                                     <label for="hdd_total_cap">ความจุข้อมูลรวม</label>
                                     @foreach ($dataunits as $dataunit)
                                         <div class="form-check-inline pl-1">
-                                            <input type="radio" name="data_unit" id="data_unit" value="{{ $dataunit['id']}}" class="form-check-input">
+                                            <input type="radio" name="data_unit" id="data_unit" value="{{ $dataunit['id']}}" class="form-check-input is-invalid" {{ old('data_unit') == $dataunit['id'] ? 'checked' : '' }}>
                                             <label for="data_unit" class="form-check-label">{{ $dataunit['name'] }}</label>
+                                            {{-- @error('data_unit')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror --}}
                                         </div>
                                     @endforeach
                                     <input class="form-control @error('hdd_total_cap') is-invalid @enderror" type="number" name="hdd_total_cap" id="hdd_total_cap" value="{{ old('hdd_total_cap') }}">
