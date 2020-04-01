@@ -26,6 +26,11 @@ class StorageperipheralsController extends Controller
             ['id' => '2', 'name' => 'TB'],
         );
         $Owners= Owner::all();
+        $Connectivity = array(
+            ['id' => '1', 'name' => 'USB'],
+            ['id' => '2', 'name' => 'eSATA'],
+            ['id' => '3', 'name' => 'SAS'],
+        );
 
         return view('addstorageperipherals')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -33,6 +38,7 @@ class StorageperipheralsController extends Controller
             'sections'=>$Sections,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
+            'connectivities'=>$Connectivity,
         ]);
     }
 
@@ -112,6 +118,8 @@ class StorageperipheralsController extends Controller
             'pid'=>'nullable',
             'location_id' => 'required',
             'user' => 'required',
+            'position' => 'required',
+            'tel_no' => 'required',
             'owner' => 'required',
             'section' => 'required',
             'asset_status' => 'required',
@@ -119,6 +127,8 @@ class StorageperipheralsController extends Controller
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
+            'connectivity' => 'required',
+            'data_unit'=>'required',
             'total_capacity' => 'required',
             'no_of_physical_drive_max' => 'required_if:is_hotswap,1|gte:2',
             'no_of_physical_drive_populated' => 'required_if:is_hotswap,1|lte:no_of_physical_drive_max',
@@ -130,12 +140,16 @@ class StorageperipheralsController extends Controller
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'section.required' => 'กรุณาเลือกสาขา',
             'user.required'=>'กรุณาระบุชื่อผู้ใช้งาน',
+            'position.required' => 'กรุณาระบุตำแแหน่งผู้ใช้งาน',
+            'tel_no.required' => 'กรุณาใส่หมายเลขโทรศัพท์',
             'owner.required' => 'กรุณาระบุที่มา',
             'asset_status.required'=>'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required'=>'กรุณาระบุสถานะการใช้งานครุภัณฑ์',
             'brand.required' => 'กรุณาใส่ยี่ห้อ',
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
+            'connectivity.required' => 'กรณาลือกวิธีการเชื่อมต่อ',
+            'data_unit.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'total_capacity.required' => 'กรุณาระบุความจุข้อมูล',
             'no_of_physical_drive_max.required_if'=> 'กรุณาระบุจำนวน disk ที่สามารถใส่ได้',
             'no_of_physical_drive_max.gte' => 'จำนวน disk ไม่เพียงพอ',
