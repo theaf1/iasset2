@@ -22,12 +22,18 @@ class UpsController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Owners = Owner::all();
+        $Topos = array (
+            ['id'=>'1', 'name'=>'stand-by'],
+            ['id'=>'2', 'name'=>'line interactive'],
+            ['id'=>'3', 'name'=>'on-line'],
+        );
 
         return view('addups')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'owners'=>$Owners,
+            'topos'=>$Topos,
         ]);
     }
 
@@ -115,6 +121,7 @@ class UpsController extends Controller
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
+            'topology'=>'required',
             'capacity'=>'required',
             'device_management_address'=>'nullable|ipv4',
         ];
@@ -131,6 +138,7 @@ class UpsController extends Controller
             'brand.required' => 'กรุณาใส่ยี่ห้อ',
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
+            'topology.required'=>'โปรดเลือกหลักการทำงาน',
             'capacity.required' => 'กรุณาระบุกำลังไฟ',
             'device_management_address.ipv4' => 'โปรดใส่ IP Address ให้ถูกต้อง',
         ];

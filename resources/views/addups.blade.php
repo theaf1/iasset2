@@ -225,13 +225,17 @@
                         <div class="col-sm-12 col-lg-6"><!--หลักการทำงาน-->
                             <div class="form-group">
                                 <label for="topology">หลักการทำงาน</label>
-                                <select class="form-control" name="topology" id="topology">
+                                <select class="form-control @error('topology') is-invalid @enderror" name="topology" id="topology">
                                     <option value="" hidden>กรุณาเลือก</option>
-                                    <option value="0">Dynamic</option>
-                                    <option value="1">stand-by</option>
-                                    <option value="2">line interactive</option>
-                                    <option value="3">true on-line</option>
+                                    @foreach ($topos as $topo)
+                                        <option value="{{ $topo['id'] }}" {{ old('topology') == $topo['id'] ? 'selected' : '' }}>{{ $topo['name'] }}</option>
+                                    @endforeach
                                 </select>
+                                @error('topology')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"><!--กำลังไฟรองรับได้สูงสุด(KVA)-->
@@ -288,7 +292,6 @@
                             <div class="form-group">
                                 <label for="device_management_address">IP address ที่ใช้ควบคุมเครื่อง</label>
                                 <input class="form-control @error('device_management_address') is-invalid @enderror" name="device_management_address" id="device_management_address" type="text" value="{{ old('device_management_address') }}" placeholder="127.0.0.1">
-                                <small id="device_management_address" class="form-text">กรุณาระบุหมายเลข IP address ที่ใช้ควบคุมเครื่องในรูปแบบ ***.***.***.***</small>
                                 @error('device_management_address')
                                     <div class="invalid-feedback">
                                         {{ $message }}

@@ -62,13 +62,13 @@
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="building">ตึก</label>
-                                <input type="text" class="form-control" name="building" id="building" disabled/>
+                                <output type="text" class="form-control" name="building" id="building"/>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="location">ชั้น</label>
-                                <input type="text" class="form-control" name="location" id="location" disabled/>   
+                                <output type="text" class="form-control" name="location" id="location"/>   
                             </div>
                         </div>
                     <input hidden type="number" value="{{ old('location_id')}}" name="location_id"><!--ค่า location_id-->
@@ -77,7 +77,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ลักษณะการติดตั้ง-->
                             <div class="form-group">
                                 <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
-                                <div class="form-check form-check-inline">
+                                <div class="form-check">
                                     <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="1" {{ old('is_mobile') == 0 && old('is_mobile') !== null ? 'checked' : ''}}>
                                     <label class="form-check-label" for="is_mobile">เป็นเครื่องเคลื่อนที่</label><br>
                                     <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="0" {{ old('is_mobile') == 1 ? 'checked' : ''}}>
@@ -124,7 +124,12 @@
                         <div class="col-sm-12 col-lg-6"> <!--ตำแหน่งผู้ใช้งาน-->
                             <div class="form-group">
                                 <label for="position">ตำแหน่งผู้ใช้งาน</label>
-                                <input type="text" class="form-control" name="position" id="position">
+                                <input type="text" class="form-control" name="position" id="position" value="{{ old('position') }}">
+                                @error('position')
+                                    <div class="invalid-feedback">
+                                        {{ $message}}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
@@ -140,7 +145,6 @@
                         </div>
                     </div>
                     <div class="form-row">
-                       
                         <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
                             <div class="form-group">
                                 <label for="owner">เจ้าของเครื่อง</label>
