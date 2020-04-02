@@ -37,6 +37,10 @@ class NetworkedStorage extends Model
     {
         return $this->hasOne(Section::class);
     }
+    public function owner ()
+    {
+        return $this->hasOne(Owner::class);
+    }
     public function assetStatus ()
     {
         return $this->hasOne(Asset_statuses::class);

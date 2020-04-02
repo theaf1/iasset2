@@ -10,4 +10,8 @@ class Peripheraltype extends Model
         'id',
         'name',
     ];
+    public function peripheral ()
+    {
+        return $this->belongsTo(Peripherals::class);
+    }
 }

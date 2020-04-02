@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class storageperipherals extends Model
+class Storageperipherals extends Model
 {
     protected $fillable = [
         'id',
@@ -34,6 +34,22 @@ class storageperipherals extends Model
     ];
     public function section ()
     {
-        $this->belongsTo(Section::class);
+       return $this-hasOne(Section::class);
+    }
+    public function location ()
+    {
+        return $this->hasOne(Location::class);
+    }
+    public function owner ()
+    {
+        return $this->hasOne(Owner::class);
+    }
+    public function assetstatus ()
+    {
+        return $this->hasOne(Asset_ststuses::class);
+    }
+    public function assetusestatus ()
+    {
+        return $this->hasOne(Asset_use_statuses::class);
     }
 }

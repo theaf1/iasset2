@@ -10,4 +10,8 @@ class ServerRoleClass extends Model
         'id',
         'name',
     ];
+    public function serverroleclass ()
+    {
+        return $this->belongsTo(Servers::class);
+    }
 }

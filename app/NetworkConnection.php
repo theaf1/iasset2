@@ -10,4 +10,13 @@ class NetworkConnection extends Model
         'id',
         'name',
     ];
+    public function client ()
+    {
+        return $this->belongsTo(Client::class);
+    }
+    public function server ()
+    {
+        return $this->belongsTo(Servers::class);
+    }
+
 }

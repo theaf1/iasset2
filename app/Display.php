@@ -14,9 +14,8 @@ class Display extends Model
         'display_size',
         'display_ratio',
     ];
-    public function gettype(){
-        $this->belongsTo(Section::class);
-        $this->belongsTo(clients::class);
-        $this->belongsTo(Servers::class);
+    public function client ()
+    {
+        return $this->belongsTo(Client::class);
     }
 }

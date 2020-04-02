@@ -10,5 +10,9 @@ class NetSubtype extends Model
         'id',
         'name',
     ];
+    public function netsubtype ()
+    {
+        return $this->belongsTo(Networkdevices::class);
+    }
 
 }

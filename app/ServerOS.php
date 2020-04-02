@@ -10,4 +10,8 @@ class ServerOS extends Model
         'id',
         'name',
     ];
+    public function serveros ()
+    {
+        return $this->belongsTo(Servers::class);
+    }
 }

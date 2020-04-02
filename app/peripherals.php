@@ -34,5 +34,25 @@ class Peripherals extends Model
         'share_method',
         'issues',
     ];
+    public function peripheraltype ()
+    {
+        return $this->hasOne(Peripheraltype::class);
+    }
+    public function section ()
+    {
+        return $this->hasOne(Section::class);
+    }
+    public function location ()
+    {
+        return $this->hasOne(Location::class);
+    }
+    public function assetstatus ()
+    {
+        return $this->hasOne(Asset_statuses::class);
+    }
+    public function assetusestatus ()
+    {
+        return $this->hasOne(Asset_use_statuses::class);
+    }
     
 }

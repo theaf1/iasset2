@@ -96,4 +96,8 @@ class Client extends Model
    {
       $this->hasOne(Asset_use_statuses::class);
    }
+   public function networkconnction ()
+   {
+      return $this->hasOne(NetworkConnection::class);
+   }
 }

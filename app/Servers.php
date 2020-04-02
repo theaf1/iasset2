@@ -69,6 +69,18 @@ class Servers extends Model
     }
     public function assetusestatus ()
     {
-        $this->hasOne(Asset_use_statuses::class);
+        return $this->hasOne(Asset_use_statuses::class);
+    }
+    public function serverroleclass ()
+    {
+        return $this->hasOne(ServerRoleClass::class);
+    }
+    public function serveros ()
+    {
+        return $this->hasOne(ServerOS::class);
+    }
+    public function networkconnections ()
+    {
+        return $this->hasOne(NetworkConnection::class);
     }
 }
