@@ -42,6 +42,7 @@ Route::get('/admin', 'SectionController@index');
 Route::post('/add-computer', 'ClientController@store');
 Route::post('/add-sp','StorageperipheralsController@store');
 Route::post('/add-peripheral','PeripheralsController@store');
+Route::patch('/add-peripheral', 'PeripheralsController@update');
 Route::get('/search', 'SearchController@index');
 Route::get('/index', 'IndexController@index');
 // Route::get('/index', function () {

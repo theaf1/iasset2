@@ -26,7 +26,6 @@
                 <div class="card-header card-background text-white">
                     <h4>คอมพิวเตอร์</h4>
                 </div>
-                <a class="btn btn-primary btn-info btn-sm" href="#" role="button">เพิ่มข้อมูล</a>
                 <table class="table mt-4">
                     <thead>
                         <tr>
