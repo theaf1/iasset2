@@ -147,7 +147,7 @@
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
                             <div class="form-group">
-                                <label for="owner">เจ้าของเครื่อง</label>
+                                <label for="owner">ที่มา</label>
                                 <div class="form-check">
                                     @foreach ($owners as $owner)
                                         <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}" {{ old('owner') == $owner['id'] && old('owner') !== null ? 'checked' : '' }}>
