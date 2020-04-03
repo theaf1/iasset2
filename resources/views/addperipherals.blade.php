@@ -3,11 +3,11 @@
 <div class="container-fluid">
     <form action="/add-peripheral" method="post">
         <div class="col-12 mx-auto">
-        @if ( $message = Session::get('success'))
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ $message }}
-        </div>
+        @if ( $message = Session::get('success'))<!--script แจ้งผลการบันทึกข้อมูล-->
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ $message }}
+            </div>
         @endif
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
@@ -46,7 +46,7 @@
                                 <input type="text" class="form-control" id="pid" name="pid" value="{{ old('pid') }}" placeholder="กรุณาใส่รหัสครุภัณฑ์">
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"><!--ห้อง-->
                             <div class="form-group">
                                 <label for="room">ห้อง</label>
                                 <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" placeholder="กรุณาระบุห้อง" id="room_autocomplete" value="{{ old('room') }}"/>
@@ -59,13 +59,13 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--ตึก-->
                             <div class="form-group">
                                 <label for="building">ตึก</label>
                                 <output type="text" class="form-control" name="building" id="building"/>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"><!--ชั้น-->
                             <div class="form-group">
                                 <label for="location">ชั้น</label>
                                 <output type="text" class="form-control" name="location" id="location"/>   
@@ -179,7 +179,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--สถานะการใช้งาน-->
                             <div class="form-group">
                                 <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
                                 <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_status">
@@ -292,7 +292,7 @@
                                 <input type="text" class="form-control" id="lan_outlet_no" name="lan_outlet_no" value="{{ old('lan_outlet_no') }}">
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--share-->
                             <div class="form-group">
                                 <label for="is_shared">สถานะการใช้งานร่วมกัน</label><br>
                                 <input type="checkbox" name="is_shared" value="1" {{ old('is_shared') == 1 && old('is_shared') !== null ? 'checked' : '' }}>เป็นเครื่องใช้งานร่วมกัน<br>
@@ -311,18 +311,20 @@
                                 @enderror
                             </div>
                         </div> 
-                        <div class="col-sm-12 col-lg-6">
-                            <label for="share_method">วิธีการ share</label>
-                            <div class="form-check">
-                                @foreach ($sharemethods as $sharemethod)
-                                    <input type="radio" class="form-check-input @error('share_method') is-invalid @enderror" name="share_method" id="share_method" value="{{ $sharemethod['id'] }}" {{ old('share_method') == $sharemethod['id'] ? 'checked' : '' }}>
-                                    <label for="share_method" class="form-check-label">{{ $sharemethod['name'] }}</label><br>
-                                @endforeach
-                                @error('share_method')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                        <div class="col-sm-12 col-lg-6"><!--วิธี share-->
+                            <div class="form-group">
+                                <label for="share_method">วิธีการ share</label>
+                                <div class="form-check">
+                                    @foreach ($sharemethods as $sharemethod)
+                                        <input type="radio" class="form-check-input @error('share_method') is-invalid @enderror" name="share_method" id="share_method" value="{{ $sharemethod['id'] }}" {{ old('share_method') == $sharemethod['id'] ? 'checked' : '' }}>
+                                        <label for="share_method" class="form-check-label">{{ $sharemethod['name'] }}</label><br>
+                                    @endforeach
+                                    @error('share_method')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -357,7 +359,7 @@
 </div>
 @endsection
 
-@section('js')
+@section('js') <!--script ห้อง-->
 <script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
 <script src="{{ url('/js/axios.min.js') }}"></script>
 <script>

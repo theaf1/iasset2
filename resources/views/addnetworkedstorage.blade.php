@@ -3,6 +3,12 @@
     <div class="container-fluid">
         <div class="col-12 mx-auto">
             <form action="/add-ns" method="post">
+                @if ( $message = Session::get('success')) <!--แจ้งผลการบันทึกข้อมูล-->
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ $message }}
+                    </div>
+                @endif
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พี้นฐาน</h4>
@@ -29,7 +35,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--ห้อง-->
                                 <div class="form-group">
                                     <label for="room">ห้อง</label>
                                     <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่" value="{{ old('room') }}"/>
@@ -55,7 +61,7 @@
                                     <output type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--การติตตั้ง-->
                                 <div class="form-group">
                                     <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
                                     <div class="form-check">
@@ -68,13 +74,13 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
                                     <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
-                                            <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
+                                            <option value="{{ $section['id'] }}" {{ old('section') == $section['id'] ? 'selected' : '' }}>{{ $section['name'] }}</option>
                                         @endforeach
                                     </select>
                                     @error('section')
@@ -84,7 +90,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--เบอร์โทร-->
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
                                     <input type="tel" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" placeholder="9-9999" value="{{ old('tel_no') }}">
@@ -97,7 +103,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                                 <div class="form-group">
                                     <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
                                     <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person" value="{{ old('response_person') }}">
@@ -126,13 +132,13 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--สถานะครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label>
                                     <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_statuses as $asset_status)
-                                            <option value="{{ $asset_status['id'] }}">{{ $asset_status['name'] }}</option>
+                                            <option value="{{ $asset_status['id'] }}" {{ old('asset_status') == $asset_status['id'] ? 'selected' : '' }}>{{ $asset_status['name'] }}</option>
                                         @endforeach
                                     </select>
                                     @error('asset_status')
@@ -142,13 +148,13 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--สถานะการใช้งาน-->
                                 <div class="form-group">
                                     <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
                                     <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_use_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_use_statuses as $asset_use_status)
-                                            <option value="{{ $asset_use_status['id'] }}">{{ $asset_use_status['name'] }}</option>
+                                            <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status') == $asset_use_status['id'] ? 'selected' : '' }}>{{ $asset_use_status['name'] }}</option>
                                         @endforeach
                                     </select>
                                     @error('asset_use_status')
@@ -167,9 +173,9 @@
                     </div>
                     <div class="card-body">
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--ชนิด-->
                                 <div class="form-group">
-                                    <label for="type">ชนิดของอุปกรณ์</label>
+                                    <label for="type">ชนิดของอุปกรณ์</label> 
                                     <div class="form-check">
                                         <input class="form-check-input @error('type') is-invalid @enderror" type="radio" name="type" id="type" value="1">
                                         <label class="form-check-label" for="type">NAS</label><br>
@@ -212,7 +218,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--serial no.-->
                                 <div class="form-group">
                                     <label for="serial_no">Serial Number</label>
                                     <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
@@ -223,7 +229,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--ความจุรวม-->
                                 <div class="form-group">
                                     <label for="hdd_total_cap">ความจุข้อมูลรวม</label>
                                         <div class="form-check-inline">
@@ -247,7 +253,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--จำนวน HDD สูงสุด-->
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
                                     <input type="number" class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" min="0" value="{{ old('no_of_physical_drive_max') }}">
@@ -258,7 +264,7 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--จำนวน HDD-->
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_populated">จำนวน Hard Disk ที่มีอยู่</label>
                                     <input type="number" class="form-control @error('no_of_physical_drive_populated') is-invalid @enderror" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" value="{{ old('no_of_physical_drive_populated') }}">
@@ -271,7 +277,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--LUN-->
                                 <div class="form-group">
                                     <label for="lun_count">จำนวน disk จำลองที่มีอยู่</label>
                                     <input type="number" name="lun_count" id="lun_count" class="form-control @error('lun_count') is-invalid @enderror" value="{{ old('lun_count') }}">
@@ -282,7 +288,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--ชื่อเครื่อง-->
                                 <div class="form-group">
                                     <label for="device_name">ชื่อเครื่อง</label>
                                     <input type="text" name="device_name" id="device_name" class="form-control @error('device_name') is-invalid @enderror" value="{{ old('device_name') }}">
@@ -295,7 +301,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--address ควบคุมเครื่อง-->
                                 <div class="form-group">
                                     <label for="device_management_address">IP Address ที่ใช้ควบคุมเครื่อง</label>
                                     <input type="text" name="device_management_address" id="device_management_address" class="form-control @error('device_management_address') is-invalid @enderror" value="{{ old('device_management_address') }}">
@@ -306,7 +312,7 @@
                                     @enderror
                                 </div>                       
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--address รับส่งข้อมูล-->
                                 <div class="form-group">
                                     <label for="device_communication_address">Address ที่ใช้รับส่งข้อมูล</label>
                                     <input type="text" name="device_communication_address" id="device_communication_address" class="form-control @error('device_communication_address') is-invalid @enderror" value="{{ old('device_communication_address') }}">
@@ -319,7 +325,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--protocol-->
                                 <div class="form-group">
                                     <label for="type">Protocol ที่ใช้รับส่งข้อมูล</label>
                                     <div class="form-check form-check-inline pl-2">
@@ -338,7 +344,7 @@
                     </div>
                     <div class="card-body">
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
                                     <label for="remarks">หมายเหตุ</label><br>
                                     <textarea class="form-control" name="remarks" id="remarks" rows="2">{{ old('remarks') }}</textarea>
@@ -361,7 +367,7 @@
     </div>
 @endsection
 
-@section('js')
+@section('js') <!--script ห้อง-->
 <script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
 <script src="{{ url('/js/axios.min.js') }}"></script>
 <script>

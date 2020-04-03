@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="col-12 mx-auto">
             <form action="/add-sp" method="post">
-                @if ( $message = Session::get('success'))
+                @if ( $message = Session::get('success'))<!--แจ้งผลการบันทึกข้อมูล-->
                     <div class="alert alert-success alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         {{ $message }}
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"><!--ห้อง-->
                                 <div class="form-group">
                                     <label for="room">ห้อง</label>
                                     <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"/ value="{{ old('room') }}">
@@ -176,7 +176,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
+                            <div class="col-sm-12 col-lg-6"> <!--สถานะการใช้งาน-->
                                 <div class="form-group">
                                     <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
                                     <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_use_status">
@@ -330,7 +330,7 @@
                     </div>
                     <div class="card-body">
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
                                     <label for="remarks">หมายเหตุ</label><br>
                                     <textarea class="form-control" name="remarks" id="remarks" rows="2">{{ old('remarks') }}</textarea>
@@ -352,7 +352,7 @@
         </div>
     </div>
 @endsection
-@section('js')
+@section('js')<!--script ห้อง-->
 <script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
 <script src="{{ url('/js/axios.min.js') }}"></script>
 <script>

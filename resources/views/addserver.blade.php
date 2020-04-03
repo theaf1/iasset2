@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="col-12 mx-auto">
             <form action="/add-server" method="post">
-                @if ( $message = Session::get('success'))
+                @if ( $message = Session::get('success'))<!--แจ้งผลบันทึกข้อมูล-->
                     <div class="alert alert-success alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         {{ $message }}
@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
                                     <label for="sapid">รหัส SAP</label>
                                     <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" autofocus value="{{ old('sapid') }}">
@@ -27,7 +27,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--รห้สครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="pid">รหัสครุภัณฑ์</label>
                                     <input type="text" class="form-control" id="pid" name="pid" value="{{ old('pid') }}">
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--ที่ตั้ง-->
                                 <div class="form-group">
                                     <label for="room_autocomplete">สถานที่ตั้ง</label>
                                     <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่" value="{{ old('room') }}"/>
@@ -61,7 +61,7 @@
                                     <output type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--การติดตั้ง-->
                                 <div class="form-group">
                                 <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
                                     <div class="form-check form-check-inline">
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                 <label for="section">หน่วยงาน</label>
                                     <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
@@ -90,7 +90,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--เบอร์โทร-->
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
                                 <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" placeholder="9-9999" value="{{ old('tel_no') }}">
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                                 <div class="form-group">
                                     <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
                                 <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person" value="{{ old('response_person') }}">
@@ -132,7 +132,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--สถานะครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
                                 <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
@@ -148,7 +148,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="colsm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"><!--สถานะการใช้งาน-->
                             <div class="form-group">
                             <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
                                 <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_status">
@@ -197,7 +197,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"><!--serial no.-->
                                 <div class="form-group">
                                     <label for="serial_no">Serial Number จากผู้ผลิต</label>
                                     <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
@@ -208,7 +208,7 @@
                                     @enderror
                                 </div>
                             </div>              
-                            <div class="col-sm-12 col-lg-6"> <!--serial no.-->
+                            <div class="col-sm-12 col-lg-6"> <!--form factor-->
                                 <div class="form-group">
                                     <label for="form-factor">ลักษณะของเครื่อง</label>
                                     <div class="form-check">
@@ -232,7 +232,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--cpu speed-->
                                 <div class="form-group">
                                     <label for="cpu_speed">CPU Speed (GHz)</label>
                                 <input class="form-control @error('cpu_speed') is-invalid @enderror" name="cpu_speed" id="cpu_speed" type="number" min="0" step="0.1" value="{{ old('cpu_speed') }}">
@@ -269,7 +269,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--raid-->
                                 <div class="form-group">
                                     <label for="is_raid">RAID</label><br>
                                     <div class="form-check-inline">
@@ -277,7 +277,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"><!--HDD สูงสุด-->
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
                                     <input class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" value="{{ old('no_of_physical_drive_max') }}">
@@ -336,7 +336,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
                                 <div class="form-group">
                                     <label for="display_no">จำนวนจอที่ใช้งาน</label>
                                     <input class="form-control" name="display_no" id="display_no" type="number" min="0">
@@ -344,7 +344,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"><!--headless-->
                                 <div class="form-group">
                                     <label for="is_headless">จอภาพ</label><br>
                                     <div class="form-check-inline">
@@ -410,7 +410,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"><!--กลุ่มของบทบาท-->
                                 <div class="form-group">
                                     <label for="role_class">กลุ่มของบทบาท</label>
                                     <select class="form-control" name="role_class" id="role_class">
@@ -421,7 +421,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"><!--บทบาท-->
                                 <div class="form-group">
                                     <label for="role_subclass">บทบาท</label><br>
                                     <div class="form-check">
@@ -530,7 +530,7 @@
                     </div>
                     <div class="card-body">
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"><!--หมายเหตุ-->
                                 <div class="form-group">
                                     <label for="remarks">หมายเหตุ</label><br>
                                     <textarea class="form-control" name="remarks" id="remarks" rows="2">{{ old('remarks') }}</textarea>
@@ -553,7 +553,7 @@
     </div>
 @endsection
 
-@section('js')
+@section('js')<!--script ห้อง-->
 <script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
 <script src="{{ url('/js/axios.min.js') }}"></script>
 <script>
