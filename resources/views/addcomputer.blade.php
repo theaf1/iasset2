@@ -3,7 +3,7 @@
 <div class="container-fuild">
     <div class="col-12 mx-auto">
         <form action="{{ url('/add-computer') }}" method="post" id="computer_form">
-            @if ( $message = Session::get('success'))
+            @if ( $message = Session::get('success')) <!--แจ้งผลการบันทึกข้อมูล-->
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     {{ $message }}
@@ -135,7 +135,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
+                                    <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label> <!--สถานะการใช้งาน-->
                                     <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_use_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_use_statuses as $asset_use_status)
@@ -151,7 +151,7 @@
                             </div>
                         </div>
                         <div class="form-row"> 
-                            <div class="col-sm-12 col-lg-3">  <!-- ชื่อผู้ใช้งาน -->
+                            <div class="col-sm-12 col-lg-3">  <!-- จำนวนผู้ใช้งาน -->
                                 <div class="form-group">
                                     <label for="multi_user">จำนวนผู้ใช้งาน</label>
                                     <div class="form-check">
@@ -160,7 +160,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-3">
+                            <div class="col-sm-12 col-lg-3"> <!-- ชื่อผู้ใช้งาน -->
                                 <div class="form-group">
                                     <label for="user">ชื่อผู้ใช้งาน</label><br>
                                     <input type="text" class="form-control @error('user') is-invalid @enderror" id="user" name="user" value="{{ old('user') }}">
@@ -223,7 +223,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
                                     <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" value="{{ old('tel_no') }}">
@@ -296,7 +296,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--ความเร็ว CPU-->
                                 <div class="form-group">
                                     <label for="cpu_speed">CPU Speed (GHz)</label>
                                     <input class="form-control @error('cpu_speed') is-invalid @enderror" name="cpu_speed" id="cpu_speed" type="number" min="0" step="0.1" value="{{ old('cpu_speed') }}">
@@ -384,7 +384,7 @@
                                 </div> 
                             </div>
                         </div>
-                        @if (session()->has('displayCount'))
+                        @if (session()->has('displayCount')) <!--script จอภาพ-->
                             @for ($i = 0; $i < session()->get('displayCount') ; $i++)
                                 <div class="card mb-2">
                                     <div class="card-header">
@@ -619,7 +619,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-12 col-lg-6"> <!--wireless-->
                                 <div class="form-group">
                                     <label for="is_wireless">การใช้งานเครือข่ายไร้สาย</label>
                                     <div class="form-check">
@@ -660,7 +660,7 @@
 </div>
 @endsection
 
-@section('js')
+@section('js') <!--script จอกับห้อง-->
 <script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
 <script src="{{ url('/js/axios.min.js') }}"></script>
 <script>

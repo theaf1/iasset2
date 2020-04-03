@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <form action="/add-networkdev" method="post">
         <div class="col-12 mx-auto">
-            @if ( $message = Session::get('success'))
+            @if ( $message = Session::get('success')) <!--แจ้งผลการบันทึกข้อมูล-->
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     {{ $message }}
@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                             <div class="form-group">
                                 <label for="sapid">รหัส SAP</label>
                                 <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP" autofocus value="{{ old('sapid') }}">
@@ -27,7 +27,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="pid">รหัสครุภัณฑ์</label>
                                 <input type="text" class="form-control" id="pid" name="pid" placeholder="กรุณาใส่รหัสครุภัณฑ์" value="{{ old('pid') }}">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--ห้อง-->
                             <div class="form-group">
                                 <label for="room">ห้อง</label>
                                 <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"/>
@@ -61,7 +61,7 @@
                                     <input type="text" class="form-control" name="location" id="location" disabled/>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--การติดตั้ง-->
                             <div class="form-group">
                                 <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
                                 <div class="form-check form-check-inline">
@@ -74,13 +74,13 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                             <div class="form-group">
                             <label for="section">หน่วยงาน</label>
                                 <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
                                     <option value="" hidden></option>
                                     @foreach($sections as $section)
-                                        <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
+                                        <option value="{{ $section['id'] }}" {{ old('section') == $section['id'] ? 'selected' : '' }}>{{ $section['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('section')
@@ -90,7 +90,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--เบอร์โทร-->
                             <div class="form-group">
                                 <label for="tel_no">หมายเลขโทรศัพท์</label>
                                 <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" value="{{ old('tel_no') }}">
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                             <div class="form-group">
                                 <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
                                 <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person"{{ old('response_person') }}>
@@ -132,7 +132,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--สถานะครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
                                 <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
@@ -148,7 +148,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--สถานะการใช้งาน-->
                             <div class="form-group">
                                 <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
                                 <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_use_status">
@@ -173,7 +173,7 @@
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--ชนิด-->
                             <div class="form-group">
                                 <label for="device_subtype">ชนิดของอุปกรณ์</label>
                                 <select class="form-control @error('device_subtype') is-invalid @enderror" name="device_subtype" id="device_subtype">
@@ -215,7 +215,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
+                        <div class="col-sm-12 col-lg-6"> <!--serial no.-->
                             <div class="form-group">
                                 <label for="serial_no">Serial Number ของเครื่อง</label>
                                 <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
@@ -226,7 +226,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--การขยายขนาด-->
                             <div class="form-group">
                                 <label for="is_modular">ความสามารถในการขยายขนาด</label>
                                 <div class="form-check">
@@ -236,13 +236,13 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--จำนวน port-->
                             <div class="form-group">
                                 <label for="port_count">จำนวน port</label>
                                 <input type="number" class="form-control" name="port_count" id="port_count" min="0" value="{{ old('port_count') }}">
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--power supply-->
                             <div class="form-group">
                                 <label for="port_count">จำนวน power supply</label>
                                 <input type="number" class="form-control" name="psu_count" id="psu_count" min="1" default="1" value="{{ old('psu_count') }}">
@@ -250,7 +250,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--address ตั้งค่า-->
                             <div class="form-group">
                                 <label for="device_management_address">IP address ที่ใช้ตั้งค่า</label>
                                 <input class="form-control @error('device_management_address') is-invalid @enderror" type="text" name="device_management_address" id="device_management_address" placeholder="127.0.0.1" value="{{ old('device_management_address') }}">   
@@ -261,7 +261,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--Software version-->
                             <div class="form-group">
                                 <label for="software_version">Software Version</label>
                                 <input class="form-control" type="text" name="software_version" id="software_version" value="{{ old('software_version') }}"> 
@@ -276,13 +276,13 @@
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--ปัญหา-->
                             <div class="form-group">
                                 <label for="issues">ปัญหาในการใช้งาน</label>
                                 <textarea class="form-control" name="issues" id="issues" rows="3">{{ old('issues') }}</textarea>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                             <div class="form-group">
                                 <label for="remarks">หมายเหตุ</label><br>
                                 <textarea class="form-control" name="remarks" id="remarks" rows="3">{{ old('remarks') }}</textarea>
@@ -300,7 +300,7 @@
 </div>
 @endsection
 
-@section('js')
+@section('js')<!--script ห้อง-->
 <script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
 <script src="{{ url('/js/axios.min.js') }}"></script>
 <script>
