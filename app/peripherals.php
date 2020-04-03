@@ -42,6 +42,10 @@ class Peripherals extends Model
     {
         return $this->hasOne(Section::class);
     }
+    public function owner ()
+    {
+        return $this->hasOne(Owner::class);
+    }
     public function location ()
     {
         return $this->hasOne(Location::class);

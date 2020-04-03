@@ -10,7 +10,32 @@ class Asset_use_statuses extends Model
         'id',
         'name',
     ];
-    public function gettype(){
-        $this->belongsTo(clients::class);
+    public function client ()
+    {
+        return $this->belongsTo(Client::class);
+    }
+    public function peripherals ()
+    {
+        return $this->belongsTo(Peripherals::class);
+    }
+    public function storageperipherals ()
+    {
+        return $this->belongsTo(Storageperipherals::class);
+    }
+    public function networkdevices ()
+    {
+        return $this->belongsTo(Networkdevices::class);
+    }
+    public function networkedstorage ()
+    {
+        return $this->belongsTo(NetworkedStorage::class);
+    }
+    public function servers ()
+    {
+        return $this->belongsTo(Servers::class);
+    }
+    public function upses ()
+    {
+        return $this->belongsTo(Upses::class);
     }
 }

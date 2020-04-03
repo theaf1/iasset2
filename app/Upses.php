@@ -36,6 +36,10 @@ class Upses extends Model
     {
         $this->hasOne(Section::class);
     }
+    public function owner ()
+    {
+        return $this->hasOne(Owner::class);
+    }
     public function assetstatus ()
     {
         $this->hasOne(Asset_statuses::class);

@@ -30,6 +30,10 @@ class Networkdevices extends Model
         'issues',
         'remarks',
     ];
+    public function location ()
+    {
+        return $this->hasOne(Location::class);
+    }
     public function section ()
     {
         return $this->hasOne(Section::class);

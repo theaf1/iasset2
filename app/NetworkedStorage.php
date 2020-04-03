@@ -33,6 +33,10 @@ class NetworkedStorage extends Model
         'issues',
     ];
 
+    public function location ()
+    {
+        return $this->hasOne(Location::class);
+    }
     public function section ()
     {
         return $this->hasOne(Section::class);
