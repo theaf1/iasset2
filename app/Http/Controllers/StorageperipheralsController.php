@@ -16,6 +16,7 @@ class StorageperipheralsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //ประกาศตัวแปรที่ใช้ใน controller 
     public function index()
     {
         $Asset_statuses=Asset_statuses::all();
@@ -32,6 +33,7 @@ class StorageperipheralsController extends Controller
             ['id' => '3', 'name' => 'SAS'],
         );
 
+        //ตัวแปรที่ส่งกลับไปยังหน้า addstorageperipherals
         return view('addstorageperipherals')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
@@ -58,11 +60,12 @@ class StorageperipheralsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //บันทึกข้อมูลที่ได้รับจากหน้า addstorageperipherals ผ่านตัวแปร request
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $Storagepheriperals = Storageperipherals::create($request->all());
-        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนบันทึกด้วย function validateData
+        $Storagepheriperals = Storageperipherals::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //แจ้งผลการบันทึกข้อมูลกลับไปยังหน้าเดิม
         //return $request->all();
     }
 
@@ -111,8 +114,10 @@ class StorageperipheralsController extends Controller
         //
     }
 
+    //function ตรวจสอบข้อมูล
     private function validateData($data)
     {
+        //เงื่อนไข
         $rules = [
             'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
             'pid'=>'nullable',
@@ -135,6 +140,7 @@ class StorageperipheralsController extends Controller
             'lun_count' => 'required_if:is_hotswap,1',
         ];
 
+        //ข้อความแสดงข้อผิดพลาด
         $messages = [
             'sapid.regex' => 'กรุณาตรวจสอบรหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
@@ -159,6 +165,6 @@ class StorageperipheralsController extends Controller
 
         ];
 
-        return $this->validate($data, $rules, $messages);
+        return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addstorageperipherals หรือส่งข้อมูลไปบันทึก
     }
 }

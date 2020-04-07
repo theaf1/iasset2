@@ -16,6 +16,7 @@ class NetworkedstorageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //ประกาศตัวแปรที่ใช้ใน controller
     public function index()
     {
         $Asset_statuses = Asset_statuses::all();
@@ -27,6 +28,7 @@ class NetworkedstorageController extends Controller
         );
         $Owners = Owner::all();
 
+        //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
         return view('addnetworkedstorage')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
@@ -53,9 +55,10 @@ class NetworkedstorageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //บันทึกข้อมูลที่ได้รับจากหน้า addnetworkedstorage ผ่านตัวแปร request
     public function store(Request $request)
     {
-        $this->validateData($request);
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึกด้วย function validateData
         return $request->all();
         // $NetworkedStorage = NetworkedStorage::create($request->all());
         // return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
@@ -105,8 +108,10 @@ class NetworkedstorageController extends Controller
     {
         //
     }
+    //function ตรวจสอบข้อมูลก่อนการบันทึก
     private function validateData($data) 
     {
+        //เงื่อนไข
         $rules = [
             'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
             'pid' =>'nullable',
@@ -131,6 +136,7 @@ class NetworkedstorageController extends Controller
             'device_communication_address' => 'required',
         ];
 
+        //ข้อความแสดงข้อผิดพลาด
         $messages = [
             'sapid.regex' => 'กรุณาใส่รหัส SAP ให้ถูกต้อง',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
@@ -158,6 +164,6 @@ class NetworkedstorageController extends Controller
 
         ];
 
-        return $this->validate($data, $rules, $messages);
+        return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addnetworkedstorage หรือส่งข้อมูลไปบันทึก
     }
 }

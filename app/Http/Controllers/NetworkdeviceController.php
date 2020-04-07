@@ -17,6 +17,7 @@ class NetworkdeviceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //ประกาศตัวแปรที่ใช้ใน controller
     public function index()
     {
         $Asset_statuses = Asset_statuses::all();
@@ -24,6 +25,8 @@ class NetworkdeviceController extends Controller
         $Sections = Section::all();
         $NetSubtypes = NetSubtype::all();
         $Owners = Owner::all();
+
+        //ตัวแปรที่ส่งไปยังหน้า addnetworkdevices
 
         return view('addnetworkdevice')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -50,12 +53,13 @@ class NetworkdeviceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //บันทึกข้อมูลที่ได้รับจากหน้า addnetworkdevices ผ่านทางตัวแปร request
     public function store(Request $request)
     {
         // return $request->all();
-        $this->validateData($request);
-        $Networkdevices = Networkdevices::create($request->all());
-        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        $this->validateData($request); //ส่งข้อมูลไปตรวจอบก่อนบันทึกด้วย function validateData
+        $Networkdevices = Networkdevices::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งผลการบันทึกข้อมูลกลับไปยังหน้าเดิม
     }
 
     /**
@@ -102,8 +106,12 @@ class NetworkdeviceController extends Controller
     {
         //
     }
+
+    //function ตรวจสอบข้อมูล
+
     private function validateData($data)
     {
+        //เงื่อนไข
         $rules = [
             'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
             'pid'=>'nullable',
@@ -121,6 +129,7 @@ class NetworkdeviceController extends Controller
             'device_management_address' => 'nullable|ipv4',
         ];
 
+        //ข้อความแสดงข้อผิดพลาด
         $messages = [
             'sapid.regex' => 'กรุณาตรวจสอบรหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
@@ -137,6 +146,6 @@ class NetworkdeviceController extends Controller
             'device_management_address.ipv4' => 'กรุณาตรวจสอบ IP Address'
         ];
 
-        return $this->validate($data, $rules, $messages);
+        return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addnetworkdevices หรือส่งข้อมูลไปบันทึก
     }
 }

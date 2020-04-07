@@ -17,6 +17,7 @@ class PeripheralsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //ประกาศตัวแปรที่ใช้ใน controller
     public function index()
     {
         $Asset_statuses = Asset_statuses::all();
@@ -39,6 +40,7 @@ class PeripheralsController extends Controller
         );
         $Owners = Owner::all();
 
+        //ตัวแปรที่ส่งกลับไปยังหน้า addperipherals
         return view('addperipherals')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
@@ -68,12 +70,13 @@ class PeripheralsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //บันทึกข้อมูลที่ไดัรับจากหน้า addperipherals ผ่านตัวแปร request
     public function store(Request $request)
     {
         // return $request->all();
-        $this->validateData($request);
-        $peripherals = Peripherals::create($request->all());
-        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึกด้วย function validateData
+        $peripherals = Peripherals::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งผลการบันทึกข้อมูลกลับไปยังหน้าเดิม
     }
 
     /**
@@ -120,7 +123,9 @@ class PeripheralsController extends Controller
     {
         //
     }
+    //function ตรวจสอบข้อมูล
     private function validateData($data){
+        //เงื่อนไข
         $rules = [
             'type'=>'required',
             'sapid'=>'nullable',
@@ -144,6 +149,7 @@ class PeripheralsController extends Controller
             'share_method'=>'required_if:is_shared,1',
         ];
 
+        //ข้อความแสดงข้อผิดพลา่ด
         $messages =[
             'type.required'=>'โปรดระบุชนิดของครุภัณฑ์',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้ง',
@@ -166,6 +172,6 @@ class PeripheralsController extends Controller
             'share_method.required_if'=>'กรุณาระบุวิธีการ Share',
         ];
 
-        return $this->validate($data, $rules, $messages);
+        return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปที่หน้า addperipherals หรือส่งช้อมูลไปบันทึกต่อ
     }
 }

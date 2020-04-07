@@ -18,6 +18,7 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //ประกาศตัวแปรที่่ใช้ใน controller
     public function index()
     {
         $Asset_statuses = Asset_statuses::all();
@@ -35,6 +36,8 @@ class ClientController extends Controller
             ['id'=>'2', 'name'=>'TB'],
         );
         $Owners = Owner::all();
+
+        //ต่วแปรที่ส่งกลับไปยังหน้า addcomputer
 
         return view('addcomputer')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -64,13 +67,14 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //บันทึกข้อมูลที่ได้รับจากหน้า addcomputer ผ่านทางตัวแปร request
     public function store(Request $request)
     {
         if (request()->has('displayCount')) {
             $displayCount = request()->input('displayCount');
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
-        $this->validateData($request);
+        $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
         $client = Client::create($request->all());
         \Log::info(session());
 
@@ -137,6 +141,7 @@ class ClientController extends Controller
     {
         //
     }
+    //function ตรวจสอบข้อมูลก่อนการบันทึก
     private function validateData($data){
         $rules = [
             'type' =>'required',
@@ -216,6 +221,6 @@ class ClientController extends Controller
             'computer_name.required'=>'กรุณาใส่ชื่อเครื่อง',
         ];
 
-        return $this->validate($data, $rules, $messages);
+        return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addcomputer หรือส่งข้อมูลไปบันทึก
     }
 }

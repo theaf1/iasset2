@@ -19,6 +19,7 @@ class ServerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //ประกาศตัวแปรที่ใช้ใน controller
     public function index()
     {
         $Asset_statuses = Asset_statuses::all();
@@ -33,6 +34,7 @@ class ServerController extends Controller
         );
         $Owners = Owner::all();
 
+        //ตัวแปรที่ส่งไปยังหน้า addserver
         return view('addserver')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
@@ -61,12 +63,13 @@ class ServerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //บันทึกข้อมูลที่ได้รับจากหน้า addserver ผ่านตัวแปร request
     public function store(Request $request)
     {
-        $this->validateData($request);
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึกด้วย function validateData
         //return $request->all();
-        $Servers = Servers::create($request->all());
-        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        $Servers = Servers::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งผลการบันทึกข้อมูลกลับไปยังหน้าเดิม
     }
 
     /**
@@ -114,8 +117,10 @@ class ServerController extends Controller
         //
     }
 
+    // function ตรวจสอบข้อมูล
     private function validateData($data)
     {
+        //เงื่อนไข
         $rules = [
             'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
             'pid' => 'nullable',
@@ -147,6 +152,7 @@ class ServerController extends Controller
             'mac_address' => 'required|regex:/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/'
         ];
 
+        //ข้อความแสดงข้อผิดพลาด
         $messages = [
             'sapid.regex' => 'กรุณาใส่รหัส SAP ให้ถูกต้อง',
             'location_id.required' => 'กรุณาระบุสถานที่ตั้งเครื่อง',
@@ -180,6 +186,6 @@ class ServerController extends Controller
             'mac_address.regex'=>'โปรดตรวจสอบ MAC Address',       
         ];
 
-        return $this->validate($data, $rules, $messages);
+        return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addserver หรือส่งข้อมูลไปบันทึก
     }
 }
