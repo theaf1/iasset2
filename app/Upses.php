@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Upses extends Model
 {
+    //column ที่สามารถเพิ่มและแก้ไขข้อมูล
     protected $fillable = [
         'id',
         'sapid',
@@ -31,19 +32,22 @@ class Upses extends Model
         'issues',
         'remarks',
     ];
-
+    //แสดงความสัมพันธ์กับตาราง Section
     public function section ()
     {
         $this->hasOne(Section::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Owner
     public function owner ()
     {
         return $this->hasOne(Owner::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function assetstatus ()
     {
         $this->hasOne(Asset_statuses::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
     public function assetusestatus ()
     {
         $this->hasOne(Asset_use_statuses::class);

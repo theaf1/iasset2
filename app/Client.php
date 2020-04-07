@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
+   //column ที่สามารถเพิ่มและแก้ไขข้อมูล
    protected $fillable = [
       'id',
       'type',
@@ -67,35 +68,37 @@ class Client extends Model
    //    $this->hasOne(Asset_use_statuses::class);
    // }
 
+   //แสดงความสัมพันธ์กับตาราง Display
    public function displays () 
    {
       return $this->hasMany(Display::class);
    }
-
+   //แสดงความสัมพันธ์กับตาราง Section
    public function section ()
    {
       return $this->hasOne(Section::class);
    }
-
+   //แสดงความสัมพันธ์กับตาราง Clienttype
    public function Clienttype ()
    {
       return $this->hasOne(Clienttype::class);
    }
-
+   //แสดงความสัมพันธ์กับตาราง location
    public function location ()
    {
       $this->hasOne(location::class);
    }
-
+   //แสดงความสัมพันธ์กับตาราง Asset_statuses
    public function assetstatus ()
    {
       $this->hasOne(Asset_statuses::class);
    }
-
+   //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
    public function assetusestatus ()
    {
       $this->hasOne(Asset_use_statuses::class);
    }
+   //แสดงความสัมพันธ์กับตาราง NetworkConnection
    public function networkconnction ()
    {
       return $this->hasOne(NetworkConnection::class);

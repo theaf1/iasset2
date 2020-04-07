@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Servers extends Model
 {
+    //column ที่สามารถเพิ่มและแก้ไขข้อมูล
     protected $fillable = [
         'id',
         'sapid',
@@ -55,30 +56,37 @@ class Servers extends Model
         'issues',
         'remarks',
     ];
+    //แสดงความสัมพันธ์กับตาราง Location
     public function location ()
     {
         return $this->hasOne(location::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Section
     public function section ()
     {
         return $this->hasOne(Section::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function assetstatus ()
     {
         return $this->hasOne(Asset_statuses::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
     public function assetusestatus ()
     {
         return $this->hasOne(Asset_use_statuses::class);
     }
+    //แสดงความสัมพันธ์กับตาราง ServerRoleClass
     public function serverroleclass ()
     {
         return $this->hasOne(ServerRoleClass::class);
     }
+    //แสดงความสัมพันธ์กับตาราง ServerOS
     public function serveros ()
     {
         return $this->hasOne(ServerOS::class);
     }
+    //แสดงความสัมพันธ์กับตาราง NetworkConnection
     public function networkconnections ()
     {
         return $this->hasOne(NetworkConnection::class);

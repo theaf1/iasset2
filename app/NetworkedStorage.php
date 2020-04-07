@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NetworkedStorage extends Model
 {
+    //column ที่สามารถเพิ่มและแก้ไขข้อมูลได้
     protected $fillable = [
         'sapid',
         'pid',
@@ -32,23 +33,27 @@ class NetworkedStorage extends Model
         'remarks',
         'issues',
     ];
-
+    //แสดงความสัมพันธ์กับตาราง Location
     public function location ()
     {
         return $this->hasOne(Location::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Section
     public function section ()
     {
         return $this->hasOne(Section::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Owner
     public function owner ()
     {
         return $this->hasOne(Owner::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function assetStatus ()
     {
         return $this->hasOne(Asset_statuses::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
     public function assetUseStatus ()
     {
         return $this->hasOne(Asset_use_statuses::class);

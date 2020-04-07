@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Peripherals extends Model
 {
+    //column ที่สามารถเพิ่มหรือแก้ไขข้อมูล
     protected $fillable =[
         'type',
         'id',
@@ -34,26 +35,32 @@ class Peripherals extends Model
         'share_method',
         'issues',
     ];
+    //แสดงความสัมพันธ์กับตาราง Peripheraltype
     public function peripheraltype ()
     {
         return $this->hasOne(Peripheraltype::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Section
     public function section ()
     {
         return $this->hasOne(Section::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Owner
     public function owner ()
     {
         return $this->hasOne(Owner::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Location
     public function location ()
     {
         return $this->hasOne(Location::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function assetstatus ()
     {
         return $this->hasOne(Asset_statuses::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
     public function assetusestatus ()
     {
         return $this->hasOne(Asset_use_statuses::class);
