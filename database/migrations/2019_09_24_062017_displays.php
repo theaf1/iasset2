@@ -13,13 +13,14 @@ class Displays extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Displays
         Schema::create('displays', function (blueprint $table) {
-            $table->bigincrements('id');
-            $table->string('client_id');
-            $table->string('display_sapid')->nullable();
-            $table->string('display_pid')->nullable();
-            $table->integer('display_size');
-            $table->string('display_ratio');
+            $table->bigincrements('id'); //ลำดับที่
+            $table->string('client_id'); //หมายเลข Client (foreign key จากตาราง Clients)
+            $table->string('display_sapid')->nullable(); //รหัส SAP ของจอ
+            $table->string('display_pid')->nullable(); //รหัสครุภัณฑ์ของจอภาพ
+            $table->integer('display_size'); //ขนาดจอภาพ
+            $table->string('display_ratio'); //สัดส่วนจอภาพ
             $table->timestamps();
         });
     }

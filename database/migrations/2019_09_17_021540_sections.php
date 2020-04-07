@@ -13,11 +13,13 @@ class Sections extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Sections
         Schema::create('sections', function (blueprint $table) {
-            $table->bigincrements('id');
-            $table->string('name');
+            $table->bigincrements('id'); //ลำดับที่
+            $table->string('name'); //ชื่อหน่วยงาน
             $table->timestamps();  
         });
+        //นำข้อมูลเข้าสู่ฐานข้อมูล
         Section::loadData('sections');
     }
 

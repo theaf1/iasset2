@@ -13,31 +13,32 @@ class CreateStorageperipheralsTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Storageperipherals
         Schema::create('storageperipherals', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('sapid')->nullable();
-            $table->string('pid')->nullable();
-            $table->string('location_id');
-            $table->boolean('is_mobile');
-            $table->integer('section');
-            $table->string('user');
-            $table->string('tel_no');
-            $table->integer('function');
-            $table->integer('owner');
-            $table->integer('asset_status');
-            $table->integer('asset_use_status');
-            $table->string('remarks')->nullable();
-            $table->string('brand');
-            $table->string('model');
-            $table->string('serial_no');
-            $table->integer('connectivity');
-            $table->boolean('is_hotswap')->default(0);
-            $table->float('total_capacity');
-            $table->integer('data_unit');
-            $table->integer('no_of_physical_drive_max')->nullable();
-            $table->integer('no_of_physical_drive_populated')->nullable();
-            $table->integer('lun_count')->nullable();
-            $table->string('issues')->nullable();
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->string('sapid')->nullable(); //รหัส SAP
+            $table->string('pid')->nullable(); //รหัสครุภัณฑ์
+            $table->string('location_id'); // ค่า location_id รับจากตาราง Location
+            $table->boolean('is_mobile'); //เป็นเครื่องเคลื่อนที่
+            $table->integer('section'); //หน่วยงาน รับค่าจากตาราง Sections
+            $table->string('user'); //ชื่อผู้ใช้งาน
+            $table->string('tel_no'); //หมายเลขโทรศัพท์
+            $table->integer('function'); //ระบบงาน
+            $table->integer('owner'); //เจ้าของ
+            $table->integer('asset_status'); //สถานะทางทะเบียนครุภัณฑ์ รับค่าจากตาราง Asset_statuses
+            $table->integer('asset_use_status'); //สถานะการใช้งานครุภัณท์ รับค่าจากตราง Asset_use_statuses
+            $table->string('remarks')->nullable(); //หมายเหตุ
+            $table->string('brand'); //ยี่ห้อ
+            $table->string('model'); //รุ่น 
+            $table->string('serial_no'); //serial number จากผู้ผลิต
+            $table->integer('connectivity'); //วิธีการเชื่อมต่อ
+            $table->boolean('is_hotswap')->default(0); //เป็นอุปกรณ์ hotswap
+            $table->float('total_capacity'); //ความจุข้อมูลรวม
+            $table->integer('data_unit'); //หน่วยวัดข้อมูล
+            $table->integer('no_of_physical_drive_max')->nullable(); //จำนวน HDD สูงสุด
+            $table->integer('no_of_physical_drive_populated')->nullable(); //จำนวน HDD ที่มีอยู่
+            $table->integer('lun_count')->nullable(); //จำนวน disk จำลอง
+            $table->string('issues')->nullable(); //ปัญหาในการใช้งาน
             $table->timestamps();
         });
     }
