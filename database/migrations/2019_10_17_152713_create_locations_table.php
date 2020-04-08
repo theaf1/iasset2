@@ -13,14 +13,15 @@ class CreateLocationsTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Locations
         Schema::create('locations', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('building_id');
-            $table->integer('floor');
-            $table->string('wing');
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->integer('building_id'); //อาคาร (foreign key จากตาราง Buildings)
+            $table->integer('floor'); //ชั้น
+            $table->string('wing'); //ปีก
             $table->timestamps();
         });
-
+        //import data
         Location::loadData('locations');
     }
 

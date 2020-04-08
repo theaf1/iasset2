@@ -13,10 +13,11 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Rooms
         Schema::create('rooms', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('location_id');
-            $table->string('name');
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->integer('location_id'); //สถานที่ (foreign key จากตาราง Location)
+            $table->string('name'); //ชื่อห้อง
             $table->timestamps();
         });
 

@@ -13,12 +13,13 @@ class CreateBuildingsTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Buildings
         Schema::create('buildings', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
+            $table->increments('id'); //ลำดับที่
+            $table->string('name'); //ชื่ออาคาร
             $table->timestamps();
         });
-        
+        //import data
         Building::loadData('buildings');
     }
 

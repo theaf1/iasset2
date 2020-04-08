@@ -13,28 +13,29 @@ class CreateNetworkdevicesTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Networkdevices
         Schema::create('networkdevices', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('sapid')->nullable();
-            $table->string('pid')->nullable();
-            $table->boolean('is_mobile')->default(0);
-            $table->integer('location_id');
-            $table->integer('asset_status');
-            $table->string('tel_no');
-            $table->string('response_person');
-            $table->integer('section');
-            $table->integer('owner');
-            $table->integer('asset_use_status');
-            $table->integer('device_subtype');
-            $table->string('brand');
-            $table->string('model');
-            $table->string('serial_no');
-            $table->integer('port_count');
-            $table->integer('psu_count');
-            $table->ipAddress('device_management_address')->nullable();
-            $table->string('software_version')->nullable();
-            $table->string('issues')->nullable();
-            $table->string('remarks')->nullable();
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->string('sapid')->nullable(); //รหัส SAP
+            $table->string('pid')->nullable(); //รหัสครุภัณฑ์
+            $table->boolean('is_mobile')->default(0); //เป็นเครื่องเคลื่อนที่
+            $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
+            $table->integer('asset_status'); //สถานะทางทะเบียนครุภัณฑ์
+            $table->string('tel_no'); //หมายเลขโทรศัพท์
+            $table->string('response_person'); //ผู้รับผิดชอบ
+            $table->integer('section'); //หน่วยงาน รับค่าจากตาราง Section
+            $table->integer('owner'); //เจ้าของ รับค่าจากตาราง Owner
+            $table->integer('asset_use_status'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
+            $table->integer('device_subtype'); //ชนิดของอุปกรณ์ รับค่่าจากตาราง Net_Subtype
+            $table->string('brand'); //ยี่ห้อ
+            $table->string('model'); //รุ่น
+            $table->string('serial_no'); //serial number จากผู้ผลิต
+            $table->integer('port_count'); //จำนวน port
+            $table->integer('psu_count'); //จำนวน power supply
+            $table->ipAddress('device_management_address')->nullable(); //ip address ที่ใช้ควบคุมเครื่อง
+            $table->string('software_version')->nullable(); //รุ่นโปรแกรมภายในเครื่อง
+            $table->string('issues')->nullable(); //ปัญหาในการใช้งาน
+            $table->string('remarks')->nullable(); //หมายเหตุ
             $table->timestamps();
         });
     }
