@@ -14,12 +14,14 @@ class CreateAssetUseStatusesTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Asset_use_statuses
         Schema::create('asset_use_statuses', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->string('name'); //ชื่อสถานะ
             $table->timestamps();
         });
 
+        //กำหนดชื่อสถานะ
         $asset_use_statuses=array(
             ['name'=>'รอการติดตั้ง'],
             ['name'=>'ใช้งาน'],
@@ -27,6 +29,7 @@ class CreateAssetUseStatusesTable extends Migration
             ['name'=>'ส่งซ่อม'],
             ['name'=>'ส่งคืนแล้ว'],
         );
+        //เขียนลงฐานข้อมูล
         foreach($asset_use_statuses as $asset_use_status){
             Asset_use_statuses::create($asset_use_status);
         }

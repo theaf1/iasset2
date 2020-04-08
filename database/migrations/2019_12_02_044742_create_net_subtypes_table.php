@@ -14,11 +14,13 @@ class CreateNetSubtypesTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Net_subtypes
         Schema::create('net_subtypes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->string('name'); //ชื่่อชนิดอุปกรณ์
             $table->timestamps();
         });
+        //กำหนดชื่อ
         $netsubtypes=array(
             ['name'=>'Hub'],
             ['name'=>'Unmanaged Switch'],
@@ -27,6 +29,7 @@ class CreateNetSubtypesTable extends Migration
             ['name'=>'Wireless Access Point'],
             ['name'=>'อุปกรณเครือข่ายอื่นๆ'],
         );
+        //เขียนข้อมูลลงฐานข้อมูล
         foreach($netsubtypes as $netsubtype){
             Netsubtype::create($netsubtype);
         }

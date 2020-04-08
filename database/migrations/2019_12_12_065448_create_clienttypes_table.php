@@ -14,17 +14,20 @@ class CreateClienttypesTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Clienttypes
         Schema::create('clienttypes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->string('name'); //ชื่อชนิด
             $table->timestamps();
         });
+        //กำหนดชื่อชนิด
         $clienttypes=array(
             ['name'=>'PC'],
             ['name'=>'Notebook'],
             ['name'=>'All-in-one'],
             ['name'=>'Workstation'],
         );
+        //เขียนข้อมูลลงฐานข้อมูล
         foreach($clienttypes as $clienttype){
             Clienttype::create($clienttype);
         }

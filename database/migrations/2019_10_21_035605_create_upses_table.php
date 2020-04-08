@@ -13,30 +13,31 @@ class CreateUpsesTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Upses
         Schema::create('upses', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('sapid')->nullable();
-            $table->string('pid')->nullable();
-            $table->integer('location_id');
-            $table->boolean('is_mobile')->default(0);
-            $table->string('response_person');
-            $table->integer('section');
-            $table->string('tel_no');
-            $table->integer('owner');
-            $table->integer('asset_status');
-            $table->integer('asset_use_status');
-            $table->string('brand');
-            $table->string('model');
-            $table->string('serial_no');
-            $table->integer('form_factor');
-            $table->integer('topology');
-            $table->float('capacity', 7, 5);
-            $table->boolean('is_modular')->default(0);
-            $table->integer('battery_type');
-            $table->boolean('has_external_battery')->default(0);
-            $table->ipAddress('device_management_address')->nullable();
-            $table->string('remarks')->nullable();
-            $table->string('issues')->nullable();
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->string('sapid')->nullable(); //รหัส SAP
+            $table->string('pid')->nullable(); //รหัสครุภัณฑ์
+            $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
+            $table->boolean('is_mobile')->default(0); //เป็นเครื่องเคลือนที่
+            $table->string('response_person'); //ผู้รับผิดชอบ
+            $table->integer('section'); //หน่วยงาน รับค่าจากตาราง Section
+            $table->string('tel_no'); //หมายเลขโทรศัพท์
+            $table->integer('owner'); //เจ้าของ รับค่าจากตาราง Owner
+            $table->integer('asset_status'); //สถานะทางทะเบียนครุภัณฑ์ รับค่าจากตาราง Asset_statuses
+            $table->integer('asset_use_status'); //สถานะการใช้งาน
+            $table->string('brand'); //ยี่ห้อ
+            $table->string('model'); //รุ่น
+            $table->string('serial_no'); //serial number จากผู้ผลิต
+            $table->integer('form_factor'); //ลักษณะเครื่อง
+            $table->integer('topology'); //หลักการทำงาน
+            $table->float('capacity', 7, 5); //กำลังไฟฟ้า
+            $table->boolean('is_modular')->default(0); //ขยายขนาดได้
+            $table->integer('battery_type'); //ชนิดของ battery
+            $table->boolean('has_external_battery')->default(0); //ตู้ battery ภายนอก
+            $table->ipAddress('device_management_address')->nullable(); //ip address ที่ใช้ควบคุมเครื่อง
+            $table->string('remarks')->nullable(); //หมายเหตุ
+            $table->string('issues')->nullable(); //ปัญหาในการใช้งาน
             $table->timestamps();
         });
     }

@@ -14,11 +14,13 @@ class CreatePeripheraltypesTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Peripheraltypes
         Schema::create('peripheraltypes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigIncrements('id');//ลำดับที่
+            $table->string('name');//ชื่อชนิด
             $table->timestamps();
         });
+        //กำหนดชื่อชนิด
         $peripheraltypes=array(
             ['name'=>'Printer'],
             ['name'=>'Scanner'],
@@ -26,6 +28,7 @@ class CreatePeripheraltypesTable extends Migration
             ['name'=>'Barcode Scanner'],
             ['name'=>'Multifunction Machine'],
         );
+        //เขียนข้อมูลลงฐานข้อมูล
         foreach($peripheraltypes as $peripheraltype){
             Peripheraltype::create($peripheraltype);
         }
