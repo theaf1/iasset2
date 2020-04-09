@@ -14,15 +14,18 @@ class CreateOwnersTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Owners
         Schema::create('owners', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->string('name'); //ชื่อเจ้าของ
             $table->timestamps();
         });
+        //กำหนดชื่อเจ้าของ
         $Owners=array(
             ['name'=>'คณะ'],
             ['name'=>'ภาควิชา'],
         );
+        //เขียนข้อมูลงฐานข้อมูล
         foreach($Owners as $Owner){
             Owner::create($Owner);
         }

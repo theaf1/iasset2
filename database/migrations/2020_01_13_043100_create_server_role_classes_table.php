@@ -14,16 +14,19 @@ class CreateServerRoleClassesTable extends Migration
      */
     public function up()
     {
+        //สร้งตาราง ServerRoleClass
         Schema::create('server_role_classes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->string('name'); //ชื่อกลุ่ม
             $table->timestamps();
         });
+        //กำหนดชื่อกลุ่ม
         $server_role_classes=array(
             ['name'=>'Infrastrcture'],
             ['name'=>'Application'],
             ['name'=>'Security'],
         );
+        //เขียนข้อมูลลงฐานข้อมูล
         foreach($server_role_classes as $server_role_class){
             ServerRoleClass::create($server_role_class);
         }

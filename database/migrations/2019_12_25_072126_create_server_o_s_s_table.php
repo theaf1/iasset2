@@ -14,11 +14,13 @@ class CreateServerOSSTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง ServerOS
         Schema::create('server_o_s_s', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->string('name'); //ชื่อ OS
             $table->timestamps();
         });
+        //กำหนดชื่อ OS
         $server_oses = array(
             ['name'=>'Windows Server 2003'],
             ['name'=>'Windows Server 2008'],
@@ -27,6 +29,7 @@ class CreateServerOSSTable extends Migration
             ['name'=>'Windows Server 2019'],
             ['name'=>'Ubuntu Server'],
         );
+        //เขียนข้อมูลลงฐานข้อมูล
         foreach($server_oses as $server_os){
             ServerOS::create($server_os);
         }

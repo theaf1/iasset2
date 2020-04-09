@@ -14,11 +14,13 @@ class CreateNetworkConnectionsTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง NetworkConnections
         Schema::create('network_connections', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
         });
+        //กำหนดชื่อเครือข่าย
         $NetworkConnections=array(
             ['name'=>'ไม่เชื่อมต่อกับเครือข่ายใดๆ'],
             ['name'=>'MUCNET'],
@@ -26,6 +28,7 @@ class CreateNetworkConnectionsTable extends Migration
             ['name'=>'เครือข่ายภายในโรงพยาบาล'],
             ['name'=>'เชื่อมต่อมากกว่า 1 เครือข่ายในเวลาเดียวกัน'],
         );
+        //เขียนข้อมูลลงฐานข้อมูล
         foreach($NetworkConnections as $NetworkConnection){
             NetworkConnection::create($NetworkConnection);
         }

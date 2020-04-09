@@ -13,30 +13,31 @@ class CreateNetworkedStoragesTable extends Migration
      */
     public function up()
     {
+        //สร้างตาราง Neที่tworkedstorages
         Schema::create('networked_storages', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('sapid')->nullable();
-            $table->string('pid')->nullable();
-            $table->integer('location_id');
-            $table->boolean('is_mobile');
-            $table->integer('section');
-            $table->string('tel_no');
-            $table->integer('asset_status');
-            $table->integer('asset_use_status');
-            $table->integer('type');
-            $table->string('brand');
-            $table->string('model');
-            $table->string('serial_no');
-            $table->float('hdd_total_cap');
-            $table->integer('no_of_physical_drive_max');
-            $table->integer('no_of_physical_drive_populated');
-            $table->integer('lun_count');
-            $table->string('device_name');
-            $table->ipAddress('device_management_address');
-            $table->string('device_communication_address');
-            $table->integer('device_communication_protocol');
-            $table->string('remarks')->nullable();
-            $table->string('issues')->nullable();
+            $table->bigIncrements('id'); //ลำดับที่
+            $table->string('sapid')->nullable(); //รหัส SAP
+            $table->string('pid')->nullable(); //รหัสครุภัณฑ์
+            $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
+            $table->boolean('is_mobile'); //เป็นเครื่องเคลือนที่
+            $table->integer('section'); //หน่วยงาน รับค่าจากตาราง Section
+            $table->string('tel_no'); //หมายเลขโทรศัพท์
+            $table->integer('asset_status'); //สถานะทางทะเบี่ยนครุภัณฑ์ รับค่าจากตาราง Asset_statuses
+            $table->integer('asset_use_status'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
+            $table->integer('type'); //ชนิดของอุปกรณ์
+            $table->string('brand'); //ยี่ห้อ
+            $table->string('model'); //รุ่น
+            $table->string('serial_no'); //serial number จากผู้ผลิต
+            $table->float('hdd_total_cap'); //ความจุข้อมูลรวม
+            $table->integer('no_of_physical_drive_max'); //จำนวน HDD สูงสุด
+            $table->integer('no_of_physical_drive_populated'); //จำนวน HDD ที่มีอยู่
+            $table->integer('lun_count'); //จำนวน disk จำลอง
+            $table->string('device_name'); //ชื่อเครื่อง
+            $table->ipAddress('device_management_address'); //ip address ควบคุมเครื่อง
+            $table->string('device_communication_address'); //address ที่ใช้รับส่งข้อมูล
+            $table->integer('device_communication_protocol'); //รูปแแบการสื่อสาร
+            $table->string('remarks')->nullable(); //หมายเหตุ
+            $table->string('issues')->nullable(); //ปัญหาในการใช้งาน
             $table->timestamps();
         });
     }
