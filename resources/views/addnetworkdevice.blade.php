@@ -38,7 +38,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ห้อง-->
                             <div class="form-group">
                                 <label for="room">ห้อง</label>
-                                <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"/>
+                                <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" value="{{ old('room') }}" id="room_autocomplete"/>
                                 @error('location_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <input hidden type="number" name="location_id"><!--ค่า location_id-->    
+                    <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->    
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                             <div class="form-group">
@@ -106,7 +106,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                             <div class="form-group">
                                 <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
-                                <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person"{{ old('response_person') }}>
+                                <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person" value="{{ old('response_person') }}">
                                 @error('response_person')
                                     <div class="invalid-feedback">
                                         {{ $message }}

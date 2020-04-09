@@ -119,7 +119,7 @@
                                     <label for="owner">ที่มา</label><br>
                                     <div class="form-check">
                                         @foreach ($owners as $owner)
-                                            <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}">
+                                            <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}" {{ old('owner') == $owner['id'] ? 'checked' : '' }}>
                                             <label class="form-check-label" for="owner">{{ $owner['name'] }}</label><br>    
                                         @endforeach
                                         @error('owner')
@@ -177,12 +177,10 @@
                                 <div class="form-group">
                                     <label for="type">ชนิดของอุปกรณ์</label> 
                                     <div class="form-check">
-                                        <input class="form-check-input @error('type') is-invalid @enderror" type="radio" name="type" id="type" value="1">
-                                        <label class="form-check-label" for="type">NAS</label><br>
-                                    </div>     
-                                    <div class="form-check">
-                                        <input class="form-check-input @error('type') is-invalid @enderror" type="radio" name="type" id="type" value="2">
-                                        <label class="form-check-label" for="type">SAN</label><br>
+                                        @foreach ($storagetypes as $storagetype)
+                                            <input class="form-check-input @error('type') is-invalid @enderror" type="radio" name="type" id="type" value="{{ $storagetype['id'] }}" {{ old('type') == $storagetype['id'] ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="type">{{ $storagetype['name'] }}</label><br>
+                                        @endforeach
                                         @error('type')
                                             <div class="invalid-feedback">
                                                 {{ $message }}

@@ -31,6 +31,7 @@ class Servers extends Model
         'no_of_physical_drive_max',
         'no_of_physical_drive_populated',
         'lun_count',
+        'data_unit',
         'hdd_total_cap',
         'display_no',
         'is_headless',

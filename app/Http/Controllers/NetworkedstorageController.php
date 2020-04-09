@@ -27,6 +27,10 @@ class NetworkedstorageController extends Controller
             ['id'=>'2', 'name'=>'TB']
         );
         $Owners = Owner::all();
+        $Storagetypes = array(
+            ['id'=>'1', 'name'=>'NAS'],
+            ['id'=>'2', 'name'=>'SAN'],
+        );
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
         return view('addnetworkedstorage')->with([
@@ -35,6 +39,7 @@ class NetworkedstorageController extends Controller
             'sections'=>$Sections,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
+            'storagetypes'=>$Storagetypes
 
         ]);
     }
@@ -109,8 +114,9 @@ class NetworkedstorageController extends Controller
         //
     }
     
-    private function validateData($data) 
+    private function validateData($data) //ตรวจสอบข้อมูลก่อนการบันทึก
     {
+        //เงื่่อนไข
         $rules = [
             'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
             'pid' =>'nullable',
@@ -131,10 +137,11 @@ class NetworkedstorageController extends Controller
             'no_of_physical_drive_populated' => 'required|lte:no_of_physical_drive_max',
             'lun_count' => 'required',
             'device_name' => 'required',
-            'device_managemet_address' => 'required|ipv4',
+            'device_management_address' => 'required|ipv4',
             'device_communication_address' => 'required',
         ];
 
+        //ข้้อความแสดงข้อผิดพลาด
         $messages = [
             'sapid.regex' => 'กรุณาใส่รหัส SAP ให้ถูกต้อง',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
@@ -162,6 +169,6 @@ class NetworkedstorageController extends Controller
 
         ];
 
-        return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addnetworkedstorage หรือส่งข้อมูลไปบันทึก
+        return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้าเดิมหรือบันทึกข้อมูล
     }
 }

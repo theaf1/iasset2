@@ -41,6 +41,7 @@ class Servers extends Migration
             $table->integer('hdd_total_cap'); //ความจุข้อมูลรวม
             $table->integer('data_unit'); //หน่วยวัดข้อมูล
             $table->boolean('is_headless')->default(0); //ไม่มีจอภาพ
+            $table->integer('display_no')->nullable();
             $table->string('display_sapid')->nullable(); //รหัส SAP จอ
             $table->string('display_pid')->nullable(); //รหัสครุภัณฑ์จอภาพ
             $table->string('os'); //ระบบปฏิบัติการ รับค่าจากตาราง ServerOS
