@@ -59,9 +59,9 @@ class NetworkedstorageController extends Controller
     public function store(Request $request)
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึกด้วย function validateData
-        return $request->all();
-        // $NetworkedStorage = NetworkedStorage::create($request->all());
-        // return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        //return $request->all();
+        $NetworkedStorage = NetworkedStorage::create($request->all());
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**
@@ -108,10 +108,9 @@ class NetworkedstorageController extends Controller
     {
         //
     }
-    //function ตรวจสอบข้อมูลก่อนการบันทึก
+    
     private function validateData($data) 
     {
-        //เงื่อนไข
         $rules = [
             'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
             'pid' =>'nullable',
@@ -136,7 +135,6 @@ class NetworkedstorageController extends Controller
             'device_communication_address' => 'required',
         ];
 
-        //ข้อความแสดงข้อผิดพลาด
         $messages = [
             'sapid.regex' => 'กรุณาใส่รหัส SAP ให้ถูกต้อง',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',

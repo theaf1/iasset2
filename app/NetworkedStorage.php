@@ -22,6 +22,7 @@ class NetworkedStorage extends Model
         'brand',
         'model',
         'serial_no',
+        'data_unit',
         'hdd_total_cap',
         'no_of_physical_drive_max',
         'no_of_physical_drive_populated',
@@ -29,7 +30,9 @@ class NetworkedStorage extends Model
         'device_name',
         'device_management_address',
         'device_communication_address',
-        'device_communication_protocol',
+        'is_smb',
+        'is_fc',
+        'is_iscsi',
         'remarks',
         'issues',
     ];

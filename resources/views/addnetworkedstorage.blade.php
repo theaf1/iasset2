@@ -243,7 +243,7 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                    <input class="form-control @error('hdd_total_cap') is-invalid @enderror" type="number" name="hdd_total_cap" id="hdd_total_cap" value="{{ old('hdd_total_cap') }}">
+                                    <input class="form-control @error('hdd_total_cap') is-invalid @enderror" type="number" name="hdd_total_cap" id="hdd_total_cap" step="0.01" value="{{ old('hdd_total_cap') }}">
                                     @error('hdd_total_cap')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -329,9 +329,9 @@
                                 <div class="form-group">
                                     <label for="type">Protocol ที่ใช้รับส่งข้อมูล</label>
                                     <div class="form-check form-check-inline pl-2">
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="device_communication_protocol" id="device_communication_protocol" value="1"><label for="device_communication_protocol">SMB</label></label>
-                                        <label class="form-check-label pl-2"><input type="checkbox" class="form-check-input" name="device_communication_protocol" id="device_communication_protocol" value="2"><label for="device_communication_protocol">Fiber Channel</label></label>
-                                        <label class="form-check-label pl-2"><input type="checkbox" class="form-check-input" name="device_communication_protocol" id="device_communication_protocol" value="3"><label for="device_communication_protocol">iSCSI</label></label>
+                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_smb" id="smb" value="1" {{ old('is_smb') == 1 ? 'checked' : '' }}><label for="smb">SMB</label></label>
+                                        <label class="form-check-label pl-2"><input type="checkbox" class="form-check-input" name="is_fc" id="fc" value="1" {{ old('is_fc') == 1 ? 'checked' : '' }}><label for="is_fc">Fiber Channel</label></label>
+                                        <label class="form-check-label pl-2"><input type="checkbox" class="form-check-input" name="is_iscsi" id="iscsi" value="1" {{ old('is_iscsi') == 1 ? 'checked' : '' }}><label for="iscsi">iSCSI</label></label>
                                     </div> 
                                 </div>
                             </div>

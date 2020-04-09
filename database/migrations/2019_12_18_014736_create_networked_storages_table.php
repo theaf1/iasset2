@@ -21,21 +21,26 @@ class CreateNetworkedStoragesTable extends Migration
             $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
             $table->boolean('is_mobile'); //เป็นเครื่องเคลือนที่
             $table->integer('section'); //หน่วยงาน รับค่าจากตาราง Section
+            $table->string('response_person'); //ผู้รับผิดชอบ
             $table->string('tel_no'); //หมายเลขโทรศัพท์
+            $table->integer('owner'); //เจ้าของ
             $table->integer('asset_status'); //สถานะทางทะเบี่ยนครุภัณฑ์ รับค่าจากตาราง Asset_statuses
             $table->integer('asset_use_status'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
             $table->integer('type'); //ชนิดของอุปกรณ์
             $table->string('brand'); //ยี่ห้อ
             $table->string('model'); //รุ่น
             $table->string('serial_no'); //serial number จากผู้ผลิต
-            $table->float('hdd_total_cap'); //ความจุข้อมูลรวม
+            $table->integer('data_unit'); //หน่วยวัดข้อมูล
+            $table->float('hdd_total_cap', 6, 4); //ความจุข้อมูลรวม
             $table->integer('no_of_physical_drive_max'); //จำนวน HDD สูงสุด
             $table->integer('no_of_physical_drive_populated'); //จำนวน HDD ที่มีอยู่
             $table->integer('lun_count'); //จำนวน disk จำลอง
             $table->string('device_name'); //ชื่อเครื่อง
             $table->ipAddress('device_management_address'); //ip address ควบคุมเครื่อง
             $table->string('device_communication_address'); //address ที่ใช้รับส่งข้อมูล
-            $table->integer('device_communication_protocol'); //รูปแแบการสื่อสาร
+            $table->boolean('is_smb')->default(0);
+            $table->boolean('is_fc')->default(0);
+            $table->boolean('is_iscsi')->default(0);
             $table->string('remarks')->nullable(); //หมายเหตุ
             $table->string('issues')->nullable(); //ปัญหาในการใช้งาน
             $table->timestamps();
