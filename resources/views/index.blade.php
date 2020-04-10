@@ -41,15 +41,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>PC</td>
-                            <td>13110001234</td>
-                            <td>11060000-I-7440-001-0001/48</td>
-                            <td>NO</td>
-                            <td>รอการทดแทน</td>
-                            <td>ใช้งาน</td>
-                            <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
-                            
+                            @foreach ($clients as $client)
+                                <th scope="row">{{ $client['id'] }}</th><td>{{ $client['sapid'] }}</td><td>{{ $client['pid'] }}</td><td>{{ $client['is_mobile'] }}</td><td>{{ $client['asset_status'] }}</td><td>{{ $client['asset_use_status'] }}</td><td><button class="btn btn-sm btn-info">แก้ไข</button></td><br>
+                                {{-- <td>{{ $client['clienttype'] }}</td> --}}
+                            @endforeach
                         </tr>
                     </tbody>
                 </table>

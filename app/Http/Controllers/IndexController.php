@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Section;
-
+use App\Client;
 class IndexController extends Controller
 {
     /**
@@ -15,9 +15,11 @@ class IndexController extends Controller
     public function index()
     {
         $Sections = Section::all();
+        $Clients = Client::all();
 
         return view('index')->with([
             'sections'=>$Sections,
+            'clients'=>$Clients
         ]);
     }
 
