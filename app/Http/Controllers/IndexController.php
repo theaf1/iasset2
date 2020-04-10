@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Section;
 use App\Client;
 use App\Peripherals;
+use App\Storageperipherals;
+use App\Servers;
+use App\Networkdevices;
+use App\NetworkedStorage;
+use App\Upses;
 class IndexController extends Controller
 {
     /**
@@ -18,11 +23,21 @@ class IndexController extends Controller
         $Sections = Section::all();
         $Clients = Client::all();
         $Peripherals =Peripherals::all();
+        $Storageperipherals = Storageperipherals::all();
+        $Servers = Servers::all();
+        $Networkdevices = Networkdevices::all();
+        $Networkedstorages = NetworkedStorage::all();
+        $Upses = Upses::all();
 
         return view('index')->with([
             'sections'=>$Sections,
             'clients'=>$Clients,
             'peripherals'=>$Peripherals,
+            'storageperipherals'=>$Storageperipherals,
+            'servers'=>$Servers,
+            'networkdevices'=>$Networkdevices,
+            'networkedstorages'=>$Networkedstorages,
+            'upses'=>$Upses,
         ]);
     }
 

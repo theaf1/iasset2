@@ -26,7 +26,7 @@
                 <div class="card-header card-background text-white">
                     <h4>คอมพิวเตอร์</h4>
                 </div>
-                <table class="table mt-4">
+                <table class="table mt-4 table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ลำดับที่</th>
@@ -59,7 +59,7 @@
                 <div class="card-header card-background text-white">
                     <h4>อุปกรณ์ต่อพ่วง</h4>
                 </div>
-                <table class="table mt-4">
+                <table class="table mt-4 table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ลำดับที่</th>
@@ -73,20 +73,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($peripherals as $peripheral)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Printer</td>
-                            <td>CO15633-0999</td>
-                            <td>N/A</td>
-                            <td>NO</td>
-                            <td>มีรหัสทรัพย์สินแล้ว</td>
-                            <td>ใช้งาน</td>
+                            <th scope="row">{{ $peripheral['id'] }}</th>
+                            <td>{{ $peripheral['type'] }}</td>
+                            <td>{{ $peripheral['sapid'] }}</td>
+                            <td>{{ $peripheral['pid'] }}</td>
+                            <td>{{ $peripheral['is_mobile'] }}</td>
+                            <td>{{ $peripheral['asset_status'] }}</td>
+                            <td>{{ $peripheral['asset_use_status'] }}</td>
                             <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
                         </tr>
+                        @endforeach
+                       
                     </tbody>
                 </table>
             </div>
-            <div class="card mt-4">
+            <div class="card mt-4 table-hover">
                 <div class="card-header card-background text-white">
                     <h4>อุปกรณ์ต่อพ่วงเก็บข้อมูล</h4>
                 </div>
@@ -103,15 +106,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>NO</td>
-                            <td>ไม่จำเป็น/ไม่สามารถขึ้นทะเบียนได้</td>
-                            <td>ใช้งาน</td>
-                            <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
-                        </tr>
+                        @foreach ($storageperipherals as $storageperipheral)
+                            <tr>
+                            <th scope="row">{{ $storageperipheral['id'] }}</th>
+                                <td>{{ $storageperipheral['sapid'] }}</td>
+                                <td>{{ $storageperipheral['pid'] }}</td>
+                                <td>{{ $storageperipheral['is_mobile'] }}</td>
+                                <td>{{ $storageperipheral['asset_status'] }}</td>
+                                <td>{{ $storageperipheral['asset_use_status'] }}</td>
+                                <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -119,7 +124,7 @@
                 <div class="card-header card-background text-white">
                     <h4>คอมพิวเตอร์แม่ข่าย</h4>
                 </div>
-                <table class="table mt-4">
+                <table class="table mt-4 table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ลำดับที่</th>
@@ -132,19 +137,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>13110001238</td>
-                            <td>11060000-I-7440-001-0001/48</td>
-                            <td>NO</td>
-                            <td>รอการทดแทน</td>
-                            <td>ไม่ใช้งาน</td>
-                            <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
-                        </tr>
+                        @foreach ($servers as $server)
+                            <tr>
+                            <th scope="row">{{ $server['id'] }}</th>
+                                <td>{{ $server['sapid'] }}</td>
+                                <td>{{ $server['pid'] }}</td>
+                                <td>{{ $server['is_mobile'] }}</td>
+                                <td>{{ $server['asset_status'] }}</td>
+                                <td>{{ $server['asset_use_status'] }}</td>
+                                <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
-            <div class="card mt-4">
+            <div class="card mt-4 table-hover">
                 <div class="card-header card-background text-white">
                     <h4>อุปกรณ์เครือข่าย</h4>
                 </div>
@@ -162,16 +169,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($networkdevices as $networkdevice)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>HUB</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>NO</td>
-                            <td>รอการทดแทน</td>
-                            <td>ใช้งาน</td>
+                            <th scope="row">{{ $networkdevice['id'] }}</th>
+                            <td>{{ $networkdevice['device_subtype'] }}</td>
+                            <td>{{ $networkdevice['sapid'] }}</td>
+                            <td>{{ $networkdevice['pid'] }}</td>
+                            <td>{{ $networkdevice['is_mobile'] }}</td>
+                            <td>{{ $networkdevice['asset_status'] }}</td>
+                            <td>{{ $networkdevice['asset_use_status'] }}</td>
                             <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -179,7 +188,7 @@
                 <div class="card-header card-background text-white">
                     <h4>อุปกรณ์เก็บข้อมูลเครือข่าย</h4>
                 </div>
-                <table class="table mt-4">
+                <table class="table mt-4 table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ลำดับที่</th>
@@ -193,16 +202,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>NAS</td>
-                            <td>13110001240</td>
-                            <td>12240000-I-7440-001-0001/60</td>
-                            <td>NO</td>
-                            <td>มีรหัสทรัพย์สินแล้ว</td>
-                            <td>ใช้งาน</td>
-                            <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
-                        </tr>
+                        @foreach ($networkedstorages as $networkedstorage)
+                            <tr>
+                                <th scope="row">{{ $networkedstorage['id'] }}</th>
+                                <td>{{ $networkedstorage['type'] }}</td>
+                                <td>{{ $networkedstorage['sapid'] }}</td>
+                                <td>{{ $networkedstorage['pid'] }}</td>
+                                <td>{{ $networkedstorage['is_mobile'] }}</td>
+                                <td>{{ $networkedstorage['asset_status'] }}</td>
+                                <td>{{ $networkedstorage['asset_use_status'] }}</td>
+                                <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -210,7 +221,7 @@
                 <div class="card-header card-background text-white">
                     <h4>เครื่องสำรองไฟฟ้า</h4>
                 </div>
-                <table class="table mt-4">
+                <table class="table mt-4 table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ลำดับที่</th>
@@ -223,16 +234,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($upses as $ups)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>18060001234</td>
-                            <td>1224H0001-I-7440-001-0001/62</td>
-                            <td>NO</td>
-                            <td>รอการทดแทน</td>
-                            <td>ใช้งาน</td>
+                            <th scope="row">{{ $ups['id'] }}</th>
+                            <td>{{ $ups['sapid'] }}</td>
+                            <td>{{ $ups['pid'] }}</td>
+                            <td>{{ $ups['is_mobile'] }}</td>
+                            <td>{{ $ups['asset_status'] }}</td>
+                            <td>{{ $ups['asset_use_status'] }}</td>
                             <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
-                            
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
