@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Section;
 use App\Client;
+use App\Peripherals;
 class IndexController extends Controller
 {
     /**
@@ -16,10 +17,12 @@ class IndexController extends Controller
     {
         $Sections = Section::all();
         $Clients = Client::all();
+        $Peripherals =Peripherals::all();
 
         return view('index')->with([
             'sections'=>$Sections,
-            'clients'=>$Clients
+            'clients'=>$Clients,
+            'peripherals'=>$Peripherals,
         ]);
     }
 

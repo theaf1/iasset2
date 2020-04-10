@@ -40,12 +40,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            @foreach ($clients as $client)
-                                <th scope="row">{{ $client['id'] }}</th><td>{{ $client['sapid'] }}</td><td>{{ $client['pid'] }}</td><td>{{ $client['is_mobile'] }}</td><td>{{ $client['asset_status'] }}</td><td>{{ $client['asset_use_status'] }}</td><td><button class="btn btn-sm btn-info">แก้ไข</button></td><br>
-                                {{-- <td>{{ $client['clienttype'] }}</td> --}}
-                            @endforeach
-                        </tr>
+                        @foreach ($clients as $client)
+                            <tr>
+                                <th scope="row">{{ $client['id'] }}</th>
+                                <td>{{ $client['type'] }}</td>
+                                <td>{{ $client['sapid'] }}</td>
+                                <td>{{ $client['pid'] }}</td>
+                                <td>{{ $client['is_mobile'] }}</td>
+                                <td>{{ $client['asset_status'] }}</td>
+                                <td>{{ $client['asset_use_status'] }}</td><td>
+                                <button class="btn btn-sm btn-info">แก้ไข</button></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
