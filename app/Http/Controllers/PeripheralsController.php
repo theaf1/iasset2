@@ -144,7 +144,8 @@ class PeripheralsController extends Controller
             'serial_no'=>'required',
             'supply_consumables'=>'required',
             'connectivity'=>'required',
-            'ip_address'=>'required_if:connectivity,3|ipv4',
+            'ip_address'=>'ipv4',
+            'ip_address'=>'required_if:connectivity,3',
             'share_name'=>'required_if:is_shared,1',
             'share_method'=>'required_if:is_shared,1',
         ];

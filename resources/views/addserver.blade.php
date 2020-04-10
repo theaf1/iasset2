@@ -339,7 +339,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
                                 <div class="form-group">
                                     <label for="display_no">จำนวนจอที่ใช้งาน</label>
-                                    <input class="form-control" name="display_no" id="display_no" type="number" min="0">
+                                    <input class="form-control" name="display_no" id="display_no" type="number" min="0" value="{{ old('display_no') }}">
                                 </div>
                             </div>
                         </div>
@@ -355,7 +355,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--sap จอ-->
                                 <div class="form-group">
                                     <label for="display_sapid">SAP จอ</label>
-                                    <input class="form-control" name="display_sapid" id="display_sapid" type="text">
+                                    <input class="form-control" name="display_sapid" id="display_sapid" type="text" value="{{ old('display_sapid') }}">
                                 </div>
                             </div>
                         </div>
@@ -363,7 +363,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--ครุภัณฑ์จอ-->
                                 <div class="form-group">
                                     <label for="display_pid">รหัสครุภัณฑ์จอภาพ</label>
-                                    <input class="form-control" name="display_pid" id="display_pid" type="text">
+                                    <input class="form-control" name="display_pid" id="display_pid" type="text" value="{{ old('display_pid') }}">
                                 </div>
                             </div>
                         </div>
@@ -381,7 +381,7 @@
                                     <select class="form-control @error('os') is-invalid @enderror" name="os" id="os">
                                         <option value="" hidden></option>
                                         @foreach($server_oses as $server_os)
-                                            <option value="{{ $server_os['id'] }}" {{ old('server_os') == $server_os['id'] ? 'selected' : '' }}>{{ $server_os['name'] }}</option>
+                                            <option value="{{ $server_os['id'] }}" {{ old('os') == $server_os['id'] ? 'selected' : '' }}>{{ $server_os['name'] }}</option>
                                         @endforeach
                                     </select>
                                     @error('os')
@@ -416,7 +416,7 @@
                                     <select class="form-control" name="role_class" id="role_class">
                                         <option value="" hidden selected></option>
                                         @foreach($server_role_classes as $server_role_class)
-                                            <option value="{{ $server_role_class['id'] }}" {{ old('server_role_class') == $server_role_class['id'] ? 'selected' : '' }}>{{ $server_role_class['name'] }}</option>
+                                            <option value="{{ $server_role_class['id'] }}" {{ old('role_class') == $server_role_class['id'] ? 'selected' : '' }}>{{ $server_role_class['name'] }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -425,13 +425,13 @@
                                 <div class="form-group">
                                     <label for="role_subclass">บทบาท</label><br>
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" name="is_ad" id="is_ad" value="1"><label for="is_ad">Active Directory</label><br>
-                                        <input type="checkbox" class="form-check-input" name="is_dns" id="is_dns" value="1"><label for="is_dns">DNS</label><br>
-                                        <input type="checkbox" class="form-check-input" name="is_dhcp" id="is_dhcp" value="1"><label for="is_dhcp">DHCP</label><br>
-                                        <input type="checkbox" class="form-check-input" name="is_fileshare" id="is_fileshare" value="1"><label for="is_fileshare">File Server</label><br>
-                                        <input type="checkbox" class="form-check-input" name="is_web" id="is_web" value="1"><label for="is_web">Web Server</label><br>
-                                        <input type="checkbox" class="form-check-input" name="is_db" id="is_db" value="1"><label for="is_db">Database Server</label><br>
-                                        <input type="checkbox" class="form-check-input" name="is_log" id="is_log" value="1"><label for="is_log">Logging Server</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_ad" id="is_ad" value="1" {{ old('is_ad') == 1 ? 'checked' : '' }}><label for="is_ad">Active Directory</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_dns" id="is_dns" value="1" {{ old('is_dns') == 1 ? 'checked' : '' }}><label for="is_dns">DNS</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_dhcp" id="is_dhcp" value="1" {{ old('is_dhcp') == 1 ? 'checked' : '' }}><label for="is_dhcp">DHCP</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_fileshare" id="is_fileshare" value="1" {{ old('is_fileshare') == 1 ? 'checked' : '' }}><label for="is_fileshare">File Server</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_web" id="is_web" value="1" {{ old('is_web') == 1 ? 'checked' : '' }}><label for="is_web">Web Server</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_db" id="is_db" value="1" {{ old('is_db') == 1 ? 'checked' : '' }}><label for="is_db">Database Server</label><br>
+                                        <input type="checkbox" class="form-check-input" name="is_log" id="is_log" value="1" {{ old('is_log') == 1 ? 'checked' : '' }}><label for="is_log">Logging Server</label><br>
                                     </div>
                                 </div>
                             </div>

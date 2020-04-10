@@ -37,7 +37,7 @@ class Peripherals extends Migration
             $table->ipAddress('ip_address')->nullable(); //ip address
             $table->string('lan_outlet_no')->nullable(); //หมายเลขจุด LAN
             $table->boolean('is_shared')->default(0); //ใช้งานร่วมกัน
-            $table->integer('share_method'); //วิธี share
+            $table->integer('share_method')->nullable(); //วิธี share
             $table->string('share_name')->nullable(); //ชื่อที่ใช้ในการ share
             $table->string('issues')->nullable(); //ปัญหาในการใช้งาน
             $table->timestamps();

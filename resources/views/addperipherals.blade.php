@@ -169,7 +169,7 @@
                                 <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
                                     <option value="" hidden selected></option>
                                     @foreach($asset_statuses as $asset_status)
-                                        <option value="{{ $asset_status['id'] }}"{{ old('asset_status') == $asset_status['id'] ? 'selected' : ''}}>{{ $asset_status['name'] }}</option>
+                                        <option value="{{ $asset_status['id'] }}" {{ old('asset_status') == $asset_status['id'] ? 'selected' : ''}}>{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_status')
@@ -185,7 +185,7 @@
                                 <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_status">
                                     <option value="" hidden selected></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
-                                        <option value="{{ $asset_use_status['id'] }}"{{ old('asset_use_status') == $asset_use_status['id'] ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
+                                        <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status') == $asset_use_status['id'] ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_use_status')
@@ -275,7 +275,7 @@
                         </div>
                         <div class="col-sm-12 col-lg-6"> <!--ip address-->
                             <div class="form-group">
-                                <label for="ip_address">IP adress ของเครื่อง</label>
+                                <label for="ip_address">IP address ของเครื่อง</label>
                                 <input type="text" class="form-control @error('ip_address') is-invalid @enderror" id="ip_address" name="ip_address" value="{{ old('ip_address') }}">
                                 @error('ip_address')
                                     <div class="invalid-feedback">

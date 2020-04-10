@@ -76,7 +76,7 @@ class ClientController extends Controller
         }
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
         $client = Client::create($request->all());
-        \Log::info(session());
+        //\Log::info(session());
 
         $displayCount = request()->input('display_count');
         for ($i = 0; $i < $displayCount; $i++)

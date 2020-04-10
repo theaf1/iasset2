@@ -349,7 +349,7 @@
                                     <label for=hdd_total_cap>ความจุรวมของ HDD</label>
                                     <div class="form-check-inline pl-3">
                                         @foreach ($dataunits as $dataunit)
-                                            <input type="radio" class="form-check-input @error('data_unit') is-invalid @enderror pl-2" name="data_unit" id="data_unit" value="{{ $dataunit['id'] }}">
+                                            <input type="radio" class="form-check-input @error('data_unit') is-invalid @enderror pl-2" name="data_unit" id="data_unit" value="{{ $dataunit['id'] }}" {{ old('data_unit') == $dataunit['id'] ? 'checked' : '' }}>
                                             <label for="data_unit" class="form-check-label pl-1">{{ $dataunit['name'] }}</label>
                                         @endforeach
                                         @error('data_unit')
