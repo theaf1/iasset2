@@ -125,6 +125,7 @@ class UpsController extends Controller
         );
 
         $ups = Upses::find($id);
+        //return $ups;
         return view('editups')->with([
             'ups'=>$ups,
             'sections'=>Section::all(),
@@ -148,7 +149,7 @@ class UpsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Upses::find($id)->update();
     }
 
     /**

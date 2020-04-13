@@ -2,7 +2,8 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form action="/add-ups" method="post">
+            <form action="{{ url('/ups',$ups->id) }}" method="post">
+            <input type="hidden" name="_method" value="PUT">
             @if ( $message = Session::get('success'))
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -91,7 +92,7 @@
                                 <select class="form-control @error('section') is-invalid @enderror" id="section" name="section">
                                     <option value="" hidden selected>กรุณาเลือก</option>
                                     @foreach($sections as $section)
-                                        <option value="{{ $section['id'] }} {{ old('section',$ups->section) == $section['id']  ? 'selected' : ''}}">{{ $section['name'] }}</option>
+                                        <option value="{{ $section['id'] }}" {{ old('section',$ups->section) == $section['id']  ? 'selected' : ''}}>{{ $section['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('section')
