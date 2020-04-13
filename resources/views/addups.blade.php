@@ -213,10 +213,12 @@
                             <div class="form-group">
                             <label for="form_factor">ลักษณะของตัวเครื่อง</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="1" checked>
-                                    <label class="form-check-label" for="form_factor">Tower</label><br>
-                                    <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="2">
-                                    <label class="form-check-label" for="form_factor">Rack Mounted</label><br>
+                                    @foreach ($forms as $form)
+                                    <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="{{ $form['id'] }}" {{ old('form-factor') == $form['id'] ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="form_factor">{{ $form['name'] }}</label><br>
+                                    @endforeach
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
@@ -255,10 +257,11 @@
                             <div class="form-group">
                             <label for="is_modular">ความสามารถในการเปลี่ยนกำลังไฟสูงสุด</label><br>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="is_modular" id="is_modular" value="0" checked>
-                                    <label class="form-check-label" for="is_modular">ไม่ได้</label><br>
-                                    <input class="form-check-input" type="radio" name="is_modular" id="is_modular" value="1">
-                                    <label class="form-check-label" for="is_modular">ได้</label><br>
+                                    @foreach ($modulars as $modular)
+                                        <input class="form-check-input" type="radio" name="is_modular" id="is_modular" value="{{ $modular['value'] }}" {{ old('is_modular') == $modular['value'] ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="is_modular">{{ $modular['name']}}</label><br>
+                                    @endforeach
+                                    
                                 </div>
                             </div>
                         </div>
@@ -266,12 +269,10 @@
                             <div class="form-group">
                                 <label for="battery_type">ชนิดของแบตเตอรี่</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="battery_type" id="battery_type" value="1" checked>
-                                    <label class="form-check-label" for="battery_type">ตะกั่ว-กรด (ปิดผนึก)</label><br>
-                                    <input class="form-check-input" type="radio" name="battery_type" id="battery_type" value="2">
-                                    <label class="form-check-label" for="battery_type">ตะกั่ว-กรด (เติมน้ำกลั่น)</label><br>
-                                    <input class="form-check-input" type="radio" name="battery_type" id="battery_type" value="3">
-                                    <label class="form-check-label" for="battery_type">ลิเธียมไอออน</label><br>
+                                    @foreach($bat_types as $bat_type)
+                                        <input class="form-check-input" type="radio" name="battery_type" id="battery_type" value="{{ $bat_type['id'] }}" {{ old('battery_type') == $bat_type['id'] ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="battery_type">{{ $bat_type['name'] }}</label><br>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -279,10 +280,11 @@
                             <div class="form-group">
                                 <label for="has_external_battery">แบตเตอรี่ภายนอก</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="has_external_battery" id="has_external_battery" value="0" checked>
-                                    <label class="form-check-label" for="has_external_battery">ไม่มี</label><br>
-                                    <input class="form-check-input" type="radio" name="has_external_battery" id="has_external_battery" value="1">
-                                    <label class="form-check-label" for="has_external_battery">มี</label><br>
+                                    @foreach ($exbats as $exbat)
+                                    <input class="form-check-input" type="radio" name="has_external_battery" id="has_external_battery" value="{{ $exbat['value'] }}" {{ old('has_exeternal_battery') == $exbat['value'] ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="has_external_battery">{{ $exbat['name'] }}</label><br>
+                                    @endforeach
+                                    
                                 </div>
                             </div>
                         </div>

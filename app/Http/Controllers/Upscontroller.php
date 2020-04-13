@@ -53,7 +53,7 @@ class UpsController extends Controller
             'forms'=>$Forms,
             'topos'=>$Topos,
             'modulars'=>$Modular,
-            'bat_type'=>$Bat_type,
+            'bat_types'=>$Bat_type,
             'exbats'=>$ExBat,
         ]);
     }
