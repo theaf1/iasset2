@@ -22,10 +22,27 @@ class UpsController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Owners = Owner::all();
+        $Forms = array(
+            ['id'=>'1', 'name'=>'Tower'],
+            ['id'=>'2', 'name'=>'Rack Mounted'],
+        );
         $Topos = array (
             ['id'=>'1', 'name'=>'stand-by'],
             ['id'=>'2', 'name'=>'line interactive'],
             ['id'=>'3', 'name'=>'on-line'],
+        );
+        $Modular = array(
+            ['id'=>'1', 'value'=>'0', 'name'=>'ไม่ได้'],
+            ['id'=>'2', 'value'=>'1', 'name'=>'ได้'],
+        );
+        $Bat_type = array(
+            ['id'=>'1', 'name'=>'ตะกั่ว-กรด (ปิดผนึก)'],
+            ['id'=>'2', 'name'=>'ตะกั่ว-กรด (เติมน้้ากลั่น)'],
+            ['id'=>'3', 'name'=>'ลิเธียมไอออน']
+        );
+        $ExBat = array(
+            ['id'=>'1', 'value'=>'0', 'name'=>'ไม่มี'],
+            ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
         );
 
         return view('addups')->with([
@@ -33,7 +50,11 @@ class UpsController extends Controller
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'owners'=>$Owners,
+            'forms'=>$Forms,
             'topos'=>$Topos,
+            'modulars'=>$Modular,
+            'bat_type'=>$Bat_type,
+            'exbats'=>$ExBat,
         ]);
     }
 
@@ -80,7 +101,42 @@ class UpsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Forms = array(
+            ['id'=>'1', 'name'=>'Tower'],
+            ['id'=>'2', 'name'=>'Rack Mounted'],
+        );
+        $Topos = array (
+            ['id'=>'1', 'name'=>'stand-by'],
+            ['id'=>'2', 'name'=>'line interactive'],
+            ['id'=>'3', 'name'=>'on-line'],
+        );
+        $Modular = array(
+            ['id'=>'1', 'value'=>'0', 'name'=>'ไม่ได้'],
+            ['id'=>'2', 'value'=>'1', 'name'=>'ได้'],
+        );
+        $Bat_type = array(
+            ['id'=>'1', 'name'=>'ตะกั่ว-กรด (ปิดผนึก)'],
+            ['id'=>'2', 'name'=>'ตะกั่ว-กรด (เติมน้้ากลั่น)'],
+            ['id'=>'3', 'name'=>'ลิเธียมไอออน']
+        );
+        $ExBat = array(
+            ['id'=>'1', 'value'=>'0', 'name'=>'ไม่มี'],
+            ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
+        );
+
+        $ups = Upses::find($id);
+        return view('editups')->with([
+            'ups'=>$ups,
+            'sections'=>Section::all(),
+            'owners'=>Owner::all(),
+            'asset_statuses'=>Asset_statuses::all(),
+            'asset_use_statuses'=>Asset_use_statuses::all(),
+            'forms'=>$Forms,
+            'topos'=>$Topos,
+            'modulars'=>$Modular,
+            'bat_types'=>$Bat_type,
+            'exbats'=>$ExBat,
+        ]);
     }
 
     /**

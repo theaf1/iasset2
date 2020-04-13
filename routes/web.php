@@ -45,6 +45,7 @@ Route::post('/add-peripheral','PeripheralsController@store');
 Route::patch('/add-peripheral', 'PeripheralsController@update');
 Route::get('/search', 'SearchController@index');
 Route::get('/index', 'IndexController@index');
+Route::get('/ups/{id}', 'Upscontroller@edit');
 // Route::get('/index', function () {
 //     return view('index');
 // });
