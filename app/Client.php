@@ -61,13 +61,7 @@ class Client extends Model
       'is_wireless',
       'issues',
    ];
-   // public function gettype(){
-   //    $this->belongsTo(Section::class);
-   //    $this->hasMany(Displays::class);
-   //    $this->hasOne(Asset_statuses::class);
-   //    $this->hasOne(Asset_use_statuses::class);
-   // }
-
+   
    //แสดงความสัมพันธ์กับตาราง Display
    public function displays () 
    {
@@ -86,17 +80,17 @@ class Client extends Model
    //แสดงความสัมพันธ์กับตาราง location
    public function location ()
    {
-      $this->hasOne(location::class);
+     return $this->hasOne(location::class);
    }
    //แสดงความสัมพันธ์กับตาราง Asset_statuses
    public function assetstatus ()
    {
-      $this->hasOne(Asset_statuses::class);
+     return $this->hasOne(Asset_statuses::class);
    }
    //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
    public function assetusestatus ()
    {
-      $this->hasOne(Asset_use_statuses::class);
+     return $this->hasOne(Asset_use_statuses::class);
    }
    //แสดงความสัมพันธ์กับตาราง NetworkConnection
    public function networkconnction ()
