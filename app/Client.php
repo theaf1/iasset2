@@ -50,6 +50,7 @@ class Client extends Model
       'si_iscan',
       'eclair',
       'admission_note',
+      'ur_ward',
       'sinet',
       // 'other_software',
       'other_software_detail',
@@ -61,7 +62,7 @@ class Client extends Model
       'is_wireless',
       'issues',
    ];
-   
+
    //แสดงความสัมพันธ์กับตาราง Display
    public function displays () 
    {

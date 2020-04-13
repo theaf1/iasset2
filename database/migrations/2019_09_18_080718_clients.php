@@ -56,6 +56,7 @@ class Clients extends Migration
             $table->boolean('si_iscan')->default(0); //มี Si-iScan
             $table->boolean('eclair')->default(0); //มี Eclair
             $table->boolean('admission_note')->default(0); //มี Admission Notes
+            $table->boolean('ur_ward')->default(0); //มี UR-Ward
             $table->boolean('sinet')->default(0); //มี SiNET
             // $table->boolean('other_software')->default(0);
             $table->string('other_software_detail')->nullable(); //โปรแกรมอื่นๆ

@@ -541,6 +541,9 @@
                                         <label class="checkbox-inline"><input type="checkbox" name="admission_note" value="1" {{ old('admission_note') == 1 ? 'checked' : ''}} > Admission Notes</label>
                                     </div>
                                     <div class="form-check-inline">
+                                        <label class="checkbox-inline"><input type="checkbox" name="ur_ward" value="1" {{ old('ur_ward') == 1 ? 'checked' : ''}} > UR-Ward</label>
+                                    </div>
+                                    <div class="form-check-inline">
                                         <label class="checkbox-inline"><input type="checkbox" name="sinet" value="1" {{ old('sinet') == 1 ? 'checked' : ''}} > SiNet</label>
                                     </div>
                                 </div>
