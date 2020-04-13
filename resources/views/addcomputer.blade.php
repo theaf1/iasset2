@@ -524,7 +524,7 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--program ระบบ รพ-->
                                 <div class="form-group">
-                                    <label for="is_mobile">Software คณะ</label><br>
+                                    <label for="faculty_software">Software คณะ</label><br>
                                     <div class="form-check-inline">
                                         <label class="checkbox-inline"><input type="checkbox" name="ehis" value="1" {{ old('ehis') == 1 ? 'checked' : ''}} > E-HIS</label>
                                     </div>
