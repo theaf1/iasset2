@@ -28,6 +28,10 @@ class ServerController extends Controller
         $ServerOSes = ServerOS::all();
         $ServerRoleClass = ServerRoleclass::all();
         $NetworkConnections = NetworkConnection::all();
+        $Forms = array (
+            ['id'=>'1', 'name'=>'Tower'],
+            ['id'=>'2', 'name'=>'Rack Mounted'],
+        );
         $DataUnits = array(
             ['id'=>'1', 'name'=>'GB'],
             ['id'=>'2', 'name'=>'TB'],
@@ -42,6 +46,7 @@ class ServerController extends Controller
             'server_oses'=>$ServerOSes,
             'server_role_classes'=>$ServerRoleClass,
             'network_connections'=>$NetworkConnections,
+            'forms'=>$Forms,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
         ]);
@@ -91,7 +96,36 @@ class ServerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $ServerOSes = ServerOS::all();
+        $ServerRoleClass = ServerRoleclass::all();
+        $NetworkConnections = NetworkConnection::all();
+        $Forms = array (
+            ['id'=>'1', 'name'=>'Tower'],
+            ['id'=>'2', 'name'=>'Rack Mounted'],
+        );
+        $DataUnits = array(
+            ['id'=>'1', 'name'=>'GB'],
+            ['id'=>'2', 'name'=>'TB'],
+        );
+        $Owners = Owner::all();
+
+        $server = Servers::find($id);
+        
+        return view('editserver')->with([
+            'server'=>$server,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'server_oses'=>$ServerOSes,
+            'server_role_classes'=>$ServerRoleClass,
+            'network_connections'=>$NetworkConnections,
+            'forms'=>$Forms,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+        ]);
     }
 
     /**
