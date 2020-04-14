@@ -178,7 +178,7 @@
                             <td>{{ $networkdevice['is_mobile'] }}</td>
                             <td>{{ $networkdevice['asset_status'] }}</td>
                             <td>{{ $networkdevice['asset_use_status'] }}</td>
-                            <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
+                            <td><a class="btn btn-sm btn-info" role="button" href="{{ url('/networkdevices',$networkdevice->id) }}">แก้ไข</a></td>
                         </tr>
                         @endforeach
                     </tbody>

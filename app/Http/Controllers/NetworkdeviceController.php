@@ -81,7 +81,21 @@ class NetworkdeviceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $NetSubtypes = NetSubtype::all();
+        $Owners = Owner::all();
+        $networkdevice = Networkdevices::find($id);
+        return view('editnetworkdevice')->with([
+            'networkdevice'=>$networkdevice,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'netsubtypes'=>$NetSubtypes,
+            'owners'=>$Owners,
+        ]);
+
     }
 
     /**
@@ -93,7 +107,8 @@ class NetworkdeviceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Networkdevices::find($id)->update($request->all());
+        return redirect('/index');
     }
 
     /**
