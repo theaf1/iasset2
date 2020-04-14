@@ -211,7 +211,7 @@
                                 <td>{{ $networkedstorage['is_mobile'] }}</td>
                                 <td>{{ $networkedstorage['asset_status'] }}</td>
                                 <td>{{ $networkedstorage['asset_use_status'] }}</td>
-                                <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
+                            <td><a href="{{ url('/networkedstorage',$networkedstorage->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                             </tr>
                         @endforeach
                     </tbody>

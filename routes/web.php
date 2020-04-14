@@ -34,10 +34,14 @@ Route::get('/rooms', function() {
 //database operations
 Route::post('/store', 'SectionController@store');
 Route::post('/add-networkdev','Networkdevicecontroller@store');
+Route::get('/networkdevices/{id}', 'NetworkdeviceController@edit');
+Route::put('/networkdevices/{id}', 'NetworkdeviceController@update');
 Route::post('/add-ups',"UpsController@store");
 Route::get('/ups/{id}', 'Upscontroller@edit');
 Route::put('/ups/{id}', 'Upscontroller@update');
 Route::post('/add-ns','NetworkedstorageController@store');
+Route::get('/networkedstorage/{id}', 'Networkedstoragecontroller@edit');
+Route::put('/networkedstorage/{id}', 'Networkedstoragecontroller@update');
 Route::post('/add-server','ServerController@store');
 //under development
 Route::get('/admin', 'SectionController@index');
@@ -47,5 +51,3 @@ Route::post('/add-peripheral','PeripheralsController@store');
 //Route::patch('/add-peripheral', 'PeripheralsController@update');
 Route::get('/search', 'SearchController@index');
 Route::get('/index', 'IndexController@index');
-Route::get('/networkdevices/{id}', 'NetworkdeviceController@edit');
-Route::put('/networkdevices/{id}', 'NetworkdeviceController@update');

@@ -88,7 +88,31 @@ class NetworkedstorageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $DataUnits =array(
+            ['id'=>'1', 'name'=>'GB'],
+            ['id'=>'2', 'name'=>'TB']
+        );
+        $Owners = Owner::all();
+        $Storagetypes = array(
+            ['id'=>'1', 'name'=>'NAS'],
+            ['id'=>'2', 'name'=>'SAN'],
+        );
+        $networkedstorage = NetworkedStorage::find($id);
+        //return $networkedstorage;
+
+        return view('editnetworkedstorage')->with([
+            'networkedstorage'=>$networkedstorage,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'storagetypes'=>$Storagetypes
+
+        ]);
     }
 
     /**
@@ -100,7 +124,8 @@ class NetworkedstorageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Networkedstorage::find($id)->update($request->all());
+        return redirect('/index');
     }
 
     /**
