@@ -230,7 +230,7 @@
                             <th scope="col">mobile</th>
                             <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                             <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
-                            <th scope="col">a</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -242,7 +242,7 @@
                             <td>{{ $ups['is_mobile'] }}</td>
                             <td>{{ $ups['asset_status'] }}</td>
                             <td>{{ $ups['asset_use_status'] }}</td>
-                            <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
+                            <td><a class="btn btn-sm btn-info" role="button" href="{{ url('/ups',$ups->id) }}">แก้ไข</a></td>
                         </tr>
                         @endforeach
                     </tbody>

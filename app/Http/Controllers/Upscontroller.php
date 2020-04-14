@@ -149,7 +149,8 @@ class UpsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Upses::find($id)->update();
+        Upses::find($id)->update($request->all());
+        return redirect('/index');
     }
 
     /**

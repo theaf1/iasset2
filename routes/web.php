@@ -35,6 +35,8 @@ Route::get('/rooms', function() {
 Route::post('/store', 'SectionController@store');
 Route::post('/add-networkdev','Networkdevicecontroller@store');
 Route::post('/add-ups',"UpsController@store");
+Route::get('/ups/{id}', 'Upscontroller@edit');
+Route::put('/ups/{id}', 'Upscontroller@update');
 Route::post('/add-ns','NetworkedstorageController@store');
 Route::post('/add-server','ServerController@store');
 //under development
@@ -45,7 +47,3 @@ Route::post('/add-peripheral','PeripheralsController@store');
 Route::patch('/add-peripheral', 'PeripheralsController@update');
 Route::get('/search', 'SearchController@index');
 Route::get('/index', 'IndexController@index');
-Route::get('/ups/{id}', 'Upscontroller@edit');
-Route::put('/ups/{id}', function(Illuminate\Http\request $request,$id){
-    return $request->all();
-});
