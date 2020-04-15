@@ -98,7 +98,40 @@ class PeripheralsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $Peripheraltypes = Peripheraltype::all();
+        $Supplies = array(
+            ['id'=>'1', 'name'=>'เบิกได้'],
+            ['id'=>'2', 'name'=>'เบิกไม่ได้'],
+            ['id'=>'3', 'name'=>'ไม่จำเป็น'],
+        );
+        $PeripheralConnections = array(
+            ['id'=>'1', 'name'=>'USB'],
+            ['id'=>'2', 'name'=>'Paralell port'],
+            ['id'=>'3', 'name'=>'LAN'],
+        );
+        $ShareMethods = array(
+            ['id'=>'1', 'name'=>'OS share'],
+            ['id'=>'2', 'name'=>'network share'],
+        );
+        $Owners = Owner::all();
+
+        $peripheral = Peripherals::find($id);
+
+        return view('addperipherals')->with([
+            'peripheral'=>$peripheral,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'peripheraltypes'=>$Peripheraltypes,
+            'supplies'=>$Supplies,
+            'peripheralconnections'=>$PeripheralConnections,
+            'sharemethods'=>$ShareMethods,
+            'owners'=>$Owners,
+         
+        ]);
     }
 
     /**
@@ -110,7 +143,8 @@ class PeripheralsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Peripherals::find($id)->update($request->all());
+        return redirect('/index');
     }
 
     /**
