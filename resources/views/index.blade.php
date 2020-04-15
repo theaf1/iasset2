@@ -114,7 +114,7 @@
                                 <td>{{ $storageperipheral['is_mobile'] }}</td>
                                 <td>{{ $storageperipheral['asset_status'] }}</td>
                                 <td>{{ $storageperipheral['asset_use_status'] }}</td>
-                                <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
+                            <td><a href="{{ url('/storageperipheral',$storageperipheral->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                             </tr>
                         @endforeach
                     </tbody>

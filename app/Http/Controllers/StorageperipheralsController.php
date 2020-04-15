@@ -88,7 +88,31 @@ class StorageperipheralsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Asset_statuses=Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $DataUnits = array(
+            ['id' => '1', 'name' => 'GB'],
+            ['id' => '2', 'name' => 'TB'],
+        );
+        $Owners= Owner::all();
+        $Connectivity = array(
+            ['id' => '1', 'name' => 'USB'],
+            ['id' => '2', 'name' => 'eSATA'],
+            ['id' => '3', 'name' => 'SAS'],
+        );
+
+        $storageperipheral = Storageperipherals::find($id);
+
+        return view('editstorageperipherals')->with([
+            'storageperipheral'=>$storageperipheral,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'connectivities'=>$Connectivity,
+        ]);
     }
 
     /**
@@ -100,7 +124,8 @@ class StorageperipheralsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Storageperipherals::find($id)->update($request->all());
+        return redirect('/index');
     }
 
     /**
