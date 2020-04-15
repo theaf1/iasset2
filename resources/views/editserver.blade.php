@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form action="{{ url('server',$server->id) }}" method="post">
+            <form action="{{ url('/server',$server->id) }}" method="post">
                 <input type="hidden" name="_method" value="PUT">
                 @if ( $message = Session::get('success'))<!--แจ้งผลบันทึกข้อมูล-->
                     <div class="alert alert-success alert-dismissible">

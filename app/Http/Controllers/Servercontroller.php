@@ -137,7 +137,8 @@ class ServerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Servers::find($id)->update($request->all());
+        return redirect('/index');
     }
 
     /**

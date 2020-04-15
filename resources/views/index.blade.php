@@ -145,7 +145,7 @@
                                 <td>{{ $server['is_mobile'] }}</td>
                                 <td>{{ $server['asset_status'] }}</td>
                                 <td>{{ $server['asset_use_status'] }}</td>
-                                <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
+                            <td><a href="{{ url('/server',$server->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                             </tr>
                         @endforeach
                     </tbody>

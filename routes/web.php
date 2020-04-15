@@ -43,6 +43,8 @@ Route::post('/add-ns','NetworkedstorageController@store');
 Route::get('/networkedstorage/{id}', 'Networkedstoragecontroller@edit');
 Route::put('/networkedstorage/{id}', 'Networkedstoragecontroller@update');
 Route::post('/add-server','ServerController@store');
+Route::get('/server/{id}', 'ServerController@edit');
+Route::put('/server/{id}', 'ServerController@update');
 //under development
 Route::get('/admin', 'SectionController@index');
 Route::post('/add-computer', 'ClientController@store');
