@@ -48,8 +48,8 @@
                                 <td>{{ $client['pid'] }}</td>
                                 <td>{{ $client['is_mobile'] }}</td>
                                 <td>{{ $client['asset_status'] }}</td>
-                                <td>{{ $client['asset_use_status'] }}</td><td>
-                                <button class="btn btn-sm btn-info">แก้ไข</button></td>
+                                <td>{{ $client['asset_use_status'] }}</td>
+                                <td><a href="{{ url('/client',$client->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</button></td>
                             </tr>
                         @endforeach
                     </tbody>

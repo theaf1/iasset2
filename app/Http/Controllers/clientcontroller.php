@@ -116,7 +116,35 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $Clienttypes = Clienttype::all();
+        $NetworkConnections = NetworkConnection::all();
+        $Positions = array(
+            ['id'=>'1','name'=>'แพทย์'],
+            ['id'=>'2','name'=>'พยาบาล'],
+            ['id'=>'3','name'=>'เจ้าหน้าที่'],
+        );
+        $DataUnits = array(
+            ['id'=>'1', 'name'=>'GB'],
+            ['id'=>'2', 'name'=>'TB'],
+        );
+        $Owners = Owner::all();
+
+        $client = Client::find($id);
+
+        return view('editcomputer')->with([
+            'client'=>$client,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'clienttypes'=>$Clienttypes,
+            'networkconnections'=>$NetworkConnections,
+            'positions'=>$Positions,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+        ]);
     }
 
     /**
