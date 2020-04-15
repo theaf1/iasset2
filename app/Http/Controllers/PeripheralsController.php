@@ -120,7 +120,7 @@ class PeripheralsController extends Controller
 
         $peripheral = Peripherals::find($id);
 
-        return view('addperipherals')->with([
+        return view('editperipherals')->with([
             'peripheral'=>$peripheral,
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,

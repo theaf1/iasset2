@@ -82,7 +82,7 @@
                             <td>{{ $peripheral['is_mobile'] }}</td>
                             <td>{{ $peripheral['asset_status'] }}</td>
                             <td>{{ $peripheral['asset_use_status'] }}</td>
-                            <td><button class="btn btn-sm btn-info">แก้ไข</button></td>
+                            <td><a href="{{ url('/peripheral',$peripheral->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                         </tr>
                         @endforeach
                        

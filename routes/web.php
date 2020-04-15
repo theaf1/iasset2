@@ -55,3 +55,4 @@ Route::post('/add-computer', 'ClientController@store');
 Route::get('/search', 'SearchController@index');
 Route::get('/index', 'IndexController@index');
 Route::get('/peripheral/{id}', 'PeripheralsController@edit');
+Route::put('peripheral/{id}', 'PeripheralsController@update');

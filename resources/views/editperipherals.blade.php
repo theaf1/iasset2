@@ -99,7 +99,7 @@
                                 <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
                                     <option value="" hidden></option>
                                     @foreach($sections as $section)
-                                        <option value="{{ $section['id'] }} {{ old('section',$peripheral->section) == $section['id'] ? 'selected' : '' }}">{{ $section['name'] }}</option>
+                                        <option value="{{ $section['id'] }}" {{ old('section',$peripheral->section) == $section['id'] ? 'selected' : '' }}>{{ $section['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('section')
@@ -151,7 +151,7 @@
                                 <label for="owner">ที่มา</label>
                                 <div class="form-check">
                                     @foreach ($owners as $owner)
-                                        <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}" {{ old('owner',$peripheral->owner) == $owner['id'] && old('owner') !== null ? 'checked' : '' }}>
+                                        <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}" {{ old('owner',$peripheral->owner) == $owner['id'] ? 'checked' : '' }}>
                                         <label class="form-check-label" for="owner">{{ $owner['name'] }}</label><br>   
                                     @endforeach
                                     @error('owner')
@@ -245,7 +245,7 @@
                                 <label for="supply_consumables">สามารถเบิกวัสดุสึกหรอสิ้นเปลืองได้</label>
                                 <div class="form-check">
                                     @foreach($supplies as $supply)
-                                        <input class="form-check-input @error('supply_consumables') is-invalid @enderror" type="radio" name="supply_consumables" id="supply_consumables" value="{{ $supply['id'] }}" {{ old('supply_consumables',$peripheral->supply_consumables) == $supply['id'] && old('supply_consumables') !== null ? 'checked' : '' }}>
+                                        <input class="form-check-input @error('supply_consumables') is-invalid @enderror" type="radio" name="supply_consumables" id="supply_consumables" value="{{ $supply['id'] }}" {{ old('supply_consumables',$peripheral->supply_consumables) == $supply['id'] ? 'checked' : '' }}>
                                         <label class="form-check-label" for="supply_consumables">{{ $supply['name'] }}</label><br>
                                     @endforeach
                                     @error('supply_consumables')
@@ -296,7 +296,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--share-->
                             <div class="form-group">
                                 <label for="is_shared">สถานะการใช้งานร่วมกัน</label><br>
-                                <input type="checkbox" name="is_shared" value="1" {{ old('is_shared',$peripheral->is_shared) == 1 && old('is_shared') !== null ? 'checked' : '' }}>เป็นเครื่องใช้งานร่วมกัน<br>
+                                <input type="checkbox" name="is_shared" value="1" {{ old('is_shared',$peripheral->is_shared) == 1 ? 'checked' : '' }}>เป็นเครื่องใช้งานร่วมกัน<br>
                             </div>
                         </div>
                     </div>
