@@ -21,8 +21,8 @@ class CreateMobilitiesTable extends Migration
             $table->timestamps();
         });
         $Mobilities = array(
-            ['value'=>'0', 'name'=>'เป็นเครื่องเคลื่อนที่'],
-            ['value'=>'1', 'name'=>'เป็นเครื่องประจำที่'],
+            ['value'=>'1', 'name'=>'เป็นเครื่องเคลื่อนที่'],
+            ['value'=>'0', 'name'=>'เป็นเครื่องประจำที่'],
         );
 
         foreach ($Mobilities as $Mobility){
