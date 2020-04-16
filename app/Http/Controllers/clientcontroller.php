@@ -9,6 +9,7 @@ use App\Display;
 use App\Clienttype;
 use App\NetworkConnection;
 use App\Owner;
+use App\Mobility;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -36,6 +37,7 @@ class ClientController extends Controller
             ['id'=>'2', 'name'=>'TB'],
         );
         $Owners = Owner::all();
+        $Mobility = Mobility::all();
 
         //ต่วแปรที่ส่งกลับไปยังหน้า addcomputer
 
@@ -48,6 +50,7 @@ class ClientController extends Controller
             'positions'=>$Positions,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
+            'mobiles'=>$Mobility,
         ]);
     }
 
@@ -131,6 +134,7 @@ class ClientController extends Controller
             ['id'=>'2', 'name'=>'TB'],
         );
         $Owners = Owner::all();
+        $Mobility = Mobility::all();
 
         $client = Client::find($id);
 
@@ -144,6 +148,7 @@ class ClientController extends Controller
             'positions'=>$Positions,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
+            'mobiles'=>$Mobility,
         ]);
     }
 
