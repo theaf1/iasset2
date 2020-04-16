@@ -102,11 +102,11 @@
                                 <div class="form-group">
                                     <label for="function">ระบบงาน</label><br>
                                     <div class="form-check-inline">
-                                        <input type="radio" class="form-check-input @error('function') is-invalid @enderror" name="function" id="function" value="1" {{ old('function') == 1 ? 'checked' : ''}}>
+                                        <input type="radio" class="form-check-input @error('function') is-invalid @enderror" name="function" id="function" value="1" {{ old('function',$client->function) == 1 ? 'checked' : ''}}>
                                         <label class="form-check-label" for="function">สำนักงาน</label>
                                     </div>
                                     <div class="form-check-inline">
-                                        <input type="radio" class="form-check-input @error('function') is-invalid @enderror" name="function" id="function2" value="2" {{ old('function') == 2 ? 'checked' : ''}}>
+                                        <input type="radio" class="form-check-input @error('function') is-invalid @enderror" name="function" id="function2" value="2" {{ old('function',$client->function) == 2 ? 'checked' : ''}}>
                                         <label class="form-check-label" for="function2">หอผู้ป่วย</label>
                                         @error('function')
                                             <div class="invalid-feedback">
@@ -156,8 +156,8 @@
                                 <div class="form-group">
                                     <label for="multi_user">จำนวนผู้ใช้งาน</label>
                                     <div class="form-check">
-                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="0" {{ old('multi_user') == 0 ? 'checked' : ''}}> ใช้งานคนเดียว</label>
-                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="1" {{ old('multi_user') == 1 ? 'checked' : ''}}> ใช้งานหลายคน</label>
+                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="0" {{ old('multi_user',$client->multi_user) == 0 ? 'checked' : ''}}> ใช้งานคนเดียว</label>
+                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="1" {{ old('multi_user',$client->multi_user) == 1 ? 'checked' : ''}}> ใช้งานหลายคน</label>
                                     </div>
                                 </div>
                             </div>
@@ -244,7 +244,7 @@
                                             <label class="form-check-label" for="admin">มีสิทธิ์</label>
                                         </div>
                                         <div class="form-check-inline">
-                                            <input type="radio" class="form-check-input @error('permission') is-invalid @enderror" name="permission" id="no_permission" value="0" {{ old('permission',$client->permission) == 0 && old('permission') !== null ? 'checked' : ''}}>
+                                            <input type="radio" class="form-check-input @error('permission') is-invalid @enderror" name="permission" id="no_permission" value="0" {{ old('permission',$client->permission) == 0 ? 'checked' : ''}}>
                                             <label class="form-check-label" for="no_permission">ไม่มีสิทธิ์</label> 
                                             @error('permission')
                                                 <div class="invalid-feedback ml-5">
@@ -496,6 +496,14 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="endnote">Endnote Version</label>
+                                    <input type="text" name="endnote_version" id="endnote" class="form-control" value="{{ old('endnote_version',$client->endnote_version) }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--ie version-->
                                 <div class="form-group">
                                     <label for="ie_version">IE version</label>
@@ -505,6 +513,12 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="firefox">Firefox Version</label>
+                                    <input type="text" name="firefox_version" id="firefox" class="form-control" value="{{ old('firefox_version',$client->firefox_version) }}">
                                 </div>
                             </div>
                         </div>

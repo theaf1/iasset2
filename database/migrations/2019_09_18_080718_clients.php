@@ -48,7 +48,9 @@ class Clients extends Migration
             $table->string('ms_office_version'); //รุ่น microsoft office
             $table->string('antivirus'); //ยี่ห้อ-รุ่น antivirus
             $table->string('pdf_reader'); //ยี่ห้อ-รุ่น โปรแกรมอ่านไฟล์ PDF
+            $table->string('endnote_version')->nullable(); //รุ่น โปรแกรม Endnote
             $table->integer('ie_version'); //รุ่นของ Internet Explorer
+            $table->string('firefox_version')->nullable(); //รุ่น โปรแกรม Firefox
             $table->string('chrome_version'); //รุ่นของ google chrome
             $table->integer('spss_version')->nullable(); //รุ่นของ SPSS
             $table->boolean('ehis')->default(0); //มี eHIS

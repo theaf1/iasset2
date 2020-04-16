@@ -495,6 +495,14 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="endnote">Endnote Version</label>
+                                    <input type="text" name="endnote_version" id="endnote" class="form-control" value="{{ old('endnote_version') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--ie version-->
                                 <div class="form-group">
                                     <label for="ie_version">IE version</label>
@@ -504,6 +512,12 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="firefox">Firefox Version</label>
+                                    <input type="text" name="firefox_version" id="firefox" class="form-control" value="{{ old('firefox_version') }}">
                                 </div>
                             </div>
                         </div>
