@@ -9,6 +9,7 @@ use App\Section;
 use App\NetSubtype;
 use App\Networkdevices;
 use App\Owner;
+use App\Mobility;
 
 class NetworkdeviceController extends Controller
 {
@@ -25,6 +26,7 @@ class NetworkdeviceController extends Controller
         $Sections = Section::all();
         $NetSubtypes = NetSubtype::all();
         $Owners = Owner::all();
+        $Mobility = Mobility::all();
 
         //ตัวแปรที่ส่งไปยังหน้า addnetworkdevices
 
@@ -34,6 +36,7 @@ class NetworkdeviceController extends Controller
             'sections'=>$Sections,
             'netsubtypes'=>$NetSubtypes,
             'owners'=>$Owners,
+            'mobiles'=>$Mobility,
         ]);
     }
 
@@ -86,6 +89,7 @@ class NetworkdeviceController extends Controller
         $Sections = Section::all();
         $NetSubtypes = NetSubtype::all();
         $Owners = Owner::all();
+        $Mobility = Mobility::all();
         $networkdevice = Networkdevices::find($id);
         return view('editnetworkdevice')->with([
             'networkdevice'=>$networkdevice,
@@ -94,6 +98,7 @@ class NetworkdeviceController extends Controller
             'sections'=>$Sections,
             'netsubtypes'=>$NetSubtypes,
             'owners'=>$Owners,
+            'mobiles'=>$Mobility,
         ]);
 
     }
@@ -131,6 +136,7 @@ class NetworkdeviceController extends Controller
             'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
             'pid'=>'nullable',
             'location_id' => 'required',
+            'is_mobile' => 'required',
             'response_person' => 'required',
             'owner' => 'required',
             'tel_no' => 'required',
@@ -148,6 +154,7 @@ class NetworkdeviceController extends Controller
         $messages = [
             'sapid.regex' => 'กรุณาตรวจสอบรหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
+            'is_mobile.required' =>'กรุณาระบุลักษณะการติดตั้ง',
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
             'section.required' => 'กรุณาเลือกสาขา',
             'owner.required' => 'กรุณาระบุที่มาของเครื่อง',
