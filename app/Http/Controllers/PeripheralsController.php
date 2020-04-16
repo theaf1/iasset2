@@ -9,6 +9,7 @@ use App\Section;
 use App\Peripherals;
 use App\Peripheraltype;
 use App\Owner;
+use App\Mobility;
 
 class PeripheralsController extends Controller
 {
@@ -39,6 +40,7 @@ class PeripheralsController extends Controller
             ['id'=>'2', 'name'=>'network share'],
         );
         $Owners = Owner::all();
+        $Mobility = Mobility::all();
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addperipherals
         return view('addperipherals')->with([
@@ -50,6 +52,7 @@ class PeripheralsController extends Controller
             'peripheralconnections'=>$PeripheralConnections,
             'sharemethods'=>$ShareMethods,
             'owners'=>$Owners,
+            'mobiles'=>$Mobility,
          
         ]);
     }
@@ -117,6 +120,7 @@ class PeripheralsController extends Controller
             ['id'=>'2', 'name'=>'network share'],
         );
         $Owners = Owner::all();
+        $Mobility = Mobility::all();
 
         $peripheral = Peripherals::find($id);
 
@@ -130,6 +134,7 @@ class PeripheralsController extends Controller
             'peripheralconnections'=>$PeripheralConnections,
             'sharemethods'=>$ShareMethods,
             'owners'=>$Owners,
+            'mobiles'=>$Mobility,
          
         ]);
     }
