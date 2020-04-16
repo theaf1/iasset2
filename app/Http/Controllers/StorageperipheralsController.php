@@ -8,6 +8,7 @@ use App\Asset_use_statuses;
 use App\Section;
 use App\Storageperipherals;
 use App\Owner;
+use App\Mobility;
 
 class StorageperipheralsController extends Controller
 {
@@ -32,6 +33,7 @@ class StorageperipheralsController extends Controller
             ['id' => '2', 'name' => 'eSATA'],
             ['id' => '3', 'name' => 'SAS'],
         );
+        $Mobility = Mobility::all();
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addstorageperipherals
         return view('addstorageperipherals')->with([
@@ -41,6 +43,7 @@ class StorageperipheralsController extends Controller
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
             'connectivities'=>$Connectivity,
+            'mobiles'=>$Mobility,
         ]);
     }
 
@@ -101,6 +104,7 @@ class StorageperipheralsController extends Controller
             ['id' => '2', 'name' => 'eSATA'],
             ['id' => '3', 'name' => 'SAS'],
         );
+        $Mobility = Mobility::all();
 
         $storageperipheral = Storageperipherals::find($id);
 
@@ -112,6 +116,7 @@ class StorageperipheralsController extends Controller
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
             'connectivities'=>$Connectivity,
+            'mobiles'=>$Mobility,
         ]);
     }
 
@@ -147,6 +152,7 @@ class StorageperipheralsController extends Controller
             'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
             'pid'=>'nullable',
             'location_id' => 'required',
+            'is_mobile' => 'required',
             'user' => 'required',
             'position' => 'required',
             'tel_no' => 'required',
@@ -170,6 +176,7 @@ class StorageperipheralsController extends Controller
             'sapid.regex' => 'กรุณาตรวจสอบรหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'section.required' => 'กรุณาเลือกสาขา',
+            'is_mobile.required' => 'กรุณาระบุลักษณะการใช้งาน',
             'user.required'=>'กรุณาระบุชื่อผู้ใช้งาน',
             'position.required' => 'กรุณาระบุตำแแหน่งผู้ใช้งาน',
             'tel_no.required' => 'กรุณาใส่หมายเลขโทรศัพท์',
