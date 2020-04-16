@@ -66,11 +66,16 @@
                                 <div class="form-group">
                                 <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="1">
-                                        <label class="form-check-label" for="is_mobile">เป็นเครื่องเคลื่อนที่</label><br>
-                                        <input class="form-check-input" type="radio" name="is_mobile" id="is_mobile" value="0" checked>
-                                        <label class="form-check-label" for="is_mobile">เป็นเครื่องประจำที่</label><br>
-                                    </div><br>
+                                        @foreach ($mobiles as $mobile)
+                                            <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="{{ $mobile['value'] }}" {{ old('is_mobile',$server->is_mobile) == $mobile['value'] && old('is_mobile',$server->is_mobile) !== null ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="is_mobile">{{ $mobile['name'] }}</label><br>
+                                        @endforeach
+                                        @error('is_mobile')
+                                            <div class="invalid-feedback">
+                                                {{ $message}}
+                                            </div>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                         </div>

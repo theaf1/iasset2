@@ -11,6 +11,7 @@ use App\ServerOS;
 use App\ServerRoleClass;
 use App\NetworkConnection;
 use App\Owner;
+use App\Mobility;
 
 class ServerController extends Controller
 {
@@ -37,6 +38,7 @@ class ServerController extends Controller
             ['id'=>'2', 'name'=>'TB'],
         );
         $Owners = Owner::all();
+        $Mobility = Mobility::all();
 
         //ตัวแปรที่ส่งไปยังหน้า addserver
         return view('addserver')->with([
@@ -49,6 +51,7 @@ class ServerController extends Controller
             'forms'=>$Forms,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
+            'mobiles'=>$Mobility,
         ]);
     }
 
