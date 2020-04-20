@@ -129,6 +129,7 @@ class StorageperipheralsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validateData($request);
         Storageperipherals::find($id)->update($request->all());
         return redirect('/index');
     }

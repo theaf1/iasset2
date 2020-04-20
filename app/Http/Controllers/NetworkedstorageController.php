@@ -129,6 +129,7 @@ class NetworkedstorageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validateData($request);
         Networkedstorage::find($id)->update($request->all());
         return redirect('/index');
     }
