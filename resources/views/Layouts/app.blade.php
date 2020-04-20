@@ -38,7 +38,7 @@
               <a class="dropdown-item" href="{{ url('/ns') }}">เพิ่มข้อมูลอุปกรณ์เก็บข้อมูลเครือข่าย</a>
               <a class="dropdown-item" href="{{ url('/ups') }}">เพิ่มข้อมูลเครื่องสำรองไฟฟ้า</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="{{ url('/index') }}">สอบทานและแก้ไขข้อมูลครุภัณฑ์</a>
             </div>
           </li>
         </ul>
