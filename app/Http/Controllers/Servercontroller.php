@@ -114,6 +114,7 @@ class ServerController extends Controller
             ['id'=>'2', 'name'=>'TB'],
         );
         $Owners = Owner::all();
+        $Mobility = Mobility::all();
 
         $server = Servers::find($id);
         
@@ -128,6 +129,7 @@ class ServerController extends Controller
             'forms'=>$Forms,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
+            'mobiles'=>$Mobility,
         ]);
     }
 
