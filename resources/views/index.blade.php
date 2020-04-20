@@ -36,7 +36,7 @@
                             <th scope="col">mobile</th>
                             <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                             <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
-                            <th scope="col">a</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,7 +69,7 @@
                             <th scope="col">mobile</th>
                             <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                             <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
-                            <th scope="col">a</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,7 +102,7 @@
                             <th scope="col">mobile</th>
                             <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                             <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
-                            <th scope="col">a</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -133,7 +133,7 @@
                             <th scope="col">mobile</th>
                             <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                             <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
-                            <th scope="col">a</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -165,7 +165,7 @@
                             <th scope="col">mobile</th>
                             <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                             <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
-                            <th scope="col">a</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -198,7 +198,7 @@
                             <th scope="col">mobile</th>
                             <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                             <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
-                            <th scope="col">a</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
