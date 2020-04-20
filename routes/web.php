@@ -57,3 +57,6 @@ Route::get('/search', 'SearchController@index');
 Route::get('/index', 'IndexController@index');
 Route::get('/peripheral/{id}', 'PeripheralsController@edit');
 Route::put('peripheral/{id}', 'PeripheralsController@update');
+Route::get('/clientindex', 'ClientIndexController@index');
+Route::get('/peripheralsindex', 'PeripheralsIndexController@index');
+Route::get('/storageperipheralsindex', 'StorageperipheralsIndexController@index');
