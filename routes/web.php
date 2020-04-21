@@ -60,3 +60,4 @@ Route::put('peripheral/{id}', 'PeripheralsController@update');
 Route::get('/clientindex', 'ClientIndexController@index');
 Route::get('/peripheralsindex', 'PeripheralsIndexController@index');
 Route::get('/storageperipheralsindex', 'StorageperipheralsIndexController@index');
+Route::get('/serverindex', 'ServerIndexController@index');
