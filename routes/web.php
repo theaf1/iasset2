@@ -56,8 +56,6 @@ Route::put('/server/{id}', 'ServerController@update');
 //under development
 Route::get('/admin', 'SectionController@index');
 Route::get('/search', 'SearchController@index');
-Route::get('/index', 'IndexController@index');
-
 Route::get('/client', 'ClientIndexController@index');
 Route::get('/peripheral', 'PeripheralsIndexController@index');
 Route::get('/storageperipheral', 'StorageperipheralsIndexController@index');
