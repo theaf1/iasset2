@@ -22,7 +22,7 @@ class ClientIndexController extends Controller
      */
     public function index()
     {
-        $Clients = Client::all();
+        $Clients = Client::paginate(2);
         $Clienttypes =Clienttype::all();
         $Mobility = Mobility::all();
         $Sections = Section::all();
