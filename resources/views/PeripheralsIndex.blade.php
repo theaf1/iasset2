@@ -35,6 +35,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $peripherals->links() }}
                 </div>
             </div>
         </div>   

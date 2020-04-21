@@ -40,7 +40,7 @@ class PeripheralsIndexController extends Controller
         );
         $Owners = Owner::all();
         $Mobility = Mobility::all();
-        $peripherals = Peripherals::all();
+        $peripherals = Peripherals::paginate(2);
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addperipherals
         return view('PeripheralsIndex')->with([
