@@ -33,9 +33,11 @@ class StorageperipheralsIndexController extends Controller
             ['id' => '3', 'name' => 'SAS'],
         );
         $Mobility = Mobility::all();
+        $storageperipherals = Storageperipherals::all();
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addstorageperipherals
         return view('StorageperipheralsIndex')->with([
+            'storageperipherals'=>$storageperipherals,
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
