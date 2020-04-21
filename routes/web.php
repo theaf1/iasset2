@@ -62,3 +62,4 @@ Route::get('/peripheralsindex', 'PeripheralsIndexController@index');
 Route::get('/storageperipheralsindex', 'StorageperipheralsIndexController@index');
 Route::get('/serverindex', 'ServerIndexController@index');
 Route::get('/networkdevice', 'NetworkdeviceIndexController@index');
+Route::get('/networkedstorage', 'NetworkedstorageIndexController@index');
