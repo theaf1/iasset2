@@ -38,7 +38,7 @@ class ServerIndexController extends Controller
         );
         $Owners = Owner::all();
         $Mobility = Mobility::all();
-        $Servers = Servers::all();
+        $Servers = Servers::paginate(2);
 
         //ตัวแปรที่ส่งไปยังหน้า addserver
         return view('ServerIndex')->with([

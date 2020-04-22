@@ -33,6 +33,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $servers->links() }}
                 </div>
             </div>
         </div>
