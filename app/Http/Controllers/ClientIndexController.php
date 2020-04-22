@@ -39,7 +39,7 @@ class ClientIndexController extends Controller
             ['id'=>'1', 'name'=>'GB'],
             ['id'=>'2', 'name'=>'TB'],
         );
-
+        
         return view('clientindex')->with([
             'clients'=>$Clients,
             'asset_statuses'=>$Asset_statuses,

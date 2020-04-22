@@ -76,7 +76,7 @@ class Client extends Model
       return $this->belongsTo(Section::class);
    }
    //แสดงความสัมพันธ์กับตาราง Clienttype
-   public function Clienttype ()
+   public function ClientType ()
    {
       return $this->belongsTo(Clienttype::class);
    }
