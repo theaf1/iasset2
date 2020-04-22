@@ -33,6 +33,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $storageperipherals->links() }}
                 </div>
             </div>
         </div>
