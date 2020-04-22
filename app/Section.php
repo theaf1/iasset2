@@ -12,9 +12,9 @@ class Section extends Model
        'name',
    ];
    //แสดงความสัมพันธ์กับตาราง Client
-    public function client ()
+    public function clientSection ()
     {
-        return $this->belongsTo(Client::class);
+        return $this->hasMany(Client::class,'section');
     }
     //แสดงความสัมพันธ์กับตาราง Peripherals
     public function peripherals ()

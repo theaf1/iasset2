@@ -17,6 +17,7 @@ class Sections extends Migration
         Schema::create('sections', function (blueprint $table) {
             $table->bigincrements('id'); //ลำดับที่
             $table->string('name'); //ชื่อหน่วยงาน
+            $table->integer('client_id')->default(0); //client ID จากตาราง client
             $table->timestamps();  
         });
         //นำข้อมูลเข้าสู่ฐานข้อมูล

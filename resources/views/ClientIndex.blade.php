@@ -14,9 +14,13 @@
                                 <th scope="col">ชนิด</th>
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
+                                <th scope="col">หน่วยงาน</th>
+                                <th scope="col">ระบบงาน</th>
                                 <th scope="col">mobile</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
+                                <th scope="col">จำนวนผู้ใช้งาน</th>
+                                <th scope="col">ผู้ใช้งาน</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -24,12 +28,16 @@
                             @foreach ($clients as $client)
                                 <tr>
                                     <th scope="row">{{ $client['id'] }}</th>
-                                    <td>{{ $client['type'] }}</td>
+                                    <td>{{ $client->Clienttype->name }}</td>
                                     <td>{{ $client['sapid'] }}</td>
                                     <td>{{ $client['pid'] }}</td>
+                                    <td>{{ $client['section'] }}</td>
+                                    <td>{{ $client['function'] }}</td>
                                     <td>{{ $client['is_mobile'] }}</td>
                                     <td>{{ $client['asset_status'] }}</td>
                                     <td>{{ $client['asset_use_status'] }}</td>
+                                    <td>{{ $client['multi_user'] }}</td>
+                                    <td>{{ $client['user'] }}</td>
                                     <td><a href="{{ url('/client',$client->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</button></td>
                                 </tr>
                             @endforeach

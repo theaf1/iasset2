@@ -71,14 +71,14 @@ class Client extends Model
       return $this->hasMany(Display::class);
    }
    //แสดงความสัมพันธ์กับตาราง Section
-   public function section ()
+   public function clientSection ()
    {
-      return $this->hasOne(Section::class);
+      return $this->belongsTo(Section::class);
    }
    //แสดงความสัมพันธ์กับตาราง Clienttype
    public function Clienttype ()
    {
-      return $this->hasOne(Clienttype::class);
+      return $this->belongsTo(Clienttype::class);
    }
    //แสดงความสัมพันธ์กับตาราง location
    public function location ()
