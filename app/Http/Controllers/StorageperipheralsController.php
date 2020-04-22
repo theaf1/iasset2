@@ -131,7 +131,7 @@ class StorageperipheralsController extends Controller
     {
         $this->validateData($request);
         Storageperipherals::find($id)->update($request->all());
-        return redirect('/index');
+        return redirect('/storageperipheral');
     }
 
     /**

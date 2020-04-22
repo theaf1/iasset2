@@ -150,7 +150,7 @@ class PeripheralsController extends Controller
     {
         $this->validateData($request);
         Peripherals::find($id)->update($request->all());
-        return redirect('/peripheralsindex');
+        return redirect('/peripheral');
     }
 
     /**

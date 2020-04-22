@@ -157,7 +157,7 @@ class UpsController extends Controller
     {
         $this->validateData($request);
         Upses::find($id)->update($request->all());
-        return redirect('/index');
+        return redirect('/ups');
     }
 
     /**

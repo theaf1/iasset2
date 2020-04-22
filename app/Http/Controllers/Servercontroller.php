@@ -144,7 +144,7 @@ class ServerController extends Controller
     {
         $this->validateData($request);
         Servers::find($id)->update($request->all());
-        return redirect('/index');
+        return redirect('/server');
     }
 
     /**
