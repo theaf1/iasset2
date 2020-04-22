@@ -32,7 +32,7 @@ class NetworkedstorageIndexController extends Controller
             ['id'=>'2', 'name'=>'SAN'],
         );
         $Mobility = Mobility::all();
-        $Networkedstorages = NetworkedStorage::all();
+        $Networkedstorages = NetworkedStorage::paginate(2);
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
         return view('NetworkedstorageIndex')->with([

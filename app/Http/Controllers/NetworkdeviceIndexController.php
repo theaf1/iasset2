@@ -26,7 +26,7 @@ class NetworkdeviceIndexController extends Controller
         $NetSubtypes = NetSubtype::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
-        $Networkdevices = Networkdevices::all();
+        $Networkdevices = Networkdevices::paginate(2);
 
         //ตัวแปรที่ส่งไปยังหน้า addnetworkdevices
 

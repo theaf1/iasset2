@@ -33,6 +33,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $upses->links() }}
                 </div>
             </div>
         </div>

@@ -35,6 +35,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $networkdevices->links() }}
                 </div>
             </div>
         </div>

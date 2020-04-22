@@ -35,6 +35,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $networkedstorages->links() }}
                 </div>
             </div>
         </div>

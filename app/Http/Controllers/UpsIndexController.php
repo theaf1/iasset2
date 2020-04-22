@@ -46,7 +46,7 @@ class UpsIndexController extends Controller
             ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
         );
         $Mobility = Mobility::all();
-        $Upses = Upses::all();
+        $Upses = Upses::paginate(2);
 
         return view('UpsIndex')->with([
             'upses'=>$Upses,
