@@ -10,6 +10,7 @@ class Clienttype extends Model
     protected $fillable = [
         'id',
         'name',
+        'client_id'
     ];
     //แสดงความสัมพันธ์กับตาราง Client
     public function typeclients ()
