@@ -15,6 +15,6 @@ class Clienttype extends Model
     //แสดงความสัมพันธ์กับตาราง Client
     public function typeclients ()
     {
-        return $this->hasMany(Client::class,'type');
+        return $this->hasMany(Client::class,'type_id');
     }
 }

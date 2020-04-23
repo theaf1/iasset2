@@ -9,12 +9,12 @@ class Client extends Model
    //column ที่สามารถเพิ่มและแก้ไขข้อมูล
    protected $fillable = [
       'id',
-      'type',
+      'type_id',
       'sapid',
       'pid',
       'location_id',
       'is_mobile',
-      'section',
+      'section_id',
       'user',
       'multi_user',
       'position',
@@ -73,17 +73,22 @@ class Client extends Model
    //แสดงความสัมพันธ์กับตาราง Section
    public function clientsection ()
    {
-      return $this->belongsTo(Section::class,'section');
+      return $this->belongsTo(Section::class,'section_id');
    }
    //แสดงความสัมพันธ์กับตาราง Clienttype
    public function ClientType ()
    {
-      return $this->belongsTo(Clienttype::class,'type');
+      return $this->belongsTo(Clienttype::class,'type_id');
    }
    //แสดงความสัมพันธ์กับตาราง location
    public function location ()
    {
      return $this->hasOne(location::class);
+   }
+   //แสดงความสัมพันธ์กับตาราง Owner
+   public function ClientOwner ()
+   {
+      return $this->belongsTo(Owner::class,'owner');
    }
    //แสดงความสัมพันธ์กับตาราง Asset_statuses
    public function assetstatus ()

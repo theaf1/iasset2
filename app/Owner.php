@@ -14,7 +14,7 @@ class Owner extends Model
     //แสดงความสัมพันธ์กับตาราง Client
     public function client ()
     {
-        return $this->BelongsTo(Client::class);
+        return $this->hasMany(Client::class,'owner');
     }
     //แสดงความสัมพันธ์กับตาราง Peripherals
     public function peripherals ()

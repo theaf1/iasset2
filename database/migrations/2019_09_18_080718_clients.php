@@ -15,10 +15,10 @@ class Clients extends Migration
     {
         Schema::create('clients', function (blueprint $table) {
             $table->bigincrements('id'); //ลำดับที่
-            $table->integer('type'); //ชนิด
+            $table->integer('type_id'); //ชนิด
             $table->string('sapid')->nullable(); //รหัส SAP
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
-            $table->integer('section'); //หน่วยงาน รับค่าจากตาราง Sections
+            $table->integer('section_id'); //หน่วยงาน รับค่าจากตาราง Sections
             $table->boolean('is_mobile')->default(0); //เป็นเครื่องเคลื่อนที่ได้
             $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
             $table->string('user')->nullable(); //ชื่อผู้ใช้งาน

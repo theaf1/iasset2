@@ -12,6 +12,7 @@
                             <tr>
                                 <th scope="col">ลำดับที่</th>
                                 <th scope="col">ชนิด</th>
+                                <th scope="col">ที่มา</th>
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
                                 <th scope="col">หน่วยงาน</th>
@@ -29,6 +30,7 @@
                                 <tr>
                                     <th scope="row">{{ $client['id'] }}</th>
                                     <td>{{ $client->ClientType->name }}</td>
+                                    <td>{{ $client->ClientOwner->name }}</td>
                                     <td>{{ $client['sapid'] }}</td>
                                     <td>{{ $client['pid'] }}</td>
                                     <td>{{ $client->clientSection->name }}</td>
