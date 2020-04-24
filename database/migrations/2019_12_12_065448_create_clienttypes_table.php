@@ -18,6 +18,7 @@ class CreateClienttypesTable extends Migration
         Schema::create('clienttypes', function (Blueprint $table) {
             $table->bigIncrements('id'); //ลำดับที่
             $table->string('name'); //ชื่อชนิด
+            $table->integer('client_id')->nullable();
             $table->timestamps();
         });
         //กำหนดชื่อชนิด

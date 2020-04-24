@@ -177,7 +177,7 @@ class ClientController extends Controller
     //function ตรวจสอบข้อมูลก่อนการบันทึก
     private function validateData($data){
         $rules = [
-            'type' =>'required',
+            'type_id' =>'required',
             'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
             'pid' => 'nullable',
             'location_id' => 'required',
@@ -186,7 +186,7 @@ class ClientController extends Controller
             'asset_status' => 'required',
             'asset_use_status' => 'required',
             'user' =>'required_if:multi_user,0',
-            'section' => 'required',
+            'section_id' => 'required',
             'owner' => 'required',
             'tel_no' => 'required',
             'permission' => 'required',
@@ -220,7 +220,7 @@ class ClientController extends Controller
         ];
 
         $messages = [
-            'type.required'=>'กรุณาระบุชนิดของครุภัณฑ์คอมพิวเตอร์',
+            'type_id.required'=>'กรุณาระบุชนิดของครุภัณฑ์คอมพิวเตอร์',
             'sapid.regex'=>'กรุณาตรวจสอบรหัส SAP',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้งเเครื่อง',
             'is_mobile.required'=>'กรุณาระบุลักษณะการใช้งาน',
@@ -228,7 +228,7 @@ class ClientController extends Controller
             'asset_status.required'=>'กรุณาระบุสถานะของครุภัณฑ์',
             'asset_use_status.required'=>'กรุณาระบุสถานะการใช้งานของครุภัณฑ์',
             'user.required_if'=>'กรุณาระบุชื่อผู้ใช้งาน',
-            'section.required'=>'กรุณาระบุหน่วยงาน',
+            'section_id.required'=>'กรุณาระบุหน่วยงาน',
             'owner.required'=>'กรุณาระบุเจ้าของเครือง',
             'tel_no.required'=>'กรุณาระบุหมายเลขโทรศัพท์',
             'permission.required'=>'กรุณาระบุสถานะของสิทธิ์ admin',

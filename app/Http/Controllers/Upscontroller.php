@@ -7,6 +7,7 @@ use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
 use App\Owner;
+use App\Mobility;
 use App\Upses;
 
 class UpsController extends Controller
@@ -44,6 +45,7 @@ class UpsController extends Controller
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่มี'],
             ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
         );
+        $Mobility = Mobility::all();
 
         return view('addups')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -55,6 +57,7 @@ class UpsController extends Controller
             'modulars'=>$Modular,
             'bat_types'=>$Bat_type,
             'exbats'=>$ExBat,
+            'mobiles'=>$Mobility,
         ]);
     }
 
@@ -123,6 +126,7 @@ class UpsController extends Controller
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่มี'],
             ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
         );
+        $Mobility = Mobility::all();
 
         $ups = Upses::find($id);
         //return $ups;
@@ -137,6 +141,8 @@ class UpsController extends Controller
             'modulars'=>$Modular,
             'bat_types'=>$Bat_type,
             'exbats'=>$ExBat,
+            'mobiles'=>$Mobility,
+
         ]);
     }
 
@@ -149,8 +155,9 @@ class UpsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validateData($request);
         Upses::find($id)->update($request->all());
-        return redirect('/index');
+        return redirect('/ups');
     }
 
     /**
@@ -174,6 +181,7 @@ class UpsController extends Controller
             'section' => 'required',
             'tel_no' => 'required',
             'owner' => 'required',
+            'is_mobile' => 'required',
             'asset_status' => 'required',
             'asset_use_status' => 'required',
             'brand'=>'required',
@@ -191,6 +199,7 @@ class UpsController extends Controller
             'section.required' => 'กรุณาเลือกสาขา',
             'tel_no.required' => 'กรุณาใส่หมายเลขโทรศัพท์',
             'owner.required' => 'กรุณาระบุที่มาของเครื่อง',
+            'is_mobile.required' => 'กรุณาระบุลักษณะการติดตั้ง',
             'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งาน',
             'brand.required' => 'กรุณาใส่ยี่ห้อ',

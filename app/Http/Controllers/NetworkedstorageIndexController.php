@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Asset_statuses;
+use App\Asset_use_statuses;
 use App\Section;
-use App\Client;
-use App\Peripherals;
-use App\Storageperipherals;
-use App\Servers;
-use App\Networkdevices;
 use App\NetworkedStorage;
-use App\Upses;
-class IndexController extends Controller
+use App\Owner;
+use App\Mobility;
+
+class NetworkedstorageIndexController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,24 +19,32 @@ class IndexController extends Controller
      */
     public function index()
     {
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
-        $Clients = Client::all();
-        $Peripherals =Peripherals::all();
-        $Storageperipherals = Storageperipherals::all();
-        $Servers = Servers::all();
-        $Networkdevices = Networkdevices::all();
-        $Networkedstorages = NetworkedStorage::all();
-        $Upses = Upses::all();
+        $DataUnits =array(
+            ['id'=>'1', 'name'=>'GB'],
+            ['id'=>'2', 'name'=>'TB']
+        );
+        $Owners = Owner::all();
+        $Storagetypes = array(
+            ['id'=>'1', 'name'=>'NAS'],
+            ['id'=>'2', 'name'=>'SAN'],
+        );
+        $Mobility = Mobility::all();
+        $Networkedstorages = NetworkedStorage::paginate(2);
 
-        return view('index')->with([
-            'sections'=>$Sections,
-            'clients'=>$Clients,
-            'peripherals'=>$Peripherals,
-            'storageperipherals'=>$Storageperipherals,
-            'servers'=>$Servers,
-            'networkdevices'=>$Networkdevices,
+        //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
+        return view('NetworkedstorageIndex')->with([
             'networkedstorages'=>$Networkedstorages,
-            'upses'=>$Upses,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'storagetypes'=>$Storagetypes,
+            'mobiles'=>$Mobility,
+
         ]);
     }
 

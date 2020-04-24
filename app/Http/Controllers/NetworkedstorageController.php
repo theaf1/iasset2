@@ -8,6 +8,7 @@ use App\Asset_use_statuses;
 use App\Section;
 use App\NetworkedStorage;
 use App\Owner;
+use App\Mobility;
 
 class NetworkedstorageController extends Controller
 {
@@ -31,6 +32,7 @@ class NetworkedstorageController extends Controller
             ['id'=>'1', 'name'=>'NAS'],
             ['id'=>'2', 'name'=>'SAN'],
         );
+        $Mobility = Mobility::all();
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
         return view('addnetworkedstorage')->with([
@@ -39,7 +41,8 @@ class NetworkedstorageController extends Controller
             'sections'=>$Sections,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
-            'storagetypes'=>$Storagetypes
+            'storagetypes'=>$Storagetypes,
+            'mobiles'=>$Mobility,
 
         ]);
     }
@@ -100,6 +103,7 @@ class NetworkedstorageController extends Controller
             ['id'=>'1', 'name'=>'NAS'],
             ['id'=>'2', 'name'=>'SAN'],
         );
+        $Mobility = Mobility::all();
         $networkedstorage = NetworkedStorage::find($id);
         //return $networkedstorage;
 
@@ -110,7 +114,8 @@ class NetworkedstorageController extends Controller
             'sections'=>$Sections,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
-            'storagetypes'=>$Storagetypes
+            'storagetypes'=>$Storagetypes,
+            'mobiles'=>$Mobility,
 
         ]);
     }
@@ -124,8 +129,9 @@ class NetworkedstorageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validateData($request);
         Networkedstorage::find($id)->update($request->all());
-        return redirect('/index');
+        return redirect('/networkedstorage');
     }
 
     /**
@@ -150,6 +156,7 @@ class NetworkedstorageController extends Controller
             'response_person' => 'required',
             'owner' => 'required',
             'tel_no' => 'required',
+            'is_mobile' => 'required',
             'asset_status' => 'required',
             'asset_use_status' => 'required',
             'type' => 'required',
@@ -174,6 +181,7 @@ class NetworkedstorageController extends Controller
             'response_person.required' => 'กรุณาระบุผู้รับผิดชอบ',
             'owner.required' => 'กรุณาระบุที่มา',
             'tel_no.required' => 'กรุณาใส่หมายเลขโทรศัพท์',
+            'is_mobile.required' => 'กรุณาระบุลักษณะการติดตั้ง',
             'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งานครุภัณฑ์',
             'type.required' => 'กรุณาระบุชนิดของอุปกรณ์',

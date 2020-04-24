@@ -10,10 +10,11 @@ class Clienttype extends Model
     protected $fillable = [
         'id',
         'name',
+        'client_id'
     ];
     //แสดงความสัมพันธ์กับตาราง Client
-    public function client ()
+    public function typeclients ()
     {
-        return $this->belongsTo(Client::class);
+        return $this->hasMany(Client::class,'type_id');
     }
 }

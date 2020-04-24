@@ -9,6 +9,13 @@
                     {{ $message }}
                 </div>
             @endif
+            @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
@@ -19,10 +26,10 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
                                 <div class="form-group"> 
                                     <label for="type">ชนิด</label>
-                                    <select class="form-control @error('type') is-invalid @enderror" id="type" name="type">
+                                    <select class="form-control @error('type_id') is-invalid @enderror" id="type" name="type_id">
                                         <option value="" hidden></option>
                                         @foreach($clienttypes as $clienttype)
-                                            <option value="{{ $clienttype['id'] }}" {{ old('type') == $clienttype['id'] ? 'selected' : ''}}>{{ $clienttype['name'] }}</option>
+                                            <option value="{{ $clienttype['id'] }}" {{ old('type_id') == $clienttype['id'] ? 'selected' : ''}}>{{ $clienttype['name'] }}</option>
                                         @endforeach
                                     </select>
                                     @error('type')
@@ -190,10 +197,10 @@
                             <div class="col-sm-12 col-lg-6"> <!-- หน่วยงาน -->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
-                                    <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
+                                    <select class="form-control @error('section') is-invalid @enderror" name="section_id" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
-                                            <option value="{{ $section['id'] }}" {{ old('section') == $section['id'] ? 'selected' : ''}}>{{ $section['name'] }}</option>
+                                            <option value="{{ $section['id'] }}" {{ old('section_id') == $section['id'] ? 'selected' : ''}}>{{ $section['name'] }}</option>
                                         @endforeach
                                     </select>
                                     @error('section')
@@ -602,7 +609,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--ip address-->
                                 <div class="form-group">
                                     <label for="ip_address">IP Address</label>
-                                    <input class="form-control @error('ip_address') is-invalid @enderror" name="ip_address" id="ip_address" type="text" placeholder="127.0.0.1" value="{{ old('ip_addresss') }}">
+                                    <input class="form-control @error('ip_address') is-invalid @enderror" name="ip_address" id="ip_address" type="text" placeholder="127.0.0.1" value="{{ old('ip_address') }}">
                                     @error('ip_address')
                                         <div class="invalid-feedback">
                                             {{ $message }}

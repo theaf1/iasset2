@@ -271,7 +271,7 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                    <input class="form-control @error('total_capacity') is-invalid @enderror" name="total_capacity" id="total_capacity" type="number" min="0" step="0.01">
+                                    <input class="form-control @error('total_capacity') is-invalid @enderror" name="total_capacity" id="total_capacity" type="number" min="0" step="0.01" value="{{ old('total_capacity') }}">
                                     @error('total_capacity')
                                         <div class="invalid-feedback">
                                             {{ $message }}

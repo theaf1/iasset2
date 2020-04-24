@@ -3,13 +3,13 @@
 <div class="container-fuild">
     <div class="col-12 mx-auto">
         <form action="{{ url('/client',$client->id) }}" method="post" id="computer_form">
-            <input type="hidden" name="_method" value="PUT">
-            @if ( $message = Session::get('success')) <!--แจ้งผลการบันทึกข้อมูล-->
-                <div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ $message }}
-                </div>
-            @endif
+                <input type="hidden" name="_method" value="PUT">
+                @if ( $message = Session::get('success')) <!--แจ้งผลการบันทึกข้อมูล-->
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ $message }}
+                    </div>
+                @endif
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
@@ -85,8 +85,9 @@
                                     <label for="is_mobile">ลักษณะการใช้งาน</label><br>
                                     <div class="form-check-inline">
                                         @foreach ($mobiles as $mobile)
-                                        <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="{{ $mobile['value'] }}" {{ old('is_mobile',$client->is_mobile) == $mobile['value'] ? 'checked' : ''}}>
-                                        <label class="form-check-label" for="is_mobile">{{ $mobile['name'] }}</label>
+                                            <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="{{ $mobile['value'] }}" {{ old('is_mobile',$client->is_mobile) == $mobile['value'] ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="is_mobile">{{ $mobile['name'] }}</label>
+                                        @endforeach
                                         @error('is_mobile')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -666,7 +667,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <div class="text-center mt-4">
                 <button type="submit" class="btn btn-lg btn-success">Submit</button>
             </div>
