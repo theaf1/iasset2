@@ -39,7 +39,7 @@ class Asset_use_statuses extends Model
     //แสดงความสัมพันธ์กับตาราง Servers
     public function servers ()
     {
-        return $this->belongsTo(Servers::class);
+        return $this->hasMany(Servers::class,'asset_use_status');
     }
     //แสดงความสัมพันธ์กับตาราง Upses
     public function upses ()

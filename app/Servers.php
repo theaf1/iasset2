@@ -68,14 +68,14 @@ class Servers extends Model
         return $this->hasOne(Section::class);
     }
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
-    public function assetstatus ()
+    public function ServerAssetStatus ()
     {
-        return $this->hasOne(Asset_statuses::class);
+        return $this->belongsTo(Asset_statuses::class,'asset_status');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
-    public function assetusestatus ()
+    public function ServerAssetUseStatus ()
     {
-        return $this->hasOne(Asset_use_statuses::class);
+        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status');
     }
     //แสดงความสัมพันธ์กับตาราง ServerRoleClass
     public function serverroleclass ()
