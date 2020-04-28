@@ -44,18 +44,18 @@ class Storageperipherals extends Model
         return $this->hasOne(Location::class);
     }
     //แสดงความสัมพันธ์กับตาราง Owner
-    public function owner ()
+    public function StoragePeripheralOwner ()
     {
-        return $this->hasOne(Owner::class);
+        return $this->belongsTo(Owner::class,'owner');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
-    public function assetstatus ()
+    public function StoragePeripheralAssetStatus ()
     {
-        return $this->hasOne(Asset_ststuses::class);
+        return $this->belongsTo(Asset_statuses::class,'asset_status');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
-    public function assetusestatus ()
+    public function StoragePeripheralAssetUseStatus ()
     {
-        return $this->hasOne(Asset_use_statuses::class);
+        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status');
     }
 }
