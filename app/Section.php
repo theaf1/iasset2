@@ -19,7 +19,7 @@ class Section extends Model
     //แสดงความสัมพันธ์กับตาราง Peripherals
     public function peripherals ()
     {
-        return $this->belongsTo(Peripherals::class);
+        return $this->hasMany(Peripherals::class,'section');
     }
     //แสดงความสัมพันธ์กับตาราง Storageperipherals
     public function storageperipherals ()

@@ -38,17 +38,17 @@ class Peripherals extends Model
     //แสดงความสัมพันธ์กับตาราง Peripheraltype
     public function peripheraltype ()
     {
-        return $this->hasOne(Peripheraltype::class);
+        return $this->belongsTo(Peripheraltype::class,'type');
     }
     //แสดงความสัมพันธ์กับตาราง Section
-    public function section ()
+    public function peripheralsection ()
     {
-        return $this->hasOne(Section::class);
+        return $this->belongsTo(Section::class,'section');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
-    public function owner ()
+    public function peripheralowner ()
     {
-        return $this->hasOne(Owner::class);
+        return $this->belongsTo(Owner::class,'owner');
     }
     //แสดงความสัมพันธ์กับตาราง Location
     public function location ()
@@ -56,14 +56,14 @@ class Peripherals extends Model
         return $this->hasOne(Location::class);
     }
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
-    public function assetstatus ()
+    public function PeripheralAssetStatus ()
     {
-        return $this->hasOne(Asset_statuses::class);
+        return $this->belongsTo(Asset_statuses::class,'asset_status');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
-    public function assetusestatus ()
+    public function PeripheralAssetUseStatus ()
     {
-        return $this->hasOne(Asset_use_statuses::class);
+        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status');
     }
     
 }

@@ -19,7 +19,7 @@ class Owner extends Model
     //แสดงความสัมพันธ์กับตาราง Peripherals
     public function peripherals ()
     {
-        return $this->belongsTo(Peripherals::class);
+        return $this->hasMany(Peripherals::class,'owner');
     }
     //แสดงความสัมพันธ์กับตาราง Storageperipherals
     public function storageperipherals ()

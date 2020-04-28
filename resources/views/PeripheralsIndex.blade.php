@@ -14,6 +14,8 @@
                                 <th scope="col">ชนิด</th>
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
+                                <th scope="col">ที่มา</th>
+                                <th scope="col">หน่วยงาน</th>
                                 <th scope="col">mobile</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
@@ -24,12 +26,14 @@
                             @foreach ($peripherals as $peripheral)
                             <tr>
                                 <th scope="row">{{ $peripheral['id'] }}</th>
-                                <td>{{ $peripheral['type'] }}</td>
+                                <td>{{ $peripheral->peripheraltype->name }}</td>
                                 <td>{{ $peripheral['sapid'] }}</td>
                                 <td>{{ $peripheral['pid'] }}</td>
+                                <td>{{ $peripheral->peripheralowner->name }}</td>
+                                <td>{{ $peripheral->peripheralsection->name }}</td>
                                 <td>{{ $peripheral['is_mobile'] }}</td>
-                                <td>{{ $peripheral['asset_status'] }}</td>
-                                <td>{{ $peripheral['asset_use_status'] }}</td>
+                                <td>{{ $peripheral->PeripheralAssetStatus->name }}</td>
+                                <td>{{ $peripheral->PeripheralAssetUseStatus->name }}</td>
                                 <td><a href="{{ url('/peripheral',$peripheral->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                             </tr>
                             @endforeach
