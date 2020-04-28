@@ -23,8 +23,8 @@ class Client extends Model
       'owner',
       'tel_no',
       'permission',
-      'asset_status',
-      'asset_use_status',
+      'asset_status_id',
+      'asset_use_status_id',
       'remarks',
       'brand',
       'model',
@@ -90,15 +90,19 @@ class Client extends Model
    {
       return $this->belongsTo(Owner::class,'owner');
    }
-   //แสดงความสัมพันธ์กับตาราง Asset_statuses
-   public function assetstatus ()
+   public function ClientMobilty ()
    {
-     return $this->hasOne(Asset_statuses::class);
+      $this->belongsTo(Mobility::class,);
+   }
+   //แสดงความสัมพันธ์กับตาราง Asset_statuses
+   public function ClientAssetStatus ()
+   {
+     return $this->belongsTo(Asset_statuses::class,'asset_status_id');
    }
    //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
-   public function assetusestatus ()
+   public function ClientAssetUseStatus ()
    {
-     return $this->hasOne(Asset_use_statuses::class);
+     return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
    }
    //แสดงความสัมพันธ์กับตาราง NetworkConnection
    public function networkconnction ()

@@ -29,8 +29,8 @@ class Clients extends Migration
             $table->integer('function'); //ระบบงาน
             $table->integer('owner'); //เจ้าของเครือง
             $table->boolean('permission'); //อำนาจ admin
-            $table->integer('asset_status'); //สถานะทางทะเบียนครุภัณฑ์
-            $table->integer('asset_use_status'); //สถานะการใช้งานครุภัณฑ์
+            $table->integer('asset_status_id'); //สถานะทางทะเบียนครุภัณฑ์
+            $table->integer('asset_use_status_id'); //สถานะการใช้งานครุภัณฑ์
             $table->string('remarks')->nullable(); //หมายเหตุ
             $table->string('brand')->nullable(); //ยี่ห้อ
             $table->string('model')->nullable(); //รุ่น

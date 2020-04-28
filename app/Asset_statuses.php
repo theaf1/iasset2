@@ -14,7 +14,7 @@ class Asset_statuses extends Model
     //แสดงความสัมพันธ์กับตาราง Client
     public function client()
     {
-        return $this->belongsTo(Client::class);
+        return $this->hasMany(Client::class);
     }
     //แสดงความสัมพันธ์กับตาราง Peripherals
     public function peripherals ()

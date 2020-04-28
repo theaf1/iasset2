@@ -14,7 +14,7 @@ class Mobility extends Model
     //แสดงความสัมพันธ์กับตาราง Client
     public function client ()
     {
-        $this->belongsTo(Client::class);
+        $this->hasMany(Client::class);
     }
     //แสดงความสัมพันธ์กับตาราง Storageperipherals
     public function peripherals ()

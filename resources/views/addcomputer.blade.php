@@ -125,13 +125,13 @@
                             <div class="col-sm-12 col-lg-6"> <!-- สถานะของครุภัณฑ์ -->
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label><br>
-                                    <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
+                                    <select class="form-control @error('asset_status_id') is-invalid @enderror" name="asset_status_id" id="asset_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_statuses as $asset_status)
-                                            <option value="{{ $asset_status['id'] }}" {{ old('asset_status') == $asset_status['id']  ? 'selected' : ''}}> {{ $asset_status['name'] }}</option>
+                                            <option value="{{ $asset_status['id'] }}" {{ old('asset_status_id') == $asset_status['id']  ? 'selected' : ''}}> {{ $asset_status['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('asset_status')
+                                    @error('asset_status_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -141,13 +141,13 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label> <!--สถานะการใช้งาน-->
-                                    <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_use_status">
+                                    <select class="form-control @error('asset_use_status_id') is-invalid @enderror" name="asset_use_status_id" id="asset_use_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_use_statuses as $asset_use_status)
-                                            <option value="{{ $asset_use_status['id'] }}"  {{ old('asset_use_status') == $asset_use_status['id']  ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
+                                            <option value="{{ $asset_use_status['id'] }}"  {{ old('asset_use_status_id') == $asset_use_status['id']  ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('asset_use_status')
+                                    @error('asset_use_status_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

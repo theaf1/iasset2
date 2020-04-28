@@ -36,8 +36,8 @@
                                     <td>{{ $client->clientSection->name }}</td>
                                     <td>{{ $client['function'] }}</td>
                                     <td>{{ $client['is_mobile'] }}</td>
-                                    <td>{{ $client['asset_status'] }}</td>
-                                    <td>{{ $client['asset_use_status'] }}</td>
+                                    <td>{{ $client->ClientAssetStatus->name }}</td>
+                                    <td>{{ $client->ClientAssetUseStatus->name }}</td>
                                     <td>{{ $client['multi_user'] }}</td>
                                     <td>{{ $client['user'] }}</td>
                                     <td><a href="{{ url('/client',$client->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</button></td>
