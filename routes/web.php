@@ -59,7 +59,7 @@ Route::get('/search', 'SearchController@index');
 Route::get('/client', 'ClientIndexController@index');
 Route::get('/peripheral', 'PeripheralsIndexController@index');
 Route::get('/storageperipheral', 'StorageperipheralsIndexController@index');
-Route::get('/server', 'ServerIndexController@index');
+Route::get('/servers', 'ServerIndexController@index');
 Route::get('/networkdevices', 'NetworkdeviceIndexController@index');
 Route::get('/networkedstorage', 'NetworkedstorageIndexController@index');
 Route::get('/ups', 'UpsIndexController@index');
