@@ -16,9 +16,9 @@ class Servers extends Model
         'is_mobile',
         'tel_no',
         'response_person',
-        'owner',
-        'asset_status',
-        'asset_use_status',
+        'owner_id',
+        'asset_status_id',
+        'asset_use_status_id',
         'brand',
         'model',
         'form_factor',
@@ -67,15 +67,20 @@ class Servers extends Model
     {
         return $this->hasOne(Section::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Owner
+    public function ServerOwner ()
+    {
+        return $this->belongsTo(Owner::class,'owner_id');
+    }
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function ServerAssetStatus ()
     {
-        return $this->belongsTo(Asset_statuses::class,'asset_status');
+        return $this->belongsTo(Asset_statuses::class,'asset_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
     public function ServerAssetUseStatus ()
     {
-        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status');
+        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง ServerRoleClass
     public function serverroleclass ()

@@ -23,9 +23,9 @@ class Servers extends Migration
             $table->boolean('is_mobile')->default(0); //เป็นเครื่องเคลื่อนที่
             $table->string('tel_no'); //หมายเลขโทรศัพท์
             $table->string('response_person'); //ชื่อผู้รับผิดชอบ
-            $table->integer('owner'); //เจ้าของ รับค่าจากตาราง Owner
-            $table->integer('asset_status'); //สถานะทางทะเบียนครุภัณฑ์ รับจากตาราง Asset_statuses
-            $table->integer('asset_use_status'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
+            $table->integer('owner_id'); //เจ้าของ รับค่าจากตาราง Owner
+            $table->integer('asset_status_id'); //สถานะทางทะเบียนครุภัณฑ์ รับจากตาราง Asset_statuses
+            $table->integer('asset_use_status_id'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
             $table->string('brand'); //ยึีห้อ
             $table->string('model'); //รุ่น
             $table->integer('form_factor'); //ลักษะเครือง

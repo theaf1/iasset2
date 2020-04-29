@@ -34,7 +34,7 @@ class Owner extends Model
     //แสดงความสัมพันธ์กับตาราง Servers
     public function server ()
     {
-        return $this->belongsTo(Servers::class);
+        return $this->belongsTo(Servers::class,'owner_id');
     }
     //แสดงความสัมพันธ์กับตาราง NetworkedStorage
     public function networkedstorage ()

@@ -125,10 +125,10 @@
                                     <label for="owner">เจ้าของเครื่อง</label><br>
                                     <div class="form-check">
                                         @foreach ($owners as $owner)
-                                            <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}" {{ old('owner',$server->owner) == $owner['id'] ? 'checked' : ''}}>
+                                            <input class="form-check-input @error('owner_id') is-invalid @enderror" type="radio" name="owner_id" id="owner" value="{{ $owner['id'] }}" {{ old('owner',$server->owner_id) == $owner['id'] ? 'checked' : ''}}>
                                             <label class="form-check-label" for="owner">{{ $owner['name'] }}</label><br>  
                                         @endforeach
-                                        @error('owner')
+                                        @error('owner_id')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -141,13 +141,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--สถานะครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
+                                <select class="form-control @error('asset_status_id') is-invalid @enderror" name="asset_status_id" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_statuses as $asset_status)
-                                        <option value="{{ $asset_status['id'] }}" {{ old('asset_status',$server->asset_status) == $asset_status['id'] ? 'selected' : '' }}>{{ $asset_status['name'] }}</option>
+                                        <option value="{{ $asset_status['id'] }}" {{ old('asset_status_id',$server->asset_status_id) == $asset_status['id'] ? 'selected' : '' }}>{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
-                                @error('asset_status')
+                                @error('asset_status_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -157,13 +157,13 @@
                         <div class="col-sm-12 col-lg-6"><!--สถานะการใช้งาน-->
                             <div class="form-group">
                             <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_status">
+                                <select class="form-control @error('asset_use_status_id') is-invalid @enderror" name="asset_use_status_id" id="asset_use_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
-                                        <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status',$server->asset_use_status) == $asset_use_status['id'] ? 'selected' : '' }}>{{ $asset_use_status['name'] }}</option>
+                                        <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status_id',$server->asset_use_status_id) == $asset_use_status['id'] ? 'selected' : '' }}>{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
-                                @error('asset_use_status')
+                                @error('asset_use_status_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
