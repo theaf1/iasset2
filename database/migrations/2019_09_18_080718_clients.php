@@ -27,7 +27,7 @@ class Clients extends Migration
             $table->string('tel_no'); //หมายเลขโทรศัพท์
             // $table->integer('section_status');
             $table->integer('function'); //ระบบงาน
-            $table->integer('owner'); //เจ้าของเครือง
+            $table->integer('owner_id'); //เจ้าของเครือง
             $table->boolean('permission'); //อำนาจ admin
             $table->integer('asset_status_id'); //สถานะทางทะเบียนครุภัณฑ์
             $table->integer('asset_use_status_id'); //สถานะการใช้งานครุภัณฑ์

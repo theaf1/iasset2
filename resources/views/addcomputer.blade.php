@@ -215,10 +215,10 @@
                                     <label for="owner">ที่มา</label><br>
                                     <div class="form-check-inline pl-2">
                                         @foreach ($owners as $owner)
-                                            <input type="radio" class="form-check-input ml-1 @error('owner') is-invalid @enderror" name="owner" id="owner1" value="{{ $owner['id'] }}" {{ old('owner') == $owner['id'] ? 'checked' : '' }}>
+                                            <input type="radio" class="form-check-input ml-1 @error('owner_id') is-invalid @enderror" name="owner_id" id="owner1" value="{{ $owner['id'] }}" {{ old('owner_id') == $owner['id'] ? 'checked' : '' }}>
                                             <label class="form-check-label" for="owner1">{{ $owner['name'] }}</label>    
                                         @endforeach
-                                        @error('owner')
+                                        @error('owner_id')
                                             <div class="invalid-feedback ml-5">
                                                 {{ $message }}
                                             </div>

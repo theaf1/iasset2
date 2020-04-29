@@ -20,7 +20,7 @@ class Client extends Model
       'position',
       // 'section_status',
       'function',
-      'owner',
+      'owner_id',
       'tel_no',
       'permission',
       'asset_status_id',
@@ -88,7 +88,7 @@ class Client extends Model
    //แสดงความสัมพันธ์กับตาราง Owner
    public function ClientOwner ()
    {
-      return $this->belongsTo(Owner::class,'owner');
+      return $this->belongsTo(Owner::class,'owner_id');
    }
    public function ClientMobilty ()
    {
