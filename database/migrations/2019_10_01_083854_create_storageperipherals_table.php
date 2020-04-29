@@ -20,13 +20,13 @@ class CreateStorageperipheralsTable extends Migration
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
             $table->string('location_id'); // ค่า location_id รับจากตาราง Location
             $table->boolean('is_mobile'); //เป็นเครื่องเคลื่อนที่
-            $table->integer('section'); //หน่วยงาน รับค่าจากตาราง Sections
+            $table->integer('section_id'); //หน่วยงาน รับค่าจากตาราง Sections
             $table->string('user'); //ชื่อผู้ใช้งาน
             $table->string('tel_no'); //หมายเลขโทรศัพท์
             $table->integer('function'); //ระบบงาน
-            $table->integer('owner'); //เจ้าของ
-            $table->integer('asset_status'); //สถานะทางทะเบียนครุภัณฑ์ รับค่าจากตาราง Asset_statuses
-            $table->integer('asset_use_status'); //สถานะการใช้งานครุภัณท์ รับค่าจากตราง Asset_use_statuses
+            $table->integer('owner_id'); //เจ้าของ
+            $table->integer('asset_status_id'); //สถานะทางทะเบียนครุภัณฑ์ รับค่าจากตาราง Asset_statuses
+            $table->integer('asset_use_status_id'); //สถานะการใช้งานครุภัณท์ รับค่าจากตราง Asset_use_statuses
             $table->string('remarks')->nullable(); //หมายเหตุ
             $table->string('brand'); //ยี่ห้อ
             $table->string('model'); //รุ่น 

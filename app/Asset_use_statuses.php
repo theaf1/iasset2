@@ -24,7 +24,7 @@ class Asset_use_statuses extends Model
     //แสดงความสัมพันธ์กับตาราง Storageperipherals
     public function storageperipherals ()
     {
-        return $this->hasMany(Storageperipherals::class,'asset_use_status');
+        return $this->hasMany(Storageperipherals::class,'asset_use_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง Networkdevices
     public function networkdevices ()

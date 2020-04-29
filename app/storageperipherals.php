@@ -13,13 +13,13 @@ class Storageperipherals extends Model
         'pid',
         'location_id',
         'is_mobile',
-        'section',
+        'section_id',
         'user',
         'tel_no',
         'function',
-        'owner',
-        'asset_status',
-        'asset_use_status',
+        'owner_id',
+        'asset_status_id',
+        'asset_use_status_id',
         'remarks',
         'brand',
         'model',
@@ -36,7 +36,7 @@ class Storageperipherals extends Model
     //แสดงความสัมพันธ์กับตาราง Section
     public function section ()
     {
-       return $this-hasOne(Section::class);
+       return $this-belongsTo(Section::class,'section_id');
     }
     //แสดงความสัมพันธ์กับตาราง Location
     public function location ()
@@ -46,16 +46,16 @@ class Storageperipherals extends Model
     //แสดงความสัมพันธ์กับตาราง Owner
     public function StoragePeripheralOwner ()
     {
-        return $this->belongsTo(Owner::class,'owner');
+        return $this->belongsTo(Owner::class,'owner_id');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function StoragePeripheralAssetStatus ()
     {
-        return $this->belongsTo(Asset_statuses::class,'asset_status');
+        return $this->belongsTo(Asset_statuses::class,'asset_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
     public function StoragePeripheralAssetUseStatus ()
     {
-        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status');
+        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
 }

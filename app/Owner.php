@@ -24,7 +24,7 @@ class Owner extends Model
     //แสดงความสัมพันธ์กับตาราง Storageperipherals
     public function storageperipherals ()
     {
-        return $this->hasMany(Storageperipherals::class,'owner');
+        return $this->hasMany(Storageperipherals::class,'owner_id');
     }
     //แสดงความสัมพันธ์กับตาราง Networkdevices
     public function networkdevice ()
