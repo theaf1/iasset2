@@ -14,7 +14,7 @@ class NetSubtype extends Model
     //แสดงความสัมพันธ์กับตาราง Networkdevices
     public function netsubtype ()
     {
-        return $this->belongsTo(Networkdevices::class);
+        return $this->hasMany(Networkdevices::class,'device_subtype_id');
     }
 
 }

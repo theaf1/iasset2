@@ -20,13 +20,13 @@ class CreateNetworkdevicesTable extends Migration
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
             $table->boolean('is_mobile')->default(0); //เป็นเครื่องเคลื่อนที่
             $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
-            $table->integer('asset_status'); //สถานะทางทะเบียนครุภัณฑ์
+            $table->integer('asset_status_id'); //สถานะทางทะเบียนครุภัณฑ์
             $table->string('tel_no'); //หมายเลขโทรศัพท์
             $table->string('response_person'); //ผู้รับผิดชอบ
-            $table->integer('section'); //หน่วยงาน รับค่าจากตาราง Section
-            $table->integer('owner'); //เจ้าของ รับค่าจากตาราง Owner
-            $table->integer('asset_use_status'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
-            $table->integer('device_subtype'); //ชนิดของอุปกรณ์ รับค่่าจากตาราง Net_Subtype
+            $table->integer('section_id'); //หน่วยงาน รับค่าจากตาราง Section
+            $table->integer('owner_id'); //เจ้าของ รับค่าจากตาราง Owner
+            $table->integer('asset_use_status_id'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
+            $table->integer('device_subtype_id'); //ชนิดของอุปกรณ์ รับค่่าจากตาราง Net_Subtype
             $table->string('brand'); //ยี่ห้อ
             $table->string('model'); //รุ่น
             $table->string('serial_no'); //serial number จากผู้ผลิต

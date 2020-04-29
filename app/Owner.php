@@ -29,7 +29,7 @@ class Owner extends Model
     //แสดงความสัมพันธ์กับตาราง Networkdevices
     public function networkdevice ()
     {
-        return $this->belongsTo(Networkdevices::class);
+        return $this->hasMany(Networkdevices::class,'owner_id');
     }
     //แสดงความสัมพันธ์กับตาราง Servers
     public function server ()

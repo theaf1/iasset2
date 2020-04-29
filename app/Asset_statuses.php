@@ -29,7 +29,7 @@ class Asset_statuses extends Model
     //แสดงความสัมพันธ์กับตาราง Networkdevices
     public function networkdevices ()
     {
-        return $this->belongsTo(Networkdevices::class);
+        return $this->hasMany(Networkdevices::class,'asset_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง NetworkedStorage
     public function networkedstorage ()

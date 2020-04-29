@@ -14,6 +14,8 @@
                                 <th scope="col">ชนิด</th>
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
+                                <th scope="col">ที่มา</th>
+                                <th scope="col">หน่วยงาน</th>
                                 <th scope="col">mobile</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
@@ -24,12 +26,14 @@
                             @foreach ($networkdevices as $networkdevice)
                             <tr>
                                 <th scope="row">{{ $networkdevice['id'] }}</th>
-                                <td>{{ $networkdevice['device_subtype'] }}</td>
+                                <td>{{ $networkdevice->netsubtype->name }}</td>
                                 <td>{{ $networkdevice['sapid'] }}</td>
                                 <td>{{ $networkdevice['pid'] }}</td>
+                                <td>{{ $networkdevice->NetworkDeviceOwner->name }}</td>
+                                <td>{{ $networkdevice->NetworkDeviceSection->name }}</td>
                                 <td>{{ $networkdevice['is_mobile'] }}</td>
-                                <td>{{ $networkdevice['asset_status'] }}</td>
-                                <td>{{ $networkdevice['asset_use_status'] }}</td>
+                                <td>{{ $networkdevice->NetworkDeviceAssetStatus->name }}</td>
+                                <td>{{ $networkdevice->NetworkDeviceAssetUseStatus->name }}</td>
                                 <td><a class="btn btn-sm btn-info" role="button" href="{{ url('/networkdevices',$networkdevice->id) }}">แก้ไข</a></td>
                             </tr>
                             @endforeach
