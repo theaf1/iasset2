@@ -20,13 +20,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--ชนิดครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="type">ชนิด</label>
-                                <select class="form-control @error('type') is-invalid @enderror" id="type" name="type">
+                                <select class="form-control @error('type') is-invalid @enderror" id="type" name="type_id">
                                     <option value="" hidden selected></option>
                                     @foreach($peripheraltypes as $peripheraltype)
-                                        <option value="{{ $peripheraltype['id'] }}"{{ old('type',$peripheral->type) == $peripheraltype['id'] ? 'selected' : ''}}>{{ $peripheraltype['name'] }}</option>
+                                        <option value="{{ $peripheraltype['id'] }}"{{ old('type_id',$peripheral->type_id) == $peripheraltype['id'] ? 'selected' : ''}}>{{ $peripheraltype['name'] }}</option>
                                     @endforeach
                                 </select>
-                                @error('type')
+                                @error('type_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -96,13 +96,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                         <div class="form-group"> 
                             <label for="section">หน่วยงาน</label>
-                                <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
+                                <select class="form-control @error('section_id') is-invalid @enderror" name="section_id" id="section">
                                     <option value="" hidden></option>
                                     @foreach($sections as $section)
-                                        <option value="{{ $section['id'] }}" {{ old('section',$peripheral->section) == $section['id'] ? 'selected' : '' }}>{{ $section['name'] }}</option>
+                                        <option value="{{ $section['id'] }}" {{ old('section_id',$peripheral->section_id) == $section['id'] ? 'selected' : '' }}>{{ $section['name'] }}</option>
                                     @endforeach
                                 </select>
-                                @error('section')
+                                @error('section_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -151,10 +151,10 @@
                                 <label for="owner">ที่มา</label>
                                 <div class="form-check">
                                     @foreach ($owners as $owner)
-                                        <input class="form-check-input @error('owner') is-invalid @enderror" type="radio" name="owner" id="owner" value="{{ $owner['id'] }}" {{ old('owner',$peripheral->owner) == $owner['id'] ? 'checked' : '' }}>
+                                        <input class="form-check-input @error('owner_id') is-invalid @enderror" type="radio" name="owner_id" id="owner" value="{{ $owner['id'] }}" {{ old('owner_id',$peripheral->owner_id) == $owner['id'] ? 'checked' : '' }}>
                                         <label class="form-check-label" for="owner">{{ $owner['name'] }}</label><br>   
                                     @endforeach
-                                    @error('owner')
+                                    @error('owner_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -167,13 +167,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
+                                <select class="form-control @error('asset_status_id') is-invalid @enderror" name="asset_status_id" id="asset_status">
                                     <option value="" hidden selected></option>
                                     @foreach($asset_statuses as $asset_status)
-                                        <option value="{{ $asset_status['id'] }}" {{ old('asset_status',$peripheral->asset_status) == $asset_status['id'] ? 'selected' : ''}}>{{ $asset_status['name'] }}</option>
+                                        <option value="{{ $asset_status['id'] }}" {{ old('asset_status_id',$peripheral->asset_status_id) == $asset_status['id'] ? 'selected' : ''}}>{{ $asset_status['name'] }}</option>
                                     @endforeach
                                 </select>
-                                @error('asset_status')
+                                @error('asset_status_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -183,10 +183,10 @@
                         <div class="col-sm-12 col-lg-6"> <!--สถานะการใช้งาน-->
                             <div class="form-group">
                                 <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_status">
+                                <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status_id" id="asset_use_status">
                                     <option value="" hidden selected></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
-                                        <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status',$peripheral->asset_use_status) == $asset_use_status['id'] ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
+                                        <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status_id',$peripheral->asset_use_status_id) == $asset_use_status['id'] ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_use_status')

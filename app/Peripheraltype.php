@@ -14,6 +14,6 @@ class Peripheraltype extends Model
     //แสดงความสัมพันธ์กับตาราง Peripherals
     public function peripheral ()
     {
-        return $this->hasMany(Peripherals::class,'type');
+        return $this->hasMany(Peripherals::class,'type_id');
     }
 }

@@ -8,7 +8,7 @@ class Peripherals extends Model
 {
     //column ที่สามารถเพิ่มหรือแก้ไขข้อมูล
     protected $fillable =[
-        'type',
+        'type_id',
         'id',
         'sapid',
         'pid',
@@ -16,12 +16,12 @@ class Peripherals extends Model
         'is_mobile',
         'user',
         'position',
-        'section',
+        'section_id',
         'tel_no',
         'function',
-        'owner',
-        'asset_status',
-        'asset_use_status',
+        'owner_id',
+        'asset_status_id',
+        'asset_use_status_id',
         'remarks',
         'brand',
         'model',
@@ -38,17 +38,17 @@ class Peripherals extends Model
     //แสดงความสัมพันธ์กับตาราง Peripheraltype
     public function peripheraltype ()
     {
-        return $this->belongsTo(Peripheraltype::class,'type');
+        return $this->belongsTo(Peripheraltype::class,'type_id');
     }
     //แสดงความสัมพันธ์กับตาราง Section
     public function peripheralsection ()
     {
-        return $this->belongsTo(Section::class,'section');
+        return $this->belongsTo(Section::class,'section_id');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
     public function peripheralowner ()
     {
-        return $this->belongsTo(Owner::class,'owner');
+        return $this->belongsTo(Owner::class,'owner_id');
     }
     //แสดงความสัมพันธ์กับตาราง Location
     public function location ()
@@ -58,12 +58,12 @@ class Peripherals extends Model
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function PeripheralAssetStatus ()
     {
-        return $this->belongsTo(Asset_statuses::class,'asset_status');
+        return $this->belongsTo(Asset_statuses::class,'asset_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
     public function PeripheralAssetUseStatus ()
     {
-        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status');
+        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
     
 }
