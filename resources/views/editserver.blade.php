@@ -125,7 +125,7 @@
                                     <label for="owner">เจ้าของเครื่อง</label><br>
                                     <div class="form-check">
                                         @foreach ($owners as $owner)
-                                            <input class="form-check-input @error('owner_id') is-invalid @enderror" type="radio" name="owner_id" id="owner" value="{{ $owner['id'] }}" {{ old('owner',$server->owner_id) == $owner['id'] ? 'checked' : ''}}>
+                                            <input class="form-check-input @error('owner_id') is-invalid @enderror" type="radio" name="owner_id" id="owner" value="{{ $owner['id'] }}" {{ old('owner_id',$server->owner_id) == $owner['id'] ? 'checked' : ''}}>
                                             <label class="form-check-label" for="owner">{{ $owner['name'] }}</label><br>  
                                         @endforeach
                                         @error('owner_id')
