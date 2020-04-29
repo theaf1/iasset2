@@ -29,7 +29,7 @@ class Section extends Model
     //แสดงความสัมพันธ์กับตาราง Networkdevices
     public function networkdevice ()
     {
-        return $this->belongsTo(Networkdevices::class,'section_id');
+        return $this->hasMany(Networkdevices::class,'section_id');
     }
     //แสดงความสัมพันธ์กับตาราง Servers
     public function server ()
@@ -39,7 +39,7 @@ class Section extends Model
     //แสดงความสัมพันธ์กับตาราง NetworkedStorage
     public function networkedstorage ()
     {
-        return $this->belongsTo(NetworkedStorage::class);
+        return $this->hasMany(NetworkedStorage::class,'section_id');
     }
     //แสดงความสัมพันธ์กับตาราง Upses
     public function ups ()

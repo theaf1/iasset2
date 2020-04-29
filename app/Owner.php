@@ -39,7 +39,7 @@ class Owner extends Model
     //แสดงความสัมพันธ์กับตาราง NetworkedStorage
     public function networkedstorage ()
     {
-        return $this->belongsTo(NetworkedStorage::class);
+        return $this->hasMany(NetworkedStorage::class,'owner_id');
     }
     //แสดงความสัมพันธ์กับตาราง Upses
     public function ups ()

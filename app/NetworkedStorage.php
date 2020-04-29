@@ -12,12 +12,12 @@ class NetworkedStorage extends Model
         'pid',
         'location_id',
         'is_mobile',
-        'section',
+        'section_id',
         'tel_no',
         'response_person',
-        'owner',
-        'asset_status',
-        'asset_use_status',
+        'owner_id',
+        'asset_status_id',
+        'asset_use_status_id',
         'type',
         'brand',
         'model',
@@ -42,23 +42,23 @@ class NetworkedStorage extends Model
         return $this->hasOne(Location::class);
     }
     //แสดงความสัมพันธ์กับตาราง Section
-    public function section ()
+    public function NetworkedStorageSection ()
     {
-        return $this->hasOne(Section::class);
+        return $this->belongsTo(Section::class,'section_id');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
-    public function owner ()
+    public function NetworkedStorageOwner ()
     {
-        return $this->hasOne(Owner::class);
+        return $this->belongsTo(Owner::class,'owner_id');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
-    public function assetStatus ()
+    public function NetworkedStorageAssetStatus ()
     {
-        return $this->hasOne(Asset_statuses::class);
+        return $this->belongsTo(Asset_statuses::class,'asset_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
-    public function assetUseStatus ()
+    public function NetworkedStorageAssetUseStatus ()
     {
-        return $this->hasOne(Asset_use_statuses::class);
+        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
 }

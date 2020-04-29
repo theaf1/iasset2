@@ -20,12 +20,12 @@ class CreateNetworkedStoragesTable extends Migration
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
             $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
             $table->boolean('is_mobile'); //เป็นเครื่องเคลือนที่
-            $table->integer('section'); //หน่วยงาน รับค่าจากตาราง Section
+            $table->integer('section_id'); //หน่วยงาน รับค่าจากตาราง Section
             $table->string('response_person'); //ผู้รับผิดชอบ
             $table->string('tel_no'); //หมายเลขโทรศัพท์
-            $table->integer('owner'); //เจ้าของ
-            $table->integer('asset_status'); //สถานะทางทะเบี่ยนครุภัณฑ์ รับค่าจากตาราง Asset_statuses
-            $table->integer('asset_use_status'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
+            $table->integer('owner_id'); //เจ้าของ
+            $table->integer('asset_status_id'); //สถานะทางทะเบี่ยนครุภัณฑ์ รับค่าจากตาราง Asset_statuses
+            $table->integer('asset_use_status_id'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
             $table->integer('type'); //ชนิดของอุปกรณ์
             $table->string('brand'); //ยี่ห้อ
             $table->string('model'); //รุ่น
