@@ -14,6 +14,8 @@
                                 <th scope="col">ชนิด</th>
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
+                                <th scope="col">ที่มา</th>
+                                <th scope="col">หน่วยงาน</th>
                                 <th scope="col">mobile</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
@@ -27,6 +29,8 @@
                                     <td>{{ $networkedstorage['type'] }}</td>
                                     <td>{{ $networkedstorage['sapid'] }}</td>
                                     <td>{{ $networkedstorage['pid'] }}</td>
+                                    <td>{{ $networkedstorage->NetworkedStorageOwner->name }}</td>
+                                    <td>{{ $networkedstorage->NetworkedStorageSection->name }}</td>
                                     <td>{{ $networkedstorage['is_mobile'] }}</td>
                                     <td>{{ $networkedstorage->NetworkedStorageAssetStatus->name }}</td>
                                     <td>{{ $networkedstorage->NetworkedStorageAssetUseStatus->name }}</td>
