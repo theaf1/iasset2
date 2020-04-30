@@ -44,7 +44,7 @@ class Section extends Model
     //แสดงความสัมพันธ์กับตาราง Upses
     public function ups ()
     {
-        return $this->BelongsTo(Upses::class);
+        return $this->hasMany(Upses::class);
     }
     //import ข้อมูลจากไฟล์ CSV
    public static function loadData($fileName){

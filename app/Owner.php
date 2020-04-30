@@ -44,6 +44,6 @@ class Owner extends Model
     //แสดงความสัมพันธ์กับตาราง Upses
     public function ups ()
     {
-        return $this->BelongsTo(Upses::class);
+        return $this->hasMany(Upses::class);
     }
 }

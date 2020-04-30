@@ -14,11 +14,11 @@ class Upses extends Model
         'location_id',
         'is_mobile',
         'response_person',
-        'section',
+        'section_id',
         'tel_no',
-        'owner',
-        'asset_status',
-        'asset_use_status',
+        'owner_id',
+        'asset_status_id',
+        'asset_use_status_id',
         'brand',
         'model',
         'serial_no',
@@ -33,23 +33,23 @@ class Upses extends Model
         'remarks',
     ];
     //แสดงความสัมพันธ์กับตาราง Section
-    public function section ()
+    public function UpsSection ()
     {
-        $this->hasOne(Section::class);
+        $this->belongsTo(Section::class);
     }
     //แสดงความสัมพันธ์กับตาราง Owner
-    public function owner ()
+    public function UpsOwner ()
     {
-        return $this->hasOne(Owner::class);
+        return $this->belongs(Owner::class);
     }
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
-    public function assetstatus ()
+    public function UpsAssetStatus ()
     {
-        $this->hasOne(Asset_statuses::class);
+        $this->belongsTo(Asset_statuses::class);
     }
     //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
-    public function assetusestatus ()
+    public function UpsAssetUseStatus ()
     {
-        $this->hasOne(Asset_use_statuses::class);
+        $this->belongsTo(Asset_use_statuses::class);
     }
 }
