@@ -34,7 +34,7 @@ class Asset_statuses extends Model
     //แสดงความสัมพันธ์กับตาราง NetworkedStorage
     public function networkedstorage ()
     {
-        return $this->belongsTo(NetworkedStorage::class,'asset_status_id');
+        return $this->hasMany(NetworkedStorage::class,'asset_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง Servers
     public function servers ()
