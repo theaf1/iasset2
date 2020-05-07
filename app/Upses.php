@@ -35,21 +35,21 @@ class Upses extends Model
     //แสดงความสัมพันธ์กับตาราง Section
     public function UpsSection ()
     {
-        $this->belongsTo(Section::class);
+        return $this->belongsTo(Section::class,'section_id');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
     public function UpsOwner ()
     {
-        return $this->belongs(Owner::class);
+        return $this->belongsTo(Owner::class,'owner_id');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function UpsAssetStatus ()
     {
-        $this->belongsTo(Asset_statuses::class);
+       return $this->belongsTo(Asset_statuses::class,'asset_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
     public function UpsAssetUseStatus ()
     {
-        $this->belongsTo(Asset_use_statuses::class);
+       return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
 }

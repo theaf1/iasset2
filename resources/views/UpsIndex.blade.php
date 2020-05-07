@@ -26,7 +26,7 @@
                                 <td>{{ $ups['sapid'] }}</td>
                                 <td>{{ $ups['pid'] }}</td>
                                 <td>{{ $ups['is_mobile'] }}</td>
-                                <td>{{ $ups['asset_status'] }}</td>
+                                <td>{{ $ups->UpsAssetStatus->name }}</td>
                                 <td>{{ $ups['asset_use_status'] }}</td>
                                 <td><a class="btn btn-sm btn-info" role="button" href="{{ url('/ups',$ups->id) }}">แก้ไข</a></td>
                             </tr>

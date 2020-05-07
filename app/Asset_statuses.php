@@ -42,8 +42,8 @@ class Asset_statuses extends Model
         return $this->hasMany(Servers::class,'asset_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง Upses
-    public function upses ()
+    public function AssetStatusUpses ()
     {
-        return $this->hasMany(Upses::class);
+        return $this->hasMany(Upses::class,'asset_status_id');
     }
 }

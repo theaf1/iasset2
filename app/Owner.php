@@ -42,8 +42,8 @@ class Owner extends Model
         return $this->hasMany(NetworkedStorage::class,'owner_id');
     }
     //แสดงความสัมพันธ์กับตาราง Upses
-    public function ups ()
+    public function OwnerUpses ()
     {
-        return $this->hasMany(Upses::class);
+        return $this->hasMany(Upses::class,'owner_id');
     }
 }
