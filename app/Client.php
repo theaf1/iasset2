@@ -92,7 +92,7 @@ class Client extends Model
    }
    public function ClientMobilty ()
    {
-      $this->belongsTo(Mobility::class,);
+      return $this->belongsTo(Mobility::class,'mobility_id');
    }
    //แสดงความสัมพันธ์กับตาราง Asset_statuses
    public function ClientAssetStatus ()

@@ -85,10 +85,10 @@
                                     <label for="is_mobile">ลักษณะการใช้งาน</label><br>
                                     <div class="form-check-inline">
                                         @foreach ($mobiles as $mobile)
-                                            <input class="form-check-input @error('is_mobile') is-invalid @enderror" type="radio" name="is_mobile" id="is_mobile" value="{{ $mobile['value'] }}" {{ old('is_mobile',$client->is_mobile) == $mobile['value'] ? 'checked' : ''}}>
+                                            <input class="form-check-input @error('mobility_id') is-invalid @enderror" type="radio" name="mobility_id" id="is_mobile" value="{{ $mobile['id'] }}" {{ old('mobility_id',$client->mobility_id) == $mobile['id'] ? 'checked' : ''}}>
                                             <label class="form-check-label" for="is_mobile">{{ $mobile['name'] }}</label>
                                         @endforeach
-                                        @error('is_mobile')
+                                        @error('mobility_id')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>

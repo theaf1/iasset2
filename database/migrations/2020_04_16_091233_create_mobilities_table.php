@@ -16,13 +16,12 @@ class CreateMobilitiesTable extends Migration
     {
         Schema::create('mobilities', function (Blueprint $table) {
             $table->id();
-            $table->boolean('value')->default(0);
             $table->string('name');
             $table->timestamps();
         });
         $Mobilities = array(
-            ['value'=>'1', 'name'=>'เป็นเครื่องเคลื่อนที่'],
-            ['value'=>'0', 'name'=>'เป็นเครื่องประจำที่'],
+            ['name'=>'เป็นเครื่องเคลื่อนที่'],
+            ['name'=>'เป็นเครื่องประจำที่'],
         );
 
         foreach ($Mobilities as $Mobility){

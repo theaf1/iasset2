@@ -19,7 +19,7 @@ class Clients extends Migration
             $table->string('sapid')->nullable(); //รหัส SAP
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
             $table->integer('section_id'); //หน่วยงาน รับค่าจากตาราง Sections
-            $table->boolean('is_mobile')->default(0); //เป็นเครื่องเคลื่อนที่ได้
+            $table->integer('mobility_id'); //เป็นเครื่องเคลื่อนที่ได้ รับค่าจากตาราง mobility
             $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
             $table->string('user')->nullable(); //ชื่อผู้ใช้งาน
             $table->boolean('multi_user')->default(0); //เป็นเครื่องใช้งานส่วนกลาง

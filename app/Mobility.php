@@ -8,41 +8,40 @@ class Mobility extends Model
 {
     protected $fillable = [
         'id',
-        'value',
         'name',
     ];
     //แสดงความสัมพันธ์กับตาราง Client
-    public function client ()
+    public function MobilityClient ()
     {
-        $this->hasMany(Client::class);
+        return $this->hasMany(Client::class);
+    }
+    //แสดงความสัมพันธ์กับตาราง Peripherals
+    public function MobilityPeripherals ()
+    {
+        return $this->belongsTo(Peripherals::class);
     }
     //แสดงความสัมพันธ์กับตาราง Storageperipherals
-    public function peripherals ()
+    public function MobilityStoragePeripherals ()
     {
-        $this->belongsTo(Peripherals::class);
-    }
-    //แสดงความสัมพันธ์กับตาราง Storageperipherals
-    public function storageperipherals ()
-    {
-        $this->belongsTo(Storageperipherals::class);
+        return $this->belongsTo(Storageperipherals::class);
     }
     //แสดงความสัมพันธ์กับตาราง Networkdevices
-    public function networkdevice ()
+    public function MobilityNetworkdevice ()
     {
-        $this->belongsTo(Networkdevices::class);
+        return $this->belongsTo(Networkdevices::class);
     }
     //แสดงความสัมพันธ์กับตาราง Servers
-    public function server ()
+    public function MobilityServer ()
     {
         $this->belongsTo(Servers::class);
     }
     //แสดงความสัมพันธ์กับตาราง NetworkedStorage
-    public function networkedstorage ()
+    public function MobilityNetworkedstorage ()
     {
         return $this->belongsTo(NetworkedStorage::class);
     }
     //แสดงความสัมพันธ์กับตาราง Upses
-    public function ups ()
+    public function MobilityUps ()
     {
         return $this->BelongsTo(Upses::class);
     }
