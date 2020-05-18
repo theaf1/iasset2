@@ -7,7 +7,7 @@
                     <h4>บัญชีเครื่องสำรองไฟฟ้า</h4>
                 </div>
                 <div class="card-body">
-                    <table class="table mt-4 table-hover">
+                    <table class="table mt-4 table-hover table-responsive-md">
                         <thead>
                             <tr>
                                 <th scope="col">ลำดับที่</th>
@@ -27,7 +27,7 @@
                                 <td>{{ $ups['pid'] }}</td>
                                 <td>{{ $ups['is_mobile'] }}</td>
                                 <td>{{ $ups->UpsAssetStatus->name }}</td>
-                                <td>{{ $ups['asset_use_status'] }}</td>
+                                <td>{{ $ups->UpsAssetUseStatus->name }}</td>
                                 <td><a class="btn btn-sm btn-info" role="button" href="{{ url('/ups',$ups->id) }}">แก้ไข</a></td>
                             </tr>
                             @endforeach
