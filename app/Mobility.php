@@ -13,7 +13,7 @@ class Mobility extends Model
     //แสดงความสัมพันธ์กับตาราง Client
     public function MobilityClient ()
     {
-        return $this->hasMany(Client::class);
+        return $this->hasMany(Client::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง Peripherals
     public function MobilityPeripherals ()

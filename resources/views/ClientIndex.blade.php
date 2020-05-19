@@ -7,7 +7,7 @@
                     <h4>ตารางบัญชีคอมพิวเตอร์</h4>
                 </div>
                 <div class="card-body">
-                    <table class="table mt-4 table-hover">
+                    <table class="table mt-4 table-hover table-responsive-md">
                         <thead>
                             <tr>
                                 <th scope="col">ลำดับที่</th>
@@ -16,6 +16,7 @@
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
                                 <th scope="col">หน่วยงาน</th>
+                                <th scope="col">ลักษณะการติดตั้ง</th>
                                 <th scope="col">ระบบงาน</th>
                                 <th scope="col">mobile</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
@@ -34,6 +35,7 @@
                                     <td>{{ $client['sapid'] }}</td>
                                     <td>{{ $client['pid'] }}</td>
                                     <td>{{ $client->clientSection->name }}</td>
+                                    <td>{{ $client->ClientMobility->name }}</td>
                                     <td>{{ $client['function'] }}</td>
                                     <td>{{ $client['is_mobile'] }}</td>
                                     <td>{{ $client->ClientAssetStatus->name }}</td>

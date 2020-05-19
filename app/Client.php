@@ -13,7 +13,7 @@ class Client extends Model
       'sapid',
       'pid',
       'location_id',
-      'is_mobile',
+      'mobility_id',
       'section_id',
       'user',
       'multi_user',
@@ -90,7 +90,7 @@ class Client extends Model
    {
       return $this->belongsTo(Owner::class,'owner_id');
    }
-   public function ClientMobilty ()
+   public function ClientMobility ()
    {
       return $this->belongsTo(Mobility::class,'mobility_id');
    }
