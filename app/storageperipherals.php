@@ -12,7 +12,7 @@ class Storageperipherals extends Model
         'sapid',
         'pid',
         'location_id',
-        'is_mobile',
+        'mobility_id',
         'section_id',
         'user',
         'tel_no',
@@ -42,6 +42,11 @@ class Storageperipherals extends Model
     public function location ()
     {
         return $this->hasOne(Location::class);
+    }
+    //แสดงความสัมพันธ์กับตาราง Mobility
+    public function StorageperipheralMobility()
+    {
+        return $this->belongsTo(Mobility::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
     public function StoragePeripheralOwner ()

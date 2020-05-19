@@ -27,7 +27,7 @@
                                     <td>{{ $storageperipheral['sapid'] }}</td>
                                     <td>{{ $storageperipheral['pid'] }}</td>
                                     <td>{{ $storageperipheral->StorageperipheralOwner->name }}</td>
-                                    <td>{{ $storageperipheral['is_mobile'] }}</td>
+                                    <td>{{ $storageperipheral->StorageperipheralMobility->name }}</td>
                                     <td>{{ $storageperipheral->StoragePeripheralAssetStatus->name }}</td>
                                     <td>{{ $storageperipheral->StoragePeripheralAssetUseStatus->name }}</td>
                                 <td><a href="{{ url('/storageperipheral',$storageperipheral->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>

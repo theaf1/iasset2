@@ -23,7 +23,7 @@ class Mobility extends Model
     //แสดงความสัมพันธ์กับตาราง Storageperipherals
     public function MobilityStoragePeripherals ()
     {
-        return $this->belongsTo(Storageperipherals::class);
+        return $this->hasMany(Storageperipherals::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง Networkdevices
     public function MobilityNetworkdevice ()

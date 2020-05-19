@@ -19,7 +19,7 @@ class CreateStorageperipheralsTable extends Migration
             $table->string('sapid')->nullable(); //รหัส SAP
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
             $table->string('location_id'); // ค่า location_id รับจากตาราง Location
-            $table->boolean('is_mobile'); //เป็นเครื่องเคลื่อนที่
+            $table->integer('mobility_id'); //ค่า mobility_id รับจากตาราง Mobility
             $table->integer('section_id'); //หน่วยงาน รับค่าจากตาราง Sections
             $table->string('user'); //ชื่อผู้ใช้งาน
             $table->string('tel_no'); //หมายเลขโทรศัพท์
