@@ -171,7 +171,7 @@ class PeripheralsController extends Controller
             'sapid'=>'nullable',
             'pid'=>'nullable',
             'location_id'=>'required',
-            'is_mobile'=>'required',
+            'mobility_id'=>'required',
             'section_id'=>'required',
             'user'=>'required',
             'position' =>'required',
@@ -194,7 +194,7 @@ class PeripheralsController extends Controller
         $messages =[
             'type_id.required'=>'โปรดระบุชนิดของครุภัณฑ์',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้ง',
-            'is_mobile.required'=>'กรุณาระบุลักษณะการติดตั้ง',
+            'mobility_id.required'=>'กรุณาระบุลักษณะการติดตั้ง',
             'section_id.required'=>'กรุณาระบุหน่วยงาน',
             'user.required'=>'กรุณาระบุชื่อผู้ใช้งาน',
             'position.required'=>'กรุณาระบุตำแหน่งผู้ใช้งาน',

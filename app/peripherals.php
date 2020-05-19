@@ -13,7 +13,7 @@ class Peripherals extends Model
         'sapid',
         'pid',
         'location_id',
-        'is_mobile',
+        'mobility_id',
         'user',
         'position',
         'section_id',
@@ -44,6 +44,11 @@ class Peripherals extends Model
     public function peripheralsection ()
     {
         return $this->belongsTo(Section::class,'section_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Mobility
+    public function PeripheralMobility ()
+    {
+        return $this->belongsTo(Mobility::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
     public function peripheralowner ()

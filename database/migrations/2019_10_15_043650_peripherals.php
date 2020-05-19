@@ -20,7 +20,7 @@ class Peripherals extends Migration
             $table->string('sapid')->nullable(); //รหัส SAP
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
             $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
-            $table->boolean('is_mobile')->default(0); //เป็นเครื่องเคลื่อนที่
+            $table->integer('mobility_id'); //ค่า Mobility_id รับจากตาราง mobility
             $table->string('user'); //ชื่อผู้ใช้งาน
             $table->string('position'); //ตำแหน่งผู้ใช้งาน
             $table->integer('section_id'); //หน่วยงาน รับค่าจากตาราง Section

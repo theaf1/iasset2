@@ -16,7 +16,7 @@
                                 <th scope="col">รหัสครุภัณฑ์</th>
                                 <th scope="col">ที่มา</th>
                                 <th scope="col">หน่วยงาน</th>
-                                <th scope="col">mobile</th>
+                                <th scope="col">ลักษณะการติดตั้ง</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
                                 <th scope="col"></th>
@@ -31,7 +31,7 @@
                                 <td>{{ $peripheral['pid'] }}</td>
                                 <td>{{ $peripheral->peripheralowner->name }}</td>
                                 <td>{{ $peripheral->peripheralsection->name }}</td>
-                                <td>{{ $peripheral['is_mobile'] }}</td>
+                                <td>{{ $peripheral->PeripheralMobility->name }}</td>
                                 <td>{{ $peripheral->PeripheralAssetStatus->name }}</td>
                                 <td>{{ $peripheral->PeripheralAssetUseStatus->name }}</td>
                                 <td><a href="{{ url('/peripheral',$peripheral->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
