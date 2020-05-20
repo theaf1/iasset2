@@ -43,6 +43,6 @@ class Mobility extends Model
     //แสดงความสัมพันธ์กับตาราง Upses
     public function MobilityUps ()
     {
-        return $this->BelongsTo(Upses::class);
+        return $this->hasMany(Upses::class,'mobility_id');
     }
 }

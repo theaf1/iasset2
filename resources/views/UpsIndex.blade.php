@@ -25,7 +25,7 @@
                                 <th scope="row">{{ $ups['id'] }}</th>
                                 <td>{{ $ups['sapid'] }}</td>
                                 <td>{{ $ups['pid'] }}</td>
-                                <td>{{ $ups['is_mobile'] }}</td>
+                                <td>{{ $ups->UpsMobility->name }}</td>
                                 <td>{{ $ups->UpsAssetStatus->name }}</td>
                                 <td>{{ $ups->UpsAssetUseStatus->name }}</td>
                                 <td><a class="btn btn-sm btn-info" role="button" href="{{ url('/ups',$ups->id) }}">แก้ไข</a></td>

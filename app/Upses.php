@@ -12,7 +12,7 @@ class Upses extends Model
         'sapid',
         'pid',
         'location_id',
-        'is_mobile',
+        'mobility_id',
         'response_person',
         'section_id',
         'tel_no',
@@ -36,6 +36,11 @@ class Upses extends Model
     public function UpsSection ()
     {
         return $this->belongsTo(Section::class,'section_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Mobility
+    public function UpsMobility ()
+    {
+        return $this->belongsTo(Mobility::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
     public function UpsOwner ()
