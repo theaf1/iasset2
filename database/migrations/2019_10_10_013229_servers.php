@@ -44,9 +44,9 @@ class Servers extends Migration
             $table->integer('display_no')->nullable();
             $table->string('display_sapid')->nullable(); //รหัส SAP จอ
             $table->string('display_pid')->nullable(); //รหัสครุภัณฑ์จอภาพ
-            $table->string('os'); //ระบบปฏิบัติการ รับค่าจากตาราง ServerOS
+            $table->integer('os_id'); //ระบบปฏิบัติการ รับค่าจากตาราง ServerOS
             $table->integer('os_arch'); //โครงสร้างระบบปฏิบัติการ
-            $table->integer('role_class'); //กลุ่มของบทบาท
+            $table->integer('role_class_id'); //กลุ่มของบทบาท
             $table->boolean('is_ad')->default(0); //เป็น Domain controller
             $table->boolean('is_dns')->default(0); //เป็น DNS
             $table->boolean('is_dhcp')->default(0); //เป็น DHCP
@@ -56,7 +56,7 @@ class Servers extends Migration
             $table->boolean('is_log')->default(0); //เป็น Logging server
             $table->boolean('other_software')->default(0); //มี software อื่นๆ
             $table->string('other_software_detail')->nullable(); //รายละเอียด software อืนๆ
-            $table->integer('lan_type'); //ประเภทการเชื่อมต่อ รับค่าจากตาราง Networkconnection
+            $table->integer('lan_type_id'); //ประเภทการเชื่อมต่อ รับค่าจากตาราง Networkconnection
             $table->string('lan_outlet_no')->nullable(); //หมายเลขจุด LAN
             $table->ipAddress('ip_address'); //ip address
             $table->macAddress('mac_address'); //MAC address

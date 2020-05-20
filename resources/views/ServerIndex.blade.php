@@ -18,6 +18,7 @@
                                 <th scope="col">mobile</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
+                                <th scope="col">กลุ่มงาน</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -32,6 +33,7 @@
                                     <td>{{ $server->ServerMobility->name }}</td>
                                     <td>{{ $server->ServerAssetStatus->name }}</td>
                                     <td>{{ $server->ServerAssetUseStatus->name }}</td>
+                                    <td>{{ $server->ServerRoleClass->name }}</td>
                                 <td><a href="{{ url('/server',$server->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach

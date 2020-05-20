@@ -37,9 +37,9 @@ class Servers extends Model
         'is_headless',
         'display_sapid',
         'display_pid',
-        'os',
+        'os_id',
         'os_arch',
-        'role_class',
+        'role_class_id',
         'is_ad',
         'is_dns',
         'is_dhcp',
@@ -49,7 +49,7 @@ class Servers extends Model
         'is_log',
         'other_software',
         'other_software_detail',
-        'lan_type',
+        'lan_type_id',
         'lan_outlet_no',
         'ip_address',
         'mac_address',
@@ -88,18 +88,18 @@ class Servers extends Model
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
     //แสดงความสัมพันธ์กับตาราง ServerRoleClass
-    public function serverroleclass ()
+    public function ServerRoleClass ()
     {
-        return $this->hasOne(ServerRoleClass::class);
+        return $this->belongsTo(ServerRoleClass::class,'role_class_id');
     }
     //แสดงความสัมพันธ์กับตาราง ServerOS
-    public function serveros ()
+    public function ServerOs ()
     {
-        return $this->hasOne(ServerOS::class);
+        return $this->belongsTo(ServerOS::class,'os_id');
     }
     //แสดงความสัมพันธ์กับตาราง NetworkConnection
-    public function networkconnections ()
+    public function ServerNetworkConnection ()
     {
-        return $this->hasOne(NetworkConnection::class);
+        return $this->belongsTo(NetworkConnection::class,'lan_type_id');
     }
 }

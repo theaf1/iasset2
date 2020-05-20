@@ -12,8 +12,8 @@ class ServerRoleClass extends Model
         'name',
     ];
     //แสดงความสัมพันธ์กับตาราง Servers
-    public function serverroleclass ()
+    public function RoleClassServer ()
     {
-        return $this->belongsTo(Servers::class);
+        return $this->hasMany(Servers::class,'role_class_id');
     }
 }

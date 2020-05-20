@@ -144,7 +144,7 @@ class ServerController extends Controller
     {
         $this->validateData($request);
         Servers::find($id)->update($request->all());
-        return redirect('/server');
+        return redirect('/servers');
     }
 
     /**
@@ -187,9 +187,10 @@ class ServerController extends Controller
             'hdd_total_cap' => 'required',
             'display_sapid' => 'nullable',
             'display_pid' => 'nullable',
-            'os'=>'required',
+            'os_id'=>'required',
+            'role_class_id' => 'required',
             'other_software_detail' => 'required_if:other_software,1',
-            'lan_type' => 'required',
+            'lan_type_id' => 'required',
             'ip_address' => 'required|ipv4',
             'mac_address' => 'required|regex:/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/'
         ];
@@ -220,9 +221,10 @@ class ServerController extends Controller
             'no_of_physical_drive_populated.lte' => 'โปรดตรวจสอบจำนวน disk ในเครื่อง',
             'lun_count.required_if' =>'กรุณาระบุจำนวน disk จำลอง',
             'hdd_total_cap.required' => 'กรุณาระบุความจุข้อมูลรวมของเครื่อง',
-            'os.required' => 'กรุณาเลือกระบบปฏิบัติการ',
+            'os_id.required' => 'กรุณาเลือกระบบปฏิบัติการ',
+            'role_class_id.required' =>'กรุณาเลื่อกกลุ่มงานของ server',
             'other_software_detail.required_if' => '1',
-            'lan_type.required' => 'กรุณาเลือกประเภทเครือข่าย', 
+            'lan_type_id.required' => 'กรุณาเลือกประเภทเครือข่าย', 
             'ip_address.required' =>'กรุณาใส่ IP Address',
             'ip_address.ipv4' =>'โปรดตรวจสอบ IP Address',
             'mac_address.required'=>'กรุณาใส่ MAC Address',

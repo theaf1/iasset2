@@ -12,8 +12,8 @@ class ServerOS extends Model
         'name',
     ];
     //แสดงความสัมพันธ์กับตาราง Servers
-    public function serveros ()
+    public function OsServer ()
     {
-        return $this->belongsTo(Servers::class);
+        return $this->hasMany(Servers::class,'os_id');
     }
 }

@@ -17,9 +17,9 @@ class NetworkConnection extends Model
         return $this->belongsTo(Client::class);
     }
     //แสดงความสัมพันธ์กับตาราง Servers
-    public function server ()
+    public function NetworkConnectionServer ()
     {
-        return $this->belongsTo(Servers::class);
+        return $this->hasMany(Servers::class,'lan_type_id');
     }
 
 }

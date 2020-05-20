@@ -217,10 +217,10 @@
                                 <div class="form-group">
                                     <label for="form-factor">ลักษณะของเครื่อง</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="1" checked>
-                                        <label class="form-check-label" for="form_factor">Tower</label><br>
-                                        <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="2">
-                                        <label class="form-check-label" for="owner">Rack Mounted</label>
+                                        @foreach($forms as $form)
+                                            <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="{{ $form['id'] }}" {{ old('form_factor') == $form['id'] ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="form_factor">{{ $form['name'] }}</label><br>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -383,13 +383,13 @@
                             <div class="col-sm-12 col-lg-6"> <!--OS-->
                                 <div class="form-group">
                                     <label for="os">OS</label>
-                                    <select class="form-control @error('os') is-invalid @enderror" name="os" id="os">
+                                    <select class="form-control @error('os_id') is-invalid @enderror" name="os_id" id="os">
                                         <option value="" hidden></option>
                                         @foreach($server_oses as $server_os)
-                                            <option value="{{ $server_os['id'] }}" {{ old('os') == $server_os['id'] ? 'selected' : '' }}>{{ $server_os['name'] }}</option>
+                                            <option value="{{ $server_os['id'] }}" {{ old('os_id') == $server_os['id'] ? 'selected' : '' }}>{{ $server_os['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('os')
+                                    @error('os_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -418,12 +418,17 @@
                             <div class="col-sm-12 col-lg-6"><!--กลุ่มของบทบาท-->
                                 <div class="form-group">
                                     <label for="role_class">กลุ่มของบทบาท</label>
-                                    <select class="form-control" name="role_class" id="role_class">
+                                    <select class="form-control @error('role_class_id') is-invalid @enderror" name="role_class_id" id="role_class">
                                         <option value="" hidden selected></option>
                                         @foreach($server_role_classes as $server_role_class)
-                                            <option value="{{ $server_role_class['id'] }}" {{ old('role_class') == $server_role_class['id'] ? 'selected' : '' }}>{{ $server_role_class['name'] }}</option>
+                                            <option value="{{ $server_role_class['id'] }}" {{ old('role_class_id') == $server_role_class['id'] ? 'selected' : '' }}>{{ $server_role_class['name'] }}</option>
                                         @endforeach
                                     </select>
+                                    @error('role_class_id')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"><!--บทบาท-->
@@ -475,13 +480,13 @@
                             <div class="col-sm-12 col-lg-6"> <!--lan type-->
                                 <div class="form-group">
                                     <label for="lan_type">ประเภทเครือข่าย</label><br>
-                                    <select class="form-control @error('lan_type') is-invalid @enderror" name="lan_type" id="lan_type">
+                                    <select class="form-control @error('lan_type_id') is-invalid @enderror" name="lan_type_id" id="lan_type">
                                         <option value="" hidden></option>
                                         @foreach($network_connections as $network_connection)
-                                            <option value="{{ $network_connection['id'] }}" {{ old('network_connection') == $network_connection['id'] ? 'selected' : '' }}>{{ $network_connection['name'] }}</option>
+                                            <option value="{{ $network_connection['id'] }}" {{ old('lan_type_id') == $network_connection['id'] ? 'selected' : '' }}>{{ $network_connection['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('lan_type')
+                                    @error('lan_type_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
