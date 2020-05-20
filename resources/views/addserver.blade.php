@@ -82,13 +82,13 @@
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                 <label for="section">หน่วยงาน</label>
-                                    <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
+                                    <select class="form-control @error('section_id') is-invalid @enderror" name="section_id" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
-                                            <option value="{{ $section['id'] }}" {{ old('section') == $section['id'] ? 'selected' : ''}}>{{ $section['name'] }}</option>
+                                            <option value="{{ $section['id'] }}" {{ old('section_id') == $section['id'] ? 'selected' : ''}}>{{ $section['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('section')
+                                    @error('section_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

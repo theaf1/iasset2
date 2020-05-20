@@ -166,7 +166,7 @@ class ServerController extends Controller
             'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
             'pid' => 'nullable',
             'location_id' => 'required',
-            'section' => 'required',
+            'section_id' => 'required',
             'tel_no' => 'required',
             'mobility_id' => 'required',
             'response_person' => 'required',
@@ -198,7 +198,7 @@ class ServerController extends Controller
         $messages = [
             'sapid.regex' => 'กรุณาใส่รหัส SAP ให้ถูกต้อง',
             'location_id.required' => 'กรุณาระบุสถานที่ตั้งเครื่อง',
-            'section.required' => 'กรุณาเลือกหน่วยงาน',
+            'section_id.required' => 'กรุณาเลือกหน่วยงาน',
             'tel_no.required' => 'กรุณาใส่หมาเลขโทรศัพท์',
             'mobility_id.required' => 'กรุณาระบุลักษณะการติดตั้ง',
             'owner_id.required' => 'กรุณาระบุที่มา',

@@ -34,7 +34,7 @@ class Section extends Model
     //แสดงความสัมพันธ์กับตาราง Servers
     public function server ()
     {
-        return $this->belongsTo(Servers::class);
+        return $this->hasMany(Servers::class,'section_id');
     }
     //แสดงความสัมพันธ์กับตาราง NetworkedStorage
     public function networkedstorage ()

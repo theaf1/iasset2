@@ -12,7 +12,7 @@ class Servers extends Model
         'sapid',
         'pid',
         'location_id',
-        'section',
+        'section_id',
         'mobility_id',
         'tel_no',
         'response_person',
@@ -63,9 +63,9 @@ class Servers extends Model
         return $this->hasOne(location::class);
     }
     //แสดงความสัมพันธ์กับตาราง Section
-    public function section ()
+    public function ServerSection ()
     {
-        return $this->hasOne(Section::class);
+        return $this->belongsTo(Section::class,'section_id');
     }
     //แสดงความสัมพันธ์กับตาราง Mobility
     public function ServerMobility ()

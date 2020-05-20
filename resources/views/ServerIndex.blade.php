@@ -13,6 +13,7 @@
                                 <th scope="col">ลำดับที่</th>
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
+                                <th scope="col">หน่วยงาน</th>
                                 <th scope="col">ที่มา</th>
                                 <th scope="col">mobile</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
@@ -26,6 +27,7 @@
                                 <th scope="row">{{ $server['id'] }}</th>
                                     <td>{{ $server['sapid'] }}</td>
                                     <td>{{ $server['pid'] }}</td>
+                                    <td>{{ $server->ServerSection->name }}</td>
                                     <td>{{ $server->ServerOwner->name }}</td>
                                     <td>{{ $server->ServerMobility->name }}</td>
                                     <td>{{ $server->ServerAssetStatus->name }}</td>
