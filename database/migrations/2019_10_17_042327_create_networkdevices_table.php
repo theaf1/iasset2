@@ -18,7 +18,7 @@ class CreateNetworkdevicesTable extends Migration
             $table->bigIncrements('id'); //ลำดับที่
             $table->string('sapid')->nullable(); //รหัส SAP
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
-            $table->boolean('is_mobile')->default(0); //เป็นเครื่องเคลื่อนที่
+            $table->integer('mobility_id'); //ค่า mobility_id รับจากตาราง Mobility
             $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
             $table->integer('asset_status_id'); //สถานะทางทะเบียนครุภัณฑ์
             $table->string('tel_no'); //หมายเลขโทรศัพท์
@@ -31,6 +31,7 @@ class CreateNetworkdevicesTable extends Migration
             $table->string('model'); //รุ่น
             $table->string('serial_no'); //serial number จากผู้ผลิต
             $table->integer('port_count'); //จำนวน port
+            $table->boolean('is_modular')->default(0); //ความสามารถในการขยายขนาด
             $table->integer('psu_count'); //จำนวน power supply
             $table->ipAddress('device_management_address')->nullable(); //ip address ที่ใช้ควบคุมเครื่อง
             $table->string('software_version')->nullable(); //รุ่นโปรแกรมภายในเครื่อง

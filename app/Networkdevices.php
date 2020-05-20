@@ -12,7 +12,7 @@ class Networkdevices extends Model
         'sapid',
         'pid',
         'location_id',
-        'is_mobile',
+        'mobility_id',
         'section_id',
         'tel_no',
         'response_person',
@@ -24,6 +24,7 @@ class Networkdevices extends Model
         'model',
         'serial_no',
         'port_count',
+        'is_modular',
         'psu_count',
         'device_management_address',
         'software_version',
@@ -44,6 +45,11 @@ class Networkdevices extends Model
     public function NetworkDeviceOwner ()
     {
         return $this->belongsTo(Owner::class,'owner_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Mobility
+    public function NetworkDeviceMobility ()
+    {
+        return $this->belongsTo(Mobility::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function NetworkDeviceAssetStatus ()

@@ -137,7 +137,7 @@ class NetworkdeviceController extends Controller
             'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
             'pid'=>'nullable',
             'location_id' => 'required',
-            'is_mobile' => 'required',
+            'mobility_id' => 'required',
             'response_person' => 'required',
             'owner_id' => 'required',
             'tel_no' => 'required',
@@ -155,7 +155,7 @@ class NetworkdeviceController extends Controller
         $messages = [
             'sapid.regex' => 'กรุณาตรวจสอบรหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
-            'is_mobile.required' =>'กรุณาระบุลักษณะการติดตั้ง',
+            'mobility_id.required' =>'กรุณาระบุลักษณะการติดตั้ง',
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
             'section_id.required' => 'กรุณาเลือกสาขา',
             'owner_id.required' => 'กรุณาระบุที่มาของเครื่อง',

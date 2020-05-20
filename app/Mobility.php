@@ -28,7 +28,7 @@ class Mobility extends Model
     //แสดงความสัมพันธ์กับตาราง Networkdevices
     public function MobilityNetworkdevice ()
     {
-        return $this->belongsTo(Networkdevices::class);
+        return $this->hasMany(Networkdevices::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง Servers
     public function MobilityServer ()
