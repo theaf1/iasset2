@@ -38,7 +38,7 @@ class Mobility extends Model
     //แสดงความสัมพันธ์กับตาราง NetworkedStorage
     public function MobilityNetworkedstorage ()
     {
-        return $this->belongsTo(NetworkedStorage::class);
+        return $this->hasMany(NetworkedStorage::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง Upses
     public function MobilityUps ()

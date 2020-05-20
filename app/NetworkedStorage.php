@@ -11,7 +11,7 @@ class NetworkedStorage extends Model
         'sapid',
         'pid',
         'location_id',
-        'is_mobile',
+        'mobility_id',
         'section_id',
         'tel_no',
         'response_person',
@@ -45,6 +45,11 @@ class NetworkedStorage extends Model
     public function NetworkedStorageSection ()
     {
         return $this->belongsTo(Section::class,'section_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Mobility
+    public function NetworkedStorageMobility ()
+    {
+        return $this->belongsTo(Mobility::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
     public function NetworkedStorageOwner ()

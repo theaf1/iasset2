@@ -19,7 +19,7 @@ class CreateNetworkedStoragesTable extends Migration
             $table->string('sapid')->nullable(); //รหัส SAP
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
             $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
-            $table->boolean('is_mobile'); //เป็นเครื่องเคลือนที่
+            $table->integer('mobility_id'); //ค่า mobility_id รับจากตาราง Mobility
             $table->integer('section_id'); //หน่วยงาน รับค่าจากตาราง Section
             $table->string('response_person'); //ผู้รับผิดชอบ
             $table->string('tel_no'); //หมายเลขโทรศัพท์
