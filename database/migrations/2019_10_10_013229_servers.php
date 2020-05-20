@@ -20,7 +20,7 @@ class Servers extends Migration
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
             $table->integer('location_id'); //ค่า location_id รับมาจากตาราง Location 
             $table->integer('section'); //หน่วยงาน รับค่าจากตาราง Section
-            $table->boolean('is_mobile')->default(0); //เป็นเครื่องเคลื่อนที่
+            $table->integer('mobility_id'); //ค่า mobility_id รับจากตาราง Mobility
             $table->string('tel_no'); //หมายเลขโทรศัพท์
             $table->string('response_person'); //ชื่อผู้รับผิดชอบ
             $table->integer('owner_id'); //เจ้าของ รับค่าจากตาราง Owner

@@ -33,7 +33,7 @@ class Mobility extends Model
     //แสดงความสัมพันธ์กับตาราง Servers
     public function MobilityServer ()
     {
-        $this->belongsTo(Servers::class);
+        $this->hasMany(Servers::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง NetworkedStorage
     public function MobilityNetworkedstorage ()

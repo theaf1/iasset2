@@ -13,7 +13,7 @@ class Servers extends Model
         'pid',
         'location_id',
         'section',
-        'is_mobile',
+        'mobility_id',
         'tel_no',
         'response_person',
         'owner_id',
@@ -66,6 +66,11 @@ class Servers extends Model
     public function section ()
     {
         return $this->hasOne(Section::class);
+    }
+    //แสดงความสัมพันธ์กับตาราง Mobility
+    public function ServerMobility ()
+    {
+        return $this->belongsTo(Mobility::class,'mobility_id');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
     public function ServerOwner ()

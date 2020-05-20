@@ -27,7 +27,7 @@
                                     <td>{{ $server['sapid'] }}</td>
                                     <td>{{ $server['pid'] }}</td>
                                     <td>{{ $server->ServerOwner->name }}</td>
-                                    <td>{{ $server['is_mobile'] }}</td>
+                                    <td>{{ $server->ServerMobility->name }}</td>
                                     <td>{{ $server->ServerAssetStatus->name }}</td>
                                     <td>{{ $server->ServerAssetUseStatus->name }}</td>
                                 <td><a href="{{ url('/server',$server->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
