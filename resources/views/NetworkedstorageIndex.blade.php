@@ -7,7 +7,7 @@
                     <h4>บัญชีอุปกรณ์เก็บข้อมูลเครือข่าย</h4>
                 </div>
                 <div class="card-body">
-                <a href="{{ url('/ns') }}" class="btn btn-lg btn-info" role="button">test</a>
+                <a href="{{ url('/ns') }}" class="btn btn-lg btn-info" role="button">เพิ่มอุปกรณ์เก็บข้อมูลเครือข่าย</a>
                     <table class="table mt-4 table-hover">
                         <thead>
                             <tr>

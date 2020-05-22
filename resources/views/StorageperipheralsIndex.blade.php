@@ -7,6 +7,7 @@
                     <h4>บัญชีอุปกรณ์ต่อพ่วงเก็บข้อมูล</h4>
                 </div>
                 <div class="card-body">
+                    <a href="{{ url('/storage') }}" class="btn btn-lg btn-info" role="button">เพิ่มอุปกรณ์ต่อพ่วงเก็บข้อมูล</a>
                     <table class="table mt-4">
                         <thead>
                             <tr>
