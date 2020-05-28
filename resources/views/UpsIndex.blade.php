@@ -7,8 +7,8 @@
                     <h4>บัญชีเครื่องสำรองไฟฟ้า</h4>
                 </div>
                 <div class="card-body">
-                <a href="{{ url('/ups') }}" class="btn btn-info btn-lg" role="button">เพิ่มเครื่องสำรองไฟฟ้า</a>
-                    <table class="table mt-4 table-hover table-responsive-md">
+                <a href="{{ url('/ups') }}" class="btn btn-primary btn-info btn-block btn-lg" role="button">เพิ่มเครื่องสำรองไฟฟ้า</a>
+                    <table class="table mt-4 table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th scope="col">ลำดับที่</th>

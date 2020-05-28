@@ -7,7 +7,7 @@
                     <h4>ตารางบัญชีอุปกรณ์ต่อพ่วง</h4>
                 </div>
                 <div class="card-body">
-                <a href="{{ url('/peripherals') }}" class="btn btn-info btn-lg" role="button">เพิ่มอุปกรณ์ต่อพ่วง</a>
+                <a href="{{ url('/peripherals') }}" class="btn btn-primary btn-info btn-block btn-lg" role="button">เพิ่มอุปกรณ์ต่อพ่วง</a>
                     <table class="table mt-4 table-hover">
                         <thead>
                             <tr>

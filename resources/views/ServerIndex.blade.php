@@ -7,8 +7,8 @@
                     <h4>บัญชีคอมพิวเตอร์แม่ข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{ url('/server') }}" class="btn btn-lg btn-lg" role="button">เพิ่มคอมพิวเตอร์แม่ข่าย</a>
-                    <table class="table mt-4 table-hover">
+                    <a href="{{ url('/server') }}" class="btn btn-primary btn-info btn-block btn-lg" role="button">เพิ่มคอมพิวเตอร์แม่ข่าย</a>
+                    <table class="table mt-4 table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th scope="col">ลำดับที่</th>

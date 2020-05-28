@@ -7,8 +7,8 @@
                     <h4>บัญชีอุปกรณ์ต่อพ่วงเก็บข้อมูล</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{ url('/storage') }}" class="btn btn-lg btn-info" role="button">เพิ่มอุปกรณ์ต่อพ่วงเก็บข้อมูล</a>
-                    <table class="table mt-4">
+                    <a href="{{ url('/storage') }}" class="btn btn-primary btn-block btn-lg btn-info" role="button">เพิ่มอุปกรณ์ต่อพ่วงเก็บข้อมูล</a>
+                    <table class="table mt-4 table-responsive">
                         <thead>
                             <tr>
                                 <th scope="col">ลำดับที่</th>

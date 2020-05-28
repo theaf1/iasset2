@@ -7,8 +7,8 @@
                     <h4>บัญชีอุปกรณ์เครือข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{ url('/network') }}" class="btn btn-block btn-primary" role="button">เพิ่มอุปกรณ์เครือข่าย</a>
-                    <table class="table mt-4">
+                    <a href="{{ url('/network') }}" class="btn btn-block btn-primary btn-lg btn-info" role="button">เพิ่มอุปกรณ์เครือข่าย</a>
+                    <table class="table mt-4 table-responsive">
                         <thead>
                             <tr>
                                 <th scope="col">ลำดับที่</th>
