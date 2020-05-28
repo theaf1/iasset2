@@ -24,6 +24,7 @@ class ClientIndexController extends Controller
     {
         $Clients = Client::paginate(2);
         $Clienttypes =Clienttype::all();
+        $Displays = Display::all();
         $Mobility = Mobility::all();
         $Sections = Section::all();
         $Asset_statuses = Asset_statuses::all();
@@ -42,6 +43,7 @@ class ClientIndexController extends Controller
         
         return view('clientindex')->with([
             'clients'=>$Clients,
+            'displays'=>$Displays,
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,

@@ -7,8 +7,8 @@
                     <h4>ตารางบัญชีคอมพิวเตอร์</h4>
                 </div>
                 <div class="card-body">
-                <a href="{{ url('/computer') }}"class="btn btn-lg btn-info" role="button">เพิ่มคอมพิวเตอร์</a>
-                    <table class="table mt-4 table-hover table-responsive-md">
+                <a href="{{ url('/computer') }}"class="btn btn-primary btn-lg btn-block btn-danger" role="button">เพิ่มคอมพิวเตอร์</a>
+                    <table class="table mt-4 table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th scope="col">ลำดับที่</th>
@@ -16,6 +16,7 @@
                                 <th scope="col">ที่มา</th>
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
+                                <th scope="col">SAP จอ</th>
                                 <th scope="col">หน่วยงาน</th>
                                 <th scope="col">ลักษณะการติดตั้ง</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
@@ -33,6 +34,7 @@
                                     <td>{{ $client->ClientOwner->name }}</td>
                                     <td>{{ $client['sapid'] }}</td>
                                     <td>{{ $client['pid'] }}</td>
+                                    <td>{{ $client->displays->first()->display_sapid}}</td>
                                     <td>{{ $client->clientSection->name }}</td>
                                     <td>{{ $client->ClientMobility->name }}</td>
                                     <td>{{ $client->ClientAssetStatus->name }}</td>
