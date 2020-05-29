@@ -8,6 +8,7 @@ use App\Asset_use_statuses;
 use App\Section;
 use App\Peripherals;
 use App\Peripheraltype;
+use App\Multiuser;
 use App\Owner;
 use App\Mobility;
 
@@ -25,6 +26,7 @@ class PeripheralsController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Peripheraltypes = Peripheraltype::all();
+        $Multiusers = Multiuser::all();
         $Supplies = array(
             ['id'=>'1', 'name'=>'เบิกได้'],
             ['id'=>'2', 'name'=>'เบิกไม่ได้'],
@@ -48,6 +50,7 @@ class PeripheralsController extends Controller
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'peripheraltypes'=>$Peripheraltypes,
+            'multiusers'=>$Multiusers,
             'supplies'=>$Supplies,
             'peripheralconnections'=>$PeripheralConnections,
             'sharemethods'=>$ShareMethods,
@@ -105,6 +108,7 @@ class PeripheralsController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Peripheraltypes = Peripheraltype::all();
+        $Multiusers = Multiuser::all();
         $Supplies = array(
             ['id'=>'1', 'name'=>'เบิกได้'],
             ['id'=>'2', 'name'=>'เบิกไม่ได้'],
@@ -130,6 +134,7 @@ class PeripheralsController extends Controller
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'peripheraltypes'=>$Peripheraltypes,
+            'multiusers'=>$Multiusers,
             'supplies'=>$Supplies,
             'peripheralconnections'=>$PeripheralConnections,
             'sharemethods'=>$ShareMethods,
