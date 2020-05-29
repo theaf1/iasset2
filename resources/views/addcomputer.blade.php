@@ -179,13 +179,13 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ตำแหน่งผู้ใช้งาน -->
                                 <div class="form-group">
                                     <label for="position">ตำแหน่งผู้ใช้งาน</label> 
-                                    <select class="form-control @error('position') is-invalid @enderror" name="position" id="position">
+                                    <select class="form-control @error('position_id') is-invalid @enderror" name="position_id" id="position">
                                         <option value="" hidden></option>
                                         @foreach ($positions as $position)
-                                            <option value="{{ $position['id'] }}" {{ old('position') == $position['id'] ? 'selected' : ''}}>{{ $position['name'] }}</option>
+                                            <option value="{{ $position['id'] }}" {{ old('position_id') == $position['id'] ? 'selected' : ''}}>{{ $position['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('position')
+                                    @error('position_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

@@ -10,6 +10,7 @@ use App\Clienttype;
 use App\NetworkConnection;
 use App\Owner;
 use App\Mobility;
+use App\Position;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -27,11 +28,7 @@ class ClientController extends Controller
         $Sections = Section::all();
         $Clienttypes = Clienttype::all();
         $NetworkConnections = NetworkConnection::all();
-        $Positions = array(
-            ['id'=>'1','name'=>'แพทย์'],
-            ['id'=>'2','name'=>'พยาบาล'],
-            ['id'=>'3','name'=>'เจ้าหน้าที่'],
-        );
+        $Positions = Position::all();
         $DataUnits = array(
             ['id'=>'1', 'name'=>'GB'],
             ['id'=>'2', 'name'=>'TB'],
@@ -124,11 +121,7 @@ class ClientController extends Controller
         $Sections = Section::all();
         $Clienttypes = Clienttype::all();
         $NetworkConnections = NetworkConnection::all();
-        $Positions = array(
-            ['id'=>'1','name'=>'แพทย์'],
-            ['id'=>'2','name'=>'พยาบาล'],
-            ['id'=>'3','name'=>'เจ้าหน้าที่'],
-        );
+        $Positions = Position::all();
         $DataUnits = array(
             ['id'=>'1', 'name'=>'GB'],
             ['id'=>'2', 'name'=>'TB'],

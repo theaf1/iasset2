@@ -23,7 +23,7 @@ class Clients extends Migration
             $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
             $table->string('user')->nullable(); //ชื่อผู้ใช้งาน
             $table->boolean('multi_user')->default(0); //เป็นเครื่องใช้งานส่วนกลาง
-            $table->string('position'); //ตำแหน่งผู้ใช้งาน
+            $table->string('position_id'); //ตำแหน่งผู้ใช้งาน รับค่าจากตาราง Position
             $table->string('tel_no'); //หมายเลขโทรศัพท์
             // $table->integer('section_status');
             $table->integer('function'); //ระบบงาน

@@ -20,13 +20,13 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
                                 <div class="form-group"> 
                                     <label for="type">ชนิด</label>
-                                    <select class="form-control @error('type') is-invalid @enderror" id="type" name="type">
+                                    <select class="form-control @error('type_id') is-invalid @enderror" id="type_id" name="type">
                                         <option value="" hidden></option>
                                         @foreach($clienttypes as $clienttype)
-                                            <option value="{{ $clienttype['id'] }}" {{ old('type',$client->type) == $clienttype['id'] ? 'selected' : ''}}>{{ $clienttype['name'] }}</option>
+                                            <option value="{{ $clienttype['id'] }}" {{ old('type',$client->type_id) == $clienttype['id'] ? 'selected' : ''}}>{{ $clienttype['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('type')
+                                    @error('type_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -119,13 +119,13 @@
                             <div class="col-sm-12 col-lg-6"> <!-- สถานะของครุภัณฑ์ -->
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label><br>
-                                    <select class="form-control @error('asset_status') is-invalid @enderror" name="asset_status" id="asset_status">
+                                    <select class="form-control @error('asset_status_id') is-invalid @enderror" name="asset_status_id" id="asset_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_statuses as $asset_status)
-                                            <option value="{{ $asset_status['id'] }}" {{ old('asset_status',$client->asset_status) == $asset_status['id']  ? 'selected' : ''}}> {{ $asset_status['name'] }}</option>
+                                            <option value="{{ $asset_status['id'] }}" {{ old('asset_status_id',$client->asset_status_id) == $asset_status['id']  ? 'selected' : ''}}> {{ $asset_status['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('asset_status')
+                                    @error('asset_status_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -135,13 +135,13 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label> <!--สถานะการใช้งาน-->
-                                    <select class="form-control @error('asset_use_status') is-invalid @enderror" name="asset_use_status" id="asset_use_status">
+                                    <select class="form-control @error('asset_use_status_id') is-invalid @enderror" name="asset_use_status_id" id="asset_use_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_use_statuses as $asset_use_status)
-                                            <option value="{{ $asset_use_status['id'] }}"  {{ old('asset_use_status',$client->asset_use_status) == $asset_use_status['id']  ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
+                                            <option value="{{ $asset_use_status['id'] }}"  {{ old('asset_use_status_id',$client->asset_use_status_id) == $asset_use_status['id']  ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('asset_use_status')
+                                    @error('asset_use_status_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -173,13 +173,13 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ตำแหน่งผู้ใช้งาน -->
                                 <div class="form-group">
                                     <label for="position">ตำแหน่งผู้ใช้งาน</label> 
-                                    <select class="form-control @error('position') is-invalid @enderror" name="position" id="position">
+                                    <select class="form-control @error('position_id') is-invalid @enderror" name="position_id" id="position">
                                         <option value="" hidden></option>
                                         @foreach ($positions as $position)
-                                            <option value="{{ $position['id'] }}" {{ old('position',$client->position) == $position['id'] ? 'selected' : ''}}>{{ $position['name'] }}</option>
+                                            <option value="{{ $position['id'] }}" {{ old('position_id',$client->position_id) == $position['id'] ? 'selected' : ''}}>{{ $position['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('position')
+                                    @error('position_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -191,13 +191,13 @@
                             <div class="col-sm-12 col-lg-6"> <!-- หน่วยงาน -->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
-                                    <select class="form-control @error('section') is-invalid @enderror" name="section" id="section">
+                                    <select class="form-control @error('section_id') is-invalid @enderror" name="section_id" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
-                                            <option value="{{ $section['id'] }}" {{ old('section',$client->section) == $section['id'] ? 'selected' : ''}}>{{ $section['name'] }}</option>
+                                            <option value="{{ $section['id'] }}" {{ old('section',$client->section_id) == $section['id'] ? 'selected' : ''}}>{{ $section['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('section')
+                                    @error('section_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

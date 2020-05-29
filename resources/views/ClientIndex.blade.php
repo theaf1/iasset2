@@ -23,6 +23,7 @@
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
                                 <th scope="col">จำนวนผู้ใช้งาน</th>
                                 <th scope="col">ผู้ใช้งาน</th>
+                                <th scope="col">ตำแหน่งผู้ใช้งาน</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -41,6 +42,7 @@
                                     <td>{{ $client->ClientAssetUseStatus->name }}</td>
                                     <td>{{ $client['multi_user'] }}</td>
                                     <td>{{ $client['user'] }}</td>
+                                    <td>{{ $client->ClientPosition->name }}</td>
                                     <td><a href="{{ url('/client',$client->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</button></td>
                                 </tr>
                             @endforeach
