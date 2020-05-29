@@ -106,13 +106,11 @@
                                 <div class="form-group">
                                     <label for="function">ระบบงาน</label><br>
                                     <div class="form-check-inline">
-                                        <input type="radio" class="form-check-input @error('function') is-invalid @enderror" name="function" id="function" value="1" {{ old('function') == 1 ? 'checked' : ''}}>
-                                        <label class="form-check-label" for="function">สำนักงาน</label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <input type="radio" class="form-check-input @error('function') is-invalid @enderror" name="function" id="function2" value="2" {{ old('function') == 2 ? 'checked' : ''}}>
-                                        <label class="form-check-label" for="function2">หอผู้ป่วย</label>
-                                        @error('function')
+                                        @foreach ($opsfunctions as $opsfunction)
+                                            <input type="radio" class="form-check-input @error('function_id') is-invalid @enderror" name="function_id" id="function" value="{{ $opsfunction['id'] }}" {{ old('function_id') == $opsfunction['id'] ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="function">{{ $opsfunction['name'] }}</label>
+                                        @endforeach
+                                        @error('function_id')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>

@@ -18,6 +18,7 @@
                                 <th scope="col">รหัสครุภัณฑ์</th>
                                 <th scope="col">SAP จอ</th>
                                 <th scope="col">หน่วยงาน</th>
+                                <th scope="col">ระบบงาน</th>
                                 <th scope="col">ลักษณะการติดตั้ง</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
@@ -37,6 +38,7 @@
                                     <td>{{ $client['pid'] }}</td>
                                     <td>{{ $client->displays->first()->display_sapid}}</td>
                                     <td>{{ $client->clientSection->name }}</td>
+                                    <td>{{ $client->ClientOpsFunction->name }}</td>
                                     <td>{{ $client->ClientMobility->name }}</td>
                                     <td>{{ $client->ClientAssetStatus->name }}</td>
                                     <td>{{ $client->ClientAssetUseStatus->name }}</td>

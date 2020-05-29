@@ -7,6 +7,7 @@ use App\Section;
 use App\Client;
 use App\Display;
 use App\Clienttype;
+use App\Opsfunction;
 use App\NetworkConnection;
 use App\Owner;
 use App\Mobility;
@@ -27,6 +28,7 @@ class ClientController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Clienttypes = Clienttype::all();
+        $Opsfunctions = Opsfunction::all();
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
         $DataUnits = array(
@@ -43,6 +45,7 @@ class ClientController extends Controller
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'clienttypes'=>$Clienttypes,
+            'opsfunctions'=>$Opsfunctions,
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
             'dataunits'=>$DataUnits,
@@ -120,6 +123,7 @@ class ClientController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Clienttypes = Clienttype::all();
+        $Opsfunctions = Opsfunction::all();
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
         $DataUnits = array(
@@ -137,6 +141,7 @@ class ClientController extends Controller
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'clienttypes'=>$Clienttypes,
+            'opsfunctions'=>$Opsfunctions,
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
             'dataunits'=>$DataUnits,
@@ -175,7 +180,7 @@ class ClientController extends Controller
             'pid' => 'nullable',
             'location_id' => 'required',
             'mobility_id' => 'required',
-            'function' => 'required',
+            'function_id' => 'required',
             'asset_status_id' => 'required',
             'asset_use_status_id' => 'required',
             'user' =>'required_if:multi_user,0',
@@ -217,7 +222,7 @@ class ClientController extends Controller
             'sapid.regex'=>'กรุณาตรวจสอบรหัส SAP',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้งเเครื่อง',
             'mobility_id.required'=>'กรุณาระบุลักษณะการใช้งาน',
-            'function.required'=>'กรุณาระบุระบบงานของเครื่อง',
+            'function_id.required'=>'กรุณาระบุระบบงานของเครื่อง',
             'asset_status_id.required'=>'กรุณาระบุสถานะของครุภัณฑ์',
             'asset_use_status_id.required'=>'กรุณาระบุสถานะการใช้งานของครุภัณฑ์',
             'user.required_if'=>'กรุณาระบุชื่อผู้ใช้งาน',

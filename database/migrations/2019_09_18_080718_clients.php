@@ -26,7 +26,7 @@ class Clients extends Migration
             $table->string('position_id'); //ตำแหน่งผู้ใช้งาน รับค่าจากตาราง Position
             $table->string('tel_no'); //หมายเลขโทรศัพท์
             // $table->integer('section_status');
-            $table->integer('function'); //ระบบงาน
+            $table->integer('function_id'); //ระบบงาน รับค่าจากตราง Opsfunction
             $table->integer('owner_id'); //เจ้าของเครือง
             $table->boolean('permission'); //อำนาจ admin
             $table->integer('asset_status_id'); //สถานะทางทะเบียนครุภัณฑ์

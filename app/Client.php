@@ -19,7 +19,7 @@ class Client extends Model
       'multi_user',
       'position_id',
       // 'section_status',
-      'function',
+      'function_id',
       'owner_id',
       'tel_no',
       'permission',
@@ -79,6 +79,11 @@ class Client extends Model
    public function ClientType ()
    {
       return $this->belongsTo(Clienttype::class,'type_id');
+   }
+   //แสดงความสัมพันธ์กับตาราง Opsfunction
+   public function ClientOpsFunction ()
+   {
+      return $this->belongsTo(Opsfunction::class,'function_id');
    }
    //แสดงความสัมพันธ์กับตาราง location
    public function location ()

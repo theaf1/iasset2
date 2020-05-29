@@ -13,6 +13,6 @@ class Opsfunction extends Model
     
     public function OpsFunctionClient ()
     {
-        return $this->hasMany(Client::class);
+        return $this->hasMany(Client::class,'function_id');
     }
 }
