@@ -24,7 +24,7 @@ class CreateMultiusersTable extends Migration
             ['name'=>'ใช้งานหลายคน'],
         );
         foreach ($Multiusers as $Multiuser) {
-            Multiuser::create($multiuser);
+            Multiuser::create($Multiuser);
         }
     }
 

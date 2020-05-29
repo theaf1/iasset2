@@ -8,6 +8,7 @@ use App\Client;
 use App\Display;
 use App\Clienttype;
 use App\Opsfunction;
+use App\Multiuser;
 use App\NetworkConnection;
 use App\Owner;
 use App\Mobility;
@@ -29,6 +30,7 @@ class ClientController extends Controller
         $Sections = Section::all();
         $Clienttypes = Clienttype::all();
         $Opsfunctions = Opsfunction::all();
+        $Multiusers = Multiuser::all();
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
         $DataUnits = array(
@@ -46,6 +48,7 @@ class ClientController extends Controller
             'sections'=>$Sections,
             'clienttypes'=>$Clienttypes,
             'opsfunctions'=>$Opsfunctions,
+            'multiusers'=>$Multiusers,
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
             'dataunits'=>$DataUnits,
@@ -124,6 +127,7 @@ class ClientController extends Controller
         $Sections = Section::all();
         $Clienttypes = Clienttype::all();
         $Opsfunctions = Opsfunction::all();
+        $Multiusers = Multiuser::all();
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
         $DataUnits = array(
@@ -142,6 +146,7 @@ class ClientController extends Controller
             'sections'=>$Sections,
             'clienttypes'=>$Clienttypes,
             'opsfunctions'=>$Opsfunctions,
+            'multiusers'=>$Multiusers,
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
             'dataunits'=>$DataUnits,

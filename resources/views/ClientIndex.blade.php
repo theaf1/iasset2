@@ -42,7 +42,7 @@
                                     <td>{{ $client->ClientMobility->name }}</td>
                                     <td>{{ $client->ClientAssetStatus->name }}</td>
                                     <td>{{ $client->ClientAssetUseStatus->name }}</td>
-                                    <td>{{ $client['multi_user'] }}</td>
+                                    <td>{{ $client->ClientMultiUser->name }}</td>
                                     <td>{{ $client['user'] }}</td>
                                     <td>{{ $client->ClientPosition->name }}</td>
                                     <td><a href="{{ url('/client',$client->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</button></td>

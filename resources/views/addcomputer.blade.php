@@ -158,8 +158,9 @@
                                 <div class="form-group">
                                     <label for="multi_user">จำนวนผู้ใช้งาน</label>
                                     <div class="form-check">
-                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="0" {{ old('multi_user') == 0 ? 'checked' : ''}}> ใช้งานคนเดียว</label>
-                                        <label class="radio"><input type="radio" name="multi_user" id="multi_user" value="1" {{ old('multi_user') == 1 ? 'checked' : ''}}> ใช้งานหลายคน</label>
+                                        @foreach ($multiusers as $multiuser)
+                                            <label class="radio"><input type="radio" name="multi_user_id" id="multi_user" value="{{ $multiuser['id'] }}" {{ old('multi_user_id') == $multiuser['id'] ? 'checked' : ''}}> {{ $multiuser['name'] }}</label>
+                                        @endforeach                                       
                                     </div>
                                 </div>
                             </div>

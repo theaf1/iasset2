@@ -16,7 +16,7 @@ class Client extends Model
       'mobility_id',
       'section_id',
       'user',
-      'multi_user',
+      'multi_user_id',
       'position_id',
       // 'section_status',
       'function_id',
@@ -103,6 +103,11 @@ class Client extends Model
    public function ClientPosition ()
    {
       return $this->belongsTo(Position::class,'position_id');
+   }
+   //แสดงความสัมพันธ์กับตาราง Multiuser
+   public function ClientMultiUser ()
+   {
+      return $this->belongsTo(Multiuser::class,'multi_user_id');
    }
    //แสดงความสัมพันธ์กับตาราง Asset_statuses
    public function ClientAssetStatus ()

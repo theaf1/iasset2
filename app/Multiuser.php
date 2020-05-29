@@ -12,6 +12,6 @@ class Multiuser extends Model
     ];
     public function MultiUserClient ()
     {
-        return $this->hasMany(Client::class);
+        return $this->hasMany(Client::class,'multi_user_id');
     }
 }
