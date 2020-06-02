@@ -11,8 +11,19 @@ class Position extends Model
         'name',
     ];
 
+    //แสดงความสัมพันธ์กับตาราง Client
     public function PositionClient ()
     {
         return $this->hasMany(Client::class,'position_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Peripheral
+    public function PositionPeripheral ()
+    {
+        return $this->hasMany(Peripheral::class);
+    }
+    //แสดงความสัมพันธ์กับตาราง Storageperipheral
+    public function PositionStoragePeripherals ()
+    {
+        return $this->hasMany(Storageperipherals::class);
     }
 }
