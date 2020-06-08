@@ -21,8 +21,9 @@ class Peripherals extends Migration
             $table->string('pid')->nullable(); //รหัสครุภัณฑ์
             $table->integer('location_id'); //ค่า location_id รับจากตาราง Location
             $table->integer('mobility_id'); //ค่า Mobility_id รับจากตาราง mobility
+            $table->integer('multi_user_id'); //ค่า multi_user_id รับจากตาราง multiuser
             $table->string('user'); //ชื่อผู้ใช้งาน
-            $table->string('position'); //ตำแหน่งผู้ใช้งาน
+            $table->integer('position_id'); //ตำแหน่งผู้ใช้งาน รับจากตาราง position
             $table->integer('section_id'); //หน่วยงาน รับค่าจากตาราง Section
             $table->string('tel_no'); //หมายเลขโทรศัพท์
             $table->integer('owner_id'); //เจ้าของ รับค่าจากตาราง Owner

@@ -9,6 +9,7 @@ use App\Section;
 use App\Peripherals;
 use App\Peripheraltype;
 use App\Multiuser;
+use App\Position;
 use App\Owner;
 use App\Mobility;
 
@@ -26,6 +27,7 @@ class PeripheralsController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Peripheraltypes = Peripheraltype::all();
+        $Positions = Position::all();
         $Multiusers = Multiuser::all();
         $Supplies = array(
             ['id'=>'1', 'name'=>'เบิกได้'],
@@ -50,6 +52,7 @@ class PeripheralsController extends Controller
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'peripheraltypes'=>$Peripheraltypes,
+            'positions'=>$Positions,
             'multiusers'=>$Multiusers,
             'supplies'=>$Supplies,
             'peripheralconnections'=>$PeripheralConnections,
@@ -179,7 +182,7 @@ class PeripheralsController extends Controller
             'mobility_id'=>'required',
             'section_id'=>'required',
             'user'=>'required',
-            'position' =>'required',
+            'position_id' =>'required',
             'tel_no'=>'required',
             'owner_id'=>'required',
             'asset_status_id'=>'required',
@@ -202,7 +205,7 @@ class PeripheralsController extends Controller
             'mobility_id.required'=>'กรุณาระบุลักษณะการติดตั้ง',
             'section_id.required'=>'กรุณาระบุหน่วยงาน',
             'user.required'=>'กรุณาระบุชื่อผู้ใช้งาน',
-            'position.required'=>'กรุณาระบุตำแหน่งผู้ใช้งาน',
+            'position_id.required'=>'กรุณาระบุตำแหน่งผู้ใช้งาน',
             'tel_no.required'=>'กรุณาระบุหมายเลขโทรศัพท์',
             'owner_id.required'=>'กรุณาระบุที่มา',
             'asset_status_id.required'=>'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',

@@ -15,7 +15,7 @@ class Peripherals extends Model
         'location_id',
         'mobility_id',
         'user',
-        'position',
+        'position_id',
         'section_id',
         'tel_no',
         'function',
