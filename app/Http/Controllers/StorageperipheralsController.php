@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
+use App\Multiuser;
+use App\Position;
 use App\Storageperipherals;
 use App\Owner;
 use App\Mobility;
@@ -22,6 +24,8 @@ class StorageperipheralsController extends Controller
     {
         $Asset_statuses=Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
+        $Multiusers = Multiuser::all();
+        $Positions = Position::all();
         $Sections = Section::all();
         $DataUnits = array(
             ['id' => '1', 'name' => 'GB'],
@@ -39,6 +43,8 @@ class StorageperipheralsController extends Controller
         return view('addstorageperipherals')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
+            'multiusers'=>$Multiusers,
+            'positions'=>$Positions,
             'sections'=>$Sections,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
@@ -93,6 +99,8 @@ class StorageperipheralsController extends Controller
     {
         $Asset_statuses=Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
+        $Multiusers = Multiuser::all();
+        $Positions = Position::all();
         $Sections = Section::all();
         $DataUnits = array(
             ['id' => '1', 'name' => 'GB'],
@@ -112,6 +120,8 @@ class StorageperipheralsController extends Controller
             'storageperipheral'=>$storageperipheral,
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
+            'multiusers'=>$Multiusers,
+            'positions'=>$Positions,
             'sections'=>$Sections,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
