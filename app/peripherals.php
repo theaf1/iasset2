@@ -14,6 +14,7 @@ class Peripherals extends Model
         'pid',
         'location_id',
         'mobility_id',
+        'multi_user_id',
         'user',
         'position_id',
         'section_id',
@@ -49,6 +50,11 @@ class Peripherals extends Model
     public function PeripheralMobility ()
     {
         return $this->belongsTo(Mobility::class,'mobility_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Multiuser
+    public function PeripheralMultiUser ()
+    {
+        return $this->belongsTo(Multiuser::class,'multi_user_id');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
     public function peripheralowner ()

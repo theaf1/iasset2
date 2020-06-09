@@ -18,7 +18,7 @@ class Multiuser extends Model
     //แสดงความสัมพันธ์กับตาราง Peripheral
     public function MultiUserPeripheral ()
     {
-        return $this->hasMany(Peripheral::class);
+        return $this->hasMany(Peripherals::class,'multi_user_id');
     }
     //แสดงความสัมพันธ์กับตาราง Storageperipherals
     public function MultiUserStoragePeripheral ()

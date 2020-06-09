@@ -112,6 +112,7 @@ class PeripheralsController extends Controller
         $Sections = Section::all();
         $Peripheraltypes = Peripheraltype::all();
         $Multiusers = Multiuser::all();
+        $Positions = Position::all();
         $Supplies = array(
             ['id'=>'1', 'name'=>'เบิกได้'],
             ['id'=>'2', 'name'=>'เบิกไม่ได้'],
@@ -137,6 +138,7 @@ class PeripheralsController extends Controller
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
             'peripheraltypes'=>$Peripheraltypes,
+            'positions'=>$Positions,
             'multiusers'=>$Multiusers,
             'supplies'=>$Supplies,
             'peripheralconnections'=>$PeripheralConnections,
@@ -181,6 +183,7 @@ class PeripheralsController extends Controller
             'location_id'=>'required',
             'mobility_id'=>'required',
             'section_id'=>'required',
+            'multi_user_id'=>'required',
             'user'=>'required',
             'position_id' =>'required',
             'tel_no'=>'required',
@@ -204,6 +207,7 @@ class PeripheralsController extends Controller
             'location_id.required'=>'กรุณาระบุสถานที่ตั้ง',
             'mobility_id.required'=>'กรุณาระบุลักษณะการติดตั้ง',
             'section_id.required'=>'กรุณาระบุหน่วยงาน',
+            'multi_user_id.required'=>'กรุณาระบุจำนวนผู้ใช้งาน',
             'user.required'=>'กรุณาระบุชื่อผู้ใช้งาน',
             'position_id.required'=>'กรุณาระบุตำแหน่งผู้ใช้งาน',
             'tel_no.required'=>'กรุณาระบุหมายเลขโทรศัพท์',
