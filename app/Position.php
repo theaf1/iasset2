@@ -19,11 +19,11 @@ class Position extends Model
     //แสดงความสัมพันธ์กับตาราง Peripheral
     public function PositionPeripheral ()
     {
-        return $this->hasMany(Peripheral::class);
+        return $this->hasMany(Peripherals::class,'position_id');
     }
     //แสดงความสัมพันธ์กับตาราง Storageperipheral
     public function PositionStoragePeripherals ()
     {
-        return $this->hasMany(Storageperipherals::class);
+        return $this->hasMany(Storageperipherals::class,'position_id');
     }
 }

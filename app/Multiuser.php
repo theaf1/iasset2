@@ -23,6 +23,6 @@ class Multiuser extends Model
     //แสดงความสัมพันธ์กับตาราง Storageperipherals
     public function MultiUserStoragePeripheral ()
     {
-        return $this->hasMany(Storageperipherals::class);
+        return $this->hasMany(Storageperipherals::class,'multi_user_id');
     }
 }

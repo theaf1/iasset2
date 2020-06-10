@@ -16,6 +16,7 @@
                                 <th scope="col">รหัสครุภัณฑ์</th>
                                 <th scope="col">ที่มา</th>
                                 <th scope="col">mobile</th>
+                                <th scope="col">จำนวนผู้ใช้งาน</th> 
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
                                 <th scope="col"></th>
@@ -29,6 +30,7 @@
                                     <td>{{ $storageperipheral['pid'] }}</td>
                                     <td>{{ $storageperipheral->StorageperipheralOwner->name }}</td>
                                     <td>{{ $storageperipheral->StorageperipheralMobility->name }}</td>
+                                    <td>{{ $storageperipheral->StoragePeripheralMultiUser->name }}</td>
                                     <td>{{ $storageperipheral->StoragePeripheralAssetStatus->name }}</td>
                                     <td>{{ $storageperipheral->StoragePeripheralAssetUseStatus->name }}</td>
                                 <td><a href="{{ url('/storageperipheral',$storageperipheral->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>

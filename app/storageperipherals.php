@@ -14,9 +14,10 @@ class Storageperipherals extends Model
         'location_id',
         'mobility_id',
         'section_id',
+        'multi_user_id',
         'user',
+        'position_id',
         'tel_no',
-        'function',
         'owner_id',
         'asset_status_id',
         'asset_use_status_id',
@@ -47,6 +48,16 @@ class Storageperipherals extends Model
     public function StorageperipheralMobility()
     {
         return $this->belongsTo(Mobility::class,'mobility_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Multiuser
+    public function StoragePeripheralMultiUser ()
+    {
+        return $this->belongsTo(Multiuser::class,'multi_user_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Position
+    public function StoragePeripheralPosition ()
+    {
+        return $this->belongsTo(Position::class,'position_id');
     }
     //แสดงความสัมพันธ์กับตาราง Owner
     public function StoragePeripheralOwner ()

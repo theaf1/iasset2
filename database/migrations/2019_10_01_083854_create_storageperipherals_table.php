@@ -21,9 +21,10 @@ class CreateStorageperipheralsTable extends Migration
             $table->string('location_id'); // ค่า location_id รับจากตาราง Location
             $table->integer('mobility_id'); //ค่า mobility_id รับจากตาราง Mobility
             $table->integer('section_id'); //หน่วยงาน รับค่าจากตาราง Sections
-            $table->string('user'); //ชื่อผู้ใช้งาน
+            $table->string('user')->nullable(); //ชื่อผู้ใช้งาน
+            $table->integer('multi_user_id');
+            $table->integer('position_id');
             $table->string('tel_no'); //หมายเลขโทรศัพท์
-            $table->integer('function'); //ระบบงาน
             $table->integer('owner_id'); //เจ้าของ
             $table->integer('asset_status_id'); //สถานะทางทะเบียนครุภัณฑ์ รับค่าจากตาราง Asset_statuses
             $table->integer('asset_use_status_id'); //สถานะการใช้งานครุภัณท์ รับค่าจากตราง Asset_use_statuses
