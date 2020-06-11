@@ -160,7 +160,7 @@ class PeripheralsController extends Controller
     {
         $this->validateData($request);
         Peripherals::find($id)->update($request->all());
-        return redirect('/peripheral');
+        return redirect('/peripheral')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**
