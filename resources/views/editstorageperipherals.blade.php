@@ -96,7 +96,25 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6"> <!--ชื่อผู้ใช้งาน-->
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-3">  <!-- จำนวนผู้ใช้งาน -->
+                                <div class="form-group">
+                                    <label for="multi_user">จำนวนผู้ใช้งาน</label>
+                                    <div class="form-check">
+                                        @foreach ($multiusers as $multiuser)
+                                            <input class="form-check-input @error('multi_user_id') is-invalid @enderror" type="radio" name="multi_user_id" id="multi_user" value="{{ $multiuser['id'] }}" {{ old('multi_user_id',$storageperipheral->multi_user_id) == $multiuser['id'] ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="multi_user"> {{ $multiuser['name'] }}</label><br>
+                                        @endforeach
+                                        @error('multi_user_id')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-3"> <!--ชื่อผู้ใช้งาน-->
                                 <div class="form-group">
                                     <label for="user">ชื่อผู้ใช้งาน</label><br>
                                     <input type="text" class="form-control @error('user') is-invalid @enderror" id="user" name="user" value="{{ old('user',$storageperipheral->user) }}">
@@ -107,21 +125,24 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--ตำแหน่งผู้ใช้งาน-->
                                 <div class="form-group">
                                     <label for="position">ตำแหน่งผู้ใช้งาน</label>
-                                    <input type="text" class="form-control @error('position') is-invalid @enderror" name="position" id="position" value="{{ old('position',$storageperipheral->position) }}">
-                                    @error('position')
+                                    <select class="form-control @error('position_id') is-invalid @enderror" name="position_id" id="position">
+                                        <option value="" hidden></option>
+                                        @foreach ($positions as $position)
+                                            <option value="{{ $position['id'] }}" {{ old('position_id',$storageperipheral->position_id) == $position['id'] ? 'selected' : ''}}>{{ $position['name'] }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('position_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
                             </div>
-                        
-                        
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
@@ -131,19 +152,6 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--ระบบงาน-->
-                                <div class="form-group">
-                                    <label for="function">ระบบงาน</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="function" id="office" value="1">
-                                        <label for="office" class="form-check-label">สำนักงาน</label><br>
-                                        <input type="radio" name="function" id="hospital" class="form-check-input" value="2">
-                                        <label for="hospital" class="form-check-label">โรงพยาบาล</label>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
