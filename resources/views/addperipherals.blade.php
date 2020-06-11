@@ -167,7 +167,7 @@
                                 <label for="owner">ที่มา</label>
                                 <div class="form-check">
                                     @foreach ($owners as $owner)
-                                        <input class="form-check-input @error('owner_id') is-invalid @enderror" type="radio" name="owner_id" id="owner" value="{{ $owner['id'] }}" {{ old('owner_id') == $owner['id'] && old('owner') !== null ? 'checked' : '' }}>
+                                        <input class="form-check-input @error('owner_id') is-invalid @enderror" type="radio" name="owner_id" id="owner" value="{{ $owner['id'] }}" {{ old('owner_id') == $owner['id'] && old('owner_id') !== null ? 'checked' : '' }}>
                                         <label class="form-check-label" for="owner">{{ $owner['name'] }}</label><br>   
                                     @endforeach
                                     @error('owner_id')
@@ -202,7 +202,7 @@
                                 <select class="form-control @error('asset_use_status_id') is-invalid @enderror" name="asset_use_status_id" id="asset_use_status">
                                     <option value="" hidden selected></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
-                                        <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status') == $asset_use_status['id'] ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
+                                        <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status_id') == $asset_use_status['id'] ? 'selected' : ''}}>{{ $asset_use_status['name'] }}</option>
                                     @endforeach
                                 </select>
                                 @error('asset_use_status')
