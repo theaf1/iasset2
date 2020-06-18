@@ -2,6 +2,12 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
+            @if ( $message = Session::get('success'))<!--แจ้งผลการบันทึกข้อมูล-->
+                <div class="alert alert-success alert-dismissible text-center mt-4">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ $message }}
+                </div>
+            @endif
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
                     <h4>บัญชีเครื่องสำรองไฟฟ้า</h4>
