@@ -2,12 +2,24 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            @if ( $message = Session::get('success'))<!--แจ้งผลการบันทึกข้อมูล-->
-                <div class="alert alert-success alert-dismissible text-center mt-4">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ $message }}
+            <div class="modal fade" id="alert" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">ข้อความจากระบบ</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            @if(Session::has('success'))
+                                {{ Session::get('success') }} 
+                            @endif
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">รับทราบ</button>
+                        </div>
+                    </div>
                 </div>
-            @endif
+            </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
                     <h4>บัญชีเครื่องสำรองไฟฟ้า</h4>
@@ -45,4 +57,12 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+<script>
+    @if(Session::has('success'))
+        $("#alert").modal("show");
+
+    @endif
+</script>
 @endsection
