@@ -131,7 +131,7 @@ class NetworkedstorageController extends Controller
     {
         $this->validateData($request);
         Networkedstorage::find($id)->update($request->all());
-        return redirect('/networkedstorage');
+        return redirect('/networkedstorage')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**
