@@ -114,7 +114,7 @@ class NetworkdeviceController extends Controller
     {
         $this->validateData($request);
         Networkdevices::find($id)->update($request->all());
-        return redirect('/networkdevices');
+        return redirect('/networkdevices')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**
