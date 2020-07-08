@@ -25,7 +25,7 @@
                     <h4>ตารางบัญชีคอมพิวเตอร์</h4>
                 </div>
                 <div class="card-body">
-                <a href="{{ url('/computer') }}"class="btn btn-primary btn-lg btn-block btn-danger" role="button">เพิ่มคอมพิวเตอร์</a>
+                <a href="{{ url('/computer') }}"class="btn btn-lg btn-block btn-info" role="button">เพิ่มคอมพิวเตอร์</a>
                     <table class="table mt-4 table-hover table-responsive">
                         <thead>
                             <tr>
