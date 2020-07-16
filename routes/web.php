@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('index');
+});
 // route to  system views
 Route::get('/computer', 'ClientController@index');
 Route::get('/peripherals','PeripheralsController@index');
