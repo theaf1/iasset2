@@ -51,7 +51,7 @@ class Clients extends Migration
             $table->string('endnote_version')->nullable(); //รุ่น โปรแกรม Endnote
             $table->integer('ie_version'); //รุ่นของ Internet Explorer
             $table->string('firefox_version')->nullable(); //รุ่น โปรแกรม Firefox
-            $table->string('chrome_version'); //รุ่นของ google chrome
+            $table->string('chrome_version')->nullable(); //รุ่นของ google chrome
             $table->integer('spss_version')->nullable(); //รุ่นของ SPSS
             $table->boolean('ehis')->default(0); //มี eHIS
             $table->boolean('sipacs')->default(0); //มี SiPACS
