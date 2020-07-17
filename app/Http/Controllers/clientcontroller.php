@@ -164,7 +164,12 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (request()->has('displayCount')) {
+            $displayCount = request()->input('displayCount');
+            return redirect()->back()->with('displayCount', $displayCount)->withInput();
+        }
+
+        return request()->all();
     }
 
     /**

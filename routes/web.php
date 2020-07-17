@@ -35,6 +35,8 @@ Route::get('/rooms', function() {
 Route::post('/store', 'SectionController@store');
 Route::post('/add-computer', 'ClientController@store');
 Route::get('/client/{id}','ClientController@edit');
+Route::put('/client/{id}/update','ClientController@update');
+
 Route::post('/add-peripheral','PeripheralsController@store');
 Route::get('/peripheral/{id}', 'PeripheralsController@edit');
 Route::put('peripheral/{id}', 'PeripheralsController@update');
