@@ -35,6 +35,7 @@
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
                                 <th scope="col">SAP จอ</th>
+                                <th scope="col">รหัสครุภัณฑ์จอภาพ</th>
                                 <th scope="col">หน่วยงาน</th>
                                 <th scope="col">ระบบงาน</th>
                                 <th scope="col">ลักษณะการติดตั้ง</th>
@@ -43,6 +44,7 @@
                                 <th scope="col">จำนวนผู้ใช้งาน</th>
                                 <th scope="col">ผู้ใช้งาน</th>
                                 <th scope="col">ตำแหน่งผู้ใช้งาน</th>
+                                <th scope="col">แก้ไขล่าสุดเมื่อ</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -54,7 +56,17 @@
                                     <td>{{ $client->ClientOwner->name }}</td>
                                     <td>{{ $client['sapid'] }}</td>
                                     <td>{{ $client['pid'] }}</td>
-                                    <td>{{ $client->displays->first()->display_sapid}}</td>
+                                    {{-- ##{{ $client->displays}} --}}
+                                    <td>
+                                        @foreach($client->displays as $display_sapid )
+                                            {{ $display_sapid->display_sapid}}
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach ($client->displays as $display_pid)
+                                            {{ $display_pid->display_pid }}
+                                        @endforeach
+                                    </td>
                                     <td>{{ $client->clientSection->name }}</td>
                                     <td>{{ $client->ClientOpsFunction->name }}</td>
                                     <td>{{ $client->ClientMobility->name }}</td>
@@ -63,12 +75,13 @@
                                     <td>{{ $client->ClientMultiUser->name }}</td>
                                     <td>{{ $client['user'] }}</td>
                                     <td>{{ $client->ClientPosition->name }}</td>
+                                    <td>{{ $client['updated_at'] }}</td>
                                     <td><a href="{{ url('/client',$client->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</button></td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $clients->links() }}
+                    {{-- {{ $clients->links() }} --}}
                 </div>
             </div>
         </div>
