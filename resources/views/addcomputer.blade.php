@@ -375,10 +375,10 @@
                                     <label for="display_count">จำนวนจอที่ใช้งาน</label>
                                     <select class="form-control @error('display_count') is-invalid @enderror" id="display_count" name="display_count" onchange="displayCountSelected(this)">
                                         <option value="" hidden></option>
-                                        <option value="1" {{ old('display_count') == 1 ? 'selected' : ''}}>1</option>
-                                        <option value="2" {{ old('display_count') == 2 ? 'selected' : ''}}>2</option>
-                                        <option value="3" {{ old('display_count') == 3 ? 'selected' : ''}}>3</option>
-                                        <option value="4" {{ old('display_count') == 4 ? 'selected' : ''}}>4</option>
+                                        <option value="1" {{ old('display_count', session()->has('display_count')) == 1 ? 'selected' : ''}}>1</option>
+                                        <option value="2" {{ old('display_count', session()->has('display_count')) == 2 ? 'selected' : ''}}>2</option>
+                                        <option value="3" {{ old('display_count', session()->has('display_count')) == 3 ? 'selected' : ''}}>3</option>
+                                        <option value="4" {{ old('display_count', session()->has('display_count')) == 4 ? 'selected' : ''}}>4</option>
                                     </select>
                                     @error('display_count')
                                         <div class="invalid-feedback">
