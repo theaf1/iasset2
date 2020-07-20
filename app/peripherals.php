@@ -62,9 +62,9 @@ class Peripherals extends Model
         return $this->belongsTo(Owner::class,'owner_id');
     }
     //แสดงความสัมพันธ์กับตาราง Location
-    public function location ()
+    public function PeripheralRoom ()
     {
-        return $this->hasOne(Location::class);
+        return $this->belongsTo(Room::class,'location_id');
     }
     //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function PeripheralAssetStatus ()

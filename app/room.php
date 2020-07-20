@@ -27,5 +27,8 @@ class Room extends Model
     public function RoomClient () {
         return $this->hasMany(Client::class,'location_id');
     }
-    
+    //แสดงความสัมพันธ์กับตาราง Peripherals
+    public function RoomPeripherals () {
+        return $this->hasMany(Peripherals::class,'location_id');
+    }
 }
