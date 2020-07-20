@@ -24,4 +24,5 @@ class Location extends Model
     public function building() {
         return $this->belongsTo(Building::class);
     }
+    
 }

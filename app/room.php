@@ -23,5 +23,9 @@ class Room extends Model
     public function location() {
         return $this->belongsTo(Location::class);
     }
+    //แสดงความสัมพันธ์กับตาราง Client
+    public function RoomClient () {
+        return $this->hasMany(Client::class,'location_id');
+    }
     
 }

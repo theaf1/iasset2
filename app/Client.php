@@ -86,9 +86,9 @@ class Client extends Model
       return $this->belongsTo(Opsfunction::class,'function_id');
    }
    //แสดงความสัมพันธ์กับตาราง location
-   public function location ()
+   public function ClientRoom ()
    {
-     return $this->hasOne(location::class);
+     return $this->belongsTo(Room::class,'location_id');
    }
    //แสดงความสัมพันธ์กับตาราง Owner
    public function ClientOwner ()
