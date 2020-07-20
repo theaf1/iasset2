@@ -56,7 +56,6 @@
                                     <td>{{ $client->ClientOwner->name }}</td>
                                     <td>{{ $client['sapid'] }}</td>
                                     <td>{{ $client['pid'] }}</td>
-                                    {{-- ##{{ $client->displays}} --}}
                                     <td>
                                         @foreach($client->displays as $display_sapid )
                                             {{ $display_sapid->display_sapid}}
