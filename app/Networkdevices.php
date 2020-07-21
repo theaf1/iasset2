@@ -32,9 +32,9 @@ class Networkdevices extends Model
         'remarks',
     ];
     //แสดงความสัมพันธ์กับตาราง Location
-    public function location ()
+    public function NetworkDeviceRoom ()
     {
-        return $this->hasOne(Location::class);
+        return $this->belongsTo(Room::class,'location_id');
     }
     //แสดงความสัมพันธ์กับตาราง Section
     public function NetworkDeviceSection ()

@@ -36,4 +36,14 @@ class Room extends Model
     {
         return $this->hasMany(Storageperipherals::class,'location_id');
     }
+    //แสดงความสัมพันธ์กับตาราง Servers
+    public function RoomServer ()
+    {
+        return $this->hasMany(Servers::class,'location_id');
+    }
+     //แสดงความสัมพันธ์กับตาราง Networkdevices
+     public function RoomNetworkDevice ()
+     {
+        return $this->hasMany(Networkdevices::class,'location_id');
+     }
 }
