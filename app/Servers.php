@@ -57,10 +57,10 @@ class Servers extends Model
         'issues',
         'remarks',
     ];
-    //แสดงความสัมพันธ์กับตาราง Location
-    public function location ()
+    //แสดงความสัมพันธ์กับตาราง room
+    public function ServerRoom ()
     {
-        return $this->hasOne(location::class);
+        return $this->belongsTo(Room::class,'location_id');
     }
     //แสดงความสัมพันธ์กับตาราง Section
     public function ServerSection ()

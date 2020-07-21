@@ -54,6 +54,11 @@ class Storageperipherals extends Model
     {
         return $this->belongsTo(Multiuser::class,'multi_user_id');
     }
+    //แสดงความสัมพันธ์กับตาราง Room
+    public function StoragePeripheralRoom ()
+    {
+        return $this->belongsTo(Room::class,'location_id');
+    }
     //แสดงความสัมพันธ์กับตาราง Position
     public function StoragePeripheralPosition ()
     {
