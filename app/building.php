@@ -17,6 +17,8 @@ class Building extends Model
             Building::create($buildingRecord);
         }
     }
-    
+    public function BuildingLocation () {
+        return $this->hasMany(Location::class,'building_id');
+    }
     
 }

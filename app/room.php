@@ -21,7 +21,7 @@ class Room extends Model
     }
     //แสดงความสัมพันธ์กับตาราง Location
     public function location() {
-        return $this->belongsTo(Location::class);
+        return $this->belongsTo(Location::class,'location_id');
     }
     //แสดงความสัมพันธ์กับตาราง Client
     public function RoomClient () {
@@ -30,5 +30,10 @@ class Room extends Model
     //แสดงความสัมพันธ์กับตาราง Peripherals
     public function RoomPeripherals () {
         return $this->hasMany(Peripherals::class,'location_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Storageperipherals
+    public function RoomStoragePeripheral ()
+    {
+        return $this->hasMany(Storageperipherals::class,'location_id');
     }
 }

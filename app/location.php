@@ -22,7 +22,11 @@ class Location extends Model
     }
     //แสดงความสัมพันธ์กับตาราง Building
     public function building() {
-        return $this->belongsTo(Building::class);
+        return $this->belongsTo(Building::class,'building_id');
     }
-    
+    //แสดงความสัมพันธ์กับตาราง Room
+    public function LocationRoom ()
+    {
+        return $this->hasMany(Room::class,'location_id');
+    }
 }
