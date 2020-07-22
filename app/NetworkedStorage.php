@@ -37,9 +37,9 @@ class NetworkedStorage extends Model
         'issues',
     ];
     //แสดงความสัมพันธ์กับตาราง Location
-    public function location ()
+    public function NetworkedStorageRoom ()
     {
-        return $this->hasOne(Location::class);
+        return $this->belongsTo(Room::class,'location_id');
     }
     //แสดงความสัมพันธ์กับตาราง Section
     public function NetworkedStorageSection ()

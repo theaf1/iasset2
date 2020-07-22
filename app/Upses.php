@@ -32,6 +32,11 @@ class Upses extends Model
         'issues',
         'remarks',
     ];
+    //แสดงความสัมพันธ์กับตาราง Room
+    public function UpsRoom ()
+    {
+        return $this->belongsTo(Room::class,'location_id');
+    }
     //แสดงความสัมพันธ์กับตาราง Section
     public function UpsSection ()
     {
