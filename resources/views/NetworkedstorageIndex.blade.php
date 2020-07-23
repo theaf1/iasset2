@@ -38,6 +38,7 @@
                                 <th scope="col">mobile</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
+                                <th scope="col">แก้ไขล่าสุดเมื่อ</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -53,7 +54,8 @@
                                     <td>{{ $networkedstorage->NetworkedStorageMobility->name }}</td>
                                     <td>{{ $networkedstorage->NetworkedStorageAssetStatus->name }}</td>
                                     <td>{{ $networkedstorage->NetworkedStorageAssetUseStatus->name }}</td>
-                                <td><a href="{{ url('/networkedstorage',$networkedstorage->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
+                                    <td>{{ $networkedstorage['updated_at'] }}</td>
+                                    <td><a href="{{ url('/networkedstorage',$networkedstorage->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

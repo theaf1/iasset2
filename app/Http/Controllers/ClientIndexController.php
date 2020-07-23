@@ -12,6 +12,7 @@ use App\Clienttype;
 use App\NetworkConnection;
 use App\Owner;
 use App\Mobility;
+use Carbon\Carbon;
 
 class ClientIndexController extends Controller
 {
@@ -23,7 +24,10 @@ class ClientIndexController extends Controller
     public function index()
     {
         $Clients = Client::all();
-        //return $Clients;
+        foreach ($Clients as $Client)
+        {
+            $Client->update_date = $Client->updated_at->format('d-m-Y');
+        }
         $Clienttypes =Clienttype::all();
         //$Displays = Display::all();
         $Mobility = Mobility::all();

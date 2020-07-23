@@ -74,7 +74,7 @@
                                     <td>{{ $client->ClientMultiUser->name }}</td>
                                     <td>{{ $client['user'] }}</td>
                                     <td>{{ $client->ClientPosition->name }}</td>
-                                    <td>{{ $client['updated_at'] }}</td>
+                                    <td>{{ $client['update_date'] }}</td>
                                     <td><a href="{{ url('/client',$client->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</button></td>
                                 </tr>
                             @endforeach

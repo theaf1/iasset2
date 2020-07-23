@@ -35,6 +35,7 @@
                                 <th scope="col">mobile</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
+                                <th scope="col">แก้ไขล่าสุดเมื่อ</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -47,6 +48,7 @@
                                 <td>{{ $ups->UpsMobility->name }}</td>
                                 <td>{{ $ups->UpsAssetStatus->name }}</td>
                                 <td>{{ $ups->UpsAssetUseStatus->name }}</td>
+                                <td>{{ $ups['updated_at'] }}</td>
                                 <td><a class="btn btn-sm btn-info" role="button" href="{{ url('/ups',$ups->id) }}">แก้ไข</a></td>
                             </tr>
                             @endforeach

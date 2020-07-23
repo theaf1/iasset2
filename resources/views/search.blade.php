@@ -63,6 +63,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-lg-6">
+                        <div class="form-group">
+                            <input type="datetime-local" class="form-control">
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
