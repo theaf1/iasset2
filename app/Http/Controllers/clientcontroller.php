@@ -169,7 +169,21 @@ class ClientController extends Controller
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
 
+        //$this->validateData($request);
         return request()->all();
+        //$client->find($id)->update($request-all());
+        //$displayCount = request()->input('display_count');
+        //for ($i = 0; $i < $displayCount; $i++)
+        {
+            //$display =  [ 
+            //                'client_id' => $client->id, 
+            //                'display_sapid' => request()->input('display_sapid')[$i],
+            //                'display_pid' => request()->input('display_pid')[$i],
+            //                'display_size' => request()->input('display_size')[$i],
+            //                'display_ratio' => request()->input('display_ratio')[$i],
+            //            ];
+            //Display::find($i)->update($display->all);
+        } 
     }
 
     /**
