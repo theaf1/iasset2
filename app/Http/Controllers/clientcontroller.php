@@ -169,21 +169,26 @@ class ClientController extends Controller
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
 
-        //$this->validateData($request);
-        return request()->all();
-        //$client->find($id)->update($request-all());
-        //$displayCount = request()->input('display_count');
-        //for ($i = 0; $i < $displayCount; $i++)
-        {
-            //$display =  [ 
-            //                'client_id' => $client->id, 
-            //                'display_sapid' => request()->input('display_sapid')[$i],
-            //                'display_pid' => request()->input('display_pid')[$i],
-            //                'display_size' => request()->input('display_size')[$i],
-            //                'display_ratio' => request()->input('display_ratio')[$i],
-            //            ];
-            //Display::find($i)->update($display->all);
-        } 
+        $this->validateData($request);
+        $client = Client::find($id)->update($request->all());
+        $displayCount = request()->input('display_count');
+        $client = Client::find($id);
+        $displaysId=$client->displays;
+        $i = 0;
+        foreach ($displaysId as $displayId)
+        {    
+            $display =  [ 
+                            'client_id' => $client->id, 
+                            'display_sapid' => request()->input('display_sapid')[$i],
+                            'display_pid' => request()->input('display_pid')[$i],
+                            'display_size' => request()->input('display_size')[$i],
+                            'display_ratio' => request()->input('display_ratio')[$i],
+                        ];
+                $i++;                       
+            Display::find($displayId->id)->update($display);
+        }
+        // return redirect()->back()->with('displayCount', $displayCount);
+        return redirect('/client')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); 
     }
 
     /**

@@ -18,6 +18,6 @@ class Display extends Model
     //แสดงความสัมพันธ์กับตาราง Client
     public function client ()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class,'client_id');
     }
 }

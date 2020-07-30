@@ -68,7 +68,7 @@ class Client extends Model
    //แสดงความสัมพันธ์กับตาราง Display
    public function displays () 
    {
-      return $this->hasMany(Display::class);
+      return $this->hasMany(Display::class,'client_id');
    }
    //แสดงความสัมพันธ์กับตาราง Section
    public function clientsection ()
