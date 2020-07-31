@@ -26,6 +26,13 @@
                 </div>
                 <div class="card-body">
                 <a href="{{ url('/computer') }}"class="btn btn-lg btn-block btn-info" role="button">เพิ่มคอมพิวเตอร์</a>
+                <label for="section_filter">ddd</label>
+                <select name="section_filter" id="section_filter" class="form-control" onchange="GetSectionFilter()"> 
+                    <option value="">กรุณาเลือกหน่วยงาน</option>
+                    @foreach($sections as $section)
+                        <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
+                    @endforeach
+                </select>
                     <table class="table mt-4 table-hover table-responsive">
                         <thead>
                             <tr>
@@ -80,6 +87,12 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <label for="per_page">eee</label>
+                    <select name="" id="per_page" onchange="GetPerPage()">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
                     {{-- {{ $clients->links() }} --}}
                 </div>
             </div>
@@ -92,5 +105,15 @@
         $("#alert").modal("show");
 
     @endif
+    function GetSectionFilter()
+    {
+        var section_filter = document.getElementById("section_filter").value;
+        console.log(section_filter);
+    }
+    function GetPerPage()
+    {
+        var per_page = document.getElementById("per_page").value;
+        console.log(per_page);
+    }
 </script>
 @endsection

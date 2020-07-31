@@ -23,7 +23,7 @@ class ClientIndexController extends Controller
      */
     public function index()
     {
-        $Clients = Client::all();
+        $Clients = Client::all();//where('section_id', $section_filter)->paginate($per_page);
         foreach ($Clients as $Client)
         {
             $Client->update_date = $Client->updated_at->format('d-m-Y');
