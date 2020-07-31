@@ -108,12 +108,12 @@
     function GetSectionFilter()
     {
         var section_filter = document.getElementById("section_filter").value;
-        console.log(section_filter);
+        
     }
     function GetPerPage()
     {
         var per_page = document.getElementById("per_page").value;
-        console.log(per_page);
+        
     }
 </script>
 @endsection
