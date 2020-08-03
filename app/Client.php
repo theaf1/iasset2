@@ -120,7 +120,7 @@ class Client extends Model
      return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
    }
    //แสดงความสัมพันธ์กับตาราง NetworkConnection
-   public function networkconnction ()
+   public function networkconnection ()
    {
       return $this->hasOne(NetworkConnection::class);
    }

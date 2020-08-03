@@ -47,7 +47,7 @@ class Section extends Model
         return $this->hasMany(Upses::class,'section_id');
     }
     //import ข้อมูลจากไฟล์ CSV
-   public static function loadData($fileName){
+    public static function loadData($fileName){
     $sectionRecords = loadCSV($fileName);
     foreach($sectionRecords as $sectionRecord){
         Section::create($sectionRecord);
