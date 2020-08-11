@@ -26,9 +26,9 @@
                 </div>
                 <div class="card-body">
                 <a href="{{ url('/computer') }}"class="btn btn-lg btn-block btn-info" role="button">เพิ่มคอมพิวเตอร์</a>
-                <label for="section_filter">ddd</label>
-                <select name="section_filter" id="section_filter" class="form-control" onchange="GetSectionFilter()"> 
-                    <option value="">กรุณาเลือกหน่วยงาน</option>
+                <label for="section_filter">หน่วยงานเจ้าของเครื่อง</label>
+                <select name="section_filter" id="section_filter" class="form-control col-sm-6 col-lg-3" onchange="GetSectionFilter()"> 
+                    <option value="1">กรุณาเลือกหน่วยงาน</option>
                     @foreach($sections as $section)
                         <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
                     @endforeach
@@ -87,9 +87,9 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <label for="per_page">eee</label>
-                    <select name="" id="per_page" onchange="GetPerPage()">
-                        <option value="10">10</option>
+                    <label for="per_page">จำนวนบรรทัด</label>
+                    <select class="form-control col-sm-6 col-lg-3" name="" id="per_page" onchange="GetSectionFilter()">
+                        <option value="10" selected>10</option>
                         <option value="20">20</option>
                         <option value="30">30</option>
                     </select>
@@ -107,13 +107,18 @@
     @endif
     function GetSectionFilter()
     {
+        console.log('GetSectionFilter')
         var section_filter = document.getElementById("section_filter").value;
-        
-    }
-    function GetPerPage()
-    {
         var per_page = document.getElementById("per_page").value;
-        
+        console.log(this.section_filter,this.per_page)
+        axios({
+            method: 'post',
+            url: '/client/filter',
+            data: {
+                section_filter: this.section_filter,
+                per_page: this.per_page
+            }
+        }).then((response)=>{console.log(response.data)})
     }
 </script>
 @endsection

@@ -32,6 +32,7 @@ Route::post('/add-computer', 'ClientController@store');
 Route::get('/client', 'ClientIndexController@index');
 Route::get('/client/{id}','ClientController@edit');
 Route::put('/client/{id}/update','ClientController@update');
+Route::get('/client/filter','Clientcontroller@show');
 
 Route::get('/peripherals','PeripheralsController@index');
 Route::post('/add-peripheral','PeripheralsController@store');

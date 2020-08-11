@@ -21,9 +21,10 @@ class ClientIndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $Clients = Client::where('section_id', $section_filter)->paginate($per_page);
+        //return $request->all();
+        $Clients = Client::all();
         foreach ($Clients as $Client)
         {
             $Client->update_date = $Client->updated_at->format('d-m-Y');
@@ -88,9 +89,43 @@ class ClientIndexController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        return $request->all();
+        Client::where('section_id', $section_filter)->paginate($per_page);
+        foreach ($Clients as $Client)
+        {
+            $Client->update_date = $Client->updated_at->format('d-m-Y');
+        }
+        $Mobility = Mobility::all();
+        $Sections = Section::all();
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Owners = Owner::all();
+        $Networkconnections = NetworkConnection::all();
+        $Positions = array(
+            ['id'=>'1','name'=>'แพทย์'],
+            ['id'=>'2','name'=>'พยาบาล'],
+            ['id'=>'3','name'=>'เจ้าหน้าที่'],
+        );
+        $DataUnits = array(
+            ['id'=>'1', 'name'=>'GB'],
+            ['id'=>'2', 'name'=>'TB'],
+        );
+        
+        // return view('clientindex')->with([
+        //     'clients'=>$Clients,
+        //     //'displays'=>$Displays,
+        //     'asset_statuses'=>$Asset_statuses,
+        //     'asset_use_statuses'=>$Asset_use_statuses,
+        //     'sections'=>$Sections,
+        //     'clienttypes'=>$Clienttypes,
+        //     //'networkconnections'=>$NetworkConnections,
+        //     'positions'=>$Positions,
+        //     'dataunits'=>$DataUnits,
+        //     'owners'=>$Owners,
+        //     'mobiles'=>$Mobility,
+        // ]);
     }
 
     /**
