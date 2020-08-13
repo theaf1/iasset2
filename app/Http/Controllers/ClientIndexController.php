@@ -91,12 +91,20 @@ class ClientIndexController extends Controller
      */
     public function show(Request $request)
     {
-        return $request->all();
-        Client::where('section_id', $section_filter)->paginate($per_page);
+        //\Log::info('test');
+        //return 'test';
+        //return $request->all();
+        $section_filter = $request['section_filter'];
+        $per_page = $request['per_page'];
+        \Log::info($section_filter);
+        \log::info($per_page);
+        //return $request->all();
+        $Clients = Client::where('section_id', $section_filter)->paginate($per_page);
         foreach ($Clients as $Client)
         {
             $Client->update_date = $Client->updated_at->format('d-m-Y');
         }
+        $Clienttypes =Clienttype::all();
         $Mobility = Mobility::all();
         $Sections = Section::all();
         $Asset_statuses = Asset_statuses::all();
@@ -113,19 +121,19 @@ class ClientIndexController extends Controller
             ['id'=>'2', 'name'=>'TB'],
         );
         
-        // return view('clientindex')->with([
-        //     'clients'=>$Clients,
-        //     //'displays'=>$Displays,
-        //     'asset_statuses'=>$Asset_statuses,
-        //     'asset_use_statuses'=>$Asset_use_statuses,
-        //     'sections'=>$Sections,
-        //     'clienttypes'=>$Clienttypes,
-        //     //'networkconnections'=>$NetworkConnections,
-        //     'positions'=>$Positions,
-        //     'dataunits'=>$DataUnits,
-        //     'owners'=>$Owners,
-        //     'mobiles'=>$Mobility,
-        // ]);
+        return view('clientindex')->with([
+            'clients'=>$Clients,
+            //'displays'=>$Displays,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'clienttypes'=>$Clienttypes,
+            //'networkconnections'=>$NetworkConnections,
+            'positions'=>$Positions,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'mobiles'=>$Mobility,
+        ]);
     }
 
     /**

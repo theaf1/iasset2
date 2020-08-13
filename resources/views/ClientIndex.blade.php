@@ -28,11 +28,14 @@
                 <a href="{{ url('/computer') }}"class="btn btn-lg btn-block btn-info" role="button">เพิ่มคอมพิวเตอร์</a>
                 <label for="section_filter">หน่วยงานเจ้าของเครื่อง</label>
                 <select name="section_filter" id="section_filter" class="form-control col-sm-6 col-lg-3" onchange="GetSectionFilter()"> 
-                    <option value="1">กรุณาเลือกหน่วยงาน</option>
+                    <option value="">กรุณาเลือกหน่วยงาน</option>
+                    {{-- <option value="1">1</option>
+                    <option value="2">2</option> --}}
                     @foreach($sections as $section)
                         <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
                     @endforeach
                 </select>
+
                     <table class="table mt-4 table-hover table-responsive">
                         <thead>
                             <tr>
@@ -89,7 +92,7 @@
                     </table>
                     <label for="per_page">จำนวนบรรทัด</label>
                     <select class="form-control col-sm-6 col-lg-3" name="" id="per_page" onchange="GetSectionFilter()">
-                        <option value="10" selected>10</option>
+                        <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="30">30</option>
                     </select>
@@ -98,27 +101,35 @@
             </div>
         </div>
     </div>
+    <script>
+        @if(Session::has('success'))
+            $("#alert").modal("show");
+    
+        @endif
+        function GetSectionFilter()
+        {
+            //console.log('GetSectionFilter')
+            var section_filter = document.getElementById("section_filter").value;
+            var per_page = document.getElementById("per_page").value;
+            console.log(section_filter)
+            axios({
+                method: 'post',
+                url: '/client/filter',
+                data: {
+                    section_filter: section_filter,
+                    per_page: per_page,
+                }
+            }).then(function (response) {
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+
+     
+    </script>
 @endsection
 @section('js')
-<script>
-    @if(Session::has('success'))
-        $("#alert").modal("show");
 
-    @endif
-    function GetSectionFilter()
-    {
-        console.log('GetSectionFilter')
-        var section_filter = document.getElementById("section_filter").value;
-        var per_page = document.getElementById("per_page").value;
-        console.log(this.section_filter,this.per_page)
-        axios({
-            method: 'post',
-            url: '/client/filter',
-            data: {
-                section_filter: this.section_filter,
-                per_page: this.per_page
-            }
-        }).then((response)=>{console.log(response.data)})
-    }
-</script>
 @endsection
