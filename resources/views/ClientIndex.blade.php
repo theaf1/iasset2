@@ -121,6 +121,9 @@
                 }
             }).then(function (response) {
                     console.log(response.data);
+                    var clients = response.data;
+                    console.log(clients);
+                    //document.innerHTML;
                 })
                 .catch(function (error) {
                     console.log(error);

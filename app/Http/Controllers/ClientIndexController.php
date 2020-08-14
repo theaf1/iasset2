@@ -121,7 +121,7 @@ class ClientIndexController extends Controller
             ['id'=>'2', 'name'=>'TB'],
         );
         
-        return view('clientindex')->with([
+        return response()->json([
             'clients'=>$Clients,
             //'displays'=>$Displays,
             'asset_statuses'=>$Asset_statuses,
