@@ -54,6 +54,6 @@
 </body>
 <script src="{{ url('/js/jquery.min.js') }}"></script>
 <script src="{{ url('/js/bootstrap.js') }}"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="{{ url('/js/axios.min.js') }}"></script>
 @yield('js')
 </html>
