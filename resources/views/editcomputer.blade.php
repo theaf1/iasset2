@@ -20,7 +20,7 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
                                 <div class="form-group"> 
                                     <label for="type">ชนิด</label>
-                                    <select class="form-control @error('type_id') is-invalid @enderror" id="type_id" name="type">
+                                    <select class="form-control @error('type_id') is-invalid @enderror" id="type_id" name="type_id">
                                         <option value="" hidden></option>
                                         @foreach($clienttypes as $clienttype)
                                             <option value="{{ $clienttype['id'] }}" {{ old('type',$client->type_id) == $clienttype['id'] ? 'selected' : ''}}>{{ $clienttype['name'] }}</option>
@@ -400,19 +400,19 @@
                                             <div class="col-sm-12 col-lg-3"> <!--ครุภัณฑ์จอ-->
                                                 <div class="form-group">
                                                     <label for="display_pid">รหัสครุภัณฑ์จอภาพ</label>
-                                                    <input class="form-control" name="display_pid[]" id="display_pid" type="text" value="{{ old('display_sapid.' . $i, isset($client->displays[$i]) ? $client->displays[$i]->display_pid : null) }}">
+                                                    <input class="form-control" name="display_pid[]" id="display_pid" type="text" value="{{ old('display_pid.' . $i, isset($client->displays[$i]) ? $client->displays[$i]->display_pid : null) }}">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
                                                 <div class="form-group">
                                                     <label for="display_size">ขนาดจอภาพ (นิ้ว)</label>
-                                                    <input class="form-control" name="display_size[]" id="display_size" type="number" min="0" value="{{ old('display_sapid.' . $i, isset($client->displays[$i]) ? $client->displays[$i]->display_size : null) }}"">
+                                                    <input class="form-control" name="display_size[]" id="display_size" type="number" min="0" value="{{ old('display_size.' . $i, isset($client->displays[$i]) ? $client->displays[$i]->display_size : null) }}"">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-lg-3">
                                                 <div class="form-group">
                                                     <label for="display_ratio">สัดส่วนจอภาพ</label>
-                                                    <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" pattern="{0-9}:{0-9}" value="{{ old('display_sapid.' . $i, isset($client->displays[$i]) ? $client->displays[$i]->display_ratio : null) }}"">
+                                                    <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" pattern="{0-9}:{0-9}" value="{{ old('display_ratio.' . $i, isset($client->displays[$i]) ? $client->displays[$i]->display_ratio : null) }}"">
                                                 </div>
                                             </div>
                                         </div>
