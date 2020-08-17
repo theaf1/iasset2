@@ -7,7 +7,7 @@ use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
 use App\Servers;
-use App\ServerOS;
+use App\ServerOp;
 use App\ServerRoleClass;
 use App\NetworkConnection;
 use App\Owner;
@@ -25,7 +25,7 @@ class ServerIndexController extends Controller
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
-        $ServerOSes = ServerOS::all();
+        $ServerOSes = ServerOp::all();
         $ServerRoleClass = ServerRoleclass::all();
         $NetworkConnections = NetworkConnection::all();
         $Forms = array (
