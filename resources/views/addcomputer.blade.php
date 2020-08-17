@@ -74,13 +74,13 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
                                     <label for="building">ตึก</label>
-                                    <output type="text" class="form-control" name="building" id="building" value="{{ old('building') }}" readonly/>
+                                    <output type="text" class="form-control" name="building" id="building" value="{{ old('building') }}"/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ชั้น -->
                                 <div class="form-group">
                                     <label for="location">ชั้น</label>
-                                    <input type="text" class="form-control" name="location" id="location" value="{{ old('location') }}" readonly/>
+                                    <input type="text" class="form-control" name="location" id="location" value="{{ old('location') }}"/>
                                 </div>
                             </div>
                         </div>
