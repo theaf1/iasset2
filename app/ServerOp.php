@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ServerOS extends Model
+class ServerOp extends Model
 {
-    //column ที่สามารถเพิ่มและแก้ไขข้อมูลได้
-    protected $fillable =[
+     //column ที่สามารถเพิ่มและแก้ไขข้อมูลได้
+     protected $fillable =[
         'id',
         'name',
     ];

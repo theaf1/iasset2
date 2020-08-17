@@ -3,9 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\ServerOS;
+use App\ServerOp;
 
-class CreateServerOSSTable extends Migration
+class CreateServerOpsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,9 @@ class CreateServerOSSTable extends Migration
      */
     public function up()
     {
-        //สร้างตาราง ServerOS
-        Schema::create('server_o_s_s', function (Blueprint $table) {
-            $table->bigIncrements('id'); //ลำดับที่
-            $table->string('name'); //ชื่อ OS
+        Schema::create('server_ops', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->timestamps();
         });
         //กำหนดชื่อ OS
@@ -29,9 +28,9 @@ class CreateServerOSSTable extends Migration
             ['name'=>'Windows Server 2019'],
             ['name'=>'Ubuntu Server'],
         );
-        //เขียนข้อมูลลงฐานข้อมูล
-        foreach($server_oses as $server_os){
-            ServerOS::create($server_os);
+        foreach($server_oses as $server_os)
+        {
+            ServerOp::create($server_os);
         }
     }
 
@@ -42,6 +41,6 @@ class CreateServerOSSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('server_o_s_s');
+        Schema::dropIfExists('server_ops');
     }
 }
