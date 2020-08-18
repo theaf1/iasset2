@@ -97,7 +97,7 @@ class ClientController extends Controller
             Display::create($display);
         } 
 
-        return redirect()->back()->with('displayCount', $displayCount);
+        return redirect()->back()->with('displayCount', $displayCount, 'success','บันทึกข้อมูลเรียบร้อยแล้ว');
 
         
          //return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');

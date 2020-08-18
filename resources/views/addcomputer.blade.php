@@ -389,6 +389,7 @@
                             </div>
                         </div>
                         @if (session()->has('displayCount')) <!--script จอภาพ-->
+                            <?php $displayCount = session()->get('displayCount') ? session()->get('displayCount') : $client->displays->count() ?>
                             @for ($i = 0; $i < session()->get('displayCount') ; $i++)
                                 <div class="card mb-2">
                                     <div class="card-header">
