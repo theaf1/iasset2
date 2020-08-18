@@ -3,8 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Client;
 use App\Clienttype;
+use App\Display;
+use App\Peripherals;
 use App\Peripheraltype;
+use App\Storageperipherals;
+use App\Networkdevices;
+use App\Servers;
+use App\ServerRoleClass;
+use App\ServerOp;
+use App\NetworkedStorage;
+use App\Upses;
 use App\NetSubtype;
 
 class SearchController extends Controller
@@ -54,9 +65,9 @@ class SearchController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($request)
     {
-        //
+        return $request->all();
     }
 
     /**
