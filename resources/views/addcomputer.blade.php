@@ -585,13 +585,13 @@
                             <div class="col-sm-12 col-lg-6"> <!--lan type-->
                                 <div class="form-group">
                                     <label for="lan_type">ประเภทเครือข่าย</label><br>
-                                    <select name="lan_type" id="lan_type" class="form-control @error('lan_type') is-invalid @enderror">
+                                    <select name="lan_type_id" id="lan_type" class="form-control @error('lan_type_id') is-invalid @enderror">
                                         <option value="" hidden></option>
                                         @foreach($networkconnections as $networkconnection)
-                                            <option value="{{ $networkconnection['id'] }}" {{ old('lan_type') == $networkconnection['id'] ? 'selected' : ''}}>{{ $networkconnection['name'] }}</option>
+                                            <option value="{{ $networkconnection['id'] }}" {{ old('lan_type_id') == $networkconnection['id'] ? 'selected' : ''}}>{{ $networkconnection['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('lan_type')
+                                    @error('lan_type_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

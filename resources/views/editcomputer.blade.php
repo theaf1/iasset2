@@ -582,7 +582,7 @@
                                     <select name="lan_type" id="lan_type" class="form-control @error('lan_type') is-invalid @enderror">
                                         <option value="" hidden></option>
                                         @foreach($networkconnections as $networkconnection)
-                                            <option value="{{ $networkconnection['id'] }}" {{ old('lan_type',$client->lan_type) == $networkconnection['id'] ? 'selected' : ''}}>{{ $networkconnection['name'] }}</option>
+                                            <option value="{{ $networkconnection['id'] }}" {{ old('lan_type_id',$client->lan_type_id) == $networkconnection['id'] ? 'selected' : ''}}>{{ $networkconnection['name'] }}</option>
                                         @endforeach
                                     </select>
                                     @error('lan_type')

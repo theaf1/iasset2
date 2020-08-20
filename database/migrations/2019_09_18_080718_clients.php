@@ -62,7 +62,7 @@ class Clients extends Migration
             $table->boolean('sinet')->default(0); //มี SiNET
             // $table->boolean('other_software')->default(0);
             $table->string('other_software_detail')->nullable(); //โปรแกรมอื่นๆ
-            $table->integer('lan_type'); //ชนิดการเชื่อมต่อเครือข่าย รับค่าจากตาราง NetworkConnections
+            $table->integer('lan_type_id'); //ชนิดการเชื่อมต่อเครือข่าย รับค่าจากตาราง NetworkConnections
             $table->string('lan_outlet_no')->nullable(); //หมายเลขจุด LAN
             $table->ipAddress('ip_address')->nullable(); //ip addressของเครื่อง
             $table->macAddress('mac_address')->nullable(); //mac address ของเครื่อง

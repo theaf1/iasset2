@@ -59,7 +59,7 @@ class Client extends Model
       'lan_outlet_no',
       'ip_address',
       'mac_address',
-      'lan_type',
+      'lan_type_id',
       'computer_name',
       'is_wireless',
       'issues',
@@ -122,6 +122,6 @@ class Client extends Model
    //แสดงความสัมพันธ์กับตาราง NetworkConnection
    public function networkconnection ()
    {
-      return $this->hasOne(NetworkConnection::class);
+      return $this->belongsTo(NetworkConnection::class,'lan_type_id');
    }
 }
