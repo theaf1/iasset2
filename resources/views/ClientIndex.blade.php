@@ -29,8 +29,6 @@
                 <label for="section_filter">หน่วยงานเจ้าของเครื่อง</label>
                 <select name="section_filter" id="section_filter" class="form-control col-sm-6 col-lg-3" onchange="GetSectionFilter()"> 
                     <option value="">กรุณาเลือกหน่วยงาน</option>
-                    {{-- <option value="1">1</option>
-                    <option value="2">2</option> --}}
                     @foreach($sections as $section)
                         <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
                     @endforeach
