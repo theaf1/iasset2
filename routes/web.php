@@ -32,7 +32,7 @@ Route::post('/add-computer', 'ClientController@store');
 Route::get('/client', 'ClientIndexController@index');
 Route::get('/client/{id}','ClientController@edit');
 Route::put('/client/{id}/update','ClientController@update');
-//Route::post('/client/filter','ClientIndexController@show');
+
 
 Route::get('/peripherals','PeripheralsController@index');
 Route::post('/add-peripheral','PeripheralsController@store');
@@ -73,3 +73,4 @@ Route::put('/server/{id}', 'ServerController@update');
 Route::get('/admin', 'SectionController@index');
 Route::get('/search', 'SearchController@index');
 //Route::post('/search-query', 'SearchController@show');
+//Route::post('/client/filter','ClientIndexController@show');
