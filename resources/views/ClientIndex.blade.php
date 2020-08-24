@@ -98,11 +98,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
+@endsection
+@section('js')
     <script>
         @if(Session::has('success'))
-            $("#alert").modal("show");
-    
+            $('#alert').modal('show');
         @endif
         function GetSectionFilter()
         {
@@ -127,10 +128,5 @@
                     console.log(error);
                 });
         }
-
-     
     </script>
-@endsection
-@section('js')
-
 @endsection

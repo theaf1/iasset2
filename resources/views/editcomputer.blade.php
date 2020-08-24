@@ -4,6 +4,15 @@
     <div class="col-12 mx-auto">
         <form action="{{ url('/client/' . $client->id . '/update') }}" method="post" id="computer_form">
                 <input type="hidden" name="_method" value="PUT">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 @if ( $message = Session::get('success')) <!--แจ้งผลการบันทึกข้อมูล-->
                     <div class="alert alert-success alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -444,10 +453,10 @@
                                     <label for="os_arch">OS architecture</label><br>
                                     <div class="form-check form-check-inline">
                                         <div class="form-check-inline">
-                                            <input type="radio" class="form-check-input @error('os_arch') is-invalid @enderror" name="os_arch" id="32_bit" value="0" {{ old('os_arch',$client->os_arch) === 0 ? 'checked' : ''}}><label class="form-check-label @error('os_arch') is-invalid @enderror" for="32_bit"> 32 bit</label>
+                                            <input type="radio" class="form-check-input @error('os_arch') is-invalid @enderror" name="os_arch" id="32_bit" value="0" {{ old('os_arch',$client->os_arch) == 0 ? 'checked' : ''}}><label class="form-check-label @error('os_arch') is-invalid @enderror" for="32_bit"> 32 bit</label>
                                         </div>
                                         <div class="form-check-inline">
-                                            <input type="radio" class="form-check-input  @error('os_arch') is-invalid @enderror" name="os_arch" id="64_bit" value="1" {{ old('os_arch',$client->os_arch) === 1 ? 'checked' : ''}}><label class="form-check-label @error('os_arch') is-invalid @enderror" for="64_bit"> 64 bit</label><br>
+                                            <input type="radio" class="form-check-input  @error('os_arch') is-invalid @enderror" name="os_arch" id="64_bit" value="1" {{ old('os_arch',$client->os_arch) == 1 ? 'checked' : ''}}><label class="form-check-label @error('os_arch') is-invalid @enderror" for="64_bit"> 64 bit</label><br>
                                             @error('os_arch')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -579,13 +588,13 @@
                             <div class="col-sm-12 col-lg-6"> <!--lan type-->
                                 <div class="form-group">
                                     <label for="lan_type">ประเภทเครือข่าย</label><br>
-                                    <select name="lan_type" id="lan_type" class="form-control @error('lan_type') is-invalid @enderror">
+                                    <select name="lan_type_id" id="lan_type" class="form-control @error('lan_type_id') is-invalid @enderror">
                                         <option value="" hidden></option>
                                         @foreach($networkconnections as $networkconnection)
                                             <option value="{{ $networkconnection['id'] }}" {{ old('lan_type_id',$client->lan_type_id) == $networkconnection['id'] ? 'selected' : ''}}>{{ $networkconnection['name'] }}</option>
                                         @endforeach
                                     </select>
-                                    @error('lan_type')
+                                    @error('lan_type_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

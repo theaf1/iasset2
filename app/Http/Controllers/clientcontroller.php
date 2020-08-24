@@ -164,17 +164,20 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         if (request()->has('displayCount')) {
             $displayCount = request()->input('displayCount');
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
-
+        
         $this->validateData($request);
+        
         $client = Client::find($id)->update($request->all());
         $displayCount = request()->input('display_count');
         $client = Client::find($id);
         $displaysId=$client->displays;
         $i = 0;
+        
         foreach ($displaysId as $displayId)
         {    
             $display =  [ 
@@ -187,6 +190,7 @@ class ClientController extends Controller
                 $i++;                       
             Display::find($displayId->id)->update($display);
         }
+        
         // return redirect()->back()->with('displayCount', $displayCount);
         return redirect('/client')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); 
     }
