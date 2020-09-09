@@ -103,4 +103,13 @@ class SearchController extends Controller
     {
         //
     }
+    public function search()
+    {
+        return 'hello';
+        // $Results=Client::where('sap_id', $request['search']);
+        // if(count($Results)>0)
+        //     return $Results->all();
+        // else
+        //     return 'not found';
+    }
 }
