@@ -1,8 +1,8 @@
 @extends('Layouts.app')
 @section('content')
+
     <div class="container-fluid">
-        <div class="col-12 mx-auto">
-            
+        <div class="col-12 mx-auto"> 
             <form action="{{ url('/search-query') }}" method="POST" role="search">
                 @csrf
                 <div class="form-row">
@@ -18,6 +18,7 @@
                     <button type="reset" class="btn btn-lg btn-danger">Reset</button>
                 </div>
             </form>
+            {{-- @include('_results') --}}
         </div>
     </div>
 @endsection
