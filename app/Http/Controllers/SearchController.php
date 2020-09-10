@@ -30,11 +30,21 @@ class SearchController extends Controller
         $Clienttypes = Clienttype::all();
         $Peripheraltypes = Peripheraltype::all();
         $NetSubtypes = NetSubtype::all();
+        $Searchclass= array(
+            ['id'=>'1', 'name'=>'Client', 'ui_name'=>'คอมพิวเตอร์'],
+            ['id'=>'2', 'name'=>'Peripherals', 'ui_name'=>'อุปกรณ์ต่อพ่วง'],
+            ['id'=>'3', 'name'=>'Storageperipherals', 'ui_name'=>'อุปกรณ์ต่อพ่วงเก็บข้อมูล'],
+            ['id'=>'4', 'name'=>'Servers', 'ui_name'=>'คอมพิวเตอร์แม่ข่าย'],
+            ['id'=>'5', 'name'=>'NetworkedStorage', 'ui_name'=>'อุปกรณ์เก็บข้อมูลเครือข่าย'],
+            ['id'=>'6', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
+            ['id'=>'7', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
+        );
 
         return view('search')->with([
             'clienttypes'=>$Clienttypes,
             'peripheraltypes'=>$Peripheraltypes,
             'netsubtypes'=>$NetSubtypes,
+            'searches'=>$Searchclass,
         ]);
     }
 
@@ -105,11 +115,23 @@ class SearchController extends Controller
     }
     public function search(Request $request)
     {
-        //return $request->search;
+        $this->validateQuery($request);
+        return $request->all();
         $Results=Client::where('sapid', $request->search)->get();
-        
-            return view('results')->with([
-                'results'=>$Results,
-            ]);
+        //return count($Results);    
+        return view('results')->with([
+            'results'=>$Results,
+        ]);
+    }
+    private function validateQuery($data)
+    {
+        $rules = [
+            'search_class' => 'required',
+        ];
+
+        $messages = [
+            'search_class.required' => 'require'
+        ];
+        return $this->validate($data, $rules, $messages);
     }
 }
