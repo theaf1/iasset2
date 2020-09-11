@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
-                            <label for="search_sap">ต้องการค้นหา</label>
+                            <label for="search_sap">คำสำคัญ</label>
                             <input type="text" name="search" id="search_sap" class="form-control">
                         </div>
                     </div>
