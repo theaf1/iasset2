@@ -32,12 +32,13 @@ class SearchController extends Controller
         $NetSubtypes = NetSubtype::all();
         $Searchclass= array(
             ['id'=>'1', 'name'=>'Client', 'ui_name'=>'คอมพิวเตอร์'],
-            ['id'=>'2', 'name'=>'Peripherals', 'ui_name'=>'อุปกรณ์ต่อพ่วง'],
-            ['id'=>'3', 'name'=>'Storageperipherals', 'ui_name'=>'อุปกรณ์ต่อพ่วงเก็บข้อมูล'],
-            ['id'=>'4', 'name'=>'Servers', 'ui_name'=>'คอมพิวเตอร์แม่ข่าย'],
-            ['id'=>'5', 'name'=>'NetworkedStorage', 'ui_name'=>'อุปกรณ์เก็บข้อมูลเครือข่าย'],
-            ['id'=>'6', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
-            ['id'=>'7', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
+            ['id'=>'2', 'name'=>'Display', 'ui_name'=>'จอภาพ'],
+            ['id'=>'3', 'name'=>'Peripherals', 'ui_name'=>'อุปกรณ์ต่อพ่วง'],
+            ['id'=>'4', 'name'=>'Storageperipherals', 'ui_name'=>'อุปกรณ์ต่อพ่วงเก็บข้อมูล'],
+            ['id'=>'5', 'name'=>'Servers', 'ui_name'=>'คอมพิวเตอร์แม่ข่าย'],
+            ['id'=>'6', 'name'=>'NetworkedStorage', 'ui_name'=>'อุปกรณ์เก็บข้อมูลเครือข่าย'],
+            ['id'=>'7', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
+            ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
         );
 
         return view('search')->with([
@@ -116,10 +117,29 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $this->validateQuery($request);
-        //return $request->all();
         $Results=Client::where('sapid', $request->search)->get();
-        //$Results=DB::table($request->search_class)->select('sapid', $request->search)->get();
-        //return count($Results);    
+        //pending further decision
+        // if ($request->search_class==1) {
+        //     $Results=Client::where('sapid', $request->search)->get();
+        // }
+        // if ($request->search_class==2) {
+        //     $Results = Peripherals::where('sapid', $request->search)->get();
+        // }
+        // if ($request->search_class==3) {
+        //     $Results = Storageperipherals::where('sapid', $request->search)->get();
+        // }
+        // if ($request->search_class==4) {
+        //     $Results = Servers::where('sapid', $request->search)->get();
+        // }
+        // if ($request->search_class==5) {
+        //     $Results = NetworkedStorage::where('sapid', $request->search)->get();
+        // }
+        // if ($request->search_class==6) {
+        //     $Results = Networkdevices::where('sapid', $request->search)->get();
+        // }
+        // if ($request->search_class==7) {
+        //     $Results = Upses::where('sapid', $request->search)->get();
+        // }    
         return view('results')->with([
             'results'=>$Results,
         ]);
