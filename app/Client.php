@@ -34,7 +34,7 @@ class Client extends Model
       'cpu_socket_number',
       'ram_size',
       'hdd_no',
-      'data_unit',
+      'data_unit_id',
       'hdd_total_cap',
       // 'display_no',
       'os',
@@ -118,6 +118,10 @@ class Client extends Model
    public function ClientAssetUseStatus ()
    {
      return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
+   }
+   public function ClientDataUnit ()
+   {
+      return $this->belongsTo(DataUnit::class,'data_unit_id');
    }
    //แสดงความสัมพันธ์กับตาราง NetworkConnection
    public function networkconnection ()

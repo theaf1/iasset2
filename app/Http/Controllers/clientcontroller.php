@@ -9,6 +9,7 @@ use App\Display;
 use App\Clienttype;
 use App\Opsfunction;
 use App\Multiuser;
+use App\DataUnit;
 use App\NetworkConnection;
 use App\Owner;
 use App\Mobility;
@@ -33,10 +34,7 @@ class ClientController extends Controller
         $Multiusers = Multiuser::all();
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
-        $DataUnits = array(
-            ['id'=>'1', 'name'=>'GB'],
-            ['id'=>'2', 'name'=>'TB'],
-        );
+        $DataUnits = DataUnit::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
@@ -130,10 +128,7 @@ class ClientController extends Controller
         $Multiusers = Multiuser::all();
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
-        $DataUnits = array(
-            ['id'=>'1', 'name'=>'GB'],
-            ['id'=>'2', 'name'=>'TB'],
-        );
+        $DataUnits = DataUnit::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
@@ -230,7 +225,7 @@ class ClientController extends Controller
             'cpu_socket_number' =>'required',
             'ram_size' => 'required',
             'hdd_no' => 'required',
-            'data_unit' =>'required',
+            'data_unit_id' =>'required',
             'hdd_total_cap'=>'required',
             'display_count' => 'required',
             'os'=>'required',
@@ -270,7 +265,7 @@ class ClientController extends Controller
             'cpu_socket_number.required'=>'กรุณาระบุจำนวน socket CPU',
             'ram_size.required'=>'กรุณาระบุขนาดของหน่วยความจำ',
             'hdd_no.required'=>'กรุณาระบุจำนวน hard disk ในเครื่อง',
-            'data_unit.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
+            'data_unit_id.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'hdd_total_cap.required'=>'กรุณาระบุความจุข้อมูลรวมของเครื่อง',
             'display_count.required'=>'กรุณาระบุจำนวนจอภาพ',
             'os.required'=>'กรุณาระบุชื่อระบบปฏิบัติการ',

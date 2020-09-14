@@ -40,7 +40,7 @@ class Clients extends Migration
             $table->integer('cpu_socket_number'); //จำนวน Scoket CPU
             $table->float('ram_size',5,3); //จำนวน RAM
             $table->integer('hdd_no'); //จำนวน HDD ในเครื่อง
-            $table->integer('data_unit'); //หน่วยวัดข้อมูล
+            $table->integer('data_unit_id'); //หน่วยวัดข้อมูล รับค่าจากตาราง DataUnit
             $table->float('hdd_total_cap',6,3); //ความจุข้อมูล
             // $table->integer('display_no');
             $table->string('os'); //ระบบปฏิบัติการ

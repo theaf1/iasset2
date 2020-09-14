@@ -12,18 +12,18 @@ class DataUnit extends Model
     ];
     public function DataUnitClient()
     {
-        $this->belongsTo(Client::class);
+        return $this->hasMany(Client::class,'data_unit_id');
     }
     public function DataUnitStoragePeripherals()
     {
-        $this->belongsTo(Storageperipherals::class);
+        return $this->hasMany(Storageperipherals::class);
     }
     public function DataUnitNetworkedStorage()
     {
-        $this->hasMany(NetworkedStorage::class);
+        return $this->hasMany(NetworkedStorage::class);
     }
     public function DataUnitServer ()
     {
-        $this->hasMany(Servers::class);
+        return $this->hasMany(Servers::class);
     }
 }
