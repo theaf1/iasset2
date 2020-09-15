@@ -22,7 +22,7 @@ class NetworkedStorage extends Model
         'brand',
         'model',
         'serial_no',
-        'data_unit',
+        'data_unit_id',
         'hdd_total_cap',
         'no_of_physical_drive_max',
         'no_of_physical_drive_populated',
@@ -65,5 +65,9 @@ class NetworkedStorage extends Model
     public function NetworkedStorageAssetUseStatus ()
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
+    }
+    public function NetworkedStorageDataUnit ()
+    {
+        return $this->belongsTo(DataUnit::class,'data_unit_id');
     }
 }

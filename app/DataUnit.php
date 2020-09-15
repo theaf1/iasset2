@@ -20,7 +20,7 @@ class DataUnit extends Model
     }
     public function DataUnitNetworkedStorage()
     {
-        return $this->hasMany(NetworkedStorage::class);
+        return $this->hasMany(NetworkedStorage::class,'data_unit_id');
     }
     public function DataUnitServer ()
     {

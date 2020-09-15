@@ -9,6 +9,7 @@ use App\Section;
 use App\NetworkedStorage;
 use App\Owner;
 use App\Mobility;
+use App\DataUnit;
 
 class NetworkedstorageController extends Controller
 {
@@ -23,10 +24,7 @@ class NetworkedstorageController extends Controller
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
-        $DataUnits =array(
-            ['id'=>'1', 'name'=>'GB'],
-            ['id'=>'2', 'name'=>'TB']
-        );
+        $DataUnits =DataUnit::all();
         $Owners = Owner::all();
         $Storagetypes = array(
             ['id'=>'1', 'name'=>'NAS'],
@@ -99,10 +97,7 @@ class NetworkedstorageController extends Controller
             ['id'=>'2', 'name'=>'TB']
         );
         $Owners = Owner::all();
-        $Storagetypes = array(
-            ['id'=>'1', 'name'=>'NAS'],
-            ['id'=>'2', 'name'=>'SAN'],
-        );
+        $Storagetypes = DataUnit::all();
         $Mobility = Mobility::all();
         $networkedstorage = NetworkedStorage::find($id);
         //return $networkedstorage;
@@ -164,7 +159,7 @@ class NetworkedstorageController extends Controller
             'model' => 'required',
             'serial_no' => 'required',
             'hdd_total_cap' => 'required',
-            'data_unit' => 'required',
+            'data_unit_id' => 'required',
             'no_of_physical_drive_max' => 'required|gte:2',
             'no_of_physical_drive_populated' => 'required|lte:no_of_physical_drive_max',
             'lun_count' => 'required',
@@ -188,7 +183,7 @@ class NetworkedstorageController extends Controller
             'brand.required' => 'กรุณาระบุยี่ห้อ',
             'model.required' => 'กรุณาระบุรุ่น',
             'serial_no.required' => 'กรุณาระบุ Serial Number ของเครื่อง',
-            'data_unit.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
+            'data_unit_id.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'hdd_total_cap.required' => 'กรุณาระบุความจุข้อมูล',
             'no_of_physical_drive_max.required' => 'กรุนาระบุจำนวน disk สูงสุดของเครื่อง',
             'no_of_physical_drive_max.lte' => 'test1.1',

@@ -237,10 +237,10 @@
                                     <label for="hdd_total_cap">ความจุข้อมูลรวม</label>
                                         <div class="form-check-inline">
                                             @foreach ($dataunits as $dataunit)
-                                                <input type="radio" name="data_unit" id="data_unit" value="{{ $dataunit['id']}}" class="form-check-input @error('data_unit') is-invalid @enderror pl-2" {{ old('data_unit') == $dataunit['id'] ? 'checked' : '' }}>
+                                                <input type="radio" name="data_unit_id" id="data_unit" value="{{ $dataunit['id']}}" class="form-check-input @error('data_unit_id') is-invalid @enderror pl-2" {{ old('data_unit_id') == $dataunit['id'] ? 'checked' : '' }}>
                                                 <label for="data_unit" class="form-check-label pl-1">{{ $dataunit['name'] }}</label>
                                             @endforeach
-                                            @error('data_unit')
+                                            @error('data_unit_id')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

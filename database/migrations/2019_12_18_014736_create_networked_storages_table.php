@@ -30,7 +30,7 @@ class CreateNetworkedStoragesTable extends Migration
             $table->string('brand'); //ยี่ห้อ
             $table->string('model'); //รุ่น
             $table->string('serial_no'); //serial number จากผู้ผลิต
-            $table->integer('data_unit'); //หน่วยวัดข้อมูล
+            $table->integer('data_unit_id'); //หน่วยวัดข้อมูล รับค่าจากตาราง DataUnit
             $table->float('hdd_total_cap', 6, 4); //ความจุข้อมูลรวม
             $table->integer('no_of_physical_drive_max'); //จำนวน HDD สูงสุด
             $table->integer('no_of_physical_drive_populated'); //จำนวน HDD ที่มีอยู่
