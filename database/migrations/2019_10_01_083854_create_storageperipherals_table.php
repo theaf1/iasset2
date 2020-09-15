@@ -35,7 +35,7 @@ class CreateStorageperipheralsTable extends Migration
             $table->integer('connectivity'); //วิธีการเชื่อมต่อ
             $table->boolean('is_hotswap')->default(0); //เป็นอุปกรณ์ hotswap
             $table->float('total_capacity'); //ความจุข้อมูลรวม
-            $table->integer('data_unit'); //หน่วยวัดข้อมูล
+            $table->integer('data_unit_id'); //หน่วยวัดข้อมูล รับค่าจากตาราง DataUnit
             $table->integer('no_of_physical_drive_max')->nullable(); //จำนวน HDD สูงสุด
             $table->integer('no_of_physical_drive_populated')->nullable(); //จำนวน HDD ที่มีอยู่
             $table->integer('lun_count')->nullable(); //จำนวน disk จำลอง

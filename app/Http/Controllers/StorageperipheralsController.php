@@ -11,6 +11,7 @@ use App\Position;
 use App\Storageperipherals;
 use App\Owner;
 use App\Mobility;
+use App\DataUnit;
 
 class StorageperipheralsController extends Controller
 {
@@ -27,10 +28,7 @@ class StorageperipheralsController extends Controller
         $Multiusers = Multiuser::all();
         $Positions = Position::all();
         $Sections = Section::all();
-        $DataUnits = array(
-            ['id' => '1', 'name' => 'GB'],
-            ['id' => '2', 'name' => 'TB'],
-        );
+        $DataUnits = DataUnit::all();
         $Owners= Owner::all();
         $Connectivity = array(
             ['id' => '1', 'name' => 'USB'],
@@ -176,7 +174,7 @@ class StorageperipheralsController extends Controller
             'model'=>'required',
             'serial_no'=>'required',
             'connectivity' => 'required',
-            'data_unit'=>'required',
+            'data_unit_id'=>'required',
             'total_capacity' => 'required',
             'no_of_physical_drive_max' => 'required_if:is_hotswap,1|gte:2',
             'no_of_physical_drive_populated' => 'required_if:is_hotswap,1|lte:no_of_physical_drive_max',
@@ -200,7 +198,7 @@ class StorageperipheralsController extends Controller
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
             'connectivity.required' => 'กรณาลือกวิธีการเชื่อมต่อ',
-            'data_unit.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
+            'data_unit_id.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'total_capacity.required' => 'กรุณาระบุความจุข้อมูล',
             'no_of_physical_drive_max.required_if'=> 'กรุณาระบุจำนวน disk ที่สามารถใส่ได้',
             'no_of_physical_drive_max.gte' => 'จำนวน disk ไม่เพียงพอ',

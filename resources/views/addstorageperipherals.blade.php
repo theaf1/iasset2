@@ -270,10 +270,10 @@
                                     <label for="total_capacity">ความจุข้อมูล</label>
                                         <div class="form-check-inline pl-1">
                                             @foreach ($dataunits as $dataunit)
-                                                <input type="radio" class="form-check-input @error('data_unit') is-invalid @enderror" name="data_unit" id="dataunit" value="{{ $dataunit['id'] }}" {{ old('data_unit') == $dataunit['id'] ? 'checked' : '' }} >
+                                                <input type="radio" class="form-check-input @error('data_unit_id') is-invalid @enderror" name="data_unit_id" id="dataunit" value="{{ $dataunit['id'] }}" {{ old('data_unit_id') == $dataunit['id'] ? 'checked' : '' }} >
                                                 <label for="dataunit" class="form-check-label">{{ $dataunit['name'] }} </label>
                                             @endforeach
-                                            @error('data_unit')
+                                            @error('data_unit_id')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

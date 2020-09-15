@@ -27,7 +27,7 @@ class Storageperipherals extends Model
         'serial_no',
         'connectivity',
         'is_hotswap',
-        'data_unit',
+        'data_unit_id',
         'total_capacity',
         'no_of_physical_drive_max',
         'no_of_physical_drive_populated',
@@ -78,5 +78,9 @@ class Storageperipherals extends Model
     public function StoragePeripheralAssetUseStatus ()
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
+    }
+    public function StoragePeripheralDataUnit ()
+    {
+        return $this->belongsTo(DatUnit::class,'data_unit_id');
     }
 }

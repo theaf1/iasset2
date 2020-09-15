@@ -16,7 +16,7 @@ class DataUnit extends Model
     }
     public function DataUnitStoragePeripherals()
     {
-        return $this->hasMany(Storageperipherals::class);
+        return $this->hasMany(Storageperipherals::class,'data_unit_id');
     }
     public function DataUnitNetworkedStorage()
     {
