@@ -100,10 +100,7 @@ class StorageperipheralsController extends Controller
         $Multiusers = Multiuser::all();
         $Positions = Position::all();
         $Sections = Section::all();
-        $DataUnits = array(
-            ['id' => '1', 'name' => 'GB'],
-            ['id' => '2', 'name' => 'TB'],
-        );
+        $DataUnits = Dataunit::all();
         $Owners= Owner::all();
         $Connectivity = array(
             ['id' => '1', 'name' => 'USB'],
