@@ -39,7 +39,7 @@ class Servers extends Migration
             $table->integer('no_of_physical_drive_populated'); //จำนวน HDD ในเครื่อง
             $table->integer('lun_count'); //จำนวน disk จำลอง
             $table->integer('hdd_total_cap'); //ความจุข้อมูลรวม
-            $table->integer('data_unit'); //หน่วยวัดข้อมูล
+            $table->integer('data_unit_id'); //หน่วยวัดข้อมูล รับค่าจากตาราง DataUnit
             $table->boolean('is_headless')->default(0); //ไม่มีจอภาพ
             $table->integer('display_no')->nullable();
             $table->string('display_sapid')->nullable(); //รหัส SAP จอ

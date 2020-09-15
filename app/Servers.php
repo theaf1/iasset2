@@ -31,7 +31,7 @@ class Servers extends Model
         'no_of_physical_drive_max',
         'no_of_physical_drive_populated',
         'lun_count',
-        'data_unit',
+        'data_unit_id',
         'hdd_total_cap',
         'display_no',
         'is_headless',
@@ -86,6 +86,10 @@ class Servers extends Model
     public function ServerAssetUseStatus ()
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
+    }
+    public function ServerDataUnit ()
+    {
+        return $this->belongsTo(DataUnit::class,'data_unit_id');
     }
     //แสดงความสัมพันธ์กับตาราง ServerRoleClass
     public function ServerRoleClass ()

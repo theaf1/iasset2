@@ -24,6 +24,6 @@ class DataUnit extends Model
     }
     public function DataUnitServer ()
     {
-        return $this->hasMany(Servers::class);
+        return $this->hasMany(Servers::class,'data_unit_id');
     }
 }

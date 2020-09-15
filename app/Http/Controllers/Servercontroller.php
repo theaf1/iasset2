@@ -7,6 +7,7 @@ use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
 use App\Servers;
+use App\DataUnit;
 use App\serverOp;
 use App\ServerRoleClass;
 use App\NetworkConnection;
@@ -27,9 +28,7 @@ class ServerController extends Controller
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
-        
         $ServerOSes = ServerOp::all();
-        
         $ServerRoleClass = ServerRoleclass::all();
         $NetworkConnections = NetworkConnection::all();
         
@@ -37,10 +36,7 @@ class ServerController extends Controller
             ['id'=>'1', 'name'=>'Tower'],
             ['id'=>'2', 'name'=>'Rack Mounted'],
         );
-        $DataUnits = array(
-            ['id'=>'1', 'name'=>'GB'],
-            ['id'=>'2', 'name'=>'TB'],
-        );
+        $DataUnits = DataUnit::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
@@ -113,10 +109,7 @@ class ServerController extends Controller
             ['id'=>'1', 'name'=>'Tower'],
             ['id'=>'2', 'name'=>'Rack Mounted'],
         );
-        $DataUnits = array(
-            ['id'=>'1', 'name'=>'GB'],
-            ['id'=>'2', 'name'=>'TB'],
-        );
+        $DataUnits = DataUnit::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
@@ -184,7 +177,7 @@ class ServerController extends Controller
             'cpu_speed' => 'required',
             'cpu_socket_no' => 'required|gte:1',
             'ram_size' => 'required',
-            'data_unit' => 'required',
+            'data_unit_id' => 'required',
             'no_of_physical_drive_max' => 'required_if:is_raid,1|gte:2',
             'no_of_physical_drive_populated' => 'required_if:is_raid,1|lte:no_of_physical_drive_max',
             'lun_count' => 'required_if:is_raid,1',
@@ -218,7 +211,7 @@ class ServerController extends Controller
             'cpu_socket_no.required' => 'โปรดระบุจำนวน socket CPU',
             'cpu_socket_no.gte' => 'โปรดตรวจสอบจำนวน socket CPU',
             'ram_size.required' => 'กรุณาใส่จำนวน RAM',
-            'data_unit.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
+            'data_unit_id.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'no_of_physical_drive_max.required_if' => 'กรุณาระบุจำนวน disk สูงสุด',
             'no_of_physical_drive_max.gte' => 'จำนวน disk ไม่เพียงพอ',
             'no_of_physical_drive_populated.required_if' => 'กรุณาระบุจำนวน disk ที่มีอยู่',
