@@ -79,6 +79,7 @@ class Storageperipherals extends Model
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
+    //แสดงความสัมพันธ์กับตาราง DataUnit
     public function StoragePeripheralDataUnit ()
     {
         return $this->belongsTo(DatUnit::class,'data_unit_id');
