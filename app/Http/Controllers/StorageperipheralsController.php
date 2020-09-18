@@ -173,9 +173,10 @@ class StorageperipheralsController extends Controller
             'connectivity' => 'required',
             'data_unit_id'=>'required',
             'total_capacity' => 'required',
-            'no_of_physical_drive_max' => 'required_if:is_hotswap,1|gte:2',
-            'no_of_physical_drive_populated' => 'required_if:is_hotswap,1|lte:no_of_physical_drive_max',
-            'lun_count' => 'required_if:is_hotswap,1',
+            'no_of_physical_drive_max' => 'exclude_unless:is_hotswap,true|required',
+            'no_of_physical_drive_max'=>'exclude_unless:is_hotswap,true|gte:2',
+            'no_of_physical_drive_populated' => 'exclude_unless:is_hotswap,true|required|lte:no_of_physical_drive_max',
+            'lun_count' => 'exclude_unless:is_hotswap,true|required',
         ];
 
         //ข้อความแสดงข้อผิดพลาด
@@ -197,9 +198,9 @@ class StorageperipheralsController extends Controller
             'connectivity.required' => 'กรณาลือกวิธีการเชื่อมต่อ',
             'data_unit_id.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'total_capacity.required' => 'กรุณาระบุความจุข้อมูล',
-            'no_of_physical_drive_max.required_if'=> 'กรุณาระบุจำนวน disk ที่สามารถใส่ได้',
+            'no_of_physical_drive_max.required'=> 'กรุณาระบุจำนวน disk ที่สามารถใส่ได้',
             'no_of_physical_drive_max.gte' => 'จำนวน disk ไม่เพียงพอ',
-            'no_of_physical_drive_populated.required_if'=>'ใส่จำนวน disk ในเครื่อง',
+            'no_of_physical_drive_populated.required'=>'ใส่จำนวน disk ในเครื่อง',
             'no_of_physical_drive_populated.lte'=>'จำนวน disk ในเครื่องไม่ถูกต้อง',
             'lun_count.required_if'=>'ใส่จำนวน disk จำลอง',
 
