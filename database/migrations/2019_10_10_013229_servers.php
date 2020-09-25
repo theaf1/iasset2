@@ -40,10 +40,6 @@ class Servers extends Migration
             $table->integer('lun_count'); //จำนวน disk จำลอง
             $table->integer('hdd_total_cap'); //ความจุข้อมูลรวม
             $table->integer('data_unit_id'); //หน่วยวัดข้อมูล รับค่าจากตาราง DataUnit
-            $table->boolean('is_headless')->default(0); //ไม่มีจอภาพ
-            $table->integer('display_no')->nullable();
-            $table->string('display_sapid')->nullable(); //รหัส SAP จอ
-            $table->string('display_pid')->nullable(); //รหัสครุภัณฑ์จอภาพ
             $table->integer('os_id'); //ระบบปฏิบัติการ รับค่าจากตาราง ServerOS
             $table->integer('os_arch'); //โครงสร้างระบบปฏิบัติการ
             $table->integer('role_class_id'); //กลุ่มของบทบาท

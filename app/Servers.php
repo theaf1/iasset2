@@ -87,6 +87,10 @@ class Servers extends Model
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
+    public function ServerDisplay ()
+    {
+        return $this->hasMany(Display::class,'client_id');
+    }
     //แสดงความสัมพันธ์กับตาราง DataUnit
     public function ServerDataUnit ()
     {

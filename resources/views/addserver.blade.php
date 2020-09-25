@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form action="/add-server" method="post">
+            <form action="/add-server" method="post" id="server_form">
                 @if ( $message = Session::get('success'))<!--แจ้งผลบันทึกข้อมูล-->
                     <div class="alert alert-success alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -342,36 +342,61 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
-                                <div class="form-group">
-                                    <label for="display_no">จำนวนจอที่ใช้งาน</label>
-                                    <input class="form-control" name="display_no" id="display_no" type="number" min="0" value="{{ old('display_no') }}">
+                                <div class="form-group"> 
+                                    <label for="display_count">จำนวนจอที่ใช้งาน</label>
+                                    <select class="form-control @error('display_count') is-invalid @enderror" id="display_count" name="display_count" onchange="displayCountSelected(this)">
+                                        <option value="" hidden></option>
+                                        <option value="1" {{ old('display_count', session()->has('display_count')) == 1 ? 'selected' : ''}}>1</option>
+                                        <option value="2" {{ old('display_count', session()->has('display_count')) == 2 ? 'selected' : ''}}>2</option>
+                                        <option value="3" {{ old('display_count', session()->has('display_count')) == 3 ? 'selected' : ''}}>3</option>
+                                        <option value="4" {{ old('display_count', session()->has('display_count')) == 4 ? 'selected' : ''}}>4</option>
+                                    </select>
+                                    @error('display_count')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"><!--headless-->
-                                <div class="form-group">
-                                    <label for="is_headless">จอภาพ</label><br>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_headless" id="is_headless" value="1" {{ old('is_headless') == 1 ? 'checked' : '' }}><label for="is_headless">มีจอภาพ</label></label>
+                        </div>    
+                        @if (session()->has('displayCount')) <!--script จอภาพ-->
+                            <?php $displayCount = session()->get('displayCount') ? session()->get('displayCount') : $client->displays->count() ?>
+                            @for ($i = 0; $i < session()->get('displayCount') ; $i++)
+                                <div class="card mb-2">
+                                    <div class="card-header">
+                                        จอภาพที่ {{ $i+1 }}
+                                    </div>
+                                    <div class="card-body pt-1 pb-1" >
+                                        <div class="form-row">   
+                                            <div class="col-sm-12 col-lg-3"> <!--sap จอ-->
+                                                <div class="form-group">
+                                                    <label for="display_sapid">SAP จอ</label>
+                                                    <input class="form-control" name="display_sapid[]" id="display_sapid" type="text" value="{{ old('display_sapid.' . $i) }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-lg-3"> <!--ครุภัณฑ์จอ-->
+                                                <div class="form-group">
+                                                    <label for="display_pid">รหัสครุภัณฑ์จอภาพ</label>
+                                                    <input class="form-control" name="display_pid[]" id="display_pid" type="text" value="{{ old('display_pid.' . $i) }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
+                                                <div class="form-group">
+                                                    <label for="display_size">ขนาดจอภาพ (นิ้ว)</label>
+                                                    <input class="form-control" name="display_size[]" id="display_size" type="number" min="0" value="{{ old('display_size.' . $i) }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-lg-3">
+                                                <div class="form-group">
+                                                    <label for="display_ratio">สัดส่วนจอภาพ</label>
+                                                    <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" pattern="{0-9}:{0-9}" value="{{ old('display_size.' . $i) }}">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-6"> <!--sap จอ-->
-                                <div class="form-group">
-                                    <label for="display_sapid">SAP จอ</label>
-                                    <input class="form-control" name="display_sapid" id="display_sapid" type="text" value="{{ old('display_sapid') }}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--ครุภัณฑ์จอ-->
-                                <div class="form-group">
-                                    <label for="display_pid">รหัสครุภัณฑ์จอภาพ</label>
-                                    <input class="form-control" name="display_pid" id="display_pid" type="text" value="{{ old('display_pid') }}">
-                                </div>
-                            </div>
-                        </div>
+                            @endfor
+                        @endif
                     </div>
                 </div>
                 <div class="card mt-4">
@@ -402,12 +427,10 @@
                                     <div class="form-check form-check-inline">
                                         <div class="form-check-inline">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="os_arch" id="32_bit" value="0"><label for="32_bit"> 32 bit</label>
+                                                <input type="radio" class="form-check-input" name="os_arch" id="32_bit" value="0" {{ old('os_arch') === 0 ? 'checked' : '' }}><label for="32_bit"> 32 bit</label>
                                             </label>
-                                        </div>
-                                        <div class="form-check-inline">
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="os_arch" id="64_bit" value="1" checked><label for="64_bit"> 64 bit</label>
+                                                <input type="radio" class="form-check-input" name="os_arch" id="64_bit" value="1" {{ old('os_arch') == 1 ? 'checked' : '' }}><label for="64_bit"> 64 bit</label>
                                             </label>
                                         </div>
                                     </div>
@@ -567,6 +590,11 @@
 <script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
 <script src="{{ url('/js/axios.min.js') }}"></script>
 <script>
+    let hasDisplay = "<?php echo session()->get('displayCount'); ?>";
+    if (hasDisplay > 0) {
+        $('#display_count').focus();
+    }
+
     var room = null;
     $("#room_autocomplete").autocomplete({
         paramName: "name",
@@ -601,6 +629,12 @@
             $("#location").val('');
         }
     });
+
+    function displayCountSelected(select) {
+        let displayCount = select.options[select.selectedIndex].value;
+        document.getElementById("server_form").action = `{{ url('/add-server?displayCount=${displayCount}')}}`;
+        document.getElementById("server_form").submit();
+    }
 
 </script>
 @endsection

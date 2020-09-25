@@ -7,6 +7,7 @@ use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
 use App\Servers;
+use App\Display;
 use App\DataUnit;
 use App\serverOp;
 use App\ServerRoleClass;
@@ -74,10 +75,32 @@ class ServerController extends Controller
     //บันทึกข้อมูลที่ได้รับจากหน้า addserver ผ่านตัวแปร request
     public function store(Request $request)
     {
-        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึกด้วย function validateData
+        //$this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึกด้วย function validateData
         //return $request->all();
-        $Servers = Servers::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
-        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งผลการบันทึกข้อมูลกลับไปยังหน้าเดิม
+        //$Servers = Servers::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
+        //return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งผลการบันทึกข้อมูลกลับไปยังหน้าเดิม
+        if (request()->has('displayCount')) {
+            $displayCount = request()->input('displayCount');
+            return redirect()->back()->with('displayCount', $displayCount)->withInput();
+        }
+        $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
+        $Servers = Servers::create($request->all());
+        //\Log::info(session());
+
+        $displayCount = request()->input('display_count');
+        for ($i = 0; $i < $displayCount; $i++)
+        {
+            $display =  [ 
+                            'client_id' => $Servers->id, 
+                            'display_sapid' => request()->input('display_sapid')[$i],
+                            'display_pid' => request()->input('display_pid')[$i],
+                            'display_size' => request()->input('display_size')[$i],
+                            'display_ratio' => request()->input('display_ratio')[$i],
+                        ];
+            Display::create($display);
+        } 
+
+        return redirect()->back()->with('displayCount',$displayCount);
     }
 
     /**
@@ -139,9 +162,37 @@ class ServerController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // $this->validateData($request);
+        // Servers::find($id)->update($request->all());
+        // return redirect('/servers')->with('success','แก้ไขข้อมูลเรียบร้อย');
+        if (request()->has('displayCount')) {
+            $displayCount = request()->input('displayCount');
+            return redirect()->back()->with('displayCount', $displayCount)->withInput();
+        }
+        
         $this->validateData($request);
-        Servers::find($id)->update($request->all());
-        return redirect('/servers')->with('success','แก้ไขข้อมูลเรียบร้อย');
+        
+        $Servers = Servers::find($id)->update($request->all());
+        $displayCount = request()->input('display_count');
+        $Servers = Servers::find($id);
+        $displaysId=$Servers->displays;
+        $i = 0;
+        
+        foreach ($displaysId as $displayId)
+        {    
+            $display =  [ 
+                            'client_id' => $client->id, 
+                            'display_sapid' => request()->input('display_sapid')[$i],
+                            'display_pid' => request()->input('display_pid')[$i],
+                            'display_size' => request()->input('display_size')[$i],
+                            'display_ratio' => request()->input('display_ratio')[$i],
+                        ];
+                $i++;                       
+            Display::find($displayId->id)->update($display);
+        }
+        
+        // return redirect()->back()->with('displayCount', $displayCount);
+        return redirect('/severs')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -182,8 +233,6 @@ class ServerController extends Controller
             'no_of_physical_drive_populated' => 'required_if:is_raid,1|lte:no_of_physical_drive_max',
             'lun_count' => 'required_if:is_raid,1',
             'hdd_total_cap' => 'required',
-            'display_sapid' => 'nullable',
-            'display_pid' => 'nullable',
             'os_id'=>'required',
             'role_class_id' => 'required',
             'other_software_detail' => 'required_if:other_software,1',
