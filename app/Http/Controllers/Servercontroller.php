@@ -79,10 +79,12 @@ class ServerController extends Controller
         //return $request->all();
         //$Servers = Servers::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
         //return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งผลการบันทึกข้อมูลกลับไปยังหน้าเดิม
+        
         if (request()->has('displayCount')) {
             $displayCount = request()->input('displayCount');
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
+        return $request->all();
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
         $Servers = Servers::create($request->all());
         //\Log::info(session());
@@ -181,7 +183,7 @@ class ServerController extends Controller
         foreach ($displaysId as $displayId)
         {    
             $display =  [ 
-                            'client_id' => $client->id, 
+                            'client_id' => $Servers->id, 
                             'display_sapid' => request()->input('display_sapid')[$i],
                             'display_pid' => request()->input('display_pid')[$i],
                             'display_size' => request()->input('display_size')[$i],
