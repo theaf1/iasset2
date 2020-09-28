@@ -32,7 +32,6 @@ class ServerController extends Controller
         $ServerOSes = ServerOp::all();
         $ServerRoleClass = ServerRoleclass::all();
         $NetworkConnections = NetworkConnection::all();
-        
         $Forms = array (
             ['id'=>'1', 'name'=>'Tower'],
             ['id'=>'2', 'name'=>'Rack Mounted'],
@@ -79,13 +78,12 @@ class ServerController extends Controller
         //return $request->all();
         //$Servers = Servers::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
         //return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งผลการบันทึกข้อมูลกลับไปยังหน้าเดิม
-        
         if (request()->has('displayCount')) {
             $displayCount = request()->input('displayCount');
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
-        return $request->all();
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
+        //return $request->all();
         $Servers = Servers::create($request->all());
         //\Log::info(session());
 
