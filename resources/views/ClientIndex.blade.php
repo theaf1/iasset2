@@ -47,11 +47,8 @@
                                 <th scope="col">หน่วยงาน</th>
                                 <th scope="col">ระบบงาน</th>
                                 <th scope="col">ลักษณะการติดตั้ง</th>
-                                <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
-                                <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
-                                <th scope="col">จำนวนผู้ใช้งาน</th>
-                                <th scope="col">ผู้ใช้งาน</th>
-                                <th scope="col">ตำแหน่งผู้ใช้งาน</th>
+                                <th scope="col">ปัญหาในการใช้งาน</th>
+                                <th scope="col">หมายเหตุ</th>
                                 <th scope="col">แก้ไขล่าสุดเมื่อ</th>
                                 <th scope="col"></th>
                             </tr>
@@ -77,11 +74,8 @@
                                     <td>{{ $client->clientSection->name }}</td>
                                     <td>{{ $client->ClientOpsFunction->name }}</td>
                                     <td>{{ $client->ClientMobility->name }}</td>
-                                    <td>{{ $client->ClientAssetStatus->name }}</td>
-                                    <td>{{ $client->ClientAssetUseStatus->name }}</td>
-                                    <td>{{ $client->ClientMultiUser->name }}</td>
-                                    <td>{{ $client['user'] }}</td>
-                                    <td>{{ $client->ClientPosition->name }}</td>
+                                    <td>{{ $client['issues'] }}</td>
+                                    <td>{{ $client['remarks'] }}</td>
                                     <td>{{ $client['update_date'] }}</td>
                                     <td><a href="{{ url('/client',$client->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</button></td>
                                 </tr>
