@@ -175,7 +175,7 @@ class ServerController extends Controller
         $Servers = Servers::find($id)->update($request->all());
         $displayCount = request()->input('display_count');
         $Servers = Servers::find($id);
-        $displaysId=$Servers->displays;
+        $displaysId=$Servers->ServerDisplay;
         $i = 0;
         
         foreach ($displaysId as $displayId)
@@ -192,7 +192,7 @@ class ServerController extends Controller
         }
         
         // return redirect()->back()->with('displayCount', $displayCount);
-        return redirect('/severs')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
+        return redirect('/servers')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**

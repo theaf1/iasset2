@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form action="{{ url('/server',$server->id) }}" method="post">
+            <form action="{{ url('/server/' . $server->id . '/update') }}" method="post" id="server_form">
                 <input type="hidden" name="_method" value="PUT">
                 @if ( $message = Session::get('success'))<!--แจ้งผลบันทึกข้อมูล-->
                     <div class="alert alert-success alert-dismissible">
@@ -343,36 +343,61 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
-                                <div class="form-group">
-                                    <label for="display_no">จำนวนจอที่ใช้งาน</label>
-                                    <input class="form-control" name="display_no" id="display_no" type="number" min="0" value="{{ old('display_no',$server->display_no) }}">
+                                <div class="form-group"> 
+                                    <label for="display_count">จำนวนจอที่ใช้งาน</label>
+                                    <select class="form-control @error('display_count') is-invalid @enderror" id="display_count" name="display_count" onchange="displayCountSelected(this)">
+                                        <option value="" hidden></option>
+                                        <option value="1" {{ old('display_count', session()->has('displayCount') ? session()->has('displayCount') : $server->ServerDisplay->count()) == 1 ? 'selected' : ''}}>1</option>
+                                        <option value="2" {{ old('display_count', session()->has('displayCount') ? session()->has('displayCount') : $server->ServerDisplay->count()) == 2 ? 'selected' : ''}}>2</option>
+                                        <option value="3" {{ old('display_count', session()->has('displayCount') ? session()->has('displayCount') : $server->ServerDisplay->count()) == 3 ? 'selected' : ''}}>3</option>
+                                        <option value="4" {{ old('display_count', session()->has('displayCount') ? session()->has('displayCount') : $server->ServerDisplay->count()) == 4 ? 'selected' : ''}}>4</option>
+                                    </select>
+                                    @error('display_count')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"><!--headless-->
-                                <div class="form-group">
-                                    <label for="is_headless">จอภาพ</label><br>
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_headless" id="is_headless" value="1" {{ old('is_headless',$server->is_headless) == 1 ? 'checked' : '' }}><label for="is_headless">มีจอภาพ</label></label>
+                        @if (session()->has('displayCount') || $server->ServerDisplay ) <!--script จอภาพ-->
+                        <?php $displayCount = session()->get('displayCount') ? session()->get('displayCount') : $server->ServerDisplay->count() ?>
+                            @for ($i = 0; $i < $displayCount ; $i++)
+                                <div class="card mb-2">
+                                    <div class="card-header">
+                                        จอภาพที่ {{ $i+1 }}
+                                    </div>
+                                    <div class="card-body pt-1 pb-1" >
+                                        <div class="form-row">   
+                                            <div class="col-sm-12 col-lg-3"> <!--sap จอ-->
+                                                <div class="form-group">
+                                                    <label for="display_sapid">SAP จอ</label>
+                                                    <input class="form-control" name="display_sapid[]" id="display_sapid" type="text" value="{{ old('display_sapid.' . $i, isset($server->ServerDisplay[$i]) ? $server->ServerDisplay[$i]->display_sapid : null) }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-lg-3"> <!--ครุภัณฑ์จอ-->
+                                                <div class="form-group">
+                                                    <label for="display_pid">รหัสครุภัณฑ์จอภาพ</label>
+                                                    <input class="form-control" name="display_pid[]" id="display_pid" type="text" value="{{ old('display_pid.' . $i, isset($server->ServerDisplay[$i]) ? $server->ServerDisplay[$i]->display_pid : null) }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
+                                                <div class="form-group">
+                                                    <label for="display_size">ขนาดจอภาพ (นิ้ว)</label>
+                                                    <input class="form-control" name="display_size[]" id="display_size" type="number" min="0" value="{{ old('display_size.' . $i, isset($server->ServerDisplay[$i]) ? $server->ServerDisplay[$i]->display_size : null) }}"">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-lg-3">
+                                                <div class="form-group">
+                                                    <label for="display_ratio">สัดส่วนจอภาพ</label>
+                                                    <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" pattern="{0-9}:{0-9}" value="{{ old('display_ratio.' . $i, isset($server->ServerDisplay[$i]) ? $server->ServerDisplay[$i]->display_ratio : null) }}"">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-6"> <!--sap จอ-->
-                                <div class="form-group">
-                                    <label for="display_sapid">SAP จอ</label>
-                                    <input class="form-control" name="display_sapid" id="display_sapid" type="text" value="{{ old('display_sapid',$server->display_sapid) }}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--ครุภัณฑ์จอ-->
-                                <div class="form-group">
-                                    <label for="display_pid">รหัสครุภัณฑ์จอภาพ</label>
-                                    <input class="form-control" name="display_pid" id="display_pid" type="text" value="{{ old('display_pid',$server->display_pid) }}">
-                                </div>
-                            </div>
-                        </div>
+                            @endfor
+                        @endif
                     </div>
                 </div>
                 <div class="card mt-4">
@@ -602,6 +627,11 @@
             $("#location").val('');
         }
     });
+    function displayCountSelected(select) {
+        let displayCount = select.options[select.selectedIndex].value;
+        document.getElementById("server_form").action = `{{ url('/server/' . $server->id . '/update/?displayCount=${displayCount}')}}`;
+        document.getElementById("server_form").submit();
+    }
 
 </script>
 @endsection
