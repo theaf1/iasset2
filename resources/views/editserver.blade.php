@@ -39,7 +39,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--ที่ตั้ง-->
                                 <div class="form-group">
                                     <label for="room_autocomplete">สถานที่ตั้ง</label>
-                                    <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่" value="{{ old('room') }}"/>
+                                    <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่" value="{{ old('room',$server->ServerRoom->name) }}"/>
                                     @error('location_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
