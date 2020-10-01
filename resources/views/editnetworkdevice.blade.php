@@ -39,7 +39,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--ห้อง-->
                             <div class="form-group">
                                 <label for="room">ห้อง</label>
-                                <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" value="{{ old('room') }}" id="room_autocomplete"/>
+                                <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" value="{{ old('room',$networkdevice->NetworkDeviceRoom->name) }}" id="room_autocomplete"/>
                                 @error('location_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
