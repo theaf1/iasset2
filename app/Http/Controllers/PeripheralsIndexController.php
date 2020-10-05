@@ -40,7 +40,7 @@ class PeripheralsIndexController extends Controller
         );
         $Owners = Owner::all();
         $Mobility = Mobility::all();
-        $peripherals = Peripherals::paginate(2);
+        $peripherals = Peripherals::all();
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addperipherals
         return view('PeripheralsIndex')->with([
@@ -85,9 +85,29 @@ class PeripheralsIndexController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $section_filter = $request['section_filter'];
+        $per_page = $request['per_page'];
+        \Log::info($section_filter);
+        \log::info($per_page);
+        //return $request->all();
+        $peripherals = Peripherals::where('section_id', $section_filter)->paginate($per_page);
+       
+        $Mobility = Mobility::all();
+        $Sections = Section::all();
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Owners = Owner::all();
+        
+        return response()->json([
+            'peripherals'=>$peripherals,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'owners'=>$Owners,
+            'mobiles'=>$Mobility,
+        ]);
     }
 
     /**

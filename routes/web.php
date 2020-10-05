@@ -77,3 +77,4 @@ Route::post('/search-query', 'SearchController@search');
 //     return 'null';
 // });
 //Route::post('/client/filter','ClientIndexController@show');
+Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
