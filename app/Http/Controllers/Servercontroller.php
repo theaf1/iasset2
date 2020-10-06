@@ -85,7 +85,6 @@ class ServerController extends Controller
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
         //return $request->all();
         $Servers = Servers::create($request->all());
-        //\Log::info(session());
 
         $displayCount = request()->input('display_count');
         for ($i = 0; $i < $displayCount; $i++)
