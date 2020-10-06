@@ -11,9 +11,9 @@
 |
 */
 // route to  system views
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 // room automation script by Nongnapat
 Route::get('/rooms', function() {
@@ -78,3 +78,4 @@ Route::post('/search-query', 'SearchController@search');
 // });
 //Route::post('/client/filter','ClientIndexController@show');
 Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
+Route::get('/','IndexController@index');
