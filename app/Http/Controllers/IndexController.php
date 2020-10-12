@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Client;
+use App\Peripherals;
 
 class IndexController extends Controller
 {
@@ -15,9 +16,10 @@ class IndexController extends Controller
     public function index()
     {
         $Client=Client::orderBy('created_at','desc')->take(5)->get();
-            //return $Client;
+        $Peripherals=Peripherals::orderBy('created_at','desc')->take(5)->get();
         return view('index')->with([
             'clients'=>$Client,
+            'peripherals'=>$Peripherals,
         ]);
     }
 
