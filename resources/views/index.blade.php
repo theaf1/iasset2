@@ -11,23 +11,23 @@
                     <table class="table mt-4 table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">ลำดับที่</th>
-                                <th scope="col">รหัส SAP</th>
-                                <th scope="col">ชนิด</th>
-                                <th scope="col">สถานที่</th>
-                                <th scope="col">ชั้น</th>
-                                <th scope="col">ตึก</th>
+                                <th scope="col" class="text-center">ลำดับที่</th>
+                                <th scope="col" class="text-center">รหัส SAP</th>
+                                <th scope="col" class="text-center">ชนิด</th>
+                                <th scope="col" class="text-center">สถานที่</th>
+                                <th scope="col" class="text-center">ชั้น</th>
+                                <th scope="col" class="text-center">ตึก</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($clients as $client)
                                 <tr>
-                                    <th scope="row">{{ $client['id'] }}</th>
-                                    <td>{{ $client['sapid'] }}</td>
-                                    <td>{{$client->ClientType->name}}</td>
-                                    <td>{{$client->ClientRoom->name }}</td>
-                                    <td>{{$client->ClientRoom->location->floor}}</td>
-                                    <td>{{$client->ClientRoom->location->building->name}}</td>
+                                    <th scope="row" class="text-center">{{ $client['id'] }}</th>
+                                    <td class="text-center">{{ $client['sapid'] }}</td>
+                                    <td class="text-center">{{$client->ClientType->name}}</td>
+                                    <td class="text-center">{{$client->ClientRoom->name }}</td>
+                                    <td class="text-center">{{$client->ClientRoom->location->floor}}</td>
+                                    <td class="text-center">{{$client->ClientRoom->location->building->name}}</td>
                                 </tr>
                             @endforeach
                         </tbody>
