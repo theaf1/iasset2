@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Client;
 use App\Peripherals;
+use App\Storageperipherals;
+use App\Servers;
+use App\Networkdevices;
+use App\NetworkedStorage;
+use App\Upses;
 
 class IndexController extends Controller
 {
@@ -17,9 +22,19 @@ class IndexController extends Controller
     {
         $Client=Client::orderBy('created_at','desc')->take(5)->get();
         $Peripherals=Peripherals::orderBy('created_at','desc')->take(5)->get();
+        $Storageperipherals=Storageperipherals::orderBy('created_at','desc')->take(5)->get();
+        $Servers=Servers::orderBy('created_at','desc')->take(5)->get();
+        $Networkdevices=Networkdevices::orderBy('created_at','desc')->take(5)->get();
+        $Networkedtorages=NetworkedStorage::orderBy('created_at','desc')->take(5)->get();
+        $Upses=Upses::orderBy('created_at','desc')->take(5)->get();
         return view('index')->with([
             'clients'=>$Client,
             'peripherals'=>$Peripherals,
+            'storageperipherals'=>$Storageperipherals,
+            'servers'=>$Servers,
+            'networkdevices'=>$Networkdevices,
+            'networkedstorages'=>$Networkedtorages,
+            'upses'=>$Upses,
         ]);
     }
 
