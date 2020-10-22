@@ -1,221 +1,46 @@
 @extends('Layouts.app')
 @section('content')
-    
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <div class="card mt-4">
-                <div class="card-header card-background text-white">
-                    <H4 class="text-center">รายการเครื่องคอมพิวเตอร์ล่าสุด</H4>
-                </div>
-                <div class="card-body">
-                    <table class="table mt-4 table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="text-center">ลำดับที่</th>
-                                <th scope="col" class="text-center">รหัส SAP</th>
-                                <th scope="col" class="text-center">ชนิด</th>
-                                <th scope="col" class="text-center">สถานที่</th>
-                                <th scope="col" class="text-center">ชั้น</th>
-                                <th scope="col" class="text-center">ตึก</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($clients as $client)
-                                <tr>
-                                    <th scope="row" class="text-center">{{ $client['id'] }}</th>
-                                    <td class="text-center">{{ $client['sapid'] }}</td>
-                                    <td class="text-center">{{$client->ClientType->name}}</td>
-                                    <td class="text-center">{{$client->ClientRoom->name }}</td>
-                                    <td class="text-center">{{$client->ClientRoom->location->floor}}</td>
-                                    <td class="text-center">{{$client->ClientRoom->location->building->name}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card mt-4">
-                <div class="card-header card-background text-white">
-                    <H4 class="text-center">รายการอุปกรณ์ต่อพ่วงล่าสุด</H4>
-                </div>
-                <div class="card-body">
-                    <table class="table mt-4 table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">ลำดับที่</th>
-                                <th scope="col">รหัส SAP</th>
-                                <th scope="col">ชนิด</th>
-                                <th scope="col">สถานที่</th>
-                                <th scope="col">ชั้น</th>
-                                <th scope="col">ตึก</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($peripherals as $peripheral)
-                                <tr>
-                                    <th scope="row">{{ $peripheral['id'] }}</th>
-                                    <td>{{ $peripheral['sapid'] }}</td>
-                                    <td>{{$peripheral->peripheraltype->name}}</td>
-                                    <td>{{$peripheral->PeripheralRoom->name}}</td>
-                                    <td>{{$peripheral->PeripheralRoom->location->floor}}</td>
-                                    <td>{{$peripheral->PeripheralRoom->location->building->name}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card mt-4">
-                <div class="card-header card-background text-white">
-                    <H4 class="text-center">รายการอุปกรณ์ต่อพ่วงเก็บข้อมูลล่าสุด</H4>
-                </div>
-                <div class="card-body">
-                    <table class="table mt-4 table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">ลำดับที่</th>
-                                <th scope="col">รหัส SAP</th>
-                                <th scope="col">สถานที่</th>
-                                <th scope="col">ชั้น</th>
-                                <th scope="col">ตึก</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($storageperipherals as $storageperipheral)
-                                <tr>
-                                    <th scope="row">{{ $storageperipheral['id'] }}</th>
-                                    <td>{{ $storageperipheral['sapid'] }}</td>
-                                    <td>{{$storageperipheral->StoragePeripheralRoom->name}}</td>
-                                    <td>{{$storageperipheral->StoragePeripheralRoom->location->floor}}</td>
-                                    <td>{{$storageperipheral->StoragePeripheralRoom->location->building->name}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>    
-            </div>
-            <div class="card mt-4">
-                <div class="card-header card-background text-white">
-                    <H4 class="text-center">รายการเครื่องคอมพิวเตอร์แม่ข่ายล่าสุด</H4>
-                </div>
-                <div class="card-body">
-                    <table class="table mt-4 table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">ลำดับที่</th>
-                                <th scope="col">รหัส SAP</th>
-                                <th scope="col">สถานที่</th>
-                                <th scope="col">ชั้น</th>
-                                <th scope="col">ตึก</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($servers as $server)
-                                <tr>
-                                    <th scope="row">{{ $server['id'] }}</th>
-                                    <td>{{ $server['sapid'] }}</td>
-                                    <td>{{$server->ServerRoom->name}}</td>
-                                    <td>{{$server->ServerRoom->location->floor}}</td>
-                                    <td>{{$server->ServerRoom->location->building->name}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>    
-            </div>
-            <div class="card mt-4">
-                <div class="card-header card-background text-white">
-                    <H4 class="text-center">รายการอุปกรณ์เครือข่ายล่าสุด</H4>
-                </div>
-                <div class="card-body">
-                    <table class="table mt-4 table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">ลำดับที่</th>
-                                <th scope="col">รหัส SAP</th>
-                                <th scope="col">ชนิด</th>
-                                <th scope="col">สถานที่</th>
-                                <th scope="col">ชั้น</th>
-                                <th scope="col">ตึก</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($networkdevices as $networkdevice)
-                                <tr>
-                                    <th scope="row">{{ $networkdevice['id'] }}</th>
-                                    <td>{{ $networkdevice['sapid'] }}</td>
-                                    <td>{{$networkdevice->netsubtype->name}}</td>
-                                    <td>{{$networkdevice->NetworkDeviceRoom->name}}</td>
-                                    <td>{{$networkdevice->NetworkDeviceRoom->location->floor}}</td>
-                                    <td>{{$networkdevice->NetworkDeviceRoom->location->building->name}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>    
-            </div>
-            <div class="card mt-4">
-                <div class="card-header card-background text-white">
-                    <H4 class="text-center">รายการอุปกรณ์เก็บข้อมูลเครือข่ายล่าสุด</H4>
-                </div>
-                <div class="card-body">
-                    <table class="table mt-4 table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">ลำดับที่</th>
-                                <th scope="col">รหัส SAP</th>
-                                
-                                <th scope="col">สถานที่</th>
-                                <th scope="col">ชั้น</th>
-                                <th scope="col">ตึก</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($networkedstorages as $networkedstorage)
-                                <tr>
-                                    <th scope="row">{{ $networkedstorage['id'] }}</th>
-                                    <td>{{ $networkedstorage['sapid'] }}</td>
-                                    
-                                    <td>{{$networkedstorage->NetworkedStorageRoom->name}}</td>
-                                    <td>{{$networkedstorage->NetworkedStorageRoom->location->floor}}</td>
-                                    <td>{{$networkedstorage->NetworkedStorageRoom->location->building->name}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>    
-            </div>
-            <div class="card mt-4">
-                <div class="card-header card-background text-white">
-                    <H4 class="text-center">รายการเครื่องสำรองไฟฟ้าล่าสุด</H4>
-                </div>
-                <div class="card-body">
-                    <table class="table mt-4 table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">ลำดับที่</th>
-                                <th scope="col">รหัส SAP</th>
-                                
-                                <th scope="col">สถานที่</th>
-                                <th scope="col">ชั้น</th>
-                                <th scope="col">ตึก</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($upses as $ups)
-                                <tr>
-                                    <th scope="row">{{ $ups['id'] }}</th>
-                                    <td>{{ $ups['sapid'] }}</td>
-                                    
-                                    <td>{{$ups->UpsRoom->name}}</td>
-                                    <td>{{$ups->UpsRoom->location->floor}}</td>
-                                    <td>{{$ups->UpsRoom->location->building->name}}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>    
-            </div>
+            <form action="{{ url('/search-query') }}" method="POST" role="search">
+                @csrf
+                <div class="card mt-4">
+                    <div class="card-header card-background text-white">
+                        <h3>tesr</h3>
+                    </div>
+                    <div class="card-body">    
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="search_class">ต้องการค้นหา</label>
+                                    <select name="search_class" id="search_class" class="form-control @error('search_class') is-invalid @enderror">
+                                        <option value="" hidden></option>
+                                        @foreach ($searches as $search)
+                                            <option value="{{ $search['id'] }}">{{ $search['ui_name'] }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('search_class')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="search_sap">คำสำคัญ</label>
+                                    <input type="text" name="search" id="search_sap" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4 mr-2">
+                            <button type="submit" class="btn btn-lg btn-success">Submit</button>
+                            <button type="reset" class="btn btn-lg btn-danger">Reset</button>
+                            <P>xxx</P>
+                        </div>
+                    </div>
+                </div>        
+            </form>
         </div>
     </div>
 @endsection

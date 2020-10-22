@@ -118,28 +118,31 @@ class SearchController extends Controller
     {
         $this->validateQuery($request);
         $Results=Client::where('sapid', $request->search)->get();
-        //pending further decision
-        // if ($request->search_class==1) {
-        //     $Results=Client::where('sapid', $request->search)->get();
-        // }
-        // if ($request->search_class==2) {
-        //     $Results = Peripherals::where('sapid', $request->search)->get();
-        // }
-        // if ($request->search_class==3) {
-        //     $Results = Storageperipherals::where('sapid', $request->search)->get();
-        // }
-        // if ($request->search_class==4) {
-        //     $Results = Servers::where('sapid', $request->search)->get();
-        // }
-        // if ($request->search_class==5) {
-        //     $Results = NetworkedStorage::where('sapid', $request->search)->get();
-        // }
-        // if ($request->search_class==6) {
-        //     $Results = Networkdevices::where('sapid', $request->search)->get();
-        // }
-        // if ($request->search_class==7) {
-        //     $Results = Upses::where('sapid', $request->search)->get();
-        // }    
+        
+        if ($request->search_class==1) {
+             $Results=Client::where('sapid', $request->search)->get();
+         }
+        if ($request->search_class==2) {
+            $Results = Display::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==3) {
+            $Results = Peripherals::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==4) {
+            $Results = Storageperipherals::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==5) {
+            $Results = Servers::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==6) {
+            $Results = NetworkedStorage::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==7) {
+            $Results = Networkdevices::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==8) {
+            $Results = Upses::where('sapid', $request->search)->get();
+        }
         return view('results')->with([
             'results'=>$Results,
         ]);

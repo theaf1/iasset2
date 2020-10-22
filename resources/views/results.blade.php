@@ -23,7 +23,7 @@
                     <tr>
                         <th scope="col">ลำดับที่</th>
                         <th scope="col">SAP</th>
-                        <th scope="col">ชนิด</th>
+                        <th scope="col">รหัสครุภัณฑ์</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +31,7 @@
                         <tr>
                             <th scope="row">{{ $result['id'] }}</th>
                             <td>{{ $result['sapid'] }}</td>
-                            <td>{{ $result->ClientType->name }}</td>
+                            <td>{{ $result['pid'] }}</td>
                         </tr>
                     @endforeach
                 </tbody>
