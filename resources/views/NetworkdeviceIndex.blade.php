@@ -40,6 +40,7 @@
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
                                 <th scope="col">แก้ไขล่าสุดเมื่อ</th>
                                 <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,6 +56,7 @@
                                 <td>{{ $networkdevice->NetworkDeviceAssetStatus->name }}</td>
                                 <td>{{ $networkdevice->NetworkDeviceAssetUseStatus->name }}</td>
                                 <td>{{ $networkdevice['updated_at'] }}</td>
+                                <td><a class="btn btn-sm btn-info" role="button" href="{{ url('/networkdevices/show',$networkdevice->id) }}">รายละเอียด</a></td>
                                 <td><a class="btn btn-sm btn-info" role="button" href="{{ url('/networkdevices',$networkdevice->id) }}">แก้ไข</a></td>
                             </tr>
                             @endforeach

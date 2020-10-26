@@ -73,7 +73,22 @@ class NetworkdeviceController extends Controller
      */
     public function show($id)
     {
-        //
+        $networkdevice = Networkdevices::find($id);
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $NetSubtypes = NetSubtype::all();
+        $Owners = Owner::all();
+        $Mobility = Mobility::all();
+        return view('Networkdevicedetail')->with([
+            'networkdevice'=>$networkdevice,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'netsubtypes'=>$NetSubtypes,
+            'owners'=>$Owners,
+            'mobiles'=>$Mobility,
+        ]);
     }
 
     /**

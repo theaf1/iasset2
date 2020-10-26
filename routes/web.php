@@ -49,6 +49,7 @@ Route::put('/storageperipheral/{id}', 'StorageperipheralsController@update');
 Route::get('/network', 'NetworkdeviceController@index');
 Route::post('/add-networkdev','Networkdevicecontroller@store');
 Route::get('/networkdevices', 'NetworkdeviceIndexController@index');
+Route::get('/networkdevices/show/{id}', 'Networkdevicecontroller@show');
 Route::get('/networkdevices/{id}', 'NetworkdeviceController@edit');
 Route::put('/networkdevices/{id}', 'NetworkdeviceController@update');
 
