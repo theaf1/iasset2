@@ -32,6 +32,7 @@ Route::post('/add-computer', 'ClientController@store');
 Route::get('/client', 'ClientIndexController@index');
 Route::get('/client/{id}','ClientController@edit');
 Route::put('/client/{id}/update','ClientController@update');
+route::get('client/show/{id}','ClientController@show');
 
 
 Route::get('/peripherals','PeripheralsController@index');
@@ -80,3 +81,7 @@ Route::post('/search-query', 'SearchController@search');
 //Route::post('/client/filter','ClientIndexController@show');
 Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
 Route::get('/','IndexController@index');
+// route to  test views
+Route::get('/test', function () {
+    return view('Computerdetail');
+});

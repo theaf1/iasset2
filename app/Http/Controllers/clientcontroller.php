@@ -109,7 +109,34 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $Clienttypes = Clienttype::all();
+        $Opsfunctions = Opsfunction::all();
+        $Multiusers = Multiuser::all();
+        $NetworkConnections = NetworkConnection::all();
+        $Positions = Position::all();
+        $DataUnits = DataUnit::all();
+        $Owners = Owner::all();
+        $Mobility = Mobility::all();
+
+        $client = Client::find($id);
+
+        return view('Computerdetail')->with([
+            'client'=>$client,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'clienttypes'=>$Clienttypes,
+            'opsfunctions'=>$Opsfunctions,
+            'multiusers'=>$Multiusers,
+            'networkconnections'=>$NetworkConnections,
+            'positions'=>$Positions,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'mobiles'=>$Mobility,
+        ]);
     }
 
     /**
