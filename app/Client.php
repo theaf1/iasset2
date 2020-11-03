@@ -129,4 +129,20 @@ class Client extends Model
    {
       return $this->belongsTo(NetworkConnection::class,'lan_type_id');
    }
+   public function PermissionName ()
+   {
+      switch ($client->permission) {
+         case '0':
+            return 'ไม่มี';
+            break;
+
+         case '1':
+            return 'มี';
+            break;
+         
+         default:
+            return 'ไม่ทราบ';
+            break;
+      }
+   }
 }
