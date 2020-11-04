@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-3">
-                        {{-- <p>{{$client->PermissionName}}สิทธ์ Admin</p> --}}
+                            <p>{{$client['permission'] == 1 ? 'มี' : 'ไม่มี'}}สิทธ์ Admin</p>
                         </div>
                     </div>
                     <div class="form-row">
@@ -196,7 +196,40 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
-                            <p>โครงสร้าง {{$client['os_arch']}}</p>
+                            <div class="form-group">
+                                <p>โครงสร้าง {{$client['os_arch'] == 0 ? '32 bit' : '64 bit'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>Microsoft Office {{$client['ms_office_version']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>Antivirus: {{$client['antivirus']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>PDF Reader: {{$client['pdf_reader']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>Endnote version: {{$client['endnote_version'] == null ? 'ไม่มี' : $client['endnote_version']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>IE Version: {{$client['ie_version']}}
+                            </div>
                         </div>
                     </div>
                 </div>
