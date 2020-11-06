@@ -96,7 +96,46 @@ class PeripheralsController extends Controller
      */
     public function show($id)
     {
-        //
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $Peripheraltypes = Peripheraltype::all();
+        $Positions = Position::all();
+        $Multiusers = Multiuser::all();
+        $Supplies = array(
+            ['id'=>'1', 'name'=>'เบิกได้'],
+            ['id'=>'2', 'name'=>'เบิกไม่ได้'],
+            ['id'=>'3', 'name'=>'ไม่จำเป็น'],
+        );
+        $PeripheralConnections = array(
+            ['id'=>'1', 'name'=>'USB'],
+            ['id'=>'2', 'name'=>'Paralell port'],
+            ['id'=>'3', 'name'=>'LAN'],
+        );
+        $ShareMethods = array(
+            ['id'=>'1', 'name'=>'OS share'],
+            ['id'=>'2', 'name'=>'network share'],
+        );
+        $Owners = Owner::all();
+        $Mobility = Mobility::all();
+        $Peripheral = Peripherals::find($id);
+
+        //ตัวแปรที่ส่งกลับไปยังหน้า addperipherals
+        return view('Peripheraldetail')->with([
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'peripheraltypes'=>$Peripheraltypes,
+            'positions'=>$Positions,
+            'multiusers'=>$Multiusers,
+            'supplies'=>$Supplies,
+            'peripheralconnections'=>$PeripheralConnections,
+            'sharemethods'=>$ShareMethods,
+            'owners'=>$Owners,
+            'mobiles'=>$Mobility,
+            'peripheral'=>$Peripheral,
+         
+        ]);
     }
 
     /**

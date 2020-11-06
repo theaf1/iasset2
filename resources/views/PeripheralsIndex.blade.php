@@ -47,6 +47,7 @@
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
                                 <th scope="col">แก้ไขล่าสุดเมื่อ</th>
                                 <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,6 +63,7 @@
                                 <td>{{ $peripheral->PeripheralAssetStatus->name }}</td>
                                 <td>{{ $peripheral->PeripheralAssetUseStatus->name }}</td>
                                 <td>{{ $peripheral['updated_at'] }}</td>
+                                <td><a href="{{ url('/peripheral/show',$peripheral->id)}}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td>
                                 <td><a href="{{ url('/peripheral',$peripheral->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                             </tr>
                             @endforeach

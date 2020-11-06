@@ -38,6 +38,7 @@ route::get('client/show/{id}','ClientController@show');
 Route::get('/peripherals','PeripheralsController@index');
 Route::post('/add-peripheral','PeripheralsController@store');
 Route::get('/peripheral', 'PeripheralsIndexController@index');
+Route::get('/peripheral/show/{id}', 'PeripheralsController@show');
 Route::get('/peripheral/{id}', 'PeripheralsController@edit');
 Route::put('peripheral/{id}', 'PeripheralsController@update');
 
@@ -82,6 +83,6 @@ Route::post('/search-query', 'SearchController@search');
 Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
 Route::get('/','IndexController@index');
 // route to  test views
-Route::get('/test', function () {
-    return view('Computerdetail');
-});
+// Route::get('/test', function () {
+//     return view('Peripheraldetail');
+// });
