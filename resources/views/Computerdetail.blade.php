@@ -5,52 +5,52 @@
             <H3 class="mt-4">รายละเอียด {{$client->ClientType->name}} หมายเลข {{$client['id']}} </H3>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>คุณสมบัติทั่วไป</h4>
+                    <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>รหัส SAP {{$client['sapid']}}</p>
+                                <p>รหัส SAP: {{$client['sapid']}}</p>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>รหัสครุภัณฑ์ {{$client['pid']}}</p>
+                                <p>รหัสครุภัณฑ์: {{$client['pid']}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <P>สถานที่ตั้ง {{$client->ClientRoom->name}}</P>
+                                <P>สถานที่ตั้ง: {{$client->ClientRoom->name}}</P>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
-                                <P>ชั้น {{$client->ClientRoom->location->floor}}</P>
+                                <P>ชั้น: {{$client->ClientRoom->location->floor}}</P>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
-                                <p>ตึก {{$client->ClientRoom->location->building->name}}</p>
+                                <p>ตึก: {{$client->ClientRoom->location->building->name}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
-                                <p>ลักษณะการติดตั้ง {{$client->ClientMobility->name}}</p>
+                                <p>ลักษณะการติดตั้ง: {{$client->ClientMobility->name}}</p>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
-                                <p>ที่มา {{$client->ClientOwner->name}}</p>
+                                <p>ที่มา: {{$client->ClientOwner->name}}</p>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>ระบบงาน {{$client->ClientOpsFunction->name}}</p>
+                                <p>ระบบงาน: {{$client->ClientOpsFunction->name}}</p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>{{$client->ClientAssetUseStatus->name}}</p>
+                                <p>สถานะการใช้งานของครุภัณท์: {{$client->ClientAssetUseStatus->name}}</p>
                             </div>
                         </div>
                     </div>
@@ -197,14 +197,14 @@
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>โครงสร้าง {{$client['os_arch'] == 0 ? '32 bit' : '64 bit'}}</p>
+                                <p>โครงสร้างภายใน: {{$client['os_arch'] == 0 ? '32 bit' : '64 bit'}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>Microsoft Office {{$client['ms_office_version']}}</p>
+                                <p>Microsoft Office: {{$client['ms_office_version']}}</p>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
@@ -228,7 +228,45 @@
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>IE Version: {{$client['ie_version']}}
+                                <p>IE Version: {{$client['ie_version']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>Firefox Version: {{$client['firefox_version'] == null ? 'ไม่มี' : $client['firefox_version']}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>Chrome version: {{$client['chrome_version']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>SPSS version: {{$client['spss_version'] == null ? 'ไม่มี' : $client['spss_version']}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>Software คณะ</p>
+                                <ul>
+                                    <li>{{$client['ehis'] == 1 ? 'มี' : 'ไม่มี'}} E-His</li>
+                                    <li>{{$client['sipacs'] == 1 ? 'มี' : 'ไม่มี'}} SiPACS</li>
+                                    <li>{{$client['si_iscan'] == 1 ? 'มี' : 'ไม่มี'}} SI-iScan</li>
+                                    <li>{{$client['eclair'] == 1 ? 'มี' : 'ไม่มี'}} ECLAIR</li>
+                                    <li>{{$client['admission_note'] == 1 ? 'มี' : 'ไม่มี'}} Admission Note</li>
+                                    <li>{{$client['ur_ward'] == 1 ? 'มี' : 'ไม่มี'}} UR-Ward</li>
+                                    <li>{{$client['sinet'] == 1 ? 'มี' : 'ไม่มี'}} SiNet</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm12 col-lg-6">
+                            <div class="form-group">
+                                <p>Software อื่นๆ: {{$client['other_software_detail'] == null ? 'ไม่มี' : $client['other_software_detail']}} 
                             </div>
                         </div>
                     </div>
@@ -250,6 +288,7 @@
                                 <p>LAN Outlet Number: {{$client['lan_outlet_no']}}</p>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="form-row">
                         <div class="col-sm12 col-lg-6">
@@ -257,9 +296,14 @@
                                 <p>IP Address: {{$client['ip_address']}}
                             </div>
                         </div>
-                        <div class="col-sm12 col-lg-6">
+                        <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
                                 <p>MAC Address: {{$client['mac_address']}}
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="form-group">
+                                <p>ชื่อเครื่องในเครือข่าย: {{$client['computer_name']}}</p>
                             </div>
                         </div>
                     </div>
@@ -267,7 +311,7 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>5</h4>
+                    <h4>หมายเหตุและปัญหาการใช้งาน</h4>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
