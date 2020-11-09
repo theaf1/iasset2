@@ -54,6 +54,13 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>ผู้ใช้งาน{{$peripheral->PeripheralMultiUser->name}}</p> 
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
