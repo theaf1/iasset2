@@ -56,6 +56,11 @@ class Peripherals extends Model
     {
         return $this->belongsTo(Multiuser::class,'multi_user_id');
     }
+    //แสดงความสัมพันธ์กับตาราง Position
+    public function PeripheralPosition ()
+    {
+        return $this->belongsTo(Position::class,'position_id');
+    }
     //แสดงความสัมพันธ์กับตาราง Owner
     public function peripheralowner ()
     {
