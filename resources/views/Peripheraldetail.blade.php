@@ -60,6 +60,16 @@
                                 <p>ผู้ใช้งาน{{$peripheral->PeripheralMultiUser->name}}</p> 
                             </div>
                         </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="form-group">
+                                <p>ชื่อผู้ใช้งาน: {{$peripheral['user']}}
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="form-group">
+                                <p>ตำแหน่ง: {{$peripheral->PeripheralPosition->name}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
