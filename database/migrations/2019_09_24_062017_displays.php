@@ -19,7 +19,7 @@ class Displays extends Migration
             $table->string('client_id'); //หมายเลข Client (foreign key จากตาราง Clients)
             $table->string('display_sapid')->nullable(); //รหัส SAP ของจอ
             $table->string('display_pid')->nullable(); //รหัสครุภัณฑ์ของจอภาพ
-            $table->integer('display_size'); //ขนาดจอภาพ
+            $table->float('display_size',8,1); //ขนาดจอภาพ
             $table->string('display_ratio'); //สัดส่วนจอภาพ
             $table->timestamps();
         });

@@ -415,7 +415,7 @@
                                             <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
                                                 <div class="form-group">
                                                     <label for="display_size">ขนาดจอภาพ (นิ้ว)</label>
-                                                    <input class="form-control" name="display_size[]" id="display_size" type="number" min="0" value="{{ old('display_size.' . $i, isset($client->displays[$i]) ? $client->displays[$i]->display_size : null) }}"">
+                                                    <input class="form-control" name="display_size[]" id="display_size" type="number" min="0" step="0.1" value="{{ old('display_size.' . $i, isset($client->displays[$i]) ? $client->displays[$i]->display_size : null) }}"">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-lg-3">
