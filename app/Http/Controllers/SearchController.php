@@ -123,7 +123,7 @@ class SearchController extends Controller
              $Results=Client::where('sapid', $request->search)->get();
          }
         if ($request->search_class==2) {
-            $Results = Display::where('sapid', $request->search)->get();
+            $Results = Display::where('display_sapid', $request->search)->get();
         }
         if ($request->search_class==3) {
             $Results = Peripherals::where('sapid', $request->search)->get();
