@@ -117,10 +117,10 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $this->validateQuery($request);
-        $Results=Client::where('sapid', $request->search)->get();
+        //$Results=Client::where('sapid', $request->search)->get();
         
         if ($request->search_class==1) {
-             $Results=Client::where('sapid', $request->search)->get();
+            $Results=Client::where($request->search_column, $request->search)->get();
          }
         if ($request->search_class==2) {
             $Results = Display::where('display_sapid', $request->search)->get();

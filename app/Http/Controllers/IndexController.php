@@ -36,7 +36,7 @@ class IndexController extends Controller
             ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
         );
 
-        return view('search')->with([
+        return view('index')->with([
             'clienttypes'=>$Clienttypes,
             'peripheraltypes'=>$Peripheraltypes,
             'netsubtypes'=>$NetSubtypes,
