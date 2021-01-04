@@ -567,6 +567,12 @@
                                     <div class="form-check-inline">
                                         <label class="checkbox-inline"><input type="checkbox" name="sinet" value="1" {{ old('sinet') == 1 ? 'checked' : ''}} > SiNet</label>
                                     </div>
+                                    <div class="form-check-inline">
+                                        <label class="checkbox-inline"><input type="checkbox" name="zoom" id="zoom" value="1" {{ old('zoom') == 1 ? 'checked' : '' }}> Zoom</label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="checkbox-inline"><input type="checkbox" name="webex" id="webex" value="1" {{ old('webex') == 1 ? 'checked' : '' }}> Webex</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--other software details-->

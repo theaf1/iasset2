@@ -261,6 +261,8 @@
                                     <li>{{$client['admission_note'] == 1 ? 'มี' : 'ไม่มี'}} Admission Note</li>
                                     <li>{{$client['ur_ward'] == 1 ? 'มี' : 'ไม่มี'}} UR-Ward</li>
                                     <li>{{$client['sinet'] == 1 ? 'มี' : 'ไม่มี'}} SiNet</li>
+                                    <li>{{$client['zoom'] == 1 ? 'มี' : 'ไม่มี'}} Zoom</li>
+                                    <li>{{$client['webex'] == 1 ? 'มี' : 'ไม่มี'}} Webex</li>
                                 </ul>
                             </div>
                         </div>

@@ -54,6 +54,8 @@ class Client extends Model
       'admission_note',
       'ur_ward',
       'sinet',
+      'zoom',
+      'webex',
       // 'other_software',
       'other_software_detail',
       'lan_outlet_no',

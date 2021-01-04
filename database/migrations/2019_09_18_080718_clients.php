@@ -60,6 +60,8 @@ class Clients extends Migration
             $table->boolean('admission_note')->default(0); //มี Admission Notes
             $table->boolean('ur_ward')->default(0); //มี UR-Ward
             $table->boolean('sinet')->default(0); //มี SiNET
+            $table->boolean('zoom')->default(0); //มี Zoom
+            $table->boolean('webex')->default(0); //มี Webex
             // $table->boolean('other_software')->default(0);
             $table->string('other_software_detail')->nullable(); //โปรแกรมอื่นๆ
             $table->integer('lan_type_id'); //ชนิดการเชื่อมต่อเครือข่าย รับค่าจากตาราง NetworkConnections
