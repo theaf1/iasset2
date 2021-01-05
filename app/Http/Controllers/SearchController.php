@@ -120,7 +120,7 @@ class SearchController extends Controller
         //$Results=Client::where('sapid', $request->search)->get();
         
         if ($request->search_class==1) {
-            $Results=Client::where($request->search_column, $request->search)->get();
+            $Results=Client::where($request->search_column, $request->keyword)->get();
          }
         if ($request->search_class==2) {
             $Results = Display::where('display_sapid', $request->search)->get();
@@ -151,10 +151,12 @@ class SearchController extends Controller
     {
         $rules = [
             'search_class' => 'required',
+            'search_column' => 'required',
         ];
 
         $messages = [
-            'search_class.required' => 'require'
+            'search_class.required' => 'require',
+            'search_column.required' => '8',
         ];
         return $this->validate($data, $rules, $messages);
     }
