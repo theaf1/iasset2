@@ -81,6 +81,7 @@ Route::post('/search-query', 'SearchController@search');
 // });
 //Route::post('/client/filter','ClientIndexController@show');
 Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
+Route::get('/ups/show/{id}','UpsController@show');
 Route::get('/','IndexController@index');
 // route to  test views
 // Route::get('/test', function () {
