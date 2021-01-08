@@ -19,6 +19,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>ที่ตั้ง: {{ $storageperipheral->StoragePeripheralRoom->name }} ชั้น: {{$storageperipheral->StoragePeripheralRoom->Location->floor}} ตึก{{$storageperipheral->StoragePeripheralRoom->Location->Building->name}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>{{$storageperipheral->StorageperipheralMobility->name}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
