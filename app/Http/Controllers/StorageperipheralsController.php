@@ -84,7 +84,34 @@ class StorageperipheralsController extends Controller
      */
     public function show($id)
     {
-        //
+        $Storagepheriperal=Storageperipherals::find($id);
+        $Asset_statuses=Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Multiusers = Multiuser::all();
+        $Positions = Position::all();
+        $Sections = Section::all();
+        $DataUnits = DataUnit::all();
+        $Owners= Owner::all();
+        $Connectivity = array(
+            ['id' => '1', 'name' => 'USB'],
+            ['id' => '2', 'name' => 'eSATA'],
+            ['id' => '3', 'name' => 'SAS'],
+        );
+        $Mobility = Mobility::all();
+
+        //ตัวแปรที่ส่งกลับไปยังหน้า addstorageperipherals
+        return view('StoragePeripheraldetail')->with([
+            'storageperipheral'=>$Storagepheriperal,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'multiusers'=>$Multiusers,
+            'positions'=>$Positions,
+            'sections'=>$Sections,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'connectivities'=>$Connectivity,
+            'mobiles'=>$Mobility,
+        ]);
     }
 
     /**
