@@ -37,7 +37,7 @@ class Storageperipherals extends Model
     //แสดงความสัมพันธ์กับตาราง Section
     public function section ()
     {
-       return $this-belongsTo(Section::class,'section_id');
+       return $this->belongsTo(Section::class,'section_id');
     }
     
     //แสดงความสัมพันธ์กับตาราง Mobility
