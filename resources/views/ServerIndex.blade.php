@@ -40,6 +40,7 @@
                                 <th scope="col">กลุ่มงาน</th>
                                 <th scope="col">แก้ไขล่าสุดเมื่อ</th>
                                 <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,6 +56,7 @@
                                     <td>{{ $server->ServerAssetUseStatus->name }}</td>
                                     <td>{{ $server->ServerRoleClass->name }}</td>
                                     <td>{{ $server['updated_at'] }}</td>
+                                    <td><a href="{{ url('/server/show',$server->id) }}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td>
                                     <td><a href="{{ url('/server',$server->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach

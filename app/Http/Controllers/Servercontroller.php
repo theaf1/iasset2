@@ -110,7 +110,35 @@ class ServerController extends Controller
      */
     public function show($id)
     {
-        //
+        $Server = Servers::find($id);
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $ServerOSes = ServerOp::all();
+        $ServerRoleClass = ServerRoleclass::all();
+        $NetworkConnections = NetworkConnection::all();
+        $Forms = array (
+            ['id'=>'1', 'name'=>'Tower'],
+            ['id'=>'2', 'name'=>'Rack Mounted'],
+        );
+        $DataUnits = DataUnit::all();
+        $Owners = Owner::all();
+        $Mobility = Mobility::all();
+
+        //ตัวแปรที่ส่งไปยังหน้า addserver
+        return view('ServerDetail')->with([
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'server_oses'=>$ServerOSes,
+            'server_role_classes'=>$ServerRoleClass,
+            'network_connections'=>$NetworkConnections,
+            'forms'=>$Forms,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'mobiles'=>$Mobility,
+            'server'=>$Server
+        ]);
     }
 
     /**

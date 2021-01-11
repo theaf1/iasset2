@@ -72,6 +72,7 @@ Route::put('/networkedstorage/{id}', 'Networkedstoragecontroller@update');
 Route::get('/server','ServerController@index');
 Route::post('/add-server','ServerController@store');
 Route::get('/servers', 'ServerIndexController@index');
+Route::get('/server/show/{id}','ServerController@show');
 Route::get('/server/{id}', 'ServerController@edit');
 Route::put('/server/{id}/update', 'ServerController@update');
 //under development
