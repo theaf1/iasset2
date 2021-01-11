@@ -78,7 +78,30 @@ class NetworkedstorageController extends Controller
      */
     public function show($id)
     {
-        //
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $DataUnits =DataUnit::all();
+        $Owners = Owner::all();
+        $Storagetypes = array(
+            ['id'=>'1', 'name'=>'NAS'],
+            ['id'=>'2', 'name'=>'SAN'],
+        );
+        $Mobility = Mobility::all();
+        $NetworkedStorage = NetworkedStorage::find($id);
+
+        //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
+        return view('Networkedstoragedetail')->with([
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'storagetypes'=>$Storagetypes,
+            'mobiles'=>$Mobility,
+            'networkedstorage'=>$NetworkedStorage,
+
+        ]);
     }
 
     /**

@@ -65,6 +65,7 @@ Route::put('/ups/{id}', 'Upscontroller@update');
 Route::get('/ns', 'NetworkedstorageController@index');
 Route::post('/add-ns','NetworkedstorageController@store');
 Route::get('/networkedstorage', 'NetworkedstorageIndexController@index');
+Route::get('/networkedstorage/show/{id}','Networkedstoragecontroller@show');
 Route::get('/networkedstorage/{id}', 'Networkedstoragecontroller@edit');
 Route::put('/networkedstorage/{id}', 'Networkedstoragecontroller@update');
 
