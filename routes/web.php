@@ -45,6 +45,7 @@ Route::put('peripheral/{id}', 'PeripheralsController@update');
 Route::get('/storage', 'StorageperipheralsController@index');
 Route::post('/add-sp','StorageperipheralsController@store');
 Route::get('/storageperipheral', 'StorageperipheralsIndexController@index');
+Route::get('/storageperipheral/show/{id}','StorageperipheralsController@show');
 Route::get('/storageperipheral/{id}', 'StorageperipheralsController@edit');
 Route::put('/storageperipheral/{id}', 'StorageperipheralsController@update');
 
@@ -82,7 +83,7 @@ Route::post('/search-query', 'SearchController@search');
 //Route::post('/client/filter','ClientIndexController@show');
 Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
 Route::get('/ups/show/{id}','UpsController@show');
-Route::get('/storageperipheral/show/{id}','StorageperipheralsController@show');
+
 Route::get('/','IndexController@index');
 // route to  test views
 // Route::get('/test', function () {
