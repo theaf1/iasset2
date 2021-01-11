@@ -86,7 +86,91 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>Serial number: {{$networkedstorage['serial_no']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="form-group">
+                                <p>{{$networkedstorage['type']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="form-group">
+                                <p>ความจุข้อมูล {{$networkedstorage['hdd_total_cap']}} {{$networkedstorage->NetworkedStorageDataUnit->name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>จำนวน Hard disk สูงสุดที่ยอมรับได้ {{$networkedstorage['no_of_physical_drive_max']}} ลูก</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>จำนวน Hard disk ที่มีอยู่ {{$networkedstorage['no_of_physical_drive_populated']}} ลูก</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>จำนวน Disk จำลอง {{$networkedstorage['lun_count']}} ลูก</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>ชื่อเครื่อง: {{$networkedstorage['device_name']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>IP Address ที่ใช้ควบคุมเครื่อง: {{$networkedstorage['device_management_address']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>IP Address ที่ใช้รับส่งข้อมูล: {{$networkedstorage['device_communication_address']}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>ใช้ protocol {{$networkedstorage['is_smb'] == 1 ? 'SMB' : ''}} {{$networkedstorage['is_fc'] == 1 ? 'Fiber Channel' : ''}} {{$networkedstorage['is_iscsi'] == 1 ? 'iSCSI' : ''}} ในการสื่อสาร</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header card-background text-white">
+                    <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="remarks">หมายเหตุ</label><br>
+                                {{$networkedstorage['remarks']}}
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="issues">ปัญหาในการใช้งาน</label><br>
+                                {{$networkedstorage['issues']}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{ url('/networkedstorage') }}" class="btn btn-lg btn-info" role="button">ย้อนกลับ</a>
             </div>
         </div>
     </div>
