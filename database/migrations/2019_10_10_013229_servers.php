@@ -28,7 +28,7 @@ class Servers extends Migration
             $table->integer('asset_use_status_id'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
             $table->string('brand'); //ยึีห้อ
             $table->string('model'); //รุ่น
-            $table->integer('form_factor'); //ลักษะเครือง
+            $table->integer('form_factor_id'); //ลักษะเครือง รับค่าจากตาราง Formfactor
             $table->string('serial_no'); //serial number จากผู้ผลิต
             $table->string('cpu_model'); //ยี่ห้อ รุ่น CPU
             $table->float('cpu_speed', 4, 2); //ความเร็ว CPU

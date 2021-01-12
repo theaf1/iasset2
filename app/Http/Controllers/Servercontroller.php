@@ -8,6 +8,7 @@ use App\Asset_use_statuses;
 use App\Section;
 use App\Servers;
 use App\Display;
+use App\Formfactor;
 use App\DataUnit;
 use App\serverOp;
 use App\ServerRoleClass;
@@ -32,10 +33,7 @@ class ServerController extends Controller
         $ServerOSes = ServerOp::all();
         $ServerRoleClass = ServerRoleclass::all();
         $NetworkConnections = NetworkConnection::all();
-        $Forms = array (
-            ['id'=>'1', 'name'=>'Tower'],
-            ['id'=>'2', 'name'=>'Rack Mounted'],
-        );
+        $Forms = Formfactor::all();
         $DataUnits = DataUnit::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
@@ -117,10 +115,7 @@ class ServerController extends Controller
         $ServerOSes = ServerOp::all();
         $ServerRoleClass = ServerRoleclass::all();
         $NetworkConnections = NetworkConnection::all();
-        $Forms = array (
-            ['id'=>'1', 'name'=>'Tower'],
-            ['id'=>'2', 'name'=>'Rack Mounted'],
-        );
+        $Forms = FormFactor::all();
         $DataUnits = DataUnit::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
@@ -155,10 +150,7 @@ class ServerController extends Controller
         $ServerOSes = ServerOp::all();
         $ServerRoleClass = ServerRoleclass::all();
         $NetworkConnections = NetworkConnection::all();
-        $Forms = array (
-            ['id'=>'1', 'name'=>'Tower'],
-            ['id'=>'2', 'name'=>'Rack Mounted'],
-        );
+        $Forms = Formfactor::all();
         $DataUnits = DataUnit::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();

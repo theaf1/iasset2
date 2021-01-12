@@ -218,7 +218,7 @@
                                     <label for="form-factor">ลักษณะของเครื่อง</label>
                                     <div class="form-check">
                                         @foreach($forms as $form)
-                                            <input class="form-check-input" type="radio" name="form_factor" id="form_factor" value="{{ $form['id'] }}" {{ old('form_factor') == $form['id'] ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="form_factor_id" id="form_factor" value="{{ $form['id'] }}" {{ old('form_factor_id') == $form['id'] ? 'checked' : '' }}>
                                             <label class="form-check-label" for="form_factor">{{ $form['name'] }}</label><br>
                                         @endforeach
                                     </div>

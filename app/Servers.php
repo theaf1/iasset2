@@ -22,7 +22,7 @@ class Servers extends Model
         'brand',
         'model',
         'serial_no',
-        'form_factor',
+        'form_factor_id',
         'cpu_model',
         'cpu_speed',
         'cpu_socket_no',
