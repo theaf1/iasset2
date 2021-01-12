@@ -10,6 +10,7 @@ use App\NetworkedStorage;
 use App\Owner;
 use App\Mobility;
 use App\DataUnit;
+use App\Networkedstoragetype;
 
 class NetworkedstorageController extends Controller
 {
@@ -26,10 +27,7 @@ class NetworkedstorageController extends Controller
         $Sections = Section::all();
         $DataUnits =DataUnit::all();
         $Owners = Owner::all();
-        $Storagetypes = array(
-            ['id'=>'1', 'name'=>'NAS'],
-            ['id'=>'2', 'name'=>'SAN'],
-        );
+        $Storagetypes = Networkedstoragetype::all();
         $Mobility = Mobility::all();
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
@@ -83,10 +81,7 @@ class NetworkedstorageController extends Controller
         $Sections = Section::all();
         $DataUnits =DataUnit::all();
         $Owners = Owner::all();
-        $Storagetypes = array(
-            ['id'=>'1', 'name'=>'NAS'],
-            ['id'=>'2', 'name'=>'SAN'],
-        );
+        $Storagetypes = Networkedstoragetype::all();
         $Mobility = Mobility::all();
         $NetworkedStorage = NetworkedStorage::find($id);
 
@@ -115,12 +110,9 @@ class NetworkedstorageController extends Controller
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
-        $DataUnits =array(
-            ['id'=>'1', 'name'=>'GB'],
-            ['id'=>'2', 'name'=>'TB']
-        );
+        $DataUnits =DataUnit::all();
         $Owners = Owner::all();
-        $Storagetypes = DataUnit::all();
+        $Storagetypes = Networkedstoragetype::all();
         $Mobility = Mobility::all();
         $networkedstorage = NetworkedStorage::find($id);
         //return $networkedstorage;
@@ -177,7 +169,7 @@ class NetworkedstorageController extends Controller
             'mobility_id' => 'required',
             'asset_status_id' => 'required',
             'asset_use_status_id' => 'required',
-            'type' => 'required',
+            'storage_type_id' => 'required',
             'brand' => 'required',
             'model' => 'required',
             'serial_no' => 'required',
@@ -202,7 +194,7 @@ class NetworkedstorageController extends Controller
             'mobility_id.required' => 'กรุณาระบุลักษณะการติดตั้ง',
             'asset_status.required' => 'กรุณาระบุสถานะทางทะเบียนครุภัณฑ์',
             'asset_use_status.required' => 'กรุณาระบุสถานะการใช้งานครุภัณฑ์',
-            'type.required' => 'กรุณาระบุชนิดของอุปกรณ์',
+            'storage_type_id.required' => 'กรุณาระบุชนิดของอุปกรณ์',
             'brand.required' => 'กรุณาระบุยี่ห้อ',
             'model.required' => 'กรุณาระบุรุ่น',
             'serial_no.required' => 'กรุณาระบุ Serial Number ของเครื่อง',

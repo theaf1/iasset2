@@ -183,7 +183,7 @@
                                     <label for="type">ชนิดของอุปกรณ์</label> 
                                     <div class="form-check">
                                         @foreach ($storagetypes as $storagetype)
-                                            <input class="form-check-input @error('type') is-invalid @enderror" type="radio" name="type" id="type" value="{{ $storagetype['id'] }}" {{ old('type') == $storagetype['id'] ? 'checked' : '' }}>
+                                            <input class="form-check-input @error('storage_type_id') is-invalid @enderror" type="radio" name="storage_type_id" id="type" value="{{ $storagetype['id'] }}" {{ old('storage_type_id') == $storagetype['id'] ? 'checked' : '' }}>
                                             <label class="form-check-label" for="type">{{ $storagetype['name'] }}</label><br>
                                         @endforeach
                                         @error('type')

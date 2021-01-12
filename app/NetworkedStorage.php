@@ -18,7 +18,7 @@ class NetworkedStorage extends Model
         'owner_id',
         'asset_status_id',
         'asset_use_status_id',
-        'type',
+        'storage_type_id',
         'brand',
         'model',
         'serial_no',
@@ -65,6 +65,11 @@ class NetworkedStorage extends Model
     public function NetworkedStorageAssetUseStatus ()
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
+    }
+    //แสดงความสับพันธ์กับตาราง Networkstoragetype
+    public function NetworkedStorageType ()
+    {
+        return $this->belongsTo(Networkedstoragetype::class,'storage_type_id');
     }
     //แสดงความสัมพันธ์กับตาราง DataUnit
     public function NetworkedStorageDataUnit ()

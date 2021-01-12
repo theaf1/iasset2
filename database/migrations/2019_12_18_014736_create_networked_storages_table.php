@@ -26,7 +26,7 @@ class CreateNetworkedStoragesTable extends Migration
             $table->integer('owner_id'); //เจ้าของ
             $table->integer('asset_status_id'); //สถานะทางทะเบี่ยนครุภัณฑ์ รับค่าจากตาราง Asset_statuses
             $table->integer('asset_use_status_id'); //สถานะการใช้งาน รับค่าจากตาราง Asset_use_statuses
-            $table->integer('type'); //ชนิดของอุปกรณ์
+            $table->integer('storage_type_id'); //ชนิดของอุปกรณ์ รับค่าจากตาราง Networkedstoragetype
             $table->string('brand'); //ยี่ห้อ
             $table->string('model'); //รุ่น
             $table->string('serial_no'); //serial number จากผู้ผลิต

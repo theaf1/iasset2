@@ -94,7 +94,7 @@
                         </div>
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
-                                <p>{{$networkedstorage['type']}}</p>
+                                <p>{{$networkedstorage->NetworkedStorageType->name}}</p>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-3">
