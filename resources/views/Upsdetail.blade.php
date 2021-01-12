@@ -114,7 +114,7 @@
                         </div>
                         <div class="col-sm-4 col-lg-3">
                             <div class="form-group">
-                                <p>ใช้แบตเตอรี่{{$ups['battery_type']}}</p>
+                                <p>ใช้แบตเตอรี่{{$ups->UpsBatteryType->name}}</p>
                             </div>
                         </div>
                         <div class="col-sm-4 col-lg-3">
@@ -154,7 +154,7 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="{{url('/upses')}}" class="btn btn-primary btn-lg btn-block" role="button">ย้อนกลับ</a>
+                <a href="{{url('/upses')}}" class="btn btn-info btn-lg" role="button">ย้อนกลับ</a>
             </div>
         </div>
     </div>

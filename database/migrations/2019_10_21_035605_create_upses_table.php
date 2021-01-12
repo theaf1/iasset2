@@ -33,7 +33,7 @@ class CreateUpsesTable extends Migration
             $table->integer('topology'); //หลักการทำงาน
             $table->float('capacity', 7, 5); //กำลังไฟฟ้า
             $table->boolean('is_modular')->default(0); //ขยายขนาดได้
-            $table->integer('battery_type'); //ชนิดของ battery
+            $table->integer('battery_type_id'); //ชนิดของ battery รับค่าจากตาราง Upsbatterytype
             $table->boolean('has_external_battery')->default(0); //ตู้ battery ภายนอก
             $table->ipAddress('device_management_address')->nullable(); //ip address ที่ใช้ควบคุมเครื่อง
             $table->string('remarks')->nullable(); //หมายเหตุ

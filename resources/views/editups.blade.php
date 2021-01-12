@@ -274,10 +274,9 @@
                                 <label for="battery_type">ชนิดของแบตเตอรี่</label>
                                 <div class="form-check">
                                     @foreach ($bat_types as $bat_type)
-                                        <input class="form-check-input" type="radio" name="battery_type" id="battery_type" value="{{ $bat_type['id'] }}" {{ old('battery_type',$ups->battery_type) == $bat_type['id'] ? 'checked' : ''}}>
+                                        <input class="form-check-input" type="radio" name="battery_type_id" id="battery_type" value="{{ $bat_type['id'] }}" {{ old('battery_type_id',$ups->battery_type_id) == $bat_type['id'] ? 'checked' : ''}}>
                                         <label class="form-check-label" for="battery_type">{{ $bat_type['name'] }}</label><br>
                                     @endforeach
-                                    
                                 </div>
                             </div>
                         </div>

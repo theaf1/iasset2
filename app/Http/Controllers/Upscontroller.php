@@ -9,6 +9,7 @@ use App\Section;
 use App\Owner;
 use App\Mobility;
 use App\Upses;
+use App\Upsbatterytype;
 
 class UpsController extends Controller
 {
@@ -36,11 +37,7 @@ class UpsController extends Controller
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่ได้'],
             ['id'=>'2', 'value'=>'1', 'name'=>'ได้'],
         );
-        $Bat_type = array(
-            ['id'=>'1', 'name'=>'ตะกั่ว-กรด (ปิดผนึก)'],
-            ['id'=>'2', 'name'=>'ตะกั่ว-กรด (เติมน้้ากลั่น)'],
-            ['id'=>'3', 'name'=>'ลิเธียมไอออน']
-        );
+        $Bat_type = Upsbatterytype::all();
         $ExBat = array(
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่มี'],
             ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
@@ -79,6 +76,7 @@ class UpsController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request->all();
         $this->validateData($request);
 
         $Upses = Upses::create($request->all());
@@ -111,11 +109,7 @@ class UpsController extends Controller
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่ได้'],
             ['id'=>'2', 'value'=>'1', 'name'=>'ได้'],
         );
-        $Bat_type = array(
-            ['id'=>'1', 'name'=>'ตะกั่ว-กรด (ปิดผนึก)'],
-            ['id'=>'2', 'name'=>'ตะกั่ว-กรด (เติมน้้ากลั่น)'],
-            ['id'=>'3', 'name'=>'ลิเธียมไอออน']
-        );
+        $Bat_type = Upsbatterytype::all();
         $ExBat = array(
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่มี'],
             ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
@@ -158,11 +152,7 @@ class UpsController extends Controller
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่ได้'],
             ['id'=>'2', 'value'=>'1', 'name'=>'ได้'],
         );
-        $Bat_type = array(
-            ['id'=>'1', 'name'=>'ตะกั่ว-กรด (ปิดผนึก)'],
-            ['id'=>'2', 'name'=>'ตะกั่ว-กรด (เติมน้้ากลั่น)'],
-            ['id'=>'3', 'name'=>'ลิเธียมไอออน']
-        );
+        $Bat_type = Upsbatterytype::all();
         $ExBat = array(
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่มี'],
             ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
