@@ -100,7 +100,7 @@ class Servers extends Model
     //แสดงความสัมพันธ์กับตาราง ServerOS
     public function ServerOs ()
     {
-        return $this->belongsTo(ServerOS::class,'os_id');
+        return $this->belongsTo(ServerOp::class,'os_id');
     }
     //แสดงความสัมพันธ์กับตาราง NetworkConnection
     public function ServerNetworkConnection ()
