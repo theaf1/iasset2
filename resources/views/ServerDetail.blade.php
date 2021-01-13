@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
-                            <p>เป็นเครื่องแบบ {{$server['form_factor']}}</p>
+                            <p>เป็นเครื่องแบบ {{$server->ServerFormFactor->name}}</p>
                         </div>
                     </div>
                     <div class="form-row">
