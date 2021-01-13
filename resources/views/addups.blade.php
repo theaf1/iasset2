@@ -232,13 +232,13 @@
                         <div class="col-sm-12 col-lg-6"><!--หลักการทำงาน-->
                             <div class="form-group">
                                 <label for="topology">หลักการทำงาน</label>
-                                <select class="form-control @error('topology') is-invalid @enderror" name="topology" id="topology">
+                                <select class="form-control @error('topology_id') is-invalid @enderror" name="topology_id" id="topology">
                                     <option value="" hidden>กรุณาเลือก</option>
                                     @foreach ($topos as $topo)
-                                        <option value="{{ $topo['id'] }}" {{ old('topology') == $topo['id'] ? 'selected' : '' }}>{{ $topo['name'] }}</option>
+                                        <option value="{{ $topo['id'] }}" {{ old('topology_id') == $topo['id'] ? 'selected' : '' }}>{{ $topo['name'] }}</option>
                                     @endforeach
                                 </select>
-                                @error('topology')
+                                @error('topology_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

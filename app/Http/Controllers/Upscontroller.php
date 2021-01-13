@@ -11,6 +11,7 @@ use App\Mobility;
 use App\Upses;
 use App\Upsbatterytype;
 use App\Formfactor;
+use App\Topology;
 
 class UpsController extends Controller
 {
@@ -26,11 +27,7 @@ class UpsController extends Controller
         $Sections = Section::all();
         $Owners = Owner::all();
         $Forms = Formfactor::all();
-        $Topos = array (
-            ['id'=>'1', 'name'=>'stand-by'],
-            ['id'=>'2', 'name'=>'line interactive'],
-            ['id'=>'3', 'name'=>'on-line'],
-        );
+        $Topos = Topology::all();
         $Modular = array(
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่ได้'],
             ['id'=>'2', 'value'=>'1', 'name'=>'ได้'],
@@ -95,11 +92,7 @@ class UpsController extends Controller
         $Sections = Section::all();
         $Owners = Owner::all();
         $Forms = Formfactor::all();
-        $Topos = array (
-            ['id'=>'1', 'name'=>'stand-by'],
-            ['id'=>'2', 'name'=>'line interactive'],
-            ['id'=>'3', 'name'=>'on-line'],
-        );
+        $Topos = Topology::all();
         $Modular = array(
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่ได้'],
             ['id'=>'2', 'value'=>'1', 'name'=>'ได้'],
@@ -135,11 +128,7 @@ class UpsController extends Controller
     public function edit($id)
     {
         $Forms = Formfactor::all();
-        $Topos = array (
-            ['id'=>'1', 'name'=>'stand-by'],
-            ['id'=>'2', 'name'=>'line interactive'],
-            ['id'=>'3', 'name'=>'on-line'],
-        );
+        $Topos = Topology::all();
         $Modular = array(
             ['id'=>'1', 'value'=>'0', 'name'=>'ไม่ได้'],
             ['id'=>'2', 'value'=>'1', 'name'=>'ได้'],
@@ -210,7 +199,7 @@ class UpsController extends Controller
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
-            'topology'=>'required',
+            'topology_id'=>'required',
             'capacity'=>'required',
             'device_management_address'=>'nullable|ipv4',
         ];
@@ -228,7 +217,7 @@ class UpsController extends Controller
             'brand.required' => 'กรุณาใส่ยี่ห้อ',
             'model.required' => 'กรุณาใส่รุ่น',
             'serial_no.required' => 'กรุณาใส่ serial number',
-            'topology.required'=>'โปรดเลือกหลักการทำงาน',
+            'topology_id.required'=>'โปรดเลือกหลักการทำงาน',
             'capacity.required' => 'กรุณาระบุกำลังไฟ',
             'device_management_address.ipv4' => 'โปรดใส่ IP Address ให้ถูกต้อง',
         ];

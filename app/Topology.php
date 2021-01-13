@@ -10,4 +10,9 @@ class Topology extends Model
         'id',
         'name'
     ];
+    //แสดงความสัมพันธ์กับตาราง Upses
+    public function TopologyUps ()
+    {
+        return $this->hasMany(Upses::class,'topology_id');
+    }
 }

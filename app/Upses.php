@@ -23,7 +23,7 @@ class Upses extends Model
         'model',
         'serial_no',
         'form_factor_id',
-        'topology',
+        'topology_id',
         'capacity',
         'is_modular',
         'battery_type_id',
@@ -66,6 +66,11 @@ class Upses extends Model
     public function UpsFormFactor ()
     {
         return $this->belongsTo(Formfactor::class,'form_factor_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Topology
+    public function UpsTopology ()
+    {
+        return $this->belongsTo(Topology::class,'topology_id');
     }
     //แสดงความสัมพันธ์กับตาราง Upsbatterytype
     public function UpsBatteryType ()

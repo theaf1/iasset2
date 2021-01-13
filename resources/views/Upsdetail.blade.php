@@ -99,7 +99,7 @@
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>หลักการทำงาน: {{$ups['topology']}}</p>
+                                <p>หลักการทำงาน: {{$ups->UpsTopology->name}}</p>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
