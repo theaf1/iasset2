@@ -10,4 +10,9 @@ class Formfactor extends Model
         'id',
         'name',
     ];
+    //แสดงความสัมพันธ์กับตาราง Servers
+    public function FormFactorServer ()
+    {
+        return $this->hasMany(Servers::class,'form_factor_id');
+    }
 }

@@ -83,6 +83,11 @@ class Servers extends Model
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
+    //แสดงความสัมพันธ์กับตาราง Formfactor
+    public function ServerFormFactor ()
+    {
+        return $this->belongsTo(Formfactor::class,'form_factor_id');
+    }
     public function ServerDisplay ()
     {
         return $this->hasMany(Display::class,'client_id');
