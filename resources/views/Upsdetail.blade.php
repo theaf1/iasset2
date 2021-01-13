@@ -92,7 +92,7 @@
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>ลัษณะตัวเครื่อง: {{ $ups['form_factor'] }}</p>
+                                <p>ลัษณะตัวเครื่อง: {{ $ups->UpsFormFactor->name }}</p>
                             </div>
                         </div>
                     </div>

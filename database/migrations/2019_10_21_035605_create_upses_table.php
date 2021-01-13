@@ -29,7 +29,7 @@ class CreateUpsesTable extends Migration
             $table->string('brand'); //ยี่ห้อ
             $table->string('model'); //รุ่น
             $table->string('serial_no'); //serial number จากผู้ผลิต
-            $table->integer('form_factor'); //ลักษณะเครื่อง
+            $table->integer('form_factor_id'); //ลักษณะเครื่อง รับค่าจากตาราง Formfactor
             $table->integer('topology'); //หลักการทำงาน
             $table->float('capacity', 7, 5); //กำลังไฟฟ้า
             $table->boolean('is_modular')->default(0); //ขยายขนาดได้

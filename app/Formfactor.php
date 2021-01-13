@@ -15,4 +15,9 @@ class Formfactor extends Model
     {
         return $this->hasMany(Servers::class,'form_factor_id');
     }
+    //แสดงความสัมพันธ์กับตาราง Upses
+    public function FormFactorUps ()
+    {
+        return $this->hasMany(Upses::class,'form_factor_id');
+    }
 }

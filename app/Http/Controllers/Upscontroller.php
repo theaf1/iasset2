@@ -10,6 +10,7 @@ use App\Owner;
 use App\Mobility;
 use App\Upses;
 use App\Upsbatterytype;
+use App\Formfactor;
 
 class UpsController extends Controller
 {
@@ -24,10 +25,7 @@ class UpsController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Owners = Owner::all();
-        $Forms = array(
-            ['id'=>'1', 'name'=>'Tower'],
-            ['id'=>'2', 'name'=>'Rack Mounted'],
-        );
+        $Forms = Formfactor::all();
         $Topos = array (
             ['id'=>'1', 'name'=>'stand-by'],
             ['id'=>'2', 'name'=>'line interactive'],
@@ -96,10 +94,7 @@ class UpsController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Owners = Owner::all();
-        $Forms = array(
-            ['id'=>'1', 'name'=>'Tower'],
-            ['id'=>'2', 'name'=>'Rack Mounted'],
-        );
+        $Forms = Formfactor::all();
         $Topos = array (
             ['id'=>'1', 'name'=>'stand-by'],
             ['id'=>'2', 'name'=>'line interactive'],
@@ -139,10 +134,7 @@ class UpsController extends Controller
      */
     public function edit($id)
     {
-        $Forms = array(
-            ['id'=>'1', 'name'=>'Tower'],
-            ['id'=>'2', 'name'=>'Rack Mounted'],
-        );
+        $Forms = Formfactor::all();
         $Topos = array (
             ['id'=>'1', 'name'=>'stand-by'],
             ['id'=>'2', 'name'=>'line interactive'],
