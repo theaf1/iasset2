@@ -32,6 +32,25 @@ $factory->define(Client::class, function (Faker $faker) {
         'hdd_no' => 1, //จำนวน HDD
         'data_unit_id'=> factory(App\DataUnit::class),
         'hdd_total_cap'=> 2, //ความจุ HDD
+        'os', //ระบบปฏิบัติการ
+        'os_arch', //โครงสร้าง
+        'ms_office_version', //version Office
+        'antivirus', //version antivirus
+        'pdf_reader', //มี PDF READER
+        'endnote_version', //มี Endnote
+        'ie_version', //รุ่น IE
+        'firefox', //รุ่น Firefox
+        'chrome_version', //รุ่น Google Chrome
+        'spss_version', //รุ่น SPSS
+        'ehis', //มี EHIS
+        'sipacs', //มี SiPACS
+        'si_iscan', //มี Si-iscan
+        'eclair', //มี Eclair
+        'admission_note', //มี Admission Notes
+        'ur_ward', // มี UR-Ward
+        'sinet', //มี SINET
+        'zoom', //มี Zoom
+        'webex', //มี WebEx
         'other_software_detail'=> '', //software อื่นๆ
         'lan_outlet_no' => '', //จุด LAN
         'ip_address' => $faker->localIpv4, //IP Address
