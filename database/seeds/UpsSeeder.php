@@ -9,7 +9,7 @@ class UpsSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run() //เรียก factory ที่เกี่ยวข้อง
     {
         factory(App\Upses::class,1)->create();
     }

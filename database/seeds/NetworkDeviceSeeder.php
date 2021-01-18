@@ -9,7 +9,7 @@ class NetworkDeviceSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run() //เรียก factoty ที่เกี่ยวข้อง
     {
         factory(Networkdevices::class,5)->create();
     }

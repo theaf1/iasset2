@@ -9,10 +9,10 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run() //เรียก seeder ที่ต้องใช้งาน
     {
         // $this->call(UsersTableSeeder::class);
-        $this->call(UpsSeeder::class);
-        $this->call(NetworkDeviceSeeder::class);
+        $this->call(UpsSeeder::class); //seed ตาราง Upses
+        $this->call(NetworkDeviceSeeder::class); //seed ตาราง Networkdevice
     }
 }
