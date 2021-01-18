@@ -3,11 +3,21 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Client;
+use App\Location;
+use App\Mobility;
+use App\Section;
+use App\Position;
+use App\Opsfunction;
+use App\Owner;
+use App\Asset_statuses;
+use App\Asset_use_statuses;
+use App\DataUnit;
+use App\NetworkConnection;
 use Faker\Generator as Faker;
 
 $factory->define(Client::class, function (Faker $faker) {
     return [
-        'type_id'=> factory(App\Clienttype::class), //สุ่มค่า type_id
+        'type_id'=> 1, //สุ่มค่า type_id
         'sapid' => rand(131100000000,131100099999), //สุ่มรหัส SAP
         'pid'=> '1224H001-S-7440-001-0001/64', //รหัสครุภัณฑ์
         'location_id'=> factory(App\Location::class), //ที่ตั้ง
@@ -27,35 +37,35 @@ $factory->define(Client::class, function (Faker $faker) {
         'serial_no'=>'test', //หมายเลขประจำเครื่อง
         'cpu_model' => 'Core i5-1025G7', //รุ่น CPU
         'cpu_speed' => 2.5, //ความเร็ว CPU
-        'cpu_socket_number'=>1, //จำนวน socket cpu
+        'cpu_socket_number'=> 1, //จำนวน socket cpu
         'ram_size'=> 8, //จำนวน RAM
         'hdd_no' => 1, //จำนวน HDD
         'data_unit_id'=> factory(App\DataUnit::class),
         'hdd_total_cap'=> 2, //ความจุ HDD
-        'os', //ระบบปฏิบัติการ
-        'os_arch', //โครงสร้าง
-        'ms_office_version', //version Office
-        'antivirus', //version antivirus
-        'pdf_reader', //มี PDF READER
-        'endnote_version', //มี Endnote
-        'ie_version', //รุ่น IE
-        'firefox', //รุ่น Firefox
-        'chrome_version', //รุ่น Google Chrome
-        'spss_version', //รุ่น SPSS
-        'ehis', //มี EHIS
-        'sipacs', //มี SiPACS
-        'si_iscan', //มี Si-iscan
-        'eclair', //มี Eclair
-        'admission_note', //มี Admission Notes
-        'ur_ward', // มี UR-Ward
-        'sinet', //มี SINET
-        'zoom', //มี Zoom
-        'webex', //มี WebEx
+        'os' => 'Windows 10', //ระบบปฏิบัติการ
+        'os_arch' => 1, //โครงสร้าง
+        'ms_office_version' => '2010', //version Office
+        'antivirus' => 'ESET7', //version antivirus
+        'pdf_reader' => 'Adobe Acrobat Reader DC', //มี PDF READER
+        'endnote_version'=> 20, //มี Endnote
+        'ie_version'=> 11, //รุ่น IE
+        'firefox' => '', //รุ่น Firefox
+        'chrome_version'=> '88.0.8888.88', //รุ่น Google Chrome
+        'spss_version' => 18, //รุ่น SPSS
+        'ehis' => $faker->boolean, //มี EHIS
+        'sipacs' => $faker->boolean,//มี SiPACS
+        'si_iscan' => $faker->boolean, //มี Si-iscan
+        'eclair' => $faker->boolean, //มี Eclair
+        'admission_note' => $faker->boolean, //มี Admission Notes
+        'ur_ward'=> $faker->boolean, // มี UR-Ward
+        'sinet' => $faker->boolean, //มี SINET
+        'zoom' => $faker->boolean, //มี Zoom
+        'webex' => $faker->boolean, //มี WebEx
         'other_software_detail'=> '', //software อื่นๆ
         'lan_outlet_no' => '', //จุด LAN
         'ip_address' => $faker->localIpv4, //IP Address
         'mac_address'=> $faker->macAddress, //MAC Address
-        'lan_type_id'=>'', //เชื่อมต่อเครือข่าย
+        'lan_type_id'=> factory(App\NetworkConnection::class), //เชื่อมต่อเครือข่าย
         'computer_name'=>'computer', //ชื่อเครื่อง
         'is_wireless' => 0, //ใช้ wireless
         'issues' => 'test', //ปัญหาจำลอง
