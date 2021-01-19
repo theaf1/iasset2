@@ -11,6 +11,6 @@ class NetworkedStorageSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\NetworkedStorage::class,1)->create();
     }
 }
