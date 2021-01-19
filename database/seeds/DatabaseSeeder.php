@@ -11,9 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run() //เรียก seeder ที่ต้องใช้งาน
     {
-        // $this->call(UsersTableSeeder::class);
-        $this->call(UpsSeeder::class); //seed ตาราง Upses
+        // $this->call(UsersTableSeeder::class); 
+        $this->call(StorageperipheralSeeder::class); //Seed ตาราง Storageperipherals
         $this->call(NetworkDeviceSeeder::class); //seed ตาราง Networkdevice
-        $this->call(StorageperipheralSeeder::class); //Seed ตาราง Storageperipherals 
+        $this->call(NetworkedStorageSeeder::class);
+        $this->call(UpsSeeder::class); //seed ตาราง Upses 
     }
 }
