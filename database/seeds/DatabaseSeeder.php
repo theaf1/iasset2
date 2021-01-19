@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call(UpsSeeder::class); //seed ตาราง Upses
         $this->call(NetworkDeviceSeeder::class); //seed ตาราง Networkdevice
+        $this->call(StorageperipheralSeeder::class); //Seed ตาราง Storageperipherals 
     }
 }
