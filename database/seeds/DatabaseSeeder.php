@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class); 
         $this->call(ClientSeeder::class); //Seed ตาราง Display และ Client
+        $this->call(PeripheralSeeder::class); //Seed ตาราง Peripherals
         $this->call(StorageperipheralSeeder::class); //Seed ตาราง Storageperipherals
         $this->call(NetworkDeviceSeeder::class); //seed ตาราง Networkdevice
         $this->call(ServerSeeder::class); //seed ตาราง Servers
