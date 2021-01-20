@@ -126,6 +126,11 @@ class Client extends Model
    {
       return $this->belongsTo(DataUnit::class,'data_unit_id');
    }
+   //แสดงความสัมพันธ์กับตาราง OsArch
+   public function ClientOsArch ()
+   {
+      return $this->belongsTo(OsArch::class);
+   }
    //แสดงความสัมพันธ์กับตาราง NetworkConnection
    public function networkconnection ()
    {

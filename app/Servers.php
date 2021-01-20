@@ -107,6 +107,11 @@ class Servers extends Model
     {
         return $this->belongsTo(ServerOp::class,'os_id');
     }
+    //แสดงความสัมพันธ์กับตาราง OsArch
+    public function ServerOsArch ()
+    {
+        $this->belongsTo(OsArch::class);
+    } 
     //แสดงความสัมพันธ์กับตาราง NetworkConnection
     public function ServerNetworkConnection ()
     {

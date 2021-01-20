@@ -14,6 +14,7 @@ use App\NetworkConnection;
 use App\Owner;
 use App\Mobility;
 use App\Position;
+use App\OsArch;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller

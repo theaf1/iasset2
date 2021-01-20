@@ -11,6 +11,7 @@ use App\Display;
 use App\Formfactor;
 use App\DataUnit;
 use App\serverOp;
+use App\OsArch;
 use App\ServerRoleClass;
 use App\NetworkConnection;
 use App\Owner;
