@@ -26,11 +26,11 @@ $factory->define(Upses::class, function (Faker $faker) {
         'brand'=>'brand', //ยี่ห้อ
         'model'=>'model', //รุ่น
         'serial_no'=>'test', //หมายเลขประจำเครื่อง
-        'form_factor'=> 2, //ลักษณะเครื่อง
-        'topology' => 2, //หลักการทำงาน
+        'form_factor_id'=> 2, //ลักษณะเครื่อง
+        'topology_id' => 2, //หลักการทำงาน
         'capacity' => 1, //กำลังไฟฟ้า
         'is_modular' => 0, //
-        'battery_type'=> 1, //ชนิดของ Battery
+        'battery_type_id'=> 1, //ชนิดของ Battery
         'has_external_battery' => 0, //มี battery ภายนอก
         'device_management_address' => $faker->localIpv4, //สุ่ม IP address ที่ใช้ควบคุมเครื่อง
         'issues' => 'test', //ปัญหาในการใช้งานจำลอง
