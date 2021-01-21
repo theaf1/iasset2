@@ -32,7 +32,7 @@ $factory->define(Servers::class, function (Faker $faker) {
         'data_unit_id'=>2, //หน่วยวัดข้อมูล
         'hdd_total_cap'=> 6, //ความจุ HDD ทั้งหมด
         'os_id' => 6, //ระบบปฏิบัติการ
-        'os_arch' => 1, //โครงสร้างภายใน
+        'os_arch_id' => 2, //โครงสร้างภายใน
         'role_class_id' => 2, //กลุ่มของบทบาท
         'is_ad' => 0, //เป็น AD
         'is_dns' => 0, //เป็น DNS
