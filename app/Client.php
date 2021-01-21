@@ -38,7 +38,7 @@ class Client extends Model
       'hdd_total_cap',
       // 'display_no',
       'os',
-      'os_arch',
+      'os_arch_id',
       'ms_office_version',
       'antivirus',
       'pdf_reader',
@@ -129,7 +129,7 @@ class Client extends Model
    //แสดงความสัมพันธ์กับตาราง OsArch
    public function ClientOsArch ()
    {
-      return $this->belongsTo(OsArch::class);
+      return $this->belongsTo(OsArch::class,'os_arch_id');
    }
    //แสดงความสัมพันธ์กับตาราง NetworkConnection
    public function networkconnection ()

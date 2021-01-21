@@ -36,6 +36,7 @@ class ClientController extends Controller
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
         $DataUnits = DataUnit::all();
+        $OsArches = OsArch::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
@@ -50,6 +51,7 @@ class ClientController extends Controller
             'multiusers'=>$Multiusers,
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
+            'os_arches'=>$OsArches,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
@@ -119,6 +121,7 @@ class ClientController extends Controller
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
         $DataUnits = DataUnit::all();
+        $OsArches = OsArch::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
@@ -135,6 +138,7 @@ class ClientController extends Controller
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
             'dataunits'=>$DataUnits,
+            'os_arches'=>$OsArches,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
         ]);
@@ -157,6 +161,7 @@ class ClientController extends Controller
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
         $DataUnits = DataUnit::all();
+        $OsArches = OsArch::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
@@ -173,6 +178,7 @@ class ClientController extends Controller
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
             'dataunits'=>$DataUnits,
+            'os_arches'=>$OsArches,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
         ]);
@@ -257,7 +263,7 @@ class ClientController extends Controller
             'hdd_total_cap'=>'required',
             'display_count' => 'required',
             'os'=>'required',
-            'os_arch'=>'required',
+            'os_arch_id'=>'required',
             'ms_office_version'=>'required',
             'antivirus'=>'required',
             'pdf_reader'=>'required',
@@ -297,7 +303,7 @@ class ClientController extends Controller
             'hdd_total_cap.required'=>'กรุณาระบุความจุข้อมูลรวมของเครื่อง',
             'display_count.required'=>'กรุณาระบุจำนวนจอภาพ',
             'os.required'=>'กรุณาระบุชื่อระบบปฏิบัติการ',
-            'os_arch.required'=>'กรุณาระบุโครงสร้างระบบปฏิบัติการ',
+            'os_arch_id.required'=>'กรุณาระบุโครงสร้างระบบปฏิบัติการ',
             'ms_office_version.required'=>'กรุณาระบุรุ่นโปรแกรม Microsoft Office',
             'antivirus.required'=>'กรุณาระบุยี่ห้อและรุ่นโปรแกรม Antivirus',
             'pdf_reader.required'=>'กรุณาระบุยี่ห้อและรุ่นโปรแกรมอ่านไฟล์ PDF',

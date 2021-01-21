@@ -197,7 +197,7 @@
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>โครงสร้างภายใน: {{$client['os_arch'] == 0 ? '32 bit' : '64 bit'}}</p>
+                                <p>โครงสร้างภายใน: {{$client->ClientOsArch->name}}</p>
                             </div>
                         </div>
                     </div>

@@ -10,4 +10,8 @@ class OsArch extends Model
         'id',
         'name',
     ];
+    public function OsArchClient ()
+    {
+        return $this->hasMany(Client::class,'os_arch_id');
+    }
 }

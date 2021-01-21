@@ -44,7 +44,7 @@ class Clients extends Migration
             $table->float('hdd_total_cap',6,3); //ความจุข้อมูล
             // $table->integer('display_no');
             $table->string('os'); //ระบบปฏิบัติการ
-            $table->integer('os_arch'); //โครงสร้างระบบปฎิบัติการ
+            $table->integer('os_arch_id'); //โครงสร้างระบบปฎิบัติการ
             $table->string('ms_office_version'); //รุ่น microsoft office
             $table->string('antivirus'); //ยี่ห้อ-รุ่น antivirus
             $table->string('pdf_reader'); //ยี่ห้อ-รุ่น โปรแกรมอ่านไฟล์ PDF
