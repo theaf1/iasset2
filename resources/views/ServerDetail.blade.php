@@ -195,7 +195,7 @@
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>โครงสร้างภายใน: {{$server['os_arch'] == 1 ? '64 Bit' : '32 Bit'}}</p>
+                                <p>โครงสร้างภายใน: {{$server->ServerOsArch->name}}</p>
                             </div>
                         </div>
                     </div>

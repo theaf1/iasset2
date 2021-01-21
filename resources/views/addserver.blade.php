@@ -426,12 +426,11 @@
                                     <label for="os_arch">OS architecture</label><br>
                                     <div class="form-check form-check-inline">
                                         <div class="form-check-inline">
-                                            <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="os_arch" id="32_bit" value="0" {{ old('os_arch') === 0 ? 'checked' : '' }}><label for="32_bit"> 32 bit</label>
-                                            </label>
-                                            <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="os_arch" id="64_bit" value="1" {{ old('os_arch') == 1 ? 'checked' : '' }}><label for="64_bit"> 64 bit</label>
-                                            </label>
+                                            @foreach ($os_arches as $os_arch)
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="os_arch_id" id="os_arch" value="{{ $os_arch['id'] }}" {{ old('os_arch_id') == $os_arch['id'] ? 'checked' : '' }}><label for="os_arch"> {{ $os_arch['name'] }}</label>
+                                                </label>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

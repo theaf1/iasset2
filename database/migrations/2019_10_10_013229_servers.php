@@ -41,7 +41,7 @@ class Servers extends Migration
             $table->integer('hdd_total_cap'); //ความจุข้อมูลรวม
             $table->integer('data_unit_id'); //หน่วยวัดข้อมูล รับค่าจากตาราง DataUnit
             $table->integer('os_id'); //ระบบปฏิบัติการ รับค่าจากตาราง ServerOS
-            $table->integer('os_arch'); //โครงสร้างระบบปฏิบัติการ
+            $table->integer('os_arch_id'); //โครงสร้างระบบปฏิบัติการ รับค่าจากตาราง OsArch
             $table->integer('role_class_id'); //กลุ่มของบทบาท
             $table->boolean('is_ad')->default(0); //เป็น Domain controller
             $table->boolean('is_dns')->default(0); //เป็น DNS

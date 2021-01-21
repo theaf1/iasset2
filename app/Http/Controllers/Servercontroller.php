@@ -35,6 +35,7 @@ class ServerController extends Controller
         $ServerRoleClass = ServerRoleclass::all();
         $NetworkConnections = NetworkConnection::all();
         $Forms = Formfactor::all();
+        $OsArches =OsArch::all();
         $DataUnits = DataUnit::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
@@ -49,6 +50,7 @@ class ServerController extends Controller
             'network_connections'=>$NetworkConnections,
             'forms'=>$Forms,
             'dataunits'=>$DataUnits,
+            'os_arches'=>$OsArches,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
         ]);
@@ -118,6 +120,7 @@ class ServerController extends Controller
         $NetworkConnections = NetworkConnection::all();
         $Forms = FormFactor::all();
         $DataUnits = DataUnit::all();
+        $OsArches = OsArch::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
@@ -131,6 +134,7 @@ class ServerController extends Controller
             'network_connections'=>$NetworkConnections,
             'forms'=>$Forms,
             'dataunits'=>$DataUnits,
+            'os_arches'=>$OsArches,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
             'server'=>$Server
@@ -153,6 +157,7 @@ class ServerController extends Controller
         $NetworkConnections = NetworkConnection::all();
         $Forms = Formfactor::all();
         $DataUnits = DataUnit::all();
+        $OsArches = OsArch::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
@@ -168,6 +173,7 @@ class ServerController extends Controller
             'network_connections'=>$NetworkConnections,
             'forms'=>$Forms,
             'dataunits'=>$DataUnits,
+            'os_arches'=>$OsArches,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
         ]);

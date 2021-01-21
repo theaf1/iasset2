@@ -34,7 +34,7 @@ class Servers extends Model
         'data_unit_id',
         'hdd_total_cap',
         'os_id',
-        'os_arch',
+        'os_arch_id',
         'role_class_id',
         'is_ad',
         'is_dns',
@@ -110,7 +110,7 @@ class Servers extends Model
     //แสดงความสัมพันธ์กับตาราง OsArch
     public function ServerOsArch ()
     {
-        $this->belongsTo(OsArch::class);
+        return $this->belongsTo(OsArch::class,'os_arch_id');
     } 
     //แสดงความสัมพันธ์กับตาราง NetworkConnection
     public function ServerNetworkConnection ()

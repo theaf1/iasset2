@@ -14,4 +14,8 @@ class OsArch extends Model
     {
         return $this->hasMany(Client::class,'os_arch_id');
     }
+    public function OsArchServer ()
+    {
+        return $this->hasMany(Servers::class,'os_arch_id');
+    }
 }
