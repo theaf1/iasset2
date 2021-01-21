@@ -44,7 +44,7 @@ $factory->define(Client::class, function (Faker $faker) {
         'data_unit_id'=> 2,
         'hdd_total_cap'=> 2, //ความจุ HDD
         'os' => 'Windows 10', //ระบบปฏิบัติการ
-        'os_arch' => 1, //โครงสร้าง
+        'os_arch_id' => 2, //โครงสร้าง
         'ms_office_version' => '2010', //version Office
         'antivirus' => 'ESET7', //version antivirus
         'pdf_reader' => 'Adobe Acrobat Reader DC', //มี PDF READER
