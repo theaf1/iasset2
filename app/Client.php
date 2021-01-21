@@ -44,7 +44,7 @@ class Client extends Model
       'pdf_reader',
       'endnote_version',
       'ie_version',
-      'firefox',
+      'firefox_version',
       'chrome_version',
       'spss_version',
       'ehis',
