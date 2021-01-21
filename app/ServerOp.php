@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class ServerOp extends Model
 {
-     //column ที่สามารถเพิ่มและแก้ไขข้อมูลได้
-     protected $fillable =[
+    use Searchable;
+    //column ที่สามารถเพิ่มและแก้ไขข้อมูลได้
+    protected $fillable =[
         'id',
         'name',
     ];

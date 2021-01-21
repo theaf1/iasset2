@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Peripherals extends Model
 {
+    use Searchable;
     //column ที่สามารถเพิ่มหรือแก้ไขข้อมูล
     protected $fillable =[
         'type_id',
