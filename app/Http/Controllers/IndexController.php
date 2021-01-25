@@ -109,4 +109,50 @@ class IndexController extends Controller
     {
         //
     }
+    public function search(Request $request)
+    {
+        $this->validateQuery($request);
+        //$Results=Client::where('sapid', $request->search)->get();
+        
+        if ($request->search_class==1) {
+            $Results=Client::search($request->keyword)->paginate($request->per_page);
+         }
+        if ($request->search_class==2) {
+            $Results = Display::where('display_sapid', $request->search)->get();
+        }
+        if ($request->search_class==3) {
+            $Results = Peripherals::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==4) {
+            $Results = Storageperipherals::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==5) {
+            $Results = Servers::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==6) {
+            $Results = NetworkedStorage::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==7) {
+            $Results = Networkdevices::where('sapid', $request->search)->get();
+        }
+        if ($request->search_class==8) {
+            $Results = Upses::where('sapid', $request->search)->get();
+        }
+        return view('results')->with([
+            'results'=>$Results,
+        ]);
+    }
+    private function validateQuery($data)
+    {
+        $rules = [
+            'search_class' => 'required',
+            'search_column' => 'required',
+        ];
+
+        $messages = [
+            'search_class.required' => 'require',
+            'search_column.required' => '8',
+        ];
+        return $this->validate($data, $rules, $messages);
+    }
 }

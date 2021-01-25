@@ -78,7 +78,7 @@ Route::put('/server/{id}/update', 'ServerController@update');
 //under development
 Route::get('/admin', 'SectionController@index');
 Route::get('/search', 'SearchController@index');
-Route::post('/search-query', 'SearchController@search');
+Route::post('/search-query', 'IndexController@search');
 // Route::post('/search-query', function () {
 //     return 'null';
 // });

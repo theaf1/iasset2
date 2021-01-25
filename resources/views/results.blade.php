@@ -39,6 +39,7 @@
                 </tbody>
             </table>
             {{$results->links()}}
+            <a href="{{ url('/') }}" class="btn btn-md btn-info" role="button">ย้อนกลับ</a>
         </div>
     </div>
 @endsection
