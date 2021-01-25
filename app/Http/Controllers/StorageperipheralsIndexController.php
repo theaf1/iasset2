@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
@@ -33,7 +34,10 @@ class StorageperipheralsIndexController extends Controller
             ['id' => '3', 'name' => 'SAS'],
         );
         $Mobility = Mobility::all();
-        $storageperipherals = Storageperipherals::paginate(2);
+        $storageperipherals = Storageperipherals::all();
+        foreach ($storageperipherals as $storageperipheral) {
+            $storageperipheral->update_date = $storageperipheral->updated_at->format('d-m-Y');
+        }
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addstorageperipherals
         return view('StorageperipheralsIndex')->with([

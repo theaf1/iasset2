@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
@@ -47,6 +48,9 @@ class UpsIndexController extends Controller
         );
         $Mobility = Mobility::all();
         $Upses = Upses::paginate(2);
+        foreach ($Upses as $Ups) {
+            $Ups->update_date = $Ups->updated_at->format('d-m-Y');
+        }
 
         return view('UpsIndex')->with([
             'upses'=>$Upses,

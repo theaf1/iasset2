@@ -55,7 +55,7 @@
                                     <td>{{ $server->ServerAssetStatus->name }}</td>
                                     <td>{{ $server->ServerAssetUseStatus->name }}</td>
                                     <td>{{ $server->ServerRoleClass->name }}</td>
-                                    <td>{{ $server['updated_at'] }}</td>
+                                    <td>{{ $server['update_date'] }}</td>
                                     <td><a href="{{ url('/server/show',$server->id) }}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td>
                                     <td><a href="{{ url('/server',$server->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                                 </tr>

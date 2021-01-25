@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
@@ -39,6 +40,9 @@ class ServerIndexController extends Controller
         $Owners = Owner::all();
         $Mobility = Mobility::all();
         $Servers = Servers::paginate(2);
+        foreach ($Servers as $Server) {
+            $Server->update_date = $Server->updated_at->format('d-m-Y');
+        }
 
         //ตัวแปรที่ส่งไปยังหน้า addserver
         return view('ServerIndex')->with([

@@ -53,14 +53,14 @@
                                     <td>{{ $storageperipheral->StoragePeripheralMultiUser->name }}</td>
                                     <td>{{ $storageperipheral->StoragePeripheralAssetStatus->name }}</td>
                                     <td>{{ $storageperipheral->StoragePeripheralAssetUseStatus->name }}</td>
-                                    <td>{{ $storageperipheral['updated_at'] }}</td>
+                                    <td>{{ $storageperipheral['update_date'] }}</td>
                                     <td><a href="{{ url('/storageperipheral/show',$storageperipheral->id) }}" class="btn btn-sm btn-info">รายละเอียด</a></td>
                                     <td><a href="{{ url('/storageperipheral',$storageperipheral->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $storageperipherals->links() }}
+                    {{-- {{ $storageperipherals->links() }} --}}
                 </div>
             </div>
         </div>

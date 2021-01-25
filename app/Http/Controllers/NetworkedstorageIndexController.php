@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
@@ -33,6 +34,9 @@ class NetworkedstorageIndexController extends Controller
         );
         $Mobility = Mobility::all();
         $Networkedstorages = NetworkedStorage::paginate(2);
+        foreach ($Networkedstorages as $Networkedstorage) {
+            $Networkedstorage->update_date = $Networkedstorage->updated_at->format('d-m-Y');
+        }
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
         return view('NetworkedstorageIndex')->with([

@@ -55,7 +55,7 @@
                                     <td>{{ $networkedstorage->NetworkedStorageMobility->name }}</td>
                                     <td>{{ $networkedstorage->NetworkedStorageAssetStatus->name }}</td>
                                     <td>{{ $networkedstorage->NetworkedStorageAssetUseStatus->name }}</td>
-                                    <td>{{ $networkedstorage['updated_at'] }}</td>
+                                    <td>{{ $networkedstorage['update_date'] }}</td>
                                     <td><a href="{{ url('/networkedstorage/show',$networkedstorage->id) }}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td>
                                     <td><a href="{{ url('/networkedstorage',$networkedstorage->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                                 </tr>

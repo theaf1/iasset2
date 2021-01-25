@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
@@ -27,7 +28,9 @@ class NetworkdeviceIndexController extends Controller
         $Owners = Owner::all();
         $Mobility = Mobility::all();
         $Networkdevices = Networkdevices::paginate(2);
-
+        foreach ($Networkdevices as $Networkdevice) {
+            $Networkdevice->update_date = $Networkdevice->updated_at->format('d-m-Y');
+        }
         //ตัวแปรที่ส่งไปยังหน้า addnetworkdevices
 
         return view('NetworkdeviceIndex')->with([
