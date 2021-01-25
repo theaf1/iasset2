@@ -20,11 +20,11 @@
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="asset_age">อายุครุภัณฑ์</label>
-                                    <select name="" id="asset_age" class="form-control">
-                                        <option value="5">5 ปี</option>
-                                        <option value="8">8 ปี</option>
-                                        <option value="10">10 ปี</option>
+                                    <label for="section">หน่วยงาน</label>
+                                    <select name="" id="section" class="form-control">
+                                        @foreach ($sections as $section)
+                                            <option value="{{$section['id']}}">{{$section['name']}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

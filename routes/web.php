@@ -87,7 +87,8 @@ Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
 Route::get('/ups/show/{id}','UpsController@show');
 
 Route::get('/','IndexController@index');
+Route::get('/reports','ReportController@index');
 // route to  test views
-Route::get('/reports', function () {
-    return view('reports');
-});
+//Route::get('/reports', function () {
+//    return view('reports');
+//});
