@@ -120,7 +120,7 @@ class SearchController extends Controller
         //$Results=Client::where('sapid', $request->search)->get();
         
         if ($request->search_class==1) {
-            $Results=Client::where($request->search_column, $request->keyword)->get();
+            $Results=Client::search($request->keyword)->paginate($request->per_page);
          }
         if ($request->search_class==2) {
             $Results = Display::where('display_sapid', $request->search)->get();

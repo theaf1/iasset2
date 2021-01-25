@@ -24,6 +24,7 @@
                         <th scope="col">ลำดับที่</th>
                         <th scope="col">SAP</th>
                         <th scope="col">รหัสครุภัณฑ์</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,10 +33,12 @@
                             <th scope="row">{{ $result['id'] }}</th>
                             <td>{{ $result['sapid'] }}</td>
                             <td>{{ $result['pid'] }}</td>
+                            <td><a href="{{ url('/client/show',$result->id) }}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            {{$results->links()}}
         </div>
     </div>
 @endsection
