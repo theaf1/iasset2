@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Section;
@@ -41,6 +42,9 @@ class PeripheralsIndexController extends Controller
         $Owners = Owner::all();
         $Mobility = Mobility::all();
         $peripherals = Peripherals::all();
+        foreach ($peripherals as $peripheral) {
+            $peripheral->update_date = $peripheral->updated_at->format('d-m-Y');
+        }
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addperipherals
         return view('PeripheralsIndex')->with([

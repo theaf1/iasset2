@@ -62,7 +62,7 @@
                                 <td>{{ $peripheral->PeripheralMobility->name }}</td>
                                 <td>{{ $peripheral->PeripheralAssetStatus->name }}</td>
                                 <td>{{ $peripheral->PeripheralAssetUseStatus->name }}</td>
-                                <td>{{ $peripheral['updated_at'] }}</td>
+                                <td>{{ $peripheral['update_date'] }}</td>
                                 <td><a href="{{ url('/peripheral/show',$peripheral->id)}}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td>
                                 <td><a href="{{ url('/peripheral',$peripheral->id) }}" class="btn btn-sm btn-info" role="button">แก้ไข</a></td>
                             </tr>
