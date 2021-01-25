@@ -88,6 +88,6 @@ Route::get('/ups/show/{id}','UpsController@show');
 
 Route::get('/','IndexController@index');
 // route to  test views
-// Route::get('/test', function () {
-//     return view('Peripheraldetail');
-// });
+Route::get('/reports', function () {
+    return view('reports');
+});
