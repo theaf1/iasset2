@@ -18,26 +18,33 @@
                     </div>
                 </div>
             </div>
-            <table class="table mt4 table-hover table-responsive">
-                <thead>
-                    <tr>
-                        <th scope="col">ลำดับที่</th>
-                        <th scope="col">SAP</th>
-                        <th scope="col">รหัสครุภัณฑ์</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($results as $result)
-                        <tr>
-                            <th scope="row">{{ $result['id'] }}</th>
-                            <td>{{ $result['sapid'] }}</td>
-                            <td>{{ $result['pid'] }}</td>
-                            <td><a href="{{ url('/client/show',$result->id) }}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="card mt-4">
+                <div class="card-header card-background text-white">
+                    <h4>ผลการค้นหา</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table mt4 table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">ลำดับที่</th>
+                                <th scope="col">SAP</th>
+                                <th scope="col">รหัสครุภัณฑ์</th>
+                                {{-- <th scope="col"></th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($results as $result)
+                                <tr>
+                                    <th scope="row">{{ $result['id'] }}</th>
+                                    <td>{{ $result['sapid'] }}</td>
+                                    <td>{{ $result['pid'] }}</td>
+                                    {{-- <td><a href="{{ url('/client/show',$result->id) }}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td> --}}
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             {{$results->links()}}
             <a href="{{ url('/') }}" class="btn btn-md btn-info" role="button">ย้อนกลับ</a>
         </div>

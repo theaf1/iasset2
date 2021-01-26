@@ -114,33 +114,58 @@ class IndexController extends Controller
         $this->validateQuery($request);
         //$Results=Client::where('sapid', $request->search)->get();
         
-        if ($request->search_class==1) {
+        if ($request->search_class==1) 
+        {
             $Results=Client::search($request->keyword)->paginate($request->per_page);
-         }
+            return view('results')->with([
+                'results'=>$Results,
+            ]);
+        }
         if ($request->search_class==2) {
-            $Results = Display::where('display_sapid', $request->search)->get();
+            $Results = Display::search($request->keyword)->paginate($request->per_page);
+            return view('results')->with([
+                'results'=>$Results,
+            ]);
         }
         if ($request->search_class==3) {
-            $Results = Peripherals::where('sapid', $request->search)->get();
+            $Results = Peripherals::search($request->keyword)->paginate($request->per_page);
+            return view('results')->with([
+                'results'=>$Results,
+            ]);
         }
         if ($request->search_class==4) {
-            $Results = Storageperipherals::where('sapid', $request->search)->get();
+            $Results = Storageperipherals::search($request->keyword)->paginate($request->per_page);
+            return view('results')->with([
+                'results'=>$Results,
+            ]);
         }
         if ($request->search_class==5) {
-            $Results = Servers::where('sapid', $request->search)->get();
+            $Results = Servers::search($request->keyword)->paginate($request->per_page);
+            return view('results')->with([
+                'results'=>$Results,
+            ]);
         }
         if ($request->search_class==6) {
-            $Results = NetworkedStorage::where('sapid', $request->search)->get();
+            $Results = NetworkedStorage::search($request->keyword)->paginate($request->per_page);
+            return view('results')->with([
+                'results'=>$Results,
+            ]);
         }
         if ($request->search_class==7) {
-            $Results = Networkdevices::where('sapid', $request->search)->get();
+            $Results = Networkdevices::search($request->keyword)->paginate($request->per_page);
+            return view('results')->with([
+                'results'=>$Results,
+            ]);
         }
         if ($request->search_class==8) {
-            $Results = Upses::where('sapid', $request->search)->get();
+            $Results = Upses::search($request->keyword)->paginate($request->per_page);
+            return view('results')->with([
+                'results'=>$Results,
+            ]);
         }
-        return view('results')->with([
-            'results'=>$Results,
-        ]);
+        // return view('results')->with([
+        //     'results'=>$Results,
+        // ]);
     }
     private function validateQuery($data)
     {
