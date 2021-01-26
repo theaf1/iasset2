@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="col-12 mx-auto">
             <form action="{{ url('/search-query') }}" method="get" role="search" >
-                @csrf
+                {{-- @csrf --}}
                 <div class="form-row">
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-6">
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="search_column">ที่มี</label>
                             <select class="form-control @error('search_column') is-invalid @enderror" name="search_column" id="search_column">
                                 <option value="" hidden></option>
@@ -36,7 +36,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="form-row">    

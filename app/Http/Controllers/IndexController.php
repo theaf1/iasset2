@@ -171,12 +171,10 @@ class IndexController extends Controller
     {
         $rules = [
             'search_class' => 'required',
-            'search_column' => 'required',
         ];
 
         $messages = [
             'search_class.required' => 'require',
-            'search_column.required' => '8',
         ];
         return $this->validate($data, $rules, $messages);
     }
