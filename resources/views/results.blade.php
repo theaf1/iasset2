@@ -20,10 +20,11 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>ผลการค้นหา</h4>
+                    <h4 class="text-center">ผลการค้นหา</h4>
                 </div>
                 <div class="card-body">
-                    <table class="table mt4 table-hover table-responsive">
+                    
+                        <table class="table mt4 table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th scope="col">ลำดับที่</th>
@@ -43,9 +44,10 @@
                             @endforeach
                         </tbody>
                     </table>
+                    
+                    {{$results->links()}}
                 </div>
             </div>
-            {{$results->links()}}
             <a href="{{ url('/') }}" class="btn btn-md btn-info" role="button">ย้อนกลับ</a>
         </div>
     </div>
