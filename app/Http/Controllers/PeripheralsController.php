@@ -23,6 +23,7 @@ class PeripheralsController extends Controller
     //ประกาศตัวแปรที่ใช้ใน controller
     public function index()
     {
+        //กำหนดตัวแปรที่ใช้ใน การสร้างข้อมูลอุปกรณ์ต่อพ่วง
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -96,6 +97,7 @@ class PeripheralsController extends Controller
      */
     public function show($id)
     {
+        //กำหนดตัวแปรที่ใช้ในการแสดงรายละเอียดอุปกรณ์ต่อพ่วง
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -120,7 +122,7 @@ class PeripheralsController extends Controller
         $Mobility = Mobility::all();
         $Peripheral = Peripherals::find($id);
 
-        //ตัวแปรที่ส่งกลับไปยังหน้า addperipherals
+        //ตัวแปรที่ส่งกลับไปยังหน้า Peripheraldetail
         return view('Peripheraldetail')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
@@ -146,6 +148,7 @@ class PeripheralsController extends Controller
      */
     public function edit($id)
     {
+        //กำนดตัวแปรที่ใช้ในการแก้ไขข้อมูลอุปกรณ์ต่อพ่วง
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -170,6 +173,7 @@ class PeripheralsController extends Controller
         $Mobility = Mobility::all();
 
         $peripheral = Peripherals::find($id);
+        //ตัวแปรที่ส่งไปยังหน้า editperipherals
 
         return view('editperipherals')->with([
             'peripheral'=>$peripheral,
@@ -197,8 +201,8 @@ class PeripheralsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Peripherals::find($id)->update($request->all());
+        $this->validateData($request); //ตรวจสอบข้อมูลที่แก้ไข
+        Peripherals::find($id)->update($request->all()); //ค้นหาและแก้ไขข้อมูลในตาราง peripherals
         return redirect('/peripheral')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 

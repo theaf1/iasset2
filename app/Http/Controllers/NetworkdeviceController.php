@@ -72,6 +72,7 @@ class NetworkdeviceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    //กำหนดตัวแปรที่ใช้ในการแสดงรายละเอียดของอุปกรณ์เครือข่าย
     {
         $networkdevice = Networkdevices::find($id);
         $Asset_statuses = Asset_statuses::all();
@@ -80,6 +81,7 @@ class NetworkdeviceController extends Controller
         $NetSubtypes = NetSubtype::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
+        //ตัวแปรที่ส่งไปยังหน้า Networkdevicedetail
         return view('Networkdevicedetail')->with([
             'networkdevice'=>$networkdevice,
             'asset_statuses'=>$Asset_statuses,
@@ -99,6 +101,7 @@ class NetworkdeviceController extends Controller
      */
     public function edit($id)
     {
+        //กำหนดค่าตัวแปรที่ต้องใช้ในการแก้ไข
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -106,6 +109,7 @@ class NetworkdeviceController extends Controller
         $Owners = Owner::all();
         $Mobility = Mobility::all();
         $networkdevice = Networkdevices::find($id);
+        //ตัวแปรที่ส่งกลับไปยังหน้า editnetworkdevice
         return view('editnetworkdevice')->with([
             'networkdevice'=>$networkdevice,
             'asset_statuses'=>$Asset_statuses,
@@ -127,8 +131,8 @@ class NetworkdeviceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Networkdevices::find($id)->update($request->all());
+        $this->validateData($request); //ตรวจสอบข้อมูลที่ทำการแก้ไข
+        Networkdevices::find($id)->update($request->all()); //แก้ไขข้อมูลในตาราง Networkdevices
         return redirect('/networkdevices')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 

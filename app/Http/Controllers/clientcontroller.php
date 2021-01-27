@@ -40,7 +40,7 @@ class ClientController extends Controller
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
-        //ต่วแปรที่ส่งกลับไปยังหน้า addcomputer
+        //ตัวแปรที่ส่งกลับไปยังหน้า addcomputer
 
         return view('addcomputer')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -82,7 +82,7 @@ class ClientController extends Controller
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
-        $client = Client::create($request->all());
+        $client = Client::create($request->all());//บันทึกข้อมูลลงตาราง Clients
         //\Log::info(session());
 
         $displayCount = request()->input('display_count');
@@ -95,7 +95,7 @@ class ClientController extends Controller
                             'display_size' => request()->input('display_size')[$i],
                             'display_ratio' => request()->input('display_ratio')[$i],
                         ];
-            Display::create($display);
+            Display::create($display); //บันทึกข้อมูลลงตาราง Displays
         } 
 
         return redirect()->back()->with('displayCount',$displayCount);
@@ -111,6 +111,7 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    //กำหนดค่าตัวแปรที่ใช้ในการเรียกดูรายละเอียดของเครื่องคอมพิวเตอร์
     {
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
@@ -126,7 +127,7 @@ class ClientController extends Controller
         $Mobility = Mobility::all();
 
         $client = Client::find($id);
-
+        //ส่งค่าตัวแปรที่กำหนดไว้ไปยังหน้า Computerdetail
         return view('Computerdetail')->with([
             'client'=>$client,
             'asset_statuses'=>$Asset_statuses,
@@ -151,6 +152,7 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
+    //กำหนดค่าตัวแปรที่ใช้ในการแก้ไขข้อมูลคอมพิวเตอร์
     {
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
@@ -166,7 +168,7 @@ class ClientController extends Controller
         $Mobility = Mobility::all();
 
         $client = Client::find($id);
-
+        //ตัวแปรที่ส่งไปยังหน้า editcomputer
         return view('editcomputer')->with([
             'client'=>$client,
             'asset_statuses'=>$Asset_statuses,
@@ -193,21 +195,21 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        //ตรวจสอบว่า request มีค่า displayCount หรือไม่
         if (request()->has('displayCount')) {
             $displayCount = request()->input('displayCount');
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
         
-        $this->validateData($request);
+        $this->validateData($request); //ตรวจสอบว่าข้อมูลถูกต้อง
         
-        $client = Client::find($id)->update($request->all());
-        $displayCount = request()->input('display_count');
-        $client = Client::find($id);
-        $displaysId=$client->displays;
+        $client = Client::find($id)->update($request->all()); //ทำการค้นหาและแก้ไขข้อมูลในตาราง Clients
+        $displayCount = request()->input('display_count'); //กำหนดค่าตัวแปร displayCount
+        $client = Client::find($id); //ค้นหาข้อมูล
+        $displaysId=$client->displays; //กำหนดค่าตัวแปร displaysId
         $i = 0;
         
-        foreach ($displaysId as $displayId)
+        foreach ($displaysId as $displayId) //แก้ไขข้อมูลจอภาพจนครบถ้วน
         {    
             $display =  [ 
                             'client_id' => $client->id, 

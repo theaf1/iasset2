@@ -22,6 +22,7 @@ class UpsController extends Controller
      */
     public function index()
     {
+        //ตัวแปรที่ใช้ในการสร้างข้อมูลเครื่องสำรองไฟฟ้า
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -39,6 +40,7 @@ class UpsController extends Controller
         );
         $Mobility = Mobility::all();
 
+        //ตัวแปรที่ส่งไปยังหน้า addups
         return view('addups')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
@@ -72,10 +74,10 @@ class UpsController extends Controller
     public function store(Request $request)
     {
         //return $request->all();
-        $this->validateData($request);
+        $this->validateData($request); //ตรวจสอบข้อมูลที่ได้รับ
 
-        $Upses = Upses::create($request->all());
-        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        $Upses = Upses::create($request->all()); //เขียนข้อมูลลงในตาราง upses
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //แจ้งผลการบันทึกข้อมูล
     }
 
     /**
@@ -86,6 +88,7 @@ class UpsController extends Controller
      */
     public function show($id)
     {
+        //ตัวแปรที่ใช้ในการแสดงผลรายละเอียดเครื่องสำรองไฟฟ้า
         $Ups = Upses::find($id);
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
@@ -104,6 +107,7 @@ class UpsController extends Controller
         );
         $Mobility = Mobility::all();
 
+        //ตัวแปรที่ส่งกลับไปยังหน้า Upsdetail
         return view('Upsdetail')->with([
             'ups'=>$Ups,
             'asset_statuses'=>$Asset_statuses,
@@ -127,6 +131,7 @@ class UpsController extends Controller
      */
     public function edit($id)
     {
+        //รายการตัวแปรที่ใช้ในการแก้ไขข้อมูลเครื่องสำรองไฟฟ้า
         $Forms = Formfactor::all();
         $Topos = Topology::all();
         $Modular = array(
@@ -141,7 +146,8 @@ class UpsController extends Controller
         $Mobility = Mobility::all();
 
         $ups = Upses::find($id);
-        //return $ups;
+
+        //ตัวแปรที่ส่งกลับไปยังหน้า editups
         return view('editups')->with([
             'ups'=>$ups,
             'sections'=>Section::all(),
@@ -167,9 +173,9 @@ class UpsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Upses::find($id)->update($request->all());
-        return redirect('/upses')->with('success','แก้ไขข้อมูลเรียบร้อยแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลที่จะแก้ไข
+        Upses::find($id)->update($request->all()); //ค้นหาและแก้ไขข้อมูล
+        return redirect('/upses')->with('success','แก้ไขข้อมูลเรียบร้อยแล้ว'); //ส่งกลับและรายงานผล
     }
 
     /**
@@ -185,6 +191,7 @@ class UpsController extends Controller
 
     private function validateData($data)
     {
+        //เงื่อนไข
         $rules = [
             'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
             'pid'=>'nullable',
@@ -204,6 +211,7 @@ class UpsController extends Controller
             'device_management_address'=>'nullable|ipv4',
         ];
 
+        //ข้อความแสดงข้อผิดพลาด
         $messages = [
             'sapid.regex' => 'กรุณากรอกรหัส SAP ให้ถูกต้อง (เลข 12 หลัก)',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
@@ -222,6 +230,6 @@ class UpsController extends Controller
             'device_management_address.ipv4' => 'โปรดใส่ IP Address ให้ถูกต้อง',
         ];
 
-        return $this->validate($data, $rules, $messages);
+        return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้าต้นทางหรือส่งข้อมูลไปบันทึก
     }
 }

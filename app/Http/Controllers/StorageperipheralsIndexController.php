@@ -20,6 +20,7 @@ class StorageperipheralsIndexController extends Controller
      */
     public function index()
     {
+        //ตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณต่อพ่วงเก็บข้อมูล
         $Asset_statuses=Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -35,11 +36,12 @@ class StorageperipheralsIndexController extends Controller
         );
         $Mobility = Mobility::all();
         $storageperipherals = Storageperipherals::all();
-        foreach ($storageperipherals as $storageperipheral) {
+        foreach ($storageperipherals as $storageperipheral) //เปลี่ยนวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป 
+        {
             $storageperipheral->update_date = $storageperipheral->updated_at->format('d-m-Y');
         }
 
-        //ตัวแปรที่ส่งกลับไปยังหน้า addstorageperipherals
+        //ตัวแปรที่ส่งกลับไปยังหน้า StorageperipheralsIndex
         return view('StorageperipheralsIndex')->with([
             'storageperipherals'=>$storageperipherals,
             'asset_statuses'=>$Asset_statuses,

@@ -21,6 +21,7 @@ class PeripheralsIndexController extends Controller
      */
     public function index()
     {
+        //กำหนดตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณต่อพ่วง
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -42,11 +43,12 @@ class PeripheralsIndexController extends Controller
         $Owners = Owner::all();
         $Mobility = Mobility::all();
         $peripherals = Peripherals::all();
-        foreach ($peripherals as $peripheral) {
+        foreach ($peripherals as $peripheral) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
+        {
             $peripheral->update_date = $peripheral->updated_at->format('d-m-Y');
         }
 
-        //ตัวแปรที่ส่งกลับไปยังหน้า addperipherals
+        //ตัวแปรที่ส่งกลับไปยังหน้า PeripheralsIndex
         return view('PeripheralsIndex')->with([
             'peripherals'=>$peripherals,
             'asset_statuses'=>$Asset_statuses,

@@ -27,7 +27,7 @@ class ServerController extends Controller
     //ประกาศตัวแปรที่ใช้ใน controller
     public function index()
     {
-        
+        //ตัวแปรที่ใช้ในการสร้างข้อมูลคอมพิวเตอร์แม่ข่าย
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -79,15 +79,16 @@ class ServerController extends Controller
         //return $request->all();
         //$Servers = Servers::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
         //return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งผลการบันทึกข้อมูลกลับไปยังหน้าเดิม
-        if (request()->has('displayCount')) {
+        if (request()->has('displayCount')) //ตรวจสอบว่า มีค่า displayCount ส่งมาด้วย
+        {
             $displayCount = request()->input('displayCount');
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
         //return $request->all();
-        $Servers = Servers::create($request->all());
+        $Servers = Servers::create($request->all()); //บันทึกข้อมูลลงในตาราง servers
 
-        $displayCount = request()->input('display_count');
+        $displayCount = request()->input('display_count'); //บันทึกข้อมูลจอภาพลงในตาราง displays จนครบถ้วน
         for ($i = 0; $i < $displayCount; $i++)
         {
             $display =  [ 
@@ -111,6 +112,7 @@ class ServerController extends Controller
      */
     public function show($id)
     {
+        //ตัวแปรที่ใช้ในการแก้ไขข้อมูลคอมพิวเตอร์แม่ข่าย
         $Server = Servers::find($id);
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
@@ -124,7 +126,7 @@ class ServerController extends Controller
         $Owners = Owner::all();
         $Mobility = Mobility::all();
 
-        //ตัวแปรที่ส่งไปยังหน้า addserver
+        //ตัวแปรที่ส่งไปยังหน้า ServerDetail
         return view('ServerDetail')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
@@ -149,6 +151,7 @@ class ServerController extends Controller
      */
     public function edit($id)
     {
+        //ตัวแปรที่ใช้ในการแก้ไขข้อมูลคอมพิวเตอร์แม่ข่าย
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -163,6 +166,7 @@ class ServerController extends Controller
 
         $server = Servers::find($id);
         
+        //ตัวแปรที่ส่งไปยังหน้า editserver
         return view('editserver')->with([
             'server'=>$server,
             'asset_statuses'=>$Asset_statuses,
@@ -191,20 +195,21 @@ class ServerController extends Controller
         // $this->validateData($request);
         // Servers::find($id)->update($request->all());
         // return redirect('/servers')->with('success','แก้ไขข้อมูลเรียบร้อย');
-        if (request()->has('displayCount')) {
+        if (request()->has('displayCount')) //ตรวจสอบว่ามีค่า displayCount ส่งมาด้วย
+        {
             $displayCount = request()->input('displayCount');
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
         
-        $this->validateData($request);
+        $this->validateData($request); //ตรวจสอบข้อมูลที่แก้ไข
         
-        $Servers = Servers::find($id)->update($request->all());
-        $displayCount = request()->input('display_count');
-        $Servers = Servers::find($id);
+        $Servers = Servers::find($id)->update($request->all()); //ค้นหาและแก้ไขข้อมูลในตาราง servers
+        $displayCount = request()->input('display_count'); //กำหนดค่าตัวแปร displayCount
+        $Servers = Servers::find($id); //กำหนดค่าตัวแปร Servers
         $displaysId=$Servers->ServerDisplay;
         $i = 0;
         
-        foreach ($displaysId as $displayId)
+        foreach ($displaysId as $displayId) //แก้ไขข้อมูลจอภาพในตาราง display จนครบถ้วน
         {    
             $display =  [ 
                             'client_id' => $Servers->id, 

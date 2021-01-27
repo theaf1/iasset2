@@ -20,6 +20,7 @@ class UpsIndexController extends Controller
      */
     public function index()
     {
+        //รายการตัวแปรที่ใช้ในการแสดงบัญชีเครื่องสำรองไฟฟ้า
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -48,7 +49,8 @@ class UpsIndexController extends Controller
         );
         $Mobility = Mobility::all();
         $Upses = Upses::paginate(2);
-        foreach ($Upses as $Ups) {
+        foreach ($Upses as $Ups) //เปลี่ยนวันที่แก้ไขข้อมูลใหัอยู่ในรูปแบบ ว-ด-ป
+        {
             $Ups->update_date = $Ups->updated_at->format('d-m-Y');
         }
 

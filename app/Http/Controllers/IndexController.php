@@ -22,9 +22,6 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $Clienttypes = Clienttype::all();
-        $Peripheraltypes = Peripheraltype::all();
-        $NetSubtypes = NetSubtype::all();
         $Searchclass= array(
             ['id'=>'1', 'name'=>'Client', 'ui_name'=>'คอมพิวเตอร์'],
             ['id'=>'2', 'name'=>'Display', 'ui_name'=>'จอภาพ'],
@@ -35,11 +32,8 @@ class IndexController extends Controller
             ['id'=>'7', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
             ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
         );
-
+    
         return view('index')->with([
-            'clienttypes'=>$Clienttypes,
-            'peripheraltypes'=>$Peripheraltypes,
-            'netsubtypes'=>$NetSubtypes,
             'searches'=>$Searchclass,
         ]);
     }
@@ -113,52 +107,52 @@ class IndexController extends Controller
     {
         $this->validateQuery($request);
         //$Results=Client::where('sapid', $request->search)->get();
-        
+        //ทำการค้นหาข้อมูล
         if ($request->search_class==1) 
         {
-            $Results=Client::search($request->keyword)->paginate($request->per_page);
+            $Results=Client::search($request->keyword)->paginate($request->per_page); //ค้นหาเครื่องคอมพิวเตอร์
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
         if ($request->search_class==2) {
-            $Results = Display::search($request->keyword)->paginate($request->per_page);
+            $Results = Display::search($request->keyword)->paginate($request->per_page); //ค้นหาจอภาพ
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
         if ($request->search_class==3) {
-            $Results = Peripherals::search($request->keyword)->paginate($request->per_page);
+            $Results = Peripherals::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์ต่อพ่วง
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
         if ($request->search_class==4) {
-            $Results = Storageperipherals::search($request->keyword)->paginate($request->per_page);
+            $Results = Storageperipherals::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์ต่อพ่วงเก็บข้อมูล
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
         if ($request->search_class==5) {
-            $Results = Servers::search($request->keyword)->paginate($request->per_page);
+            $Results = Servers::search($request->keyword)->paginate($request->per_page); //ค้นหาเครื่องคอมพิวเตอร์แม่ข่าย
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
         if ($request->search_class==6) {
-            $Results = NetworkedStorage::search($request->keyword)->paginate($request->per_page);
+            $Results = NetworkedStorage::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์เก็บข้อมูลเครือข่าย
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
         if ($request->search_class==7) {
-            $Results = Networkdevices::search($request->keyword)->paginate($request->per_page);
+            $Results = Networkdevices::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์เครือข่าย
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
         if ($request->search_class==8) {
-            $Results = Upses::search($request->keyword)->paginate($request->per_page);
+            $Results = Upses::search($request->keyword)->paginate($request->per_page); //ค้นหาเครื่องสำรองไฟฟ้า
             return view('results')->with([
                 'results'=>$Results,
             ]);
@@ -167,7 +161,7 @@ class IndexController extends Controller
         //     'results'=>$Results,
         // ]);
     }
-    private function validateQuery($data)
+    private function validateQuery($data) //ตรวจสอบคำค้นหา
     {
         $rules = [
             'search_class' => 'required',

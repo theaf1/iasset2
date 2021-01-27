@@ -21,6 +21,7 @@ class NetworkdeviceIndexController extends Controller
      */
     public function index()
     {
+        //กำหนดตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณ์เครือข่าย
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -28,10 +29,11 @@ class NetworkdeviceIndexController extends Controller
         $Owners = Owner::all();
         $Mobility = Mobility::all();
         $Networkdevices = Networkdevices::paginate(2);
-        foreach ($Networkdevices as $Networkdevice) {
+        foreach ($Networkdevices as $Networkdevice) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
+        {
             $Networkdevice->update_date = $Networkdevice->updated_at->format('d-m-Y');
         }
-        //ตัวแปรที่ส่งไปยังหน้า addnetworkdevices
+        //ตัวแปรที่ส่งไปยังหน้า NetworkdeviceIndex
 
         return view('NetworkdeviceIndex')->with([
             'networkdevices'=>$Networkdevices,

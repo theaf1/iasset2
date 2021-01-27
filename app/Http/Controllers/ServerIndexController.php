@@ -23,6 +23,7 @@ class ServerIndexController extends Controller
      */
     public function index()
     {
+        //ตัวแปรที่ใช้ในการแสดงบัญชีคอมพิวเตอร์แม่ข่าย
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -40,11 +41,12 @@ class ServerIndexController extends Controller
         $Owners = Owner::all();
         $Mobility = Mobility::all();
         $Servers = Servers::paginate(2);
-        foreach ($Servers as $Server) {
+        foreach ($Servers as $Server) //แปลงรูปแแบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
+        {
             $Server->update_date = $Server->updated_at->format('d-m-Y');
         }
 
-        //ตัวแปรที่ส่งไปยังหน้า addserver
+        //ตัวแปรที่ส่งไปยังหน้า ServerIndex
         return view('ServerIndex')->with([
             'servers'=>$Servers,
             'asset_statuses'=>$Asset_statuses,

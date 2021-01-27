@@ -20,6 +20,7 @@ class NetworkedstorageIndexController extends Controller
      */
     public function index()
     {
+        //กำหนดค่าตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณ์เก็บข้อมูลเครือข่าย
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -34,11 +35,12 @@ class NetworkedstorageIndexController extends Controller
         );
         $Mobility = Mobility::all();
         $Networkedstorages = NetworkedStorage::paginate(2);
-        foreach ($Networkedstorages as $Networkedstorage) {
+        foreach ($Networkedstorages as $Networkedstorage) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป 
+        {
             $Networkedstorage->update_date = $Networkedstorage->updated_at->format('d-m-Y');
         }
 
-        //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
+        //ตัวแปรที่ส่งกลับไปยังหน้า NetworkedstorageIndex
         return view('NetworkedstorageIndex')->with([
             'networkedstorages'=>$Networkedstorages,
             'asset_statuses'=>$Asset_statuses,

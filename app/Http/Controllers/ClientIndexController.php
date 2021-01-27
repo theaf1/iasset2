@@ -21,11 +21,12 @@ class ClientIndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request) 
     {
+        //กำหนดตัวแปรที่ใช้ในการแสดงบัญชีเครื่องคอมพิวเตอร์
         //return $request->all();
         $Clients = Client::all();
-        foreach ($Clients as $Client)
+        foreach ($Clients as $Client) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้อยู่ในรูปแบบ ว-ด-ป
         {
             $Client->update_date = $Client->updated_at->format('d-m-Y');
         }
@@ -46,7 +47,7 @@ class ClientIndexController extends Controller
             ['id'=>'1', 'name'=>'GB'],
             ['id'=>'2', 'name'=>'TB'],
         );
-        
+        //ตัวแปรที่ส่งไปยังหน้า clientindex
         return view('clientindex')->with([
             'clients'=>$Clients,
             //'displays'=>$Displays,

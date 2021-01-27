@@ -76,6 +76,7 @@ class NetworkedstorageController extends Controller
      */
     public function show($id)
     {
+        //กำหนดตัวแปรที่ใช้ในการแสดงรายละเอียดอุปกรณ์เก็บข้อมูลเครือข่าย
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -85,7 +86,7 @@ class NetworkedstorageController extends Controller
         $Mobility = Mobility::all();
         $NetworkedStorage = NetworkedStorage::find($id);
 
-        //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
+        //ตัวแปรที่ส่งกลับไปยังหน้า Networkedstoragedetail
         return view('Networkedstoragedetail')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
@@ -107,6 +108,7 @@ class NetworkedstorageController extends Controller
      */
     public function edit($id)
     {
+        //กำหนดตัวแปรที่ใช้ในการแก้ไขข้อมูลอุปกรณ์เก็บข้อมูลเครือข่าย
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -115,8 +117,8 @@ class NetworkedstorageController extends Controller
         $Storagetypes = Networkedstoragetype::all();
         $Mobility = Mobility::all();
         $networkedstorage = NetworkedStorage::find($id);
-        //return $networkedstorage;
-
+    
+        //ตัวแปรที่ส่งไปยังหน้า editnetworkedstorage
         return view('editnetworkedstorage')->with([
             'networkedstorage'=>$networkedstorage,
             'asset_statuses'=>$Asset_statuses,
@@ -139,8 +141,8 @@ class NetworkedstorageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Networkedstorage::find($id)->update($request->all());
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        Networkedstorage::find($id)->update($request->all()); //ค้นหาและแก้ไขข้อมูลในตาราง networked_storages
         return redirect('/networkedstorage')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 

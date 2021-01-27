@@ -20,7 +20,7 @@ class StorageperipheralsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    //ประกาศตัวแปรที่ใช้ใน controller 
+    //ประกาศตัวแปรที่ใช้ในการสร้างข้อมูลอุปกรณต่อพ่วงเก็บข้อมูล
     public function index()
     {
         $Asset_statuses=Asset_statuses::all();
@@ -84,6 +84,7 @@ class StorageperipheralsController extends Controller
      */
     public function show($id)
     {
+        //ตัวแปรที่ใช้ในการแสดงรายละละเอียดอุปกรณ์ต่อพ่วงเก็บข้อมูล
         $Storagepheriperal=Storageperipherals::find($id);
         $Asset_statuses=Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
@@ -99,7 +100,7 @@ class StorageperipheralsController extends Controller
         );
         $Mobility = Mobility::all();
 
-        //ตัวแปรที่ส่งกลับไปยังหน้า addstorageperipherals
+        //ตัวแปรที่ส่งกลับไปยังหน้า StoragePeripheraldetail
         return view('StoragePeripheraldetail')->with([
             'storageperipheral'=>$Storagepheriperal,
             'asset_statuses'=>$Asset_statuses,
@@ -122,6 +123,7 @@ class StorageperipheralsController extends Controller
      */
     public function edit($id)
     {
+        //ตัวแปรที่ใช้ในการแก้ไขข้อมูลอุปกรณ์ต่อพ่วงเก็บข้อมูล
         $Asset_statuses=Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Multiusers = Multiuser::all();
@@ -138,6 +140,7 @@ class StorageperipheralsController extends Controller
 
         $storageperipheral = Storageperipherals::find($id);
 
+        //รายการตัวแปรที่ส่งไปยังหน้า editstorageperipheral
         return view('editstorageperipherals')->with([
             'storageperipheral'=>$storageperipheral,
             'asset_statuses'=>$Asset_statuses,
@@ -161,9 +164,9 @@ class StorageperipheralsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Storageperipherals::find($id)->update($request->all());
-        return redirect('/storageperipheral')->with('success','แก้ไขข้อมูลเรียบร้อยแล้ว');
+        $this->validateData($request); //ทำการตรวจสอบข้อมูล
+        Storageperipherals::find($id)->update($request->all()); //ค้นหาและแก้ไขข้อมูลในตาราง storageperipherals
+        return redirect('/storageperipheral')->with('success','แก้ไขข้อมูลเรียบร้อยแล้ว'); //ส่งกลับไปหน้าบัญชีและแจ้งสถานะ
     }
 
     /**
