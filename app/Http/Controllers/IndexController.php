@@ -13,6 +13,7 @@ use App\Upses;
 use App\Clienttype;
 use App\Peripheraltype;
 use App\NetSubtype;
+use App\room;
 class IndexController extends Controller
 {
     /**
@@ -32,9 +33,11 @@ class IndexController extends Controller
             ['id'=>'7', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
             ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
         );
+        $Rooms = Room::all();
     
         return view('index')->with([
             'searches'=>$Searchclass,
+            'rooms'=>$Rooms,
         ]);
     }
 

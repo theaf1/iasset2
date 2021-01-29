@@ -22,21 +22,15 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-6">
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <label for="search_column">ที่มี</label>
-                            <select class="form-control @error('search_column') is-invalid @enderror" name="search_column" id="search_column">
+                            <select class="form-control" name="search_column" id="search_column">
                                 <option value="" hidden></option>
-                                <option value="sapid">รหัส SAP</option>
-                                <option value="pid">รหัสครุภัณฑ์</option>
-                                <option value="brand">ยี่ห้อ</option>
-                                <option value="model">รุ่น</option>
+                                @foreach($rooms as $room)
+                                    <option value="{{$room['id']}}">{{$room['name']}}</option>
+                                @endforeach
                             </select>
-                            @error('search_column')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">    
