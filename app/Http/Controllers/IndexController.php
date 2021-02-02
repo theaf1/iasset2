@@ -22,17 +22,17 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $Searchclass= array(
-            ['id'=>'1', 'name'=>'Client', 'ui_name'=>'คอมพิวเตอร์'],
-            ['id'=>'2', 'name'=>'Display', 'ui_name'=>'จอภาพ'],
-            ['id'=>'3', 'name'=>'Peripherals', 'ui_name'=>'อุปกรณ์ต่อพ่วง'],
-            ['id'=>'4', 'name'=>'Storageperipherals', 'ui_name'=>'อุปกรณ์ต่อพ่วงเก็บข้อมูล'],
-            ['id'=>'5', 'name'=>'Servers', 'ui_name'=>'คอมพิวเตอร์แม่ข่าย'],
-            ['id'=>'6', 'name'=>'NetworkedStorage', 'ui_name'=>'อุปกรณ์เก็บข้อมูลเครือข่าย'],
-            ['id'=>'7', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
-            ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
-        );
-        $Rooms = Room::all();
+        // $Searchclass= array(
+        //     ['id'=>'1', 'name'=>'Client', 'ui_name'=>'คอมพิวเตอร์'],
+        //     ['id'=>'2', 'name'=>'Display', 'ui_name'=>'จอภาพ'],
+        //     ['id'=>'3', 'name'=>'Peripherals', 'ui_name'=>'อุปกรณ์ต่อพ่วง'],
+        //     ['id'=>'4', 'name'=>'Storageperipherals', 'ui_name'=>'อุปกรณ์ต่อพ่วงเก็บข้อมูล'],
+        //     ['id'=>'5', 'name'=>'Servers', 'ui_name'=>'คอมพิวเตอร์แม่ข่าย'],
+        //     ['id'=>'6', 'name'=>'NetworkedStorage', 'ui_name'=>'อุปกรณ์เก็บข้อมูลเครือข่าย'],
+        //     ['id'=>'7', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
+        //     ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
+        // );
+        // $Rooms = Room::all();
     
         return view('index')->with([
             'searches'=>[
