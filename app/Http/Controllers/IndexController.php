@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Client;
 use App\Peripherals;
 use App\Storageperipherals;
@@ -10,10 +10,9 @@ use App\Servers;
 use App\Networkdevices;
 use App\NetworkedStorage;
 use App\Upses;
-use App\Clienttype;
-use App\Peripheraltype;
-use App\NetSubtype;
 use App\room;
+use Illuminate\Http\Request;
+
 class IndexController extends Controller
 {
     /**
@@ -36,8 +35,18 @@ class IndexController extends Controller
         $Rooms = Room::all();
     
         return view('index')->with([
-            'searches'=>$Searchclass,
-            'rooms'=>$Rooms,
+            'searches'=>[
+                ['id'=>'1', 'name'=>'Client', 'ui_name'=>'คอมพิวเตอร์'],
+                ['id'=>'2', 'name'=>'Display', 'ui_name'=>'จอภาพ'],
+                ['id'=>'3', 'name'=>'Peripherals', 'ui_name'=>'อุปกรณ์ต่อพ่วง'],
+                ['id'=>'4', 'name'=>'Storageperipherals', 'ui_name'=>'อุปกรณ์ต่อพ่วงเก็บข้อมูล'],
+                ['id'=>'5', 'name'=>'Servers', 'ui_name'=>'คอมพิวเตอร์แม่ข่าย'],
+                ['id'=>'6', 'name'=>'NetworkedStorage', 'ui_name'=>'อุปกรณ์เก็บข้อมูลเครือข่าย'],
+                ['id'=>'7', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
+                ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
+            ],
+            'rooms'=>Room::all(),
+            'results'=>$this->searchEquipment(request()->search_class,request()->search_column),
         ]);
     }
 
@@ -108,13 +117,12 @@ class IndexController extends Controller
     }
     public function search(Request $request)
     {
-        
         $this->validateQuery($request);
         //$Results=Client::where('sapid', $request->search)->get();
         //ทำการค้นหาข้อมูล
         if ($request->search_class==1) 
         {
-            $Searchclass= array(
+            $Searchclass= [
                 ['id'=>'1', 'name'=>'Client', 'ui_name'=>'คอมพิวเตอร์'],
                 ['id'=>'2', 'name'=>'Display', 'ui_name'=>'จอภาพ'],
                 ['id'=>'3', 'name'=>'Peripherals', 'ui_name'=>'อุปกรณ์ต่อพ่วง'],
@@ -123,10 +131,10 @@ class IndexController extends Controller
                 ['id'=>'6', 'name'=>'NetworkedStorage', 'ui_name'=>'อุปกรณ์เก็บข้อมูลเครือข่าย'],
                 ['id'=>'7', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
                 ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
-            );
+            ];
             $Rooms = Room::all();
             \Log::info($request->all());
-            $Results=Client::search($request->keyword)->orderBy('id','asc')->paginate(10); //ค้นหาเครื่องคอมพิวเตอร์
+            $Results = Client::search($request->keyword)->orderBy('id','asc')->paginate(10); //ค้นหาเครื่องคอมพิวเตอร์
             \Log::info($Results);
             // return view('results')->with([
             //     'results'=>$Results,
@@ -137,44 +145,51 @@ class IndexController extends Controller
                 'rooms'=>$Rooms,
             ]);
         }
-        if ($request->search_class==2) {
+        if ($request->search_class == 2) {
             $Results = Display::search($request->keyword)->paginate($request->per_page); //ค้นหาจอภาพ
+
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
-        if ($request->search_class==3) {
+        if ($request->search_class == 3) {
             $Results = Peripherals::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์ต่อพ่วง
+
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
-        if ($request->search_class==4) {
+        if ($request->search_class == 4) {
             $Results = Storageperipherals::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์ต่อพ่วงเก็บข้อมูล
+
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
-        if ($request->search_class==5) {
+        if ($request->search_class == 5) {
             $Results = Servers::search($request->keyword)->paginate($request->per_page); //ค้นหาเครื่องคอมพิวเตอร์แม่ข่าย
+
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
-        if ($request->search_class==6) {
+        if ($request->search_class == 6) {
             $Results = NetworkedStorage::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์เก็บข้อมูลเครือข่าย
+
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
-        if ($request->search_class==7) {
+        if ($request->search_class == 7) {
             $Results = Networkdevices::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์เครือข่าย
+
             return view('results')->with([
                 'results'=>$Results,
             ]);
         }
-        if ($request->search_class==8) {
+        if ($request->search_class == 8) {
             $Results = Upses::search($request->keyword)->paginate($request->per_page); //ค้นหาเครื่องสำรองไฟฟ้า
+
             return view('results')->with([
                 'results'=>$Results,
             ]);
@@ -182,6 +197,28 @@ class IndexController extends Controller
         // return view('results')->with([
         //     'results'=>$Results,
         // ]);
+    }
+    protected function searchEquipment($class, $column)
+    {
+        if (! $class || ! $column){
+            return null;
+        }
+        $equipmentsClass = [
+            '',
+            '\App\client',
+            '\App\Display',
+            '\App\Peripherals',
+            '\App\storageperipherals',
+            '\App\Servers',
+            '\App\NetworkedStorage',
+            '\App\Networkdevices',
+            '\App\Upses',
+        ];
+        $modelClass = $equipmentsClass[$class];
+        return $modelClass::select('id', 'sapid','pid')
+            ->where('location_id', $column)
+            ->paginate(5)
+            ->withQueryString(['search_class'=>$class, 'search_column'=>$column]);
     }
     private function validateQuery($data) //ตรวจสอบคำค้นหา
     {
