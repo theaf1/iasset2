@@ -43,11 +43,11 @@
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
                             <label for="per_page">ผลการค้นหาต่อหน้า</label>
-                            <select name="per_page" id="per_page" class="form-control">
+                            {{-- <select name="per_page" id="per_page" class="form-control">
                                 <option value="10">10</option>
                                 <option value="20" selected>20</option>
                                 <option value="30">30</option>
-                            </select>
+                            </select> --}}
                         </div>
                     </div>
                 </div>
@@ -56,6 +56,32 @@
                     <button type="reset" class="btn btn-lg btn-danger">Reset</button>
                 </div>
             </form>
+            <table class="table mt4 table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">ลำดับที่</th>
+                        <th scope="col">SAP</th>
+                        <th scope="col">รหัสครุภัณฑ์</th>
+                        {{-- <th scope="col"></th> --}}
+                    </tr>
+                </thead>
+                <tbody>
+                    @isset($results)
+                    @foreach ($results as $result)
+                        <tr>
+                            <th scope="row">{{ $result['id'] }}</th>
+                            <td>{{ $result['sapid'] }}</td>
+                            <td>{{ $result['pid'] }}</td>
+                            {{-- <td><a href="{{ url('/client/show',$result->id) }}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td> --}}
+                        </tr>
+                    @endforeach
+                    @endisset
+                </tbody>
+            </table>
+            @isset($results)
+                {{$results->links()}}
+            @endisset
+            
         </div>
     </div>
 @endsection
