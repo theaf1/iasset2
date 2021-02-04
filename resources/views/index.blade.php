@@ -56,31 +56,39 @@
                     <button type="reset" class="btn btn-lg btn-danger">Reset</button>
                 </div>
             </form>
-            <table class="table mt4 table-hover table-responsive">
-                <thead>
-                    <tr>
-                        <th scope="col">ลำดับที่</th>
-                        <th scope="col">SAP</th>
-                        <th scope="col">รหัสครุภัณฑ์</th>
-                        {{-- <th scope="col"></th> --}}
-                    </tr>
-                </thead>
-                <tbody>
+            <div class="card mt-4">
+                <div class="card-header card-background text-white">
+                    <h4 class="text-center">ผลการค้นหา</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table mt4 table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">ลำดับที่</th>
+                                <th scope="col">SAP</th>
+                                <th scope="col">รหัสครุภัณฑ์</th>
+                                {{-- <th scope="col"></th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @isset($results)
+                                @foreach ($results as $result)
+                                    <tr>
+                                        <th scope="row">{{ $result['id'] }}</th>
+                                        <td>{{ $result['sapid'] }}</td>
+                                        <td>{{ $result['pid'] }}</td>
+                                        {{-- <td><a href="{{ url('/client/show',$result->id) }}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td> --}}
+                                    </tr>
+                                @endforeach
+                            @endisset
+                        </tbody>
+                    </table>
                     @isset($results)
-                    @foreach ($results as $result)
-                        <tr>
-                            <th scope="row">{{ $result['id'] }}</th>
-                            <td>{{ $result['sapid'] }}</td>
-                            <td>{{ $result['pid'] }}</td>
-                            {{-- <td><a href="{{ url('/client/show',$result->id) }}" class="btn btn-sm btn-info" role="button">รายละเอียด</a></td> --}}
-                        </tr>
-                    @endforeach
+                        {{$results->links()}}
                     @endisset
-                </tbody>
-            </table>
-            @isset($results)
-                {{$results->links()}}
-            @endisset
+                </div>
+            </div>
+            
             
         </div>
     </div>
