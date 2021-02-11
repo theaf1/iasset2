@@ -35,7 +35,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                             <div class="form-group">
                                 <label for="sapid">รหัส SAP</label>
-                                <input type="text" class="form-control" id="sapid" name="sapid" value="{{ old('sapid') }}" placeholder="กรุณาใส่รหัส SAP">
+                                <input type="text" class="form-control" id="sapid" name="sapid" value="{{ old('sapid') }}" placeholder="กรุณาใส่รหัส SAP"><button type="button" class="btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
                             </div>
                         </div>
                     </div>
@@ -414,6 +414,11 @@
             $("#location").val('');
         }
     });
-
+    function generateInternalSAP() {
+        var fixedpart = 'MED'
+        var runningpart = '123'
+        var internalsap = fixedpart + runningpart
+        document.getElementById("sapid").value = internalsap
+    }
 </script>
 @endsection

@@ -44,7 +44,7 @@
                             <div class="col-sm-12 col-lg-6"> <!-- รหัส SAP -->
                                 <div class="form-group">
                                     <label for="sapid">รหัส SAP</label>
-                                    <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรอกรหัส SAP" value="{{ old('sapid') }}"/><button type="button" class="btn-primary mt-1" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
+                                    <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรอกรหัส SAP" value="{{ old('sapid') }}"/><button type="button" class="btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
                                     @error('sapid')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -739,7 +739,6 @@
         document.getElementById("computer_form").submit();
     }
     function generateInternalSAP() {
-        console.log('test')
         var fixedpart = 'MED'
         var runningpart = '123'
         var internalsap = fixedpart + runningpart
