@@ -38,7 +38,7 @@ class Servers extends Migration
             $table->integer('no_of_physical_drive_max'); //จำนวน HDD สูงสุด
             $table->integer('no_of_physical_drive_populated'); //จำนวน HDD ในเครื่อง
             $table->integer('lun_count'); //จำนวน disk จำลอง
-            $table->integer('hdd_total_cap'); //ความจุข้อมูลรวม
+            $table->float('hdd_total_cap', 5, 3); //ความจุข้อมูลรวม
             $table->integer('data_unit_id'); //หน่วยวัดข้อมูล รับค่าจากตาราง DataUnit
             $table->integer('os_id'); //ระบบปฏิบัติการ รับค่าจากตาราง ServerOS
             $table->integer('os_arch_id'); //โครงสร้างระบบปฏิบัติการ รับค่าจากตาราง OsArch
