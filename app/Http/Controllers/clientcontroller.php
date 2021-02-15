@@ -39,7 +39,17 @@ class ClientController extends Controller
         $OsArches = OsArch::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
-
+        $lastInternalSapId = Client::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
+        
+        if($lastInternalSapId == null)
+        {
+            $temp = 0;
+        }
+        else
+        {
+            $temp = $lastInternalSapId->sapid;
+        }
+            
         //ตัวแปรที่ส่งกลับไปยังหน้า addcomputer
 
         return view('addcomputer')->with([
@@ -55,6 +65,7 @@ class ClientController extends Controller
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
+            'lastinternalsap'=>$temp,
         ]);
     }
 
@@ -240,7 +251,7 @@ class ClientController extends Controller
     private function validateData($data){
         $rules = [
             'type_id' =>'required',
-            'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
+            'sapid' => 'required',
             'pid' => 'nullable',
             'location_id' => 'required',
             'mobility_id' => 'required',
@@ -284,7 +295,7 @@ class ClientController extends Controller
 
         $messages = [
             'type_id.required'=>'กรุณาระบุชนิดของครุภัณฑ์คอมพิวเตอร์',
-            'sapid.regex'=>'กรุณาตรวจสอบรหัส SAP',
+            'sapid.required'=>'กรุณาตรวจสอบรหัส SAP',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้งเเครื่อง',
             'mobility_id.required'=>'กรุณาระบุลักษณะการใช้งาน',
             'function_id.required'=>'กรุณาระบุระบบงานของเครื่อง',
