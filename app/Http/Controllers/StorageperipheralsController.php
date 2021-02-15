@@ -36,6 +36,15 @@ class StorageperipheralsController extends Controller
             ['id' => '3', 'name' => 'SAS'],
         );
         $Mobility = Mobility::all();
+        $lastInternalSapId = Storageperipherals::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
+        if($lastInternalSapId == null)
+        {
+            $temp = 0;
+        }
+        else
+        {
+            $temp = $lastInternalSapId->sapid;
+        }
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addstorageperipherals
         return view('addstorageperipherals')->with([
@@ -48,6 +57,7 @@ class StorageperipheralsController extends Controller
             'owners'=>$Owners,
             'connectivities'=>$Connectivity,
             'mobiles'=>$Mobility,
+            'lastinternalsap'=>$temp,
         ]);
     }
 

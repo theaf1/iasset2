@@ -27,6 +27,15 @@ class NetworkdeviceController extends Controller
         $NetSubtypes = NetSubtype::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
+        $lastInternalSapId = Networkdevices::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
+        if($lastInternalSapId == null)
+        {
+            $temp = 0;
+        }
+        else
+        {
+            $temp = $lastInternalSapId->sapid;
+        }
 
         //ตัวแปรที่ส่งไปยังหน้า addnetworkdevices
 
@@ -37,6 +46,7 @@ class NetworkdeviceController extends Controller
             'netsubtypes'=>$NetSubtypes,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
+            'lastinternalsap'=>$temp,
         ]);
     }
 

@@ -39,6 +39,16 @@ class ServerController extends Controller
         $DataUnits = DataUnit::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
+        $lastInternalSapId = Servers::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
+        
+        if($lastInternalSapId == null)
+        {
+            $temp = 0;
+        }
+        else
+        {
+            $temp = $lastInternalSapId->sapid;
+        }
 
         //ตัวแปรที่ส่งไปยังหน้า addserver
         return view('addserver')->with([
@@ -53,6 +63,7 @@ class ServerController extends Controller
             'os_arches'=>$OsArches,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
+            'lastinternalsap'=>$temp,
         ]);
     }
 

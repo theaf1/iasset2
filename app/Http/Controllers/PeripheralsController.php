@@ -46,7 +46,15 @@ class PeripheralsController extends Controller
         );
         $Owners = Owner::all();
         $Mobility = Mobility::all();
-
+        $lastInternalSapId = Peripherals::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
+        if($lastInternalSapId == null)
+        {
+            $temp = 0;
+        }
+        else
+        {
+            $temp = $lastInternalSapId->sapid;
+        }
         //ตัวแปรที่ส่งกลับไปยังหน้า addperipherals
         return view('addperipherals')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -60,6 +68,7 @@ class PeripheralsController extends Controller
             'sharemethods'=>$ShareMethods,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
+            'lastinternalsap'=>$temp,
          
         ]);
     }
@@ -221,7 +230,7 @@ class PeripheralsController extends Controller
         //เงื่อนไข
         $rules = [
             'type_id'=>'required',
-            'sapid'=>'nullable',
+            'sapid'=>'required',
             'pid'=>'nullable',
             'location_id'=>'required',
             'mobility_id'=>'required',
@@ -247,6 +256,7 @@ class PeripheralsController extends Controller
         //ข้อความแสดงข้อผิดพลา่ด
         $messages =[
             'type_id.required'=>'โปรดระบุชนิดของครุภัณฑ์',
+            'sapid.required'=>'1',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้ง',
             'mobility_id.required'=>'กรุณาระบุลักษณะการติดตั้ง',
             'section_id.required'=>'กรุณาระบุหน่วยงาน',
