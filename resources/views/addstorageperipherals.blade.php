@@ -19,7 +19,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
                                     <label for="sapid">รหัส SAP</label>
-                                    <input type="text" class="form-control  @error('sapid') is-invalid @enderror" id="sapid" name="sapid" value="{{ old('sapid') }}">
+                                    <input type="text" class="form-control  @error('sapid') is-invalid @enderror" id="sapid" name="sapid" value="{{ old('sapid') }}"><button type="button" class="btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
                                     @error('sapid')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -411,6 +411,12 @@
         let displayCount = select.options[select.selectedIndex].value;
         document.getElementById("computer_form").action = `{{ url('/add-computer?displayCount=${displayCount}')}}`;
         document.getElementById("computer_form").submit();
+    }
+    function generateInternalSAP() {
+        var fixedpart = 'MED'
+        var runningpart = '123'
+        var internalsap = fixedpart + runningpart
+        document.getElementById("sapid").value = internalsap
     }
 </script>
 @endsection
