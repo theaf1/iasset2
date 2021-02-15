@@ -19,7 +19,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                             <div class="form-group">
                                 <label for="sapid">รหัส SAP</label>
-                                <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP" value="{{ old('sapid') }}" autofocus><button type="button" class="btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
+                                <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรุณาใส่รหัส SAP" value="{{ old('sapid') }}" autofocus><button type="button" class="btn btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
                                 @error('sapid')
                                 <div class="invalid-feedback">
                                     {{ $message }}
