@@ -29,6 +29,16 @@ class NetworkedstorageController extends Controller
         $Owners = Owner::all();
         $Storagetypes = Networkedstoragetype::all();
         $Mobility = Mobility::all();
+        $lastInternalSapId = NetworkedStorage::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
+
+        if($lastInternalSapId == null)
+        {
+            $temp = 0;
+        }
+        else
+        {
+            $temp = $lastInternalSapId->sapid;
+        }
 
         //ตัวแปรที่ส่งกลับไปยังหน้า addnetworkedstorage
         return view('addnetworkedstorage')->with([
@@ -39,6 +49,7 @@ class NetworkedstorageController extends Controller
             'owners'=>$Owners,
             'storagetypes'=>$Storagetypes,
             'mobiles'=>$Mobility,
+            'lastinternalsap'=>$temp,
 
         ]);
     }
@@ -161,7 +172,7 @@ class NetworkedstorageController extends Controller
     {
         //เงื่่อนไข
         $rules = [
-            'sapid' => 'nullable|regex:/^[0-9]{12}+$/',
+            'sapid' => 'required',
             'pid' =>'nullable',
             'location_id' => 'required',
             'section_id' => 'required',
@@ -187,7 +198,7 @@ class NetworkedstorageController extends Controller
 
         //ข้้อความแสดงข้อผิดพลาด
         $messages = [
-            'sapid.regex' => 'กรุณาใส่รหัส SAP ให้ถูกต้อง',
+            'sapid.required' => 'กรุณาใส่รหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'section.required' => 'กรุณาเลือกหน่วยงาน',
             'response_person.required' => 'กรุณาระบุผู้รับผิดชอบ',

@@ -39,6 +39,16 @@ class UpsController extends Controller
             ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
         );
         $Mobility = Mobility::all();
+        $lastInternalSapId = Upses::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
+        
+        if($lastInternalSapId == null)
+        {
+            $temp = 0;
+        }
+        else
+        {
+            $temp = $lastInternalSapId->sapid;
+        }
 
         //ตัวแปรที่ส่งไปยังหน้า addups
         return view('addups')->with([
@@ -52,6 +62,7 @@ class UpsController extends Controller
             'bat_types'=>$Bat_type,
             'exbats'=>$ExBat,
             'mobiles'=>$Mobility,
+            'lastinternalsap'=>$temp,
         ]);
     }
 
@@ -193,7 +204,7 @@ class UpsController extends Controller
     {
         //เงื่อนไข
         $rules = [
-            'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
+            'sapid'=>'required',
             'pid'=>'nullable',
             'location_id' => 'required',
             'response_person' => 'required',
@@ -213,7 +224,7 @@ class UpsController extends Controller
 
         //ข้อความแสดงข้อผิดพลาด
         $messages = [
-            'sapid.regex' => 'กรุณากรอกรหัส SAP ให้ถูกต้อง (เลข 12 หลัก)',
+            'sapid.regex' => 'กรุณากรอกรหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
             'section_id.required' => 'กรุณาเลือกสาขา',

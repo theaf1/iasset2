@@ -14,6 +14,7 @@
                     <h4>ข้อมูลครุภัณฑ์พี้นฐาน</h4>
                 </div>
                 <div class="card-body">
+                    <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
@@ -378,10 +379,17 @@
         }
     });
     function generateInternalSAP() {
-        var fixedpart = 'MED'
-        var runningpart = '123'
-        var internalsap = fixedpart + runningpart
-        document.getElementById("sapid").value = internalsap
+        var lastsap = document.getElementById("last_sap").value
+        if(lastsap == 0)
+        {
+            document.getElementById("sapid").value = 'MED-001'
+            return true
+        }
+        var splitsap = lastsap.split("-")
+        console.log(splitsap)
+        
+        internalsap = parseInt(splitsap[1])+1
+        document.getElementById("sapid").value = 'MED-'+internalsap
     }
 
 </script>
