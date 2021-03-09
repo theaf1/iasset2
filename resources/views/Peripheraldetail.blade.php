@@ -2,7 +2,6 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-        <h3 class="mt-4">รายละเอียด {{$peripheral->peripheraltype->name}} หมายเลข {{$peripheral['id'] }}</h3>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
                     <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
@@ -68,6 +67,75 @@
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
                                 <p>ตำแหน่ง: {{$peripheral->PeripheralPosition->name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>หมายเลขโทรศัพท์ {{$peripheral['tel_no']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="form-group">
+                                <p>สถานะของครุภัณฑ์: {{$peripheral->PeripheralAssetStatus->name}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="form-group">
+                                <p>สถานะการใช้งานครุภัณฑ์: {{$peripheral->PeripheralAssetUseStatus->name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header card-background text-white">
+                    <h4>รายละเอียดครุภัณฑ์</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>ชนิด: {{$peripheral->peripheraltype->name}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="form-group">
+                                <p>ยี่ห้อ: {{$peripheral['brand']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="form-group">
+                                <p>รุ่น: {{$peripheral['model']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>Serial Number: {{$peripheral['serial_no']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header card-background text-white">
+                    <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>หมายเหตุ:</p>
+                                <p>{{$peripheral['remarks']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>ปัญหาในการใช้งาน:</p>
+                                <p>{{$peripheral['issues']}}</p>
                             </div>
                         </div>
                     </div>
