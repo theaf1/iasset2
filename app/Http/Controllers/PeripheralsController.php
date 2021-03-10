@@ -12,6 +12,8 @@ use App\Multiuser;
 use App\Position;
 use App\Owner;
 use App\Mobility;
+use App\PeripheralConnect;
+use App\PeripheralSupply;
 
 class PeripheralsController extends Controller
 {
@@ -30,16 +32,8 @@ class PeripheralsController extends Controller
         $Peripheraltypes = Peripheraltype::all();
         $Positions = Position::all();
         $Multiusers = Multiuser::all();
-        $Supplies = array(
-            ['id'=>'1', 'name'=>'เบิกได้'],
-            ['id'=>'2', 'name'=>'เบิกไม่ได้'],
-            ['id'=>'3', 'name'=>'ไม่จำเป็น'],
-        );
-        $PeripheralConnections = array(
-            ['id'=>'1', 'name'=>'USB'],
-            ['id'=>'2', 'name'=>'Paralell port'],
-            ['id'=>'3', 'name'=>'LAN'],
-        );
+        $Supplies = PeripheralSupply::all();
+        $PeripheralConnections = PeripheralConnect::all();
         $ShareMethods = array(
             ['id'=>'1', 'name'=>'OS share'],
             ['id'=>'2', 'name'=>'network share'],
@@ -164,16 +158,8 @@ class PeripheralsController extends Controller
         $Peripheraltypes = Peripheraltype::all();
         $Multiusers = Multiuser::all();
         $Positions = Position::all();
-        $Supplies = array(
-            ['id'=>'1', 'name'=>'เบิกได้'],
-            ['id'=>'2', 'name'=>'เบิกไม่ได้'],
-            ['id'=>'3', 'name'=>'ไม่จำเป็น'],
-        );
-        $PeripheralConnections = array(
-            ['id'=>'1', 'name'=>'USB'],
-            ['id'=>'2', 'name'=>'Paralell port'],
-            ['id'=>'3', 'name'=>'LAN'],
-        );
+        $Supplies = PeripheralSupply::all();
+        $PeripheralConnections = PeripheralConnect::all();
         $ShareMethods = array(
             ['id'=>'1', 'name'=>'OS share'],
             ['id'=>'2', 'name'=>'network share'],
@@ -245,8 +231,8 @@ class PeripheralsController extends Controller
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
-            'supply_consumables'=>'required',
-            'connectivity'=>'required',
+            'supply_consumables_id'=>'required',
+            'connectivity_id'=>'required',
             'ip_address'=>'ipv4',
             'ip_address'=>'required_if:connectivity,3',
             'share_name'=>'required_if:is_shared,1',

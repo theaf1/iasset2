@@ -25,8 +25,8 @@ $factory->define(Peripherals::class, function (Faker $faker) {
         'brand' => 'BRAND', //ยี่ห้อ
         'model' => 'MODEL', //รุ่น
         'serial_no' => $faker->bothify('test-####'),//หมายเลขประจำเครื่อง
-        'supply_consumables' => 1, //วัสดุสึกหรอสิ้นเปลือง
-        'connectivity' => 1, //การเชื่อมต่อ
+        'supply_consumables_id' => 1, //วัสดุสึกหรอสิ้นเปลือง
+        'connectivity_id' => 1, //การเชื่อมต่อ
         'ip_address'=> $faker->localIpv4, //IP Address
         'lan_outlet_no' => 'UX-XXXX', //จุด LAN
         'is_shared' => $faker->boolean, //ใช้งานร่วมกัน

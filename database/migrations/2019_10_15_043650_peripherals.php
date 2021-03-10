@@ -33,8 +33,8 @@ class Peripherals extends Migration
             $table->string('brand'); //ยี่ห้อ
             $table->string('model'); //รุ่น
             $table->string('serial_no'); //serial number จากผู้ผลิต
-            $table->integer('supply_consumables'); //วัสดุสึกหรอสิ้นเปลือง
-            $table->integer('connectivity'); //วิธีการเชื่อมต่อ
+            $table->integer('supply_consumables_id'); //วัสดุสึกหรอสิ้นเปลือง
+            $table->integer('connectivity_id'); //วิธีการเชื่อมต่อ
             $table->ipAddress('ip_address')->nullable(); //ip address
             $table->string('lan_outlet_no')->nullable(); //หมายเลขจุด LAN
             $table->boolean('is_shared')->default(0); //ใช้งานร่วมกัน

@@ -262,7 +262,7 @@
                                 <label for="supply_consumables">สามารถเบิกวัสดุสึกหรอสิ้นเปลืองได้</label>
                                 <div class="form-check">
                                     @foreach($supplies as $supply)
-                                        <input class="form-check-input @error('supply_consumables') is-invalid @enderror" type="radio" name="supply_consumables" id="suppy_consumables" value="{{ $supply['id'] }}" {{ old('supply_consumables') == $supply['id'] && old('supply_consumables') !== null ? 'checked' : '' }}>
+                                        <input class="form-check-input @error('supply_consumables_id') is-invalid @enderror" type="radio" name="supply_consumables_id" id="suppy_consumables" value="{{ $supply['id'] }}" {{ old('supply_consumables_id') == $supply['id'] && old('supply_consumables_id') !== null ? 'checked' : '' }}>
                                         <label class="form-check-label" for="supply_consumables">{{ $supply['name'] }}</label><br>
                                     @endforeach
                                     @error('supply_consumables')
@@ -278,13 +278,13 @@
                         <div class="col-sm-12 col-lg-6"> <!--วิธีการเชื่อมต่อ-->
                             <div class="form-group">
                                 <label for="asset_use_status">วิธีการเชื่อมต่อ</label>
-                                <select class="form-control @error('connectivity') is-invalid @enderror" name="connectivity" id="connectivity">
+                                <select class="form-control @error('connectivity_id') is-invalid @enderror" name="connectivity_id" id="connectivity">
                                     <option value="" hidden selected></option>
                                     @foreach ($peripheralconnections as $peripheralconnection)
-                                        <option value="{{ $peripheralconnection['id'] }}"{{ old('connectivity') == $peripheralconnection['id'] ? 'selected' : ''}}>{{ $peripheralconnection['name'] }}</option>
+                                        <option value="{{ $peripheralconnection['id'] }}"{{ old('connectivity_id') == $peripheralconnection['id'] ? 'selected' : ''}}>{{ $peripheralconnection['name'] }}</option>
                                     @endforeach
                                 </select>
-                                @error('connectivity')
+                                @error('connectivity_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
