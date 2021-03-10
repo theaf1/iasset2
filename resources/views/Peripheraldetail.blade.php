@@ -117,6 +117,40 @@
                                 <p>Serial Number: {{$peripheral['serial_no']}}</p>
                             </div>
                         </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>{{$peripheral['supply_consumables']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>วิธีการเชื่อมต่อ: {{$peripheral['connectivity']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <p>IP address: {{$peripheral['ip_address']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm12 col-lg-6">
+                            <div class="form-group">
+                                <p>LAN outlet: {{$peripheral['lan_outlet_no']}}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm12 col-lg-6">
+                            <div class="form-group">
+                                <p>{{$peripheral['is_shared'] == 1 ? 'เป็น' : 'ไม่เป็น'}}เครื่องใช้งานร่วมกัน ด้วยวิธีการ {{$peripheral['share_method'] == 2 ? 'Network Share' : 'OS Share'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6">
+                            <p>share name: {{$peripheral['share_name']}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -140,6 +174,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{url('/peripheral')}}" class="btn btn-primary btn-lg btn-block" role="button">ย้อนกลับ</a>
             </div>
         </div>
     </div>
