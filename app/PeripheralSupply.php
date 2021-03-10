@@ -12,6 +12,6 @@ class PeripheralSupply extends Model
     ];
     public function SupplyPeripheral ()
     {
-        return $this->hasMany(Peripheral::class);
+        return $this->hasMany(Peripheral::class,'supply_consumables_id');
     }
 }

@@ -12,6 +12,6 @@ class PeripheralConnect extends Model
     ];
     public function ConnectPeripheral ()
     {
-        return $this->hasMany(Peripherals::class);
+        return $this->hasMany(Peripherals::class,'connectivity_id');
     }
 }
