@@ -119,14 +119,14 @@
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>{{$peripheral['supply_consumables']}}</p>
+                                <p>{{$peripheral->PeripheralSupply->name}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>วิธีการเชื่อมต่อ: {{$peripheral['connectivity']}}</p>
+                                <p>วิธีการเชื่อมต่อ: {{$peripheral->PeripheralConnect->name}}</p>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6">
