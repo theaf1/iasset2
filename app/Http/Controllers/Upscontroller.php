@@ -12,6 +12,7 @@ use App\Upses;
 use App\Upsbatterytype;
 use App\Formfactor;
 use App\Topology;
+use Carbon\Carbon;
 
 class UpsController extends Controller
 {
@@ -21,6 +22,52 @@ class UpsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+    
+        //รายการตัวแปรที่ใช้ในการแสดงบัญชีเครื่องสำรองไฟฟ้า
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $Owners = Owner::all();
+        $Forms = Formfactor::all();
+        $Topos = Topology::all();
+        $Modular = array(
+            ['id'=>'1', 'value'=>'0', 'name'=>'ไม่ได้'],
+            ['id'=>'2', 'value'=>'1', 'name'=>'ได้'],
+        );
+        $Bat_type = Upsbatterytype::all();
+        $ExBat = array(
+            ['id'=>'1', 'value'=>'0', 'name'=>'ไม่มี'],
+            ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
+        );
+        $Mobility = Mobility::all();
+        $Upses = Upses::paginate(2);
+        foreach ($Upses as $Ups) //เปลี่ยนวันที่แก้ไขข้อมูลใหัอยู่ในรูปแบบ ว-ด-ป
+        {
+            $Ups->update_date = $Ups->updated_at->format('d-m-Y');
+        }
+
+        return view('UpsIndex')->with([
+            'upses'=>$Upses,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'owners'=>$Owners,
+            'forms'=>$Forms,
+            'topos'=>$Topos,
+            'modulars'=>$Modular,
+            'bat_types'=>$Bat_type,
+            'exbats'=>$ExBat,
+            'mobiles'=>$Mobility,
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         //ตัวแปรที่ใช้ในการสร้างข้อมูลเครื่องสำรองไฟฟ้า
         $Asset_statuses = Asset_statuses::all();
@@ -40,7 +87,7 @@ class UpsController extends Controller
         );
         $Mobility = Mobility::all();
         $lastInternalSapId = Upses::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
-        
+         
         if($lastInternalSapId == null)
         {
             $temp = 0;
@@ -49,7 +96,7 @@ class UpsController extends Controller
         {
             $temp = $lastInternalSapId->sapid;
         }
-
+ 
         //ตัวแปรที่ส่งไปยังหน้า addups
         return view('addups')->with([
             'asset_statuses'=>$Asset_statuses,
@@ -64,16 +111,6 @@ class UpsController extends Controller
             'mobiles'=>$Mobility,
             'lastinternalsap'=>$temp,
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**

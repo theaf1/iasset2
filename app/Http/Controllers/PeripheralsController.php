@@ -14,6 +14,7 @@ use App\Owner;
 use App\Mobility;
 use App\PeripheralConnect;
 use App\PeripheralSupply;
+use Carbon\Carbon;
 
 class PeripheralsController extends Controller
 {
@@ -24,6 +25,56 @@ class PeripheralsController extends Controller
      */
     //ประกาศตัวแปรที่ใช้ใน controller
     public function index()
+    {
+        //กำหนดตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณต่อพ่วง
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $Peripheraltypes = Peripheraltype::all();
+        $Supplies = array(
+            ['id'=>'1', 'name'=>'เบิกได้'],
+            ['id'=>'2', 'name'=>'เบิกไม่ได้'],
+            ['id'=>'3', 'name'=>'ไม่จำเป็น'],
+        );
+        $PeripheralConnections = array(
+            ['id'=>'1', 'name'=>'USB'],
+            ['id'=>'2', 'name'=>'Paralell port'],
+            ['id'=>'3', 'name'=>'LAN'],
+        );
+        $ShareMethods = array(
+            ['id'=>'1', 'name'=>'OS share'],
+            ['id'=>'2', 'name'=>'network share'],
+        );
+        $Owners = Owner::all();
+        $Mobility = Mobility::all();
+        $peripherals = Peripherals::all();
+        foreach ($peripherals as $peripheral) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
+        {
+            $peripheral->update_date = $peripheral->updated_at->format('d-m-Y');
+        }
+
+        //ตัวแปรที่ส่งกลับไปยังหน้า PeripheralsIndex
+        return view('PeripheralsIndex')->with([
+            'peripherals'=>$peripherals,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'peripheraltypes'=>$Peripheraltypes,
+            'supplies'=>$Supplies,
+            'peripheralconnections'=>$PeripheralConnections,
+            'sharemethods'=>$ShareMethods,
+            'owners'=>$Owners,
+            'mobiles'=>$Mobility,
+         
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         //กำหนดตัวแปรที่ใช้ใน การสร้างข้อมูลอุปกรณ์ต่อพ่วง
         $Asset_statuses = Asset_statuses::all();
@@ -65,16 +116,6 @@ class PeripheralsController extends Controller
             'lastinternalsap'=>$temp,
          
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**

@@ -21,6 +21,38 @@ class NetworkdeviceController extends Controller
     //ประกาศตัวแปรที่ใช้ใน controller
     public function index()
     {
+        //กำหนดตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณ์เครือข่าย
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $NetSubtypes = NetSubtype::all();
+        $Owners = Owner::all();
+        $Mobility = Mobility::all();
+        $Networkdevices = Networkdevices::paginate(2);
+        foreach ($Networkdevices as $Networkdevice) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
+        {
+            $Networkdevice->update_date = $Networkdevice->updated_at->format('d-m-Y');
+        }
+        //ตัวแปรที่ส่งไปยังหน้า NetworkdeviceIndex
+
+        return view('NetworkdeviceIndex')->with([
+            'networkdevices'=>$Networkdevices,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'netsubtypes'=>$NetSubtypes,
+            'owners'=>$Owners,
+            'mobiles'=>$Mobility,
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
@@ -48,16 +80,6 @@ class NetworkdeviceController extends Controller
             'mobiles'=>$Mobility,
             'lastinternalsap'=>$temp,
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**

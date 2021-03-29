@@ -27,6 +27,46 @@ class ServerController extends Controller
     //ประกาศตัวแปรที่ใช้ใน controller
     public function index()
     {
+        //ตัวแปรที่ใช้ในการแสดงบัญชีคอมพิวเตอร์แม่ข่าย
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $ServerOSes = ServerOp::all();
+        $ServerRoleClass = ServerRoleclass::all();
+        $NetworkConnections = NetworkConnection::all();
+        $Forms = Formfactor::all();
+        $DataUnits = DataUnit::all();
+        $Owners = Owner::all();
+        $Mobility = Mobility::all();
+        $Servers = Servers::paginate(2);
+        foreach ($Servers as $Server) //แปลงรูปแแบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
+        {
+            $Server->update_date = $Server->updated_at->format('d-m-Y');
+        }
+
+        //ตัวแปรที่ส่งไปยังหน้า ServerIndex
+        return view('ServerIndex')->with([
+            'servers'=>$Servers,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'server_oses'=>$ServerOSes,
+            'server_role_classes'=>$ServerRoleClass,
+            'network_connections'=>$NetworkConnections,
+            'forms'=>$Forms,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'mobiles'=>$Mobility,
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         //ตัวแปรที่ใช้ในการสร้างข้อมูลคอมพิวเตอร์แม่ข่าย
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
@@ -65,16 +105,6 @@ class ServerController extends Controller
             'mobiles'=>$Mobility,
             'lastinternalsap'=>$temp,
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**

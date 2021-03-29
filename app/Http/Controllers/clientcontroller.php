@@ -15,6 +15,7 @@ use App\Owner;
 use App\Mobility;
 use App\Position;
 use App\OsArch;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -26,6 +27,51 @@ class ClientController extends Controller
      */
     //ประกาศตัวแปรที่่ใช้ใน controller
     public function index()
+    {
+        $Clients = Client::all();
+        foreach ($Clients as $Client) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้อยู่ในรูปแบบ ว-ด-ป
+        {
+            $Client->update_date = $Client->updated_at->format('d-m-Y');
+        }
+        $Clienttypes =Clienttype::all();
+        //$Displays = Display::all();
+        $Mobility = Mobility::all();
+        $Sections = Section::all();
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Owners = Owner::all();
+        $Networkconnections = NetworkConnection::all();
+        $Positions = array(
+            ['id'=>'1','name'=>'แพทย์'],
+            ['id'=>'2','name'=>'พยาบาล'],
+            ['id'=>'3','name'=>'เจ้าหน้าที่'],
+        );
+        $DataUnits = array(
+            ['id'=>'1', 'name'=>'GB'],
+            ['id'=>'2', 'name'=>'TB'],
+        );
+        //ตัวแปรที่ส่งไปยังหน้า clientindex
+        return view('clientindex')->with([
+            'clients'=>$Clients,
+            //'displays'=>$Displays,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'clienttypes'=>$Clienttypes,
+            //'networkconnections'=>$NetworkConnections,
+            'positions'=>$Positions,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'mobiles'=>$Mobility,
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
@@ -67,16 +113,6 @@ class ClientController extends Controller
             'mobiles'=>$Mobility,
             'lastinternalsap'=>$temp,
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**

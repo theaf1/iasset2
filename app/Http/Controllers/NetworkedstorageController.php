@@ -11,6 +11,7 @@ use App\Owner;
 use App\Mobility;
 use App\DataUnit;
 use App\Networkedstoragetype;
+use Carbon\Carbon;
 
 class NetworkedstorageController extends Controller
 {
@@ -21,6 +22,41 @@ class NetworkedstorageController extends Controller
      */
     //ประกาศตัวแปรที่ใช้ใน controller
     public function index()
+    {
+        //กำหนดค่าตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณ์เก็บข้อมูลเครือข่าย
+        $Asset_statuses = Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $DataUnits = DataUnit::all();
+        $Owners = Owner::all();
+        $Storagetypes = Networkedstoragetype::all();
+        $Mobility = Mobility::all();
+        $Networkedstorages = NetworkedStorage::paginate(2);
+        foreach ($Networkedstorages as $Networkedstorage) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป 
+        {
+            $Networkedstorage->update_date = $Networkedstorage->updated_at->format('d-m-Y');
+        }
+
+        //ตัวแปรที่ส่งกลับไปยังหน้า NetworkedstorageIndex
+        return view('NetworkedstorageIndex')->with([
+            'networkedstorages'=>$Networkedstorages,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'storagetypes'=>$Storagetypes,
+            'mobiles'=>$Mobility,
+
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
@@ -52,16 +88,6 @@ class NetworkedstorageController extends Controller
             'lastinternalsap'=>$temp,
 
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**

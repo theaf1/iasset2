@@ -12,6 +12,7 @@ use App\Storageperipherals;
 use App\Owner;
 use App\Mobility;
 use App\DataUnit;
+use Carbon\Carbon;
 
 class StorageperipheralsController extends Controller
 {
@@ -22,6 +23,47 @@ class StorageperipheralsController extends Controller
      */
     //ประกาศตัวแปรที่ใช้ในการสร้างข้อมูลอุปกรณต่อพ่วงเก็บข้อมูล
     public function index()
+    {
+        //ตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณต่อพ่วงเก็บข้อมูล
+        $Asset_statuses=Asset_statuses::all();
+        $Asset_use_statuses = Asset_use_statuses::all();
+        $Sections = Section::all();
+        $DataUnits = array(
+            ['id' => '1', 'name' => 'GB'],
+            ['id' => '2', 'name' => 'TB'],
+        );
+        $Owners= Owner::all();
+        $Connectivity = array(
+            ['id' => '1', 'name' => 'USB'],
+            ['id' => '2', 'name' => 'eSATA'],
+            ['id' => '3', 'name' => 'SAS'],
+        );
+        $Mobility = Mobility::all();
+        $storageperipherals = Storageperipherals::all();
+        foreach ($storageperipherals as $storageperipheral) //เปลี่ยนวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป 
+        {
+            $storageperipheral->update_date = $storageperipheral->updated_at->format('d-m-Y');
+        }
+
+        //ตัวแปรที่ส่งกลับไปยังหน้า StorageperipheralsIndex
+        return view('StorageperipheralsIndex')->with([
+            'storageperipherals'=>$storageperipherals,
+            'asset_statuses'=>$Asset_statuses,
+            'asset_use_statuses'=>$Asset_use_statuses,
+            'sections'=>$Sections,
+            'dataunits'=>$DataUnits,
+            'owners'=>$Owners,
+            'connectivities'=>$Connectivity,
+            'mobiles'=>$Mobility,
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         $Asset_statuses=Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
@@ -59,16 +101,6 @@ class StorageperipheralsController extends Controller
             'mobiles'=>$Mobility,
             'lastinternalsap'=>$temp,
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**

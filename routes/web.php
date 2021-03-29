@@ -27,51 +27,52 @@ Route::get('/rooms', function() {
 //database operations
 Route::post('/store', 'SectionController@store');
 
-Route::get('/computer', 'ClientController@index');
+Route::get('/computer', 'ClientController@create');
 Route::post('/add-computer', 'ClientController@store');
-Route::get('/client', 'ClientIndexController@index');
+Route::get('/client', 'ClientController@index');
 Route::get('/client/{id}','ClientController@edit');
 Route::put('/client/{id}/update','ClientController@update');
 route::get('client/show/{id}','ClientController@show');
 
 
-Route::get('/peripherals','PeripheralsController@index');
+Route::get('/peripherals','PeripheralsController@create');
 Route::post('/add-peripheral','PeripheralsController@store');
-Route::get('/peripheral', 'PeripheralsIndexController@index');
+Route::get('/peripheral', 'PeripheralsController@index');
 Route::get('/peripheral/show/{id}', 'PeripheralsController@show');
 Route::get('/peripheral/{id}', 'PeripheralsController@edit');
 Route::put('peripheral/{id}', 'PeripheralsController@update');
 
-Route::get('/storage', 'StorageperipheralsController@index');
+Route::get('/storage', 'StorageperipheralsController@create');
 Route::post('/add-sp','StorageperipheralsController@store');
-Route::get('/storageperipheral', 'StorageperipheralsIndexController@index');
+Route::get('/storageperipheral', 'StorageperipheralsController@index');
 Route::get('/storageperipheral/show/{id}','StorageperipheralsController@show');
 Route::get('/storageperipheral/{id}', 'StorageperipheralsController@edit');
 Route::put('/storageperipheral/{id}', 'StorageperipheralsController@update');
 
-Route::get('/network', 'NetworkdeviceController@index');
+Route::get('/network', 'NetworkdeviceController@create');
 Route::post('/add-networkdev','Networkdevicecontroller@store');
-Route::get('/networkdevices', 'NetworkdeviceIndexController@index');
+Route::get('/networkdevices', 'NetworkdeviceController@index');
 Route::get('/networkdevices/show/{id}', 'Networkdevicecontroller@show');
 Route::get('/networkdevices/{id}', 'NetworkdeviceController@edit');
 Route::put('/networkdevices/{id}', 'NetworkdeviceController@update');
 
-Route::get('/ups', 'UpsController@index');
+Route::get('/ups', 'UpsController@create');
 Route::post('/add-ups',"UpsController@store");
-Route::get('/upses', 'UpsIndexController@index');
+Route::get('/upses', 'UpsController@index');
+Route::get('/ups/show/{id}','UpsController@show');
 Route::get('/ups/{id}', 'Upscontroller@edit');
 Route::put('/ups/{id}', 'Upscontroller@update');
 
-Route::get('/ns', 'NetworkedstorageController@index');
+Route::get('/ns', 'NetworkedstorageController@create');
 Route::post('/add-ns','NetworkedstorageController@store');
-Route::get('/networkedstorage', 'NetworkedstorageIndexController@index');
+Route::get('/networkedstorage', 'NetworkedstorageController@index');
 Route::get('/networkedstorage/show/{id}','Networkedstoragecontroller@show');
 Route::get('/networkedstorage/{id}', 'Networkedstoragecontroller@edit');
 Route::put('/networkedstorage/{id}', 'Networkedstoragecontroller@update');
 
-Route::get('/server','ServerController@index');
+Route::get('/server','ServerController@create');
 Route::post('/add-server','ServerController@store');
-Route::get('/servers', 'ServerIndexController@index');
+Route::get('/servers', 'ServerController@index');
 Route::get('/server/show/{id}','ServerController@show');
 Route::get('/server/{id}', 'ServerController@edit');
 Route::put('/server/{id}/update', 'ServerController@update');
@@ -83,8 +84,8 @@ Route::get('/search-query', 'IndexController@search');
 //     return 'null';
 // });
 //Route::post('/client/filter','ClientIndexController@show');
-Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
-Route::get('/ups/show/{id}','UpsController@show');
+//Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
+
 
 Route::get('/','IndexController@index');
 Route::get('/reports','ReportController@index');
