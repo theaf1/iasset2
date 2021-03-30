@@ -46,7 +46,7 @@ class IndexController extends Controller
                 ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
             ],
             'rooms'=>Room::all(),
-            'results'=>$this->searchEquipment(request()->search_class,request()->search_column),
+            'results'=>$this->searchEquipment(request()->search_class,request()->search_column), //ส่งคำสำคัญไปค้นหาในฐานข้อมูลด้วย function searchEquipment
         ]);
     }
 
