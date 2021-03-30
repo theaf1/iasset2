@@ -79,7 +79,7 @@ Route::put('/server/{id}/update', 'ServerController@update');
 //under development
 Route::get('/admin', 'SectionController@index');
 //Route::get('/search', 'SearchController@index');
-Route::get('/search-query', 'IndexController@search');
+//Route::get('/search-query', 'IndexController@search');
 // Route::post('/search-query', function () {
 //     return 'null';
 // });
@@ -89,6 +89,7 @@ Route::get('/search-query', 'IndexController@search');
 
 Route::get('/','IndexController@index');
 Route::get('/reports','ReportController@index');
+Route::post('/create-report','ReportController@search'); 
 // route to  test views
 //Route::get('/reports', function () {
 //    return view('reports');
