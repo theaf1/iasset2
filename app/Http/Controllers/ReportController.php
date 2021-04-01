@@ -105,8 +105,38 @@ class ReportController extends Controller
             $Networkdevice_Results = Networkdevices::all()->count();
             $Networkedstorage_Results = Networkedstorage::all()->count();
             $Upses_Results = Upses::all()->count();
-            $Now = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_ex = explode(' ', $Now_eng);
+            $Year_th = (int)$Now_ex[2]+543;
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+             
             return view('total_report')->with([
+                'client'=>$Client_Results,
+                'peripherals'=>$Peripherals_Results,
+                'storageperipheral'=>$Storageperipherals_Results,
+                'servers'=>$Servers_Results,
+                'networkdevices'=>$Networkdevice_Results,
+                'networkedstorage'=>$Networkedstorage_Results,
+                'upses'=>$Upses_Results,
+                'now'=>$Now,
+            ]);
+        }
+        if($request->report_id ==2)
+        {
+            $Client_Results = Client::where('section_id',$request->report_section)->count();
+            $Peripherals_Results = Peripherals::where('section_id',$request->report_section)->count();
+            $Storageperipherals_Results = Storageperipherals::where('section_id',$request->report_section)->count();
+            $Servers_Results = Servers::where('section_id',$request->report_section)->count();
+            $Networkdevice_Results = Networkdevices::where('section_id',$request->report_section)->count();
+            $Networkedstorage_Results = Networkedstorage::where('section_id',$request->report_section)->count();
+            $Upses_Results = Upses::where('section_id',$request->report_section)->count();
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_ex = explode(' ', $Now_eng);
+            $Year_th = (int)$Now_ex[2]+543;
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            $Section = Section::where('id',$request->report_section)->get();
+            return view('section_report')->with([
+                'section'=>$Section,
                 'client'=>$Client_Results,
                 'peripherals'=>$Peripherals_Results,
                 'storageperipheral'=>$Storageperipherals_Results,
