@@ -69,5 +69,4 @@
 
     @endif
 </script>
-{{-- <br> --}}
 @endsection
