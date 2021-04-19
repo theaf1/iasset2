@@ -147,6 +147,10 @@ class ReportController extends Controller
                 'now'=>$Now,
             ]);
         }
+        if ($request->report_id ==3)
+        {
+            return 'test';
+        }
 
         
     }
