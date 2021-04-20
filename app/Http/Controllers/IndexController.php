@@ -194,15 +194,14 @@ class IndexController extends Controller
                 'results'=>$Results,
             ]);
         }
-        // return view('results')->with([
-        //     'results'=>$Results,
-        // ]);
     }
-    protected function searchEquipment($class, $column)
+    protected function searchEquipment($class, $column) //function ทำการค้นหาข้อมูล
     {
+        //ถ้า ค่า class และ column เป็น null ให้ตีกลับไปด้วยค่า null
         if (! $class || ! $column){
             return null;
         }
+        //กำหนดค่าตัวแปร equipmentsClass
         $equipmentsClass = [
             '',
             '\App\client',
@@ -214,11 +213,11 @@ class IndexController extends Controller
             '\App\Networkdevices',
             '\App\Upses',
         ];
-        $modelClass = $equipmentsClass[$class];
+        $modelClass = $equipmentsClass[$class]; //
         return $modelClass::select('id', 'sapid','pid')
             ->where('location_id', $column)
             ->paginate(5)
-            ->withQueryString(['search_class'=>$class, 'search_column'=>$column]);
+            ->withQueryString(['search_class'=>$class, 'search_column'=>$column]); //ทำการค้นหาข้อมูลและตัดแบ่งหน้า 
     }
     private function validateQuery($data) //ตรวจสอบคำค้นหา
     {
