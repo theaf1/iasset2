@@ -44,7 +44,11 @@ class UpsController extends Controller
         $Upses = Upses::paginate(2);
         foreach ($Upses as $Ups) //เปลี่ยนวันที่แก้ไขข้อมูลใหัอยู่ในรูปแบบ ว-ด-ป
         {
-            $Ups->update_date = $Ups->updated_at->format('d-m-Y');
+            $ups_upd_eng = $Ups->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $ups_upd_ex = explode(' ', $ups_upd_eng);
+            $ups_upd_year_th = (int)$ups_upd_ex[2]+543;
+            $ups_upd_year = $ups_upd_ex[0].' '.$ups_upd_ex[1].' '.$ups_upd_year_th;
+            $Ups->update_date = $ups_upd_year;
         }
 
         return view('UpsIndex')->with([
