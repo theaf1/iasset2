@@ -45,15 +45,8 @@ class ClientController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Owners = Owner::all();
         $Networkconnections = NetworkConnection::all();
-        $Positions = array(
-            ['id'=>'1','name'=>'แพทย์'],
-            ['id'=>'2','name'=>'พยาบาล'],
-            ['id'=>'3','name'=>'เจ้าหน้าที่'],
-        );
-        $DataUnits = array(
-            ['id'=>'1', 'name'=>'GB'],
-            ['id'=>'2', 'name'=>'TB'],
-        );
+        $Positions = Position::all();
+        $DataUnits = DataUnit::all();
         //ตัวแปรที่ส่งไปยังหน้า clientindex
         return view('clientindex')->with([
             'clients'=>$Clients,
