@@ -50,7 +50,11 @@ class PeripheralsController extends Controller
         $peripherals = Peripherals::all();
         foreach ($peripherals as $peripheral) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
         {
-            $peripheral->update_date = $peripheral->updated_at->format('d-m-Y');
+            $peripheral_upd_eng = $peripheral->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $peripheral_upd_ex = explode(' ', $peripheral_upd_eng);
+            $peripheral_upd_year_th = (int)$peripheral_upd_ex[2]+543;
+            $peripheral_upd_year = $peripheral_upd_ex[0].' '.$peripheral_upd_ex[1].' '.$peripheral_upd_year_th;
+            $peripheral->update_date = $peripheral_upd_year;
         }
 
         //ตัวแปรที่ส่งกลับไปยังหน้า PeripheralsIndex

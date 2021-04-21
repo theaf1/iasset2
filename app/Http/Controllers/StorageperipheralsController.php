@@ -42,7 +42,11 @@ class StorageperipheralsController extends Controller
         $storageperipherals = Storageperipherals::all();
         foreach ($storageperipherals as $storageperipheral) //เปลี่ยนวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป 
         {
-            $storageperipheral->update_date = $storageperipheral->updated_at->format('d-m-Y');
+            $storageperipheral_upd_eng = $storageperipheral->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $storageperipheral_upd_ex = explode(' ', $storageperipheral_upd_eng);
+            $storageperipheral_upd_year_th = (int)$storageperipheral_upd_ex[2]+543;
+            $storageperipheral_upd_year = $storageperipheral_upd_ex[0].' '.$storageperipheral_upd_ex[1].' '.$storageperipheral_upd_year_th;
+            $storageperipheral->update_date = $storageperipheral_upd_year;
         }
 
         //ตัวแปรที่ส่งกลับไปยังหน้า StorageperipheralsIndex

@@ -31,7 +31,11 @@ class NetworkdeviceController extends Controller
         $Networkdevices = Networkdevices::paginate(2);
         foreach ($Networkdevices as $Networkdevice) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
         {
-            $Networkdevice->update_date = $Networkdevice->updated_at->format('d-m-Y');
+            $Networkdevice_upd_eng = $Networkdevice->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Networkdevice_upd_ex = explode(' ', $Networkdevice_upd_eng);
+            $Networkdevice_upd_year_th = (int)$Networkdevice_upd_ex[2]+543;
+            $Networkdevice_upd_year = $Networkdevice_upd_ex[0].' '.$Networkdevice_upd_ex[1].' '.$Networkdevice_upd_year_th;
+            $Networkdevice->update_date = $Networkdevice_upd_year;
         }
         //ตัวแปรที่ส่งไปยังหน้า NetworkdeviceIndex
 
