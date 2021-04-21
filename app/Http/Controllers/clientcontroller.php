@@ -31,7 +31,11 @@ class ClientController extends Controller
         $Clients = Client::all();
         foreach ($Clients as $Client) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้อยู่ในรูปแบบ ว-ด-ป
         {
-            $Client->update_date = $Client->updated_at->format('d-m-Y');
+            $Client_upd_eng = $Client->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Client_upd_ex = explode(' ', $Client_upd_eng);
+            $Client_upd_year_th = (int)$Client_upd_ex[2]+543;
+            $Client_upd_year = $Client_upd_ex[0].' '.$Client_upd_ex[1].' '.$Client_upd_year_th;
+            $Client->update_date = $Client_upd_year;
         }
         $Clienttypes =Clienttype::all();
         //$Displays = Display::all();
