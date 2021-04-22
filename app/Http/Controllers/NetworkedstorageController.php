@@ -34,7 +34,11 @@ class NetworkedstorageController extends Controller
         $Networkedstorages = NetworkedStorage::paginate(2);
         foreach ($Networkedstorages as $Networkedstorage) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป 
         {
-            $Networkedstorage->update_date = $Networkedstorage->updated_at->format('d-m-Y');
+            $Networkedstorage_upd_eng = $Networkedstorage->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Networkedstorage_upd_ex = explode(' ', $Networkedstorage_upd_eng);
+            $Networkedstorage_upd_year_th = (int)$Networkedstorage_upd_ex[2]+543;
+            $Networkedstorage_upd_year = $Networkedstorage_upd_ex[0].' '.$Networkedstorage_upd_ex[1].' '.$Networkedstorage_upd_year_th;
+            $Networkedstorage->update_date = $Networkedstorage_upd_year;
         }
 
         //ตัวแปรที่ส่งกลับไปยังหน้า NetworkedstorageIndex

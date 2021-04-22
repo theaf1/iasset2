@@ -41,7 +41,11 @@ class ServerController extends Controller
         $Servers = Servers::paginate(2);
         foreach ($Servers as $Server) //แปลงรูปแแบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
         {
-            $Server->update_date = $Server->updated_at->format('d-m-Y');
+            $Server_upd_eng = $Server->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Server_upd_ex = explode(' ', $Server_upd_eng);
+            $Server_upd_year_th = (int)$Server_upd_ex[2]+543;
+            $Server_upd_year = $Server_upd_ex[0].' '.$Server_upd_ex[1].' '.$Server_upd_year_th;
+            $Server->update_date = $Server_upd_year;
         }
 
         //ตัวแปรที่ส่งไปยังหน้า ServerIndex
