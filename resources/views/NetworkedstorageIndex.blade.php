@@ -47,7 +47,7 @@
                             @foreach ($networkedstorages as $networkedstorage)
                                 <tr>
                                     <th scope="row">{{ $networkedstorage['id'] }}</th>
-                                    <td>{{ $networkedstorage['type'] }}</td>
+                                    <td>{{ $networkedstorage->NetworkedStorageType->name }}</td>
                                     <td>{{ $networkedstorage['sapid'] }}</td>
                                     <td>{{ $networkedstorage['pid'] }}</td>
                                     <td>{{ $networkedstorage->NetworkedStorageOwner->name }}</td>
