@@ -23,7 +23,6 @@
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
                     </div>
                     <div class="card-body">
-                        {{$lastinternalsap}}
                         <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-row">
