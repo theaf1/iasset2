@@ -27,6 +27,7 @@ class CreateServerOpsTable extends Migration
             ['name'=>'Windows Server 2016'],
             ['name'=>'Windows Server 2019'],
             ['name'=>'Ubuntu Server'],
+            ['name'=>'VMware Hypervisor'],
         );
         foreach($server_oses as $server_os)
         {
