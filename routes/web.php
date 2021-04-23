@@ -86,3 +86,4 @@ Route::get('/','IndexController@index');
 Route::get('/reports','ReportController@index');
 Route::post('/create-report','ReportController@search'); 
 // route to  test views
+//
