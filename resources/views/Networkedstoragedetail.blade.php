@@ -170,7 +170,7 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="{{ url('/networkedstorage') }}" class="btn btn-lg btn-info" role="button">ย้อนกลับ</a>
+                <a href="{{ url('/networkedstorage') }}" class="btn btn-lg btn-block btn-info mb-4" role="button">ย้อนกลับ</a>
             </div>
         </div>
     </div>

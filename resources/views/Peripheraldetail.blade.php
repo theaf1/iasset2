@@ -119,7 +119,7 @@
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>{{$peripheral->PeripheralSupply->name}}</p>
+                                <p>วัสดุสึกหรอสิ้นเปลือง: {{$peripheral->PeripheralSupply->name}}</p>
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="{{url('/peripheral')}}" class="btn btn-primary btn-lg btn-block" role="button">ย้อนกลับ</a>
+                <a href="{{url('/peripheral')}}" class="btn btn-info btn-lg btn-block mb-4" role="button">ย้อนกลับ</a>
             </div>
         </div>
     </div>
