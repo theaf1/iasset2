@@ -34,7 +34,6 @@ Route::get('/client/{id}','ClientController@edit');
 Route::put('/client/{id}/update','ClientController@update');
 route::get('client/show/{id}','ClientController@show');
 
-
 Route::get('/peripherals','PeripheralsController@create');
 Route::post('/add-peripheral','PeripheralsController@store');
 Route::get('/peripheral', 'PeripheralsController@index');
@@ -78,11 +77,7 @@ Route::get('/server/{id}', 'ServerController@edit');
 Route::put('/server/{id}/update', 'ServerController@update');
 //under development
 Route::get('/admin', 'SectionController@index');
-//Route::get('/search', 'SearchController@index');
-//Route::get('/search-query', 'IndexController@search');
-// Route::post('/search-query', function () {
-//     return 'null';
-// });
+
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
 
@@ -91,6 +86,3 @@ Route::get('/','IndexController@index');
 Route::get('/reports','ReportController@index');
 Route::post('/create-report','ReportController@search'); 
 // route to  test views
-//Route::get('/reports', function () {
-//    return view('reports');
-//});
