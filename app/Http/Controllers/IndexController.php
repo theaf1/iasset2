@@ -46,7 +46,7 @@ class IndexController extends Controller
                 ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
             ],
             'rooms'=>Room::all(),
-            'results'=>$this->searchEquipment(request()->search_class,request()->search_column), //ส่งคำสำคัญไปค้นหาในฐานข้อมูลด้วย function searchEquipment
+            'results'=>$this->searchEquipment(request()->search_class,request()->search_column,request()->keyword,request()->per_page), //ส่งคำสำคัญไปค้นหาในฐานข้อมูลด้วย function searchEquipment
         ]);
     }
 
@@ -195,7 +195,7 @@ class IndexController extends Controller
             ]);
         }
     }
-    protected function searchEquipment($class, $column) //function ทำการค้นหาข้อมูล
+    protected function searchEquipment($class, $column, $keyword, $per_page) //function ทำการค้นหาข้อมูล
     {
         //ถ้า ค่า class และ column เป็น null ให้ตีกลับไปด้วยค่า null
         if (! $class || ! $column){
@@ -214,10 +214,10 @@ class IndexController extends Controller
             '\App\Upses',
         ];
         $modelClass = $equipmentsClass[$class]; //
-        return $modelClass::select('id', 'sapid','pid')
+        return $modelClass::search($keyword)
             ->where('location_id', $column)
-            ->paginate(5)
-            ->withQueryString(['search_class'=>$class, 'search_column'=>$column]); //ทำการค้นหาข้อมูลและตัดแบ่งหน้า 
+            ->paginate($per_page)
+            ->withQueryString(['search_class'=>$class, 'search_column'=>$column, 'keyword'=>$keyword, 'per_page'=>$per_page]); //ทำการค้นหาข้อมูลและตัดแบ่งหน้า 
     }
     private function validateQuery($data) //ตรวจสอบคำค้นหา
     {
