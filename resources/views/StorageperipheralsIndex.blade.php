@@ -33,6 +33,7 @@
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
                                 <th scope="col">ที่มา</th>
+                                <th scope="col">ความจุข้อมูล</th>
                                 <th scope="col">mobile</th>
                                 <th scope="col">จำนวนผู้ใช้งาน</th> 
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
@@ -49,6 +50,7 @@
                                     <td>{{ $storageperipheral['sapid'] }}</td>
                                     <td>{{ $storageperipheral['pid'] }}</td>
                                     <td>{{ $storageperipheral->StorageperipheralOwner->name }}</td>
+                                    <td>{{ $storageperipheral['total_capacity'] }} {{$storageperipheral->StoragePeripheralDataUnit->name}}</td>
                                     <td>{{ $storageperipheral->StorageperipheralMobility->name }}</td>
                                     <td>{{ $storageperipheral->StoragePeripheralMultiUser->name }}</td>
                                     <td>{{ $storageperipheral->StoragePeripheralAssetStatus->name }}</td>

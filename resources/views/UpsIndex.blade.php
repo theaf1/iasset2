@@ -32,6 +32,7 @@
                                 <th scope="col">ลำดับที่</th>
                                 <th scope="col">SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
+                                <th scope="col">กำลังไฟฟ้า (KVA)</th>
                                 <th scope="col">mobile</th>
                                 <th scope="col">สถานะทางทะเบียนครุภัณฑ์</th>
                                 <th scope="col">สถานะการใช้งานครุภัณฑ์</th>
@@ -46,6 +47,7 @@
                                 <th scope="row">{{ $ups['id'] }}</th>
                                 <td>{{ $ups['sapid'] }}</td>
                                 <td>{{ $ups['pid'] }}</td>
+                                <td>{{$ups['capacity']}}</td>
                                 <td>{{ $ups->UpsMobility->name }}</td>
                                 <td>{{ $ups->UpsAssetStatus->name }}</td>
                                 <td>{{ $ups->UpsAssetUseStatus->name }}</td>
