@@ -17,6 +17,8 @@
                                         <option value="1">รายงานจำนวนครุภัณฑ์คอมพิวเตอร์ทั้งหมด</option>
                                         <option value="2">รายงานจำนวนครุภัณฑ์คอมพิวเตอร์รายหน่วยงาน</option>
                                         <option value="3">รายงานจำนวนครุภัณฑ์คอมพิวเตอร์ที่มีอายุมากกว่าที่กำหนด</option>
+                                        <option value="4">test</option>
+                                        <option value="5">test2</option>
                                     </select>
                                 </div>
                             </div>

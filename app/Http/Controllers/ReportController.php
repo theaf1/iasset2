@@ -149,9 +149,40 @@ class ReportController extends Controller
         }
         if ($request->report_id ==3)
         {
-            return 'test';
+            
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_ex = explode(' ', $Now_eng);
+            $Year_th = (int)$Now_ex[2]+543;
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            $Cutoff_date = Carbon::Now();
+            return view('x')->with([
+                'now'=>$Now,
+            ]);
         }
 
-        
+        if ($request->report_id ==4) 
+        {
+            $Client_Results = Client::where('section_id',$request->report_section)->get();
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_ex = explode(' ', $Now_eng);
+            $Year_th = (int)$Now_ex[2]+543;
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            return view('clientreportsection')->with([
+                'clients'=>$Client_Results,
+                'now'=>$Now,
+            ]);
+        }
+        if ($request->report_id ==5)
+        {
+            $Peripherals_Results = Peripherals::where('section_id',$request->report_section)->get();
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_ex = explode(' ', $Now_eng);
+            $Year_th = (int)$Now_ex[2]+543;
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            return view('peripheralsreportsection')->with([
+                'peripherals'=>$Peripherals_Results,
+                'now'=>$Now,
+            ]);
+        }
     }
 }
