@@ -5,7 +5,7 @@
             @foreach ($clients as $client)
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>ข้อมูลครุภัณฑ์คอมพิวเตอร์หมายเลข {{$client['id']}}</h4>
+                    <h4>ข้อมูลครุภัณฑ์คอมพิวเตอร์ {{$client->ClientType->name}} หมายเลข {{$client['id']}}</h4>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
@@ -317,13 +317,13 @@
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="col-sm-12 col-lg-12">
+                        <div class="col-sm-12 col-lg-6">
                             <label for="issues">ปัญหาในการใช้งาน</label>
                             <p>{{$client['issues']}}</p>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-12 col-lg-12">
+                
+                
+                        <div class="col-sm-12 col-lg-6">
                             <label for="remarks">หมายเหตุ</label>
                             <p>{{$client['remarks']}}</p>
                         </div>
