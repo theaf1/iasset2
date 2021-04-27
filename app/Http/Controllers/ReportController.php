@@ -184,5 +184,65 @@ class ReportController extends Controller
                 'now'=>$Now,
             ]);
         }
+        if ($request->report_id ==6)
+        {
+            $Storageperipherals_Results = Storageperipherals::where('section_id',$request->report_section)->get();
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_ex = explode(' ', $Now_eng);
+            $Year_th = (int)$Now_ex[2]+543;
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            return view(k)->with([
+                'storageperipherals'=>$Storageperipherals_Results,
+                'now'=>$Now,
+            ]);
+        }
+        if ($request->report_id ==7)
+        {
+            $Servers_Results = Servers::where('section_id', $request->report_section)->get();
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_ex = explode(' ', $Now_eng);
+            $Year_th = (int)$Now_ex[2]+543;
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            return view(l)->with([
+                'servers'=>$Servers_Results,
+                'now'=>$Now,
+            ]);
+        }
+        if ($request->report_id ==8) 
+        {
+            $Networkdevice_Results = Networkdevices::where('section_id', $request->report_section)->get();
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_ex = explode(' ', $Now_eng);
+            $Year_th = (int)$Now_ex[2]+543;
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            return view(m)->with([
+                'networkdevices'=>$Networkdevice_Results,
+                'now'=>$Now,
+            ]);
+        }
+        if ($request->report_id ==9)
+        {
+            $Networkedstorage_Results =Networkedstorage::where('section_id', $request->report_section)->get();
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_ex = explode(' ', $Now_eng);
+            $Year_th = (int)$Now_ex[2]+543;
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            return view(n)->with([
+                'networkdevices'=>$Networkedstorage_Results,
+                'now'=>$Now,
+            ]);
+        }
+        if ($request->report_id ==10)
+        {
+            $Upses_Results = Upses::where('section_id', $request->report_section)->get();
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Now_ex = explode(' ', $Now_eng);
+            $Year_th = (int)$Now_ex[2]+543;
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            return view(o)->with([
+                'upses'=>$Upses_Results,
+                'now'=>$Now,
+            ]);
+        }
     }
 }
