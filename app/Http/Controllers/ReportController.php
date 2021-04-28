@@ -240,8 +240,8 @@ class ReportController extends Controller
             $Now_ex = explode(' ', $Now_eng);
             $Year_th = (int)$Now_ex[2]+543;
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
-            return view(n)->with([
-                'networkdevices'=>$Networkedstorage_Results,
+            return view('networkedstoragereportsection')->with([
+                'networkedstorages'=>$Networkedstorage_Results,
                 'now'=>$Now,
             ]);
         }
