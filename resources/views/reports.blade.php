@@ -14,12 +14,9 @@
                                 <div class="form-group">
                                     <label for="reports">กรุณาเลือกรายงานที่ต้องการ</label>
                                     <select name="report_id" id="reports" class="form-control">
-                                        <option value="1">รายงานจำนวนครุภัณฑ์คอมพิวเตอร์ทั้งหมด</option>
-                                        <option value="2">รายงานจำนวนครุภัณฑ์คอมพิวเตอร์รายหน่วยงาน</option>
-                                        <option value="3">รายงานจำนวนครุภัณฑ์คอมพิวเตอร์ที่มีอายุมากกว่าที่กำหนด</option>
-                                        <option value="4">บัญชีครุภัณฑ์คอมพิวเตอร์ประจำหน่วยงาน</option>
-                                        <option value="5">บัญชีครุภัณฑ์อุปกรณ์ต่อพ่วงประจำหน่วยงาน</option>
-                                        <option value="6">บัญชีครุภัณฑ์อุปกรณ์ต่อพ่วงเก็บข้อมูลประจำหน่วยงาน</option>
+                                        @foreach ($reporttypes as $reporttype)
+                                            <option value="{{$reporttype['id']}}">{{$reporttype['name']}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

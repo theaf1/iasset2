@@ -24,8 +24,21 @@ class ReportController extends Controller
     public function index()
     {
         $Sections = Section::all();
+        $Reports = array(
+            ['id'=>'1', 'name'=>'รายงานจำนวนครุภัณฑ์คอมพิวเตอร์ทั้งหมด'],
+            ['id'=>'2', 'name'=>'รายงานจำนวนครุภัณฑ์คอมพิวเตอร์และอุปกรณ์ต่อพ่วงรายหน่วยงาน'],
+            ['id'=>'3', 'name'=>'รายงานจำนวนครุภัณฑ์คอมพิวเตอร์ที่มีอายุมากกว่าที่กำหนด'],
+            ['id'=>'4', 'name'=>'บัญชีครุภัณฑ์คอมพิวเตอร์ประจำหน่วยงาน'],
+            ['id'=>'5', 'name'=>'บัญชีครุภัณฑ์อุปกรณ์ต่อพ่วงประจำหน่วยงาน'],
+            ['id'=>'6', 'name'=>'บัญชีครุภัณฑ์อุปกรณ์ต่อพ่วงเก็บข้อมูลประจำหน่วยงาน'],
+            ['id'=>'7', 'name'=>'บัญชีครุภัณฑ์คอมพิวเตอร์แม่ข่ายประจำหน่วยงาน'],
+            ['id'=>'8', 'name'=>'บัญชีครุภัณฑ์อุปกรณ์เครือข่ายคอมพิวเตอร์ประจำหน่วยงาน'],
+            ['id'=>'9', 'name'=>'บัญชีครุภัณฑ์อุปกรณ์เก็บข้อมูลเครือข่ายประจำหน่วยงาน'],
+            ['id'=>'10', 'name'=>'บัญชีครุภัณฑ์เครื่องสำรองไฟฟ้าประจำหน่วยงาน'],
+        );
         return view('reports')->with([
             'sections'=>$Sections,
+            'reporttypes'=>$Reports,
         ]);
     }
 
@@ -215,7 +228,7 @@ class ReportController extends Controller
             $Now_ex = explode(' ', $Now_eng);
             $Year_th = (int)$Now_ex[2]+543;
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
-            return view(m)->with([
+            return view('serverreportsection')->with([
                 'networkdevices'=>$Networkdevice_Results,
                 'now'=>$Now,
             ]);
