@@ -21,7 +21,7 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //กำหนค่าตัวแปรที่ใช้ในหน้า reports
     {
         $Sections = Section::all();
         $Reports = array(
@@ -36,6 +36,7 @@ class ReportController extends Controller
             ['id'=>'9', 'name'=>'บัญชีครุภัณฑ์อุปกรณ์เก็บข้อมูลเครือข่ายประจำหน่วยงาน'],
             ['id'=>'10', 'name'=>'บัญชีครุภัณฑ์เครื่องสำรองไฟฟ้าประจำหน่วยงาน'],
         );
+        //ส่งค่าตัวแปรไปยังหน้า reports
         return view('reports')->with([
             'sections'=>$Sections,
             'reporttypes'=>$Reports,
@@ -107,22 +108,23 @@ class ReportController extends Controller
     {
         //
     }
-    public function search(Request $request)
+    public function search(Request $request) //ออกรายงานตามที่ต้องการ
     {
-        if($request->report_id ==1)
+        if($request->report_id ==1) //ออกรายงานจำนวนครุภัณฑ์ทั้งหมด
         {
-            $Client_Results = Client::all()->count();
-            $Peripherals_Results = Peripherals::all()->count();
-            $Storageperipherals_Results = Storageperipherals::all()->count();
-            $Servers_Results = Servers::all()->count();
-            $Networkdevice_Results = Networkdevices::all()->count();
-            $Networkedstorage_Results = Networkedstorage::all()->count();
-            $Upses_Results = Upses::all()->count();
-            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
-            $Now_ex = explode(' ', $Now_eng);
-            $Year_th = (int)$Now_ex[2]+543;
-            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
-             
+            $Client_Results = Client::all()->count(); //นับจำนวนคอมพิวเตอร์
+            $Peripherals_Results = Peripherals::all()->count(); //นับจำนวนอุปกรณ์ต่อพ่วง
+            $Storageperipherals_Results = Storageperipherals::all()->count(); //นับจำนวนอุปกรณ์เก็บข้อมูล
+            $Servers_Results = Servers::all()->count(); //นับคอมพิวเตอร์แม่ข่าย
+            $Networkdevice_Results = Networkdevices::all()->count(); //นับอุปกรณ์เครือข่าย
+            $Networkedstorage_Results = Networkedstorage::all()->count(); //นับอุปกรณ์เก็บข้อมูลเครือข่าย
+            $Upses_Results = Upses::all()->count(); //นับเครื่องสำรองไฟฟ้า
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
+            $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
+            $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
+            
+            //ส่งค่าไปแสดงผล
             return view('total_report')->with([
                 'client'=>$Client_Results,
                 'peripherals'=>$Peripherals_Results,
@@ -134,20 +136,22 @@ class ReportController extends Controller
                 'now'=>$Now,
             ]);
         }
-        if($request->report_id ==2)
+        if($request->report_id ==2) //ออกรายงานจำนวนครุภัณฑ์รายหน่วยงาน
         {
-            $Client_Results = Client::where('section_id',$request->report_section)->count();
-            $Peripherals_Results = Peripherals::where('section_id',$request->report_section)->count();
-            $Storageperipherals_Results = Storageperipherals::where('section_id',$request->report_section)->count();
-            $Servers_Results = Servers::where('section_id',$request->report_section)->count();
-            $Networkdevice_Results = Networkdevices::where('section_id',$request->report_section)->count();
-            $Networkedstorage_Results = Networkedstorage::where('section_id',$request->report_section)->count();
-            $Upses_Results = Upses::where('section_id',$request->report_section)->count();
-            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
-            $Now_ex = explode(' ', $Now_eng);
-            $Year_th = (int)$Now_ex[2]+543;
-            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
-            $Section = Section::where('id',$request->report_section)->get();
+            $Client_Results = Client::where('section_id',$request->report_section)->count(); //นับจำนวนคอมพิวเตอร์
+            $Peripherals_Results = Peripherals::where('section_id',$request->report_section)->count(); //นับจำนวนอุปกรณ์ต่อพ่วง
+            $Storageperipherals_Results = Storageperipherals::where('section_id',$request->report_section)->count(); //นับจำนวนอุปกรณ์เก็บข้อมูล
+            $Servers_Results = Servers::where('section_id',$request->report_section)->count(); //นับคอมพิวเตอร์แม่ข่าย
+            $Networkdevice_Results = Networkdevices::where('section_id',$request->report_section)->count(); //นับอุปกรณ์เครือข่าย
+            $Networkedstorage_Results = Networkedstorage::where('section_id',$request->report_section)->count(); //นับอุปกรณ์เก็บข้อมูลเครือข่าย
+            $Upses_Results = Upses::where('section_id',$request->report_section)->count(); //นับเครื่องสำรองไฟฟ้า
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
+            $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
+            $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
+            $Section = Section::where('id',$request->report_section)->get(); //อ่านค่าหน่วยงาน
+
+            //ส่งค่าไปแสดงผล
             return view('section_report')->with([
                 'section'=>$Section,
                 'client'=>$Client_Results,
@@ -163,95 +167,109 @@ class ReportController extends Controller
         if ($request->report_id ==3)
         {
             
-            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
-            $Now_ex = explode(' ', $Now_eng);
-            $Year_th = (int)$Now_ex[2]+543;
-            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
+            $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
+            $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
             $Cutoff_date = Carbon::Now();
             return view('x')->with([
                 'now'=>$Now,
             ]);
         }
 
-        if ($request->report_id ==4) 
+        if ($request->report_id ==4) //บัญชีคอมพิวเตอร์ประจำหน่วยงาน
         {
-            $Client_Results = Client::where('section_id',$request->report_section)->get();
-            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
-            $Now_ex = explode(' ', $Now_eng);
-            $Year_th = (int)$Now_ex[2]+543;
-            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            $Client_Results = Client::where('section_id',$request->report_section)->get(); //รวบรวมเครื่องคอมพิวเตอร์
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
+            $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
+            $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
+
+            //ส่งค่าไปแสดงผล
             return view('clientreportsection')->with([
                 'clients'=>$Client_Results,
                 'now'=>$Now,
             ]);
         }
-        if ($request->report_id ==5)
+        if ($request->report_id ==5) //บัญชีอุปกรณ์ต่อพ่วงรายหน่วยงาน
         {
-            $Peripherals_Results = Peripherals::where('section_id',$request->report_section)->get();
-            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
-            $Now_ex = explode(' ', $Now_eng);
-            $Year_th = (int)$Now_ex[2]+543;
-            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            $Peripherals_Results = Peripherals::where('section_id',$request->report_section)->get(); //รวบรวมอุปกรณ์ต่อพ่วง
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
+            $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
+            $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
+
+            //ส่งค่าไปแสดงผล
             return view('peripheralsreportsection')->with([
                 'peripherals'=>$Peripherals_Results,
                 'now'=>$Now,
             ]);
         }
-        if ($request->report_id ==6)
+        if ($request->report_id ==6) //บัญชีอุปกรณ์ต่อพ่วงเก็บข้อมูลรายหน่วยงาน
         {
-            $Storageperipherals_Results = Storageperipherals::where('section_id',$request->report_section)->get();
-            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
-            $Now_ex = explode(' ', $Now_eng);
-            $Year_th = (int)$Now_ex[2]+543;
-            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            $Storageperipherals_Results = Storageperipherals::where('section_id',$request->report_section)->get(); //รวบรวมอุปกรณ์ต่อพ่วงเก็บข้อมูล
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
+            $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
+            $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;//รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
+
+            //ส่งค่าไปแสดงผล
             return view('storageperipheralreportsection')->with([
                 'storageperipherals'=>$Storageperipherals_Results,
                 'now'=>$Now,
             ]);
         }
-        if ($request->report_id ==7)
+        if ($request->report_id ==7) //บัญชีคอมพิวเตอร์แม่ข่ายรายหน่วยงาน
         {
-            $Servers_Results = Servers::where('section_id', $request->report_section)->get();
-            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
-            $Now_ex = explode(' ', $Now_eng);
-            $Year_th = (int)$Now_ex[2]+543;
-            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            $Servers_Results = Servers::where('section_id', $request->report_section)->get(); //รวบรวมคอมพิวเตอร์แม่ข่าย
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
+            $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
+            $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
+
+            //ส่งค่าไปแสดงผล
             return view('serverreportsection')->with([
                 'servers'=>$Servers_Results,
                 'now'=>$Now,
             ]);
         }
-        if ($request->report_id ==8) 
+        if ($request->report_id ==8) //บัญชีอุปกรณ์เครือข่ายรายหน่วยงาน
         {
-            $Networkdevice_Results = Networkdevices::where('section_id', $request->report_section)->get();
-            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
-            $Now_ex = explode(' ', $Now_eng);
-            $Year_th = (int)$Now_ex[2]+543;
-            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            $Networkdevice_Results = Networkdevices::where('section_id', $request->report_section)->get(); //รวบรวมอุปกรณเครือข่าย
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
+            $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
+            $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
+
+            //ส่งค่าไปแสดงผล
             return view('networkdevicereportsection')->with([
                 'networkdevices'=>$Networkdevice_Results,
                 'now'=>$Now,
             ]);
         }
-        if ($request->report_id ==9)
+        if ($request->report_id ==9) //บัญชีอุปกรณเก็บข้อมูลเครือข่ายรายหน่วยงาน
         {
-            $Networkedstorage_Results =Networkedstorage::where('section_id', $request->report_section)->get();
-            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
-            $Now_ex = explode(' ', $Now_eng);
-            $Year_th = (int)$Now_ex[2]+543;
-            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            $Networkedstorage_Results =Networkedstorage::where('section_id', $request->report_section)->get(); //รวบรวมอุปกรณ์เก็บข้อมูลเครือข่าย
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
+            $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
+            $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
+
+            //ส่งค่าไปแสดงผล
             return view('networkedstoragereportsection')->with([
                 'networkedstorages'=>$Networkedstorage_Results,
                 'now'=>$Now,
             ]);
         }
-        if ($request->report_id ==10)
+        if ($request->report_id ==10) //บัญชีเครื่องสำรองไฟฟ้ารายหน่วยงาน
         {
-            $Upses_Results = Upses::where('section_id', $request->report_section)->get();
-            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY');
-            $Now_ex = explode(' ', $Now_eng);
-            $Year_th = (int)$Now_ex[2]+543;
-            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
+            $Upses_Results = Upses::where('section_id', $request->report_section)->get(); //รวบรวมเครื่องสำรองไฟฟ้า
+            $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
+            $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
+            $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
+            $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
+
+            //ส่งค่าไปแสดงผล
             return view('upsreportsection')->with([
                 'upses'=>$Upses_Results,
                 'now'=>$Now,
