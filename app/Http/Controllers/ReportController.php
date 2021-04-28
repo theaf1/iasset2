@@ -228,7 +228,7 @@ class ReportController extends Controller
             $Now_ex = explode(' ', $Now_eng);
             $Year_th = (int)$Now_ex[2]+543;
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;
-            return view('serverreportsection')->with([
+            return view('networkdevicereportsection')->with([
                 'networkdevices'=>$Networkdevice_Results,
                 'now'=>$Now,
             ]);
