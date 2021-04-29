@@ -739,6 +739,7 @@
         document.getElementById("computer_form").action = `{{ url('/add-computer?displayCount=${displayCount}')}}`;
         document.getElementById("computer_form").submit();
     }
+    // script generate internal SAP
     function generateInternalSAP() {
         var lastsap = document.getElementById("last_sap").value
         if(lastsap == 0)
