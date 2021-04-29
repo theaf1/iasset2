@@ -13,6 +13,7 @@ use App\Networkedstorage;
 use App\Upses;
 use App\Section;
 use Carbon\Carbon;
+use PDF;
 
 class ReportController extends Controller
 {
