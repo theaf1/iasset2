@@ -108,7 +108,7 @@ class ReportController extends Controller
     {
         //
     }
-    public function search(Request $request) //ออกรายงานตามที่ต้องการ
+    public function report(Request $request) //ออกรายงานตามที่ต้องการ
     {
         if($request->report_id ==1) //ออกรายงานจำนวนครุภัณฑ์ทั้งหมด
         {
