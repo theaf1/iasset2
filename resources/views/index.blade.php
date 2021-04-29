@@ -3,7 +3,6 @@
     <div class="container-fluid">
         <div class="col-12 mx-auto">
             <form action="{{ url('/') }}" method="get" role="search" >
-                {{-- @csrf --}}
                 <div class="form-row">
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
