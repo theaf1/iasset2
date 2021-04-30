@@ -15,7 +15,10 @@ class SectionController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $Sections = Section::all();
+        return view('admin')->with([
+            'sections'=>$Sections
+        ]);
     }
 
     /**
