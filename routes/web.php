@@ -78,6 +78,8 @@ Route::put('/server/{id}/update', 'ServerController@update');
 //under development
 Route::get('/sectionadmin', 'SectionController@index');
 Route::get('/addsection','SectionController@create');
+Route::get('/section/{id}','SectionController@edit');
+Route::post('section/{id}','SectionController@update');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');

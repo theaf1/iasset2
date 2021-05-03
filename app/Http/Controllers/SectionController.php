@@ -41,7 +41,7 @@ class SectionController extends Controller
     {
         $this->validateData($request);
         $Sections = Section::create($request->all());
-        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        return redirect('/sectionadmin')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**
@@ -63,7 +63,10 @@ class SectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Section = Section::find($id);
+        return view('editsection')->with([
+            'section'=>$Section,
+        ]);
     }
 
     /**
@@ -75,7 +78,9 @@ class SectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        Section::find($id)->update($request->all());
+        return redirect('/sectionadmin')->with('success','แก้ไขข้อมูลเรียบร้อยแล้ว');
     }
 
     /**

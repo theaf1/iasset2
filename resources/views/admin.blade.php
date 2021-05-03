@@ -27,7 +27,7 @@
                             <tr>
                                 <th scope="row">{{$section['id']}}</th>
                                 <td>{{$section['name']}}</td>
-                                <td><a href="#" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
+                                <td><a href="{{url('/section',$section->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
                             </tr>
                         @endforeach
                     </tbody>
