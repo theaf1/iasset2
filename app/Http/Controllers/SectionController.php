@@ -28,7 +28,7 @@ class SectionController extends Controller
      */
     public function create()
     {
-        //
+        return view('addsection');
     }
 
     /**
@@ -39,6 +39,7 @@ class SectionController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateData($request);
         $Sections = Section::create($request->all());
         return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
@@ -86,5 +87,15 @@ class SectionController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData($data)
+    {
+        $rules = [
+            'name'=>'unique:App\Section,name',
+        ];
+        $messages = [
+            'name.unique'=>'มีหน่วยงานนี้แล้ว'
+        ];
+        return $this->validate($data, $rules, $messages);
     }
 }

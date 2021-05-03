@@ -13,7 +13,8 @@
                 <h4>รายชื่อหน่วยงาน</h4>
             </div>
             <div class="card-body">
-                <table class="table table-responsive table-hover">
+                <a href="{{url('/addsection')}}" class="btn btn-primary btn-block">เพิ่มหน่วยงาน</a>
+                <table class="table table-responsive table-hover mt-4">
                     <thead>
                         <tr>
                             <th scope="col">ลำดับที่</th>
@@ -31,28 +32,6 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
-        </div>
-        <div class="card mt-4">
-            <div class="card-header card-background text-white">
-                <h4>เพิ่มหน่วยงาน</h4>
-            </div>
-            <div class="card-body">
-                <form action="/store" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="form-row">
-                        <div class="col-sm-12 col-lg-6">
-                            <div class="form-group">
-                                <label for="section_name">ชื่อหน่วยงาน</label>
-                                <input class="form-control" type="text" name="name" id="section_name">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center mt-4">
-                        <button type="submit" class="btn btn-lg btn-success">Submit</button>
-                        <button type="reset" class="btn btn-lg btn-danger">Reset</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
