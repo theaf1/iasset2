@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Room;
+use App\Location;
+use App\Building;
 
 class LocationController extends Controller
 {
@@ -13,7 +16,14 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        $Room =Room::paginate(20);
+        $Location = Location::all();
+        $Building = Building::all();
+        return view('locationadmin')->with([
+            'rooms'=>$Room,
+            'locations'=>$Location,
+            'buildings'=>$Building,
+        ]);
     }
 
     /**
