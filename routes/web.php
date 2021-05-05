@@ -81,6 +81,10 @@ Route::get('/addsection','SectionController@create');
 Route::get('/section/{id}','SectionController@edit');
 Route::post('/section/{id}','SectionController@update');
 Route::get('/locationadmin','LocationController@index');
+Route::get('/addlocation','LocationController@create');
+Route::post('/add-location','LocationController@store');
+Route::get('/location/{id}','LocationController@edit');
+Route::post('/location/{id}','Locationcontroller@update');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');

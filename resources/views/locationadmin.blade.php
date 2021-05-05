@@ -7,7 +7,7 @@
                     <h4>สถานที่ตั้งเเครื่อง</h4>
                 </div>
                 <div class="card-body">
-                    <a href="#" class="btn btn-primary btn-block" role="button">เพิ่มสถานที่</a>
+                    <a href="{{url('/addlocation')}}" class="btn btn-primary btn-block" role="button">เพิ่มสถานที่</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>

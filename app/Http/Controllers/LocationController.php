@@ -29,7 +29,13 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+        $Rooms = Room::all();
+        $Locations = Location::all();
+        $Buildings = Building::all();
+        return view('addlocation')->with([
+            'locations'=>$Locations,
+            'buildings'=>$Buildings,
+        ]);
     }
 
     /**
@@ -40,7 +46,7 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
@@ -74,7 +80,7 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request->all();
     }
 
     /**
