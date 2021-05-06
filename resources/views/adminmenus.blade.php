@@ -12,7 +12,7 @@
                             <div class="col-sm-12 col-lg-12">
                                 <a href="{{url('/sectionadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการข้อมูลหน่วยงาน</a>
                                 <a href="{{url('/locationadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการสถานที่ตั้ง</a>
-                                <a href="#" class="btn btn-info btn-block mt-4" role="button">add section</a>
+                                <a href="{{url('/clienttypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">add section</a>
                                 <a href="#" class="btn btn-info btn-block mt-4" role="button">add section</a>
                             </div>
                         </div>

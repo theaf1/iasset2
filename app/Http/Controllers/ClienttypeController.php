@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Clienttype;
 use Illuminate\Http\Request;
 
 class ClienttypeController extends Controller
@@ -13,7 +14,10 @@ class ClienttypeController extends Controller
      */
     public function index()
     {
-        //
+        $Clienttypes = Clienttype::all();
+        return view('clienttypeadmin')->with([
+            'clienttypes'=>$Clienttypes,
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class ClienttypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('y');
     }
 
     /**
@@ -34,7 +38,8 @@ class ClienttypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Clienttypes = Clienttype::create($request->all());
+        return redirect('/x')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**
@@ -80,5 +85,17 @@ class ClienttypeController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData($data)
+    {
+        $rules = [
+            'name'=>'unique:App\Clienttype,name',
+            'name'=>'required',
+        ];
+        $messages = [
+            'name.unique'=>'มีชื่อชนิดของครุภัณฑ์แบบนี้แล้ว',
+            'name.required'=>'กรุณาระบุชื่อชนิดของครุภัณฑ์',
+        ];
+        return $this->validate($data, $rules, $messages);
     }
 }
