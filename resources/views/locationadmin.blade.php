@@ -16,6 +16,7 @@
                                 <th scope="col">ชั้น</th>
                                 <th scope="col">ปีก</th>
                                 <th scope="col">อาคาร</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,6 +27,7 @@
                                     <td>{{$room->location->floor}}</td>
                                     <td>{{$room->location->wing}}</td>
                                     <td>{{$room->location->building->name}}</td>
+                                    <td><a href="{{url('/location',$room->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

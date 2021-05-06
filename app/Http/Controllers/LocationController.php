@@ -68,7 +68,14 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Rooms = Room::find($id);
+        $Locations = Location::all();
+        $Buildings = Building::all();
+        return view('editlocation')->with([
+            'rooms'=>$Rooms,
+            'locations'=>$Locations,
+            'buildings'=>$Buildings,
+        ]);
     }
 
     /**
