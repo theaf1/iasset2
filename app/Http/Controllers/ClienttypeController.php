@@ -27,7 +27,7 @@ class ClienttypeController extends Controller
      */
     public function create()
     {
-        return view('y');
+        return view('addclienttype');
     }
 
     /**
@@ -38,8 +38,9 @@ class ClienttypeController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateData($request);
         $Clienttypes = Clienttype::create($request->all());
-        return redirect('/x')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        return redirect('/clienttypeadmin')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**
@@ -89,7 +90,7 @@ class ClienttypeController extends Controller
     private function validateData($data)
     {
         $rules = [
-            'name'=>'unique:App\Clienttype,name',
+            'name'=>'unique',
             'name'=>'required',
         ];
         $messages = [
