@@ -40,7 +40,7 @@ class PeripheraltypeController extends Controller
     {
         $this->validateData($request);
         $Peripheraltypes = Peripheraltype::create($request->all());
-        return redirect('/peripheraltypeadmin')->with('success','บันทึกข้อมูลสำเร็จ');
+        return redirect('/peripheraltypeadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -62,7 +62,10 @@ class PeripheraltypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Peripheraltypes = Peripheraltype::find($id);
+        return view('editperipheraltype')->with([
+            'peripheraltype'=>$Peripheraltypes,
+        ]);
     }
 
     /**
@@ -74,7 +77,9 @@ class PeripheraltypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        Peripheraltype::find($id)->update($request->all());
+        return redirect('/peripheraltypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**

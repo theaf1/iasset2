@@ -21,7 +21,7 @@
                                 <tr>
                                     <th scope="row">{{$peripheraltype['id']}}</th>
                                     <td>{{$peripheraltype['name']}}</td>
-                                    <td><a href="#" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/peripheraltype/edit',$peripheraltype->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
