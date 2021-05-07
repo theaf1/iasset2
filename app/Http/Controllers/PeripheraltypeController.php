@@ -38,6 +38,7 @@ class PeripheraltypeController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateData($request);
         $Peripheraltypes = Peripheraltype::create($request->all());
         return redirect('/peripheraltypeadmin')->with('success','บันทึกข้อมูลสำเร็จ');
     }
@@ -85,5 +86,17 @@ class PeripheraltypeController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData ($data)
+    {
+        $rules = [
+            'name'=>'required|unique:App\Peripheraltype,name',
+        ];
+
+        $messages = [
+            'name.required'=>'กรุณาระบุชื่อชนิดอุปกรณ์ต่อพ่วง',
+            'name.unique'=>'มีชื่ออุปกรณ์ต่อพ่วงชนิดนี้แล้ว',
+        ];
+        return $this->validate($data, $rules, $messages);
     }
 }

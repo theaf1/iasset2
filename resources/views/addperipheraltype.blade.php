@@ -2,18 +2,18 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <div class="card mt-4">
-                <div class="card-header card-background text-white">
-                    <h4>aaa</h4>
-                </div>
-                <div class="card-body">
-                    @csrf
-                    <form action="{{url('/add-peripheraltype')}}" method="post">
+            <form action="{{url('/add-peripheraltype')}}" method="post">
+                @csrf
+                <div class="card mt-4">
+                    <div class="card-header card-background text-white">
+                        <h4>aaa</h4>
+                    </div>
+                    <div class="card-body">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="name">ชื่อชนิดอุปกรณ์ต่อพ่วง</label>
-                                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror">
+                                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
                                     @error('name')
                                         <div class="invalid-feedback">
                                             {{$message}}
@@ -26,9 +26,9 @@
                             <button type="submit" class="btn btn-lg btn-success">Submit</button>
                             <button type="reset" class="btn btn-lg btn-danger">Reset</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 @endsection
