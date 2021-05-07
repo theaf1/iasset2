@@ -78,8 +78,8 @@ Route::put('/server/{id}/update', 'ServerController@update');
 //under development
 Route::get('/sectionadmin', 'SectionController@index');
 Route::get('/addsection','SectionController@create');
-Route::get('/section/{id}','SectionController@edit');
-Route::post('/section/{id}','SectionController@update');
+Route::get('/section/edit/{id}','SectionController@edit');
+Route::post('/section/update/{id}','SectionController@update');
 Route::get('/locationadmin','LocationController@index');
 Route::get('/addlocation','LocationController@create');
 Route::post('/add-location','LocationController@store');
