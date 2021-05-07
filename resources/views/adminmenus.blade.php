@@ -12,8 +12,8 @@
                             <div class="col-sm-12 col-lg-12">
                                 <a href="{{url('/sectionadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการข้อมูลหน่วยงาน</a>
                                 <a href="{{url('/locationadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการสถานที่ตั้ง</a>
-                                <a href="{{url('/clienttypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">add section</a>
-                                <a href="{{url('/peripheraltypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">add section</a>
+                                <a href="{{url('/clienttypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของครุภัณฑ์</a>
+                                <a href="{{url('/peripheraltypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของอุปกรณ์ต่อพ่วง</a>
                             </div>
                         </div>
                     </div>
