@@ -27,7 +27,7 @@
                                     <td>{{$room->location->floor}}</td>
                                     <td>{{$room->location->wing}}</td>
                                     <td>{{$room->location->building->name}}</td>
-                                    <td><a href="{{url('/location',$room->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/location/edit',$room->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -7,7 +7,7 @@
                     <h4>แก้ไขสถานที่ตั้ง</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/location',$rooms->id)}}" method="post">
+                    <form action="{{url('/location/edit',$rooms->id)}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
