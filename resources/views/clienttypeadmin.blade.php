@@ -7,7 +7,7 @@
                     <h4>blah</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addclienttype')}}" class="btn btn-block btn-primary" role="button">เพิ่มชนิดของอุปกรณ์ต่อพ่วง</a>
+                    <a href="{{url('/addclienttype')}}" class="btn btn-block btn-primary" role="button">เพิ่มชนิดของครุภัณฑ์คอมพิวเตอร์</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>
