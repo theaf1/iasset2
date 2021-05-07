@@ -27,7 +27,7 @@ class PeripheraltypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('addperipheraltype');
     }
 
     /**
@@ -38,7 +38,8 @@ class PeripheraltypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Peripheraltypes = Peripheraltype::create($request->all());
+        return redirect('/peripheraltypeadmin')->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
     /**

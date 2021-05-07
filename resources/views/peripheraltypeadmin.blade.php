@@ -7,7 +7,7 @@
                     <h4>บัญชีชนิดอุปกรณ์ต่อพ่วง</h4>
                 </div>
                 <div class="card-body">
-                    <a href="#" class="btn btn-block btn-primary" role="button">เพิ่มชนิดอุปกรณ์ต่อพ่วง</a>
+                    <a href="{{url('/addperipheraltype')}}" class="btn btn-block btn-primary" role="button">เพิ่มชนิดอุปกรณ์ต่อพ่วง</a>
                     <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
