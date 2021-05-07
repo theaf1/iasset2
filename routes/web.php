@@ -90,6 +90,7 @@ Route::get('/addclienttype','ClienttypeController@create');
 Route::post('/add-clienttype','ClienttypeController@store');
 Route::get('/clienttype/{id}','ClienttypeController@edit');
 Route::post('/clienttype/{id}','ClienttypeController@update');
+Route::get('/peripheraltypeadmin','PeripheraltypeController@index');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');

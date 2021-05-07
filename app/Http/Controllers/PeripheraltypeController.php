@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Peripheraltype;
 
 class PeripheraltypeController extends Controller
 {
@@ -13,7 +14,10 @@ class PeripheraltypeController extends Controller
      */
     public function index()
     {
-        //
+        $Peripheraltypes = Peripheraltype::all();
+        return view('peripheraltypeadmin')->with([
+            'peripheraltypes'=>$Peripheraltypes,
+        ]);
     }
 
     /**
