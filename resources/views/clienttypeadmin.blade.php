@@ -21,7 +21,7 @@
                                 <tr>
                                     <th scope="row">{{$clienttype['id']}}</th>
                                     <td>{{$clienttype['name']}}</td>
-                                    <td><a href="{{url('/clienttype',$clienttype->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/clienttype/edit',$clienttype->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
