@@ -13,6 +13,7 @@
                             <tr>
                                 <th scope="col">ลำดับที่</th>
                                 <th scope="col">ชื่อ</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -20,6 +21,7 @@
                                 <tr>
                                     <th scope="row">{{$clienttype['id']}}</th>
                                     <td>{{$clienttype['name']}}</td>
+                                    <td><a href="{{url('/clienttype',$clienttype->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -62,7 +62,10 @@ class ClienttypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Clienttypes = Clienttype::find($id);
+        return view('editclienttype')->with([
+            'clienttype'=>$Clienttypes,
+        ]);
     }
 
     /**
@@ -74,7 +77,9 @@ class ClienttypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        Clienttype::find($id)->update($request->all());
+        return redirect('/clienttypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -90,12 +95,11 @@ class ClienttypeController extends Controller
     private function validateData($data)
     {
         $rules = [
-            'name'=>'unique',
-            'name'=>'required',
+            'name'=>'required|unique:App\Clienttype,name',
         ];
         $messages = [
-            'name.unique'=>'มีชื่อชนิดของครุภัณฑ์แบบนี้แล้ว',
             'name.required'=>'กรุณาระบุชื่อชนิดของครุภัณฑ์',
+            'name.unique'=>'มีชื่อชนิดของครุภัณฑ์แบบนี้แล้ว',
         ];
         return $this->validate($data, $rules, $messages);
     }

@@ -87,7 +87,9 @@ Route::get('/location/{id}','LocationController@edit');
 Route::post('/location/{id}','Locationcontroller@update');
 Route::get('/clienttypeadmin','ClienttypeController@index');
 Route::get('/addclienttype','ClienttypeController@create');
-Route::post('add-clienttype','ClienttypeController@store');
+Route::post('/add-clienttype','ClienttypeController@store');
+Route::get('/clienttype/{id}','ClienttypeController@edit');
+Route::post('/clienttype/{id}','ClienttypeController@update');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
