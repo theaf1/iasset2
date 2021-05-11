@@ -12,9 +12,11 @@ class ClienttypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //แสดงหน้าบัญชีชนิดครุภัณฑ์คอมพิวเตอร์
     {
-        $Clienttypes = Clienttype::all();
+        $Clienttypes = Clienttype::all(); //กำหนค่าตัวแปร Clienttypes โดยอ่านค่าจาก model Clienttype
+
+        //ส่งหน้า clienttypeadmin พร้อมกับตัวแปร Clienttype ผ่านตัวแปร clienttypes
         return view('clienttypeadmin')->with([
             'clienttypes'=>$Clienttypes,
         ]);
@@ -25,7 +27,7 @@ class ClienttypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //แสดงหน้าเพิ่มชนิดครุภัณฑ์คอมพิวเตอร์
     {
         return view('addclienttype');
     }
@@ -36,11 +38,11 @@ class ClienttypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) //บันทึกข้อมูลลงฐานข้อมูล
     {
-        $this->validateData($request);
-        $Clienttypes = Clienttype::create($request->all());
-        return redirect('/clienttypeadmin')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูล
+        $Clienttypes = Clienttype::create($request->all()); //เขียนข้อมูลลงฐานข้อมูลผ่านทาง model Clienttypes
+        return redirect('/clienttypeadmin')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งกลับไปยังหน้า clienttypeadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -60,9 +62,11 @@ class ClienttypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //เรียกหน้าแก้ไขชนิดของครุภัณฑ์
     {
-        $Clienttypes = Clienttype::find($id);
+        $Clienttypes = Clienttype::find($id); //ค้นหาชนิดของครุภัณฑ์ที่ต้องการแก้ไข
+
+        //ส่งข้อมูลชนิดของครุภัณฑ์ที่ต้องการแก้ไข
         return view('editclienttype')->with([
             'clienttype'=>$Clienttypes,
         ]);
@@ -75,11 +79,11 @@ class ClienttypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) //แก้ไขชนิดของครุภัณฑ์คอมพิวเตอร์
     {
-        $this->validateData($request);
-        Clienttype::find($id)->update($request->all());
-        return redirect('/clienttypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูล
+        Clienttype::find($id)->update($request->all()); //แก้ไขข้อมูในฐานข้อมูล
+        return redirect('/clienttypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //ส่งกลับไปยังหน้า clienttypeadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**
@@ -92,10 +96,10 @@ class ClienttypeController extends Controller
     {
         //
     }
-    private function validateData($data)
+    private function validateData($data) //ตรวจสอบข้อมูลที่ได้รับ
     {
         $rules = [
-            'name'=>'required|unique:App\Clienttype,name',
+            'name'=>'required|unique:App\Clienttype,name', //ต้องมีชื่อไม่ซ้ำกันกับของเดิม
         ];
         $messages = [
             'name.required'=>'กรุณาระบุชื่อชนิดของครุภัณฑ์',

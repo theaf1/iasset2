@@ -14,9 +14,11 @@ class LocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //แสดงรายการสถานที่
     {
-        $Room =Room::paginate(20);
+        $Room =Room::paginate(20); //รวบรวมสถานที่จาก model Room แล้วแบ่งหน้าหน้าละ 20 บรรทัด
+
+        //ส่งหน้า locationadmin และตัวแปร Rooms ผ่านตัวแปร rooms
         return view('locationadmin')->with([
             'rooms'=>$Room,
         ]);
@@ -29,9 +31,10 @@ class LocationController extends Controller
      */
     public function create()
     {
-        $Rooms = Room::all();
-        $Locations = Location::all();
-        $Buildings = Building::all();
+        $Rooms = Room::all(); //รวบรวมสถานที่จาก model Room
+        $Locations = Location::all(); //รวบรวมสถานที่จาก model Location
+        $Buildings = Building::all(); //รวบรวมสถานที่จาก model Building
+        //ส่งหน้า addlocation พร้อมตัวแปร
         return view('addlocation')->with([
             'locations'=>$Locations,
             'buildings'=>$Buildings,
@@ -68,9 +71,9 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        $Rooms = Room::find($id);
-        $Locations = Location::all();
-        $Buildings = Building::all();
+        $Rooms = Room::find($id); //ค้นหาสถานที่ที่จะแก้ไข
+        $Locations = Location::all(); //รวบรวมสถานที่จาก model Room
+        $Buildings = Building::all(); //รวบรวมสถานที่จาก model Room
         return view('editlocation')->with([
             'rooms'=>$Rooms,
             'locations'=>$Locations,
