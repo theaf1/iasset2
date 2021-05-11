@@ -95,6 +95,11 @@ Route::get('/addperipheraltype','PeripheraltypeController@create');
 Route::post('/add-peripheraltype','PeripheraltypeController@store');
 Route::get('/peripheraltype/edit/{id}','Peripheraltypecontroller@edit');
 Route::post('/peripheraltype/update/{id}','Peripheraltypecontroller@update');
+Route::get('/networkconnectionadmin','NetworkConnectionController@index');
+Route::get('/addnetworkconnection','NetworkConnectionController@create');
+Route::post('/add-networkconnection','NetworkConnectionController@store');
+Route::get('/networkconnection/edit/{id}','NetworkConnectionController@edit');
+Route::post('/networkconnection/update/{id}','NetworkConnectionController@update');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');

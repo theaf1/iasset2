@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\NetworkConnection;
 
 class NetworkConnectionController extends Controller
 {
@@ -13,7 +14,11 @@ class NetworkConnectionController extends Controller
      */
     public function index()
     {
-        //
+        $NetworkConnections = Networkconnection::all();
+
+        return view('networkconnectionadmin')->with([
+            'networkconnections'=>$NetworkConnections,
+        ]);
     }
 
     /**
@@ -23,7 +28,7 @@ class NetworkConnectionController extends Controller
      */
     public function create()
     {
-        //
+        return view('addnetworkconnection');
     }
 
     /**
@@ -34,7 +39,9 @@ class NetworkConnectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateData($request);
+        $NetworkConnections = NetworkConnection::create($request->all());
+        return redirect('/networkconnectionadmin')->with('success','เพิ่มข้อมูลประเภทเครือข่ายสำเร็จ');
     }
 
     /**
@@ -56,7 +63,10 @@ class NetworkConnectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $NetworkConnection = NetworkConnection::find($id);
+        return view('editnetworkconnection')->with([
+            'networkconnection'=>$NetworkConnection,
+        ]);
     }
 
     /**
@@ -68,7 +78,9 @@ class NetworkConnectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        Networkconnection::find($id)->update($request->all());
+        return redirect('/networkconnectionadmin')->with('success','แก้ไขประเภทเครือข่ายสำเร็จ');
     }
 
     /**
@@ -80,5 +92,16 @@ class NetworkConnectionController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData($data)
+    {
+        $rules = [
+            'name'=>'required|unique:App\NetworkConnection,name',
+        ];
+        $messages = [
+            'name.required'=>'กรุณาใส่ชื่อประเภทเครือข่าย',
+            'name.unique'=>'มีเครือข่ายประเภทนี้แล้ว',
+        ];
+        return $this->validate($data, $rules, $messages);
     }
 }
