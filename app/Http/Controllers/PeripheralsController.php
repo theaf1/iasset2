@@ -31,16 +31,8 @@ class PeripheralsController extends Controller
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
         $Peripheraltypes = Peripheraltype::all();
-        $Supplies = array(
-            ['id'=>'1', 'name'=>'เบิกได้'],
-            ['id'=>'2', 'name'=>'เบิกไม่ได้'],
-            ['id'=>'3', 'name'=>'ไม่จำเป็น'],
-        );
-        $PeripheralConnections = array(
-            ['id'=>'1', 'name'=>'USB'],
-            ['id'=>'2', 'name'=>'Paralell port'],
-            ['id'=>'3', 'name'=>'LAN'],
-        );
+        $Supplies = PeripheralSupply::all();
+        $PeripheralConnections = PeripheralConnect::all();
         $ShareMethods = array(
             ['id'=>'1', 'name'=>'OS share'],
             ['id'=>'2', 'name'=>'network share'],
@@ -152,16 +144,8 @@ class PeripheralsController extends Controller
         $Peripheraltypes = Peripheraltype::all();
         $Positions = Position::all();
         $Multiusers = Multiuser::all();
-        $Supplies = array(
-            ['id'=>'1', 'name'=>'เบิกได้'],
-            ['id'=>'2', 'name'=>'เบิกไม่ได้'],
-            ['id'=>'3', 'name'=>'ไม่จำเป็น'],
-        );
-        $PeripheralConnections = array(
-            ['id'=>'1', 'name'=>'USB'],
-            ['id'=>'2', 'name'=>'Paralell port'],
-            ['id'=>'3', 'name'=>'LAN'],
-        );
+        $Supplies = PeripheralSupply::all();
+        $PeripheralConnections = PeripheralConnect::all();
         $ShareMethods = array(
             ['id'=>'1', 'name'=>'OS share'],
             ['id'=>'2', 'name'=>'network share'],
