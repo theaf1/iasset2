@@ -12,9 +12,10 @@ class PeripheraltypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //แสดงรายการชนิดของอุปกรณ์ต่อพ่วง
     {
-        $Peripheraltypes = Peripheraltype::all();
+        $Peripheraltypes = Peripheraltype::all(); //กำหนดค่าตัวแปร Peripheraltypes จาก model Peripheraltype
+        //ส่งค่าตัวแปร Peripheraltypes ไปยังหน้า peripheraltypeadmin ผ่านตัวแปร periphraltypes
         return view('peripheraltypeadmin')->with([
             'peripheraltypes'=>$Peripheraltypes,
         ]);
@@ -25,7 +26,7 @@ class PeripheraltypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //แสดงหน้า addperiphraltype
     {
         return view('addperipheraltype');
     }
@@ -36,11 +37,11 @@ class PeripheraltypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) //บันทึกข้อมูล
     {
-        $this->validateData($request);
-        $Peripheraltypes = Peripheraltype::create($request->all());
-        return redirect('/peripheraltypeadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        $Peripheraltypes = Peripheraltype::create($request->all()); //เขียนข้อมูลลงในฐานข้อมูล
+        return redirect('/peripheraltypeadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //รายงานผลการบันทึกฐานข้อมูล
     }
 
     /**
@@ -60,9 +61,10 @@ class PeripheraltypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //แก้ไขข้อมูลชนิดอุปกรณ์ต่อพ่วง
     {
-        $Peripheraltypes = Peripheraltype::find($id);
+        $Peripheraltypes = Peripheraltype::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
+        //ส่งข้อมูลที่ต้องการแก้ไขไปกับหน้า editperipheraltype
         return view('editperipheraltype')->with([
             'peripheraltype'=>$Peripheraltypes,
         ]);
@@ -75,11 +77,11 @@ class PeripheraltypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) //บันทึกผการแก้ไขชนิดอุปกรณ์ต่อพ่วง
     {
-        $this->validateData($request);
-        Peripheraltype::find($id)->update($request->all());
-        return redirect('/peripheraltypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        Peripheraltype::find($id)->update($request->all()); //ทำการแก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/peripheraltypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //รายงานผลการแก้ไขข้อมูล
     }
 
     /**
@@ -95,7 +97,7 @@ class PeripheraltypeController extends Controller
     private function validateData ($data)
     {
         $rules = [
-            'name'=>'required|unique:App\Peripheraltype,name',
+            'name'=>'required|unique:App\Peripheraltype,name', //กำหนดให้ต้องมีข้อมูลและไม่ซ้ำกับของเดิม
         ];
 
         $messages = [
