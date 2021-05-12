@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ServerRoleclass;
 
-class ServerRoleClass extends Controller
+class RoleclassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,10 @@ class ServerRoleClass extends Controller
      */
     public function index()
     {
-        //
+        $ServerRoleClasses = ServerRoleClass::all();
+        return view('serverroleclassadmin')->with([
+            'serverroleclasses'=>$ServerRoleClasses,
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class ServerRoleClass extends Controller
      */
     public function create()
     {
-        //
+        return view('addserverrole');
     }
 
     /**
@@ -34,7 +38,9 @@ class ServerRoleClass extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateData($request);
+        $ServerRoleClasses = ServerRoleClass::create($request->all());
+        return redirect('/serverroleclassadmin')->with('success','บันทึกข้อมูลสำเร็จ');
     }
 
     /**
@@ -56,7 +62,10 @@ class ServerRoleClass extends Controller
      */
     public function edit($id)
     {
-        //
+        $ServerRoleClass = ServerRoleClass::find($id);
+        return view('editserverrole')->with([
+            'serverroleclass'=>$ServerRoleClass,
+        ]);
     }
 
     /**
@@ -68,7 +77,9 @@ class ServerRoleClass extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        ServerRoleClass::find($id)->update($request->all());
+        return redirect('/serverroleclassadmin')->with('success','แก้ไขข้อมูลสำเร็จ');
     }
 
     /**
@@ -80,5 +91,17 @@ class ServerRoleClass extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData($data)
+    {
+        $rules = [
+            'name'=>'required|unique:App\ServerRoleClass,name',
+        ];
+
+        $messages = [
+            'name.required'=>'กรุณาใส่ชื่อบทบาท',
+            'name.unique'=>'มีชื่อบทบาทนี้แล้ว',
+        ];
+        return $this->validate($data, $rules, $messages);
     }
 }

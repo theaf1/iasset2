@@ -105,6 +105,11 @@ Route::get('/addowner','OwnerController@create');
 Route::post('/add-owner','OwnerController@store');
 Route::get('/owner/edit/{id}','OwnerController@edit');
 Route::post('/owner/update/{id}','OwnerController@update');
+Route::get('/serverroleclassadmin','RoleclassController@index');
+Route::get('/addserverrole','RoleclassController@create');
+Route::post('add-serverrole','RoleclassController@store');
+Route::get('/serverrole/edit/{id}','RoleclassController@edit');
+Route::post('/serverrole/update/{id}','RoleclassController@update');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
