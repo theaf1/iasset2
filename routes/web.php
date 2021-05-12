@@ -100,6 +100,11 @@ Route::get('/addnetworkconnection','NetworkConnectionController@create');
 Route::post('/add-networkconnection','NetworkConnectionController@store');
 Route::get('/networkconnection/edit/{id}','NetworkConnectionController@edit');
 Route::post('/networkconnection/update/{id}','NetworkConnectionController@update');
+Route::get('/owneradmin','OwnerController@index');
+Route::get('/addowner','OwnerController@create');
+Route::post('/add-owner','OwnerController@store');
+Route::get('/owner/edit/{id}','OwnerController@edit');
+Route::post('/owner/update/{id}','OwnerController@update');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');

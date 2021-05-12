@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Owner;
 
 class OwnerController extends Controller
 {
@@ -13,7 +14,10 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        //
+        $Owners = Owner::all();
+        return view('owneradmin')->with([
+            'owners'=>$Owners,
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        //
+        return view('addowner');
     }
 
     /**
@@ -34,7 +38,9 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateData($request);
+        $Owners = Owner::create($request->all());
+        return redirect('/owneradmin')->with('success','เพิ่มเจ้าของเครื่องสำเร็จ');
     }
 
     /**
@@ -56,7 +62,10 @@ class OwnerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Owner = Owner::find($id);
+        return view('editowner')->with([
+            'owner'=>$Owner,
+        ]);
     }
 
     /**
@@ -68,7 +77,9 @@ class OwnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        Owner::find($id)->update($request->all());
+        return redirect('/owneradmin')->with('success','แก้ไขชื่อเจ้าของเครื่องสำเร็จ');
     }
 
     /**
@@ -80,5 +91,17 @@ class OwnerController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData($data)
+    {
+        $rules = [
+            'name'=>'required|unique:App\Owner,name',
+        ];
+
+        $messages =[
+            'name.required'=>'กรุณาระบุชื่อเจ้าของเครื่อง',
+            'name.unique'=>'มีชื่อเจ้าของแล้ว',
+        ];
+        return $this->validate($data, $rules, $messages);
     }
 }
