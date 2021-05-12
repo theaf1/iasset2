@@ -4,7 +4,7 @@
         <div class="col-12 mx-auto">
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>เพิ่มประเภทเครือข่าย</h4>
+                    <h4>แก้ไขประเภทเครือข่าย</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{url('/networkconnection/update',$networkconnection->id)}}" method="post">

@@ -6,7 +6,7 @@
                 @csrf
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
-                        <h4>xxx</h4>
+                        <h4>แก้ไขชนิดของครุภัณฑ์คอมพิวเตอร์</h4>
                     </div>
                     <div class="card-body">
                         <div class="form-row">

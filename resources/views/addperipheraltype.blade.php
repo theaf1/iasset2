@@ -6,7 +6,7 @@
                 @csrf
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
-                        <h4>aaa</h4>
+                        <h4>เพิ่มชนิดอุปกรณ์ต่อพ่วง</h4>
                     </div>
                     <div class="card-body">
                         <div class="form-row">

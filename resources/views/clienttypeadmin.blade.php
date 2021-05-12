@@ -22,7 +22,7 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>blah</h4>
+                    <h4>รายการชนิดของครุภัณฑ์คอมพิวเตอร์</h4>
                 </div>
                 <div class="card-body">
                     <a href="{{url('/addclienttype')}}" class="btn btn-block btn-primary" role="button">เพิ่มชนิดของครุภัณฑ์คอมพิวเตอร์</a>
