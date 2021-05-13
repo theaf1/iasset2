@@ -15,7 +15,7 @@ class ServerOsController extends Controller
     public function index()
     {
         $ServerOps = ServerOp::all();
-        return view(x)->with([
+        return view('serveropsadmin')->with([
             'serverops'=>$ServerOps,
         ]);
     }
