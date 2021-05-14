@@ -111,6 +111,8 @@ Route::post('add-serverrole','RoleclassController@store');
 Route::get('/serverrole/edit/{id}','RoleclassController@edit');
 Route::post('/serverrole/update/{id}','RoleclassController@update');
 Route::get('/serveropadmin','ServerOsController@index');
+Route::get('/addserverop','ServerOsController@create');
+Route::post('/add-serverop','ServerOsController@store');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
