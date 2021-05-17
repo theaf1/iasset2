@@ -115,6 +115,11 @@ Route::get('/addserverop','ServerOsController@create');
 Route::post('/add-serverop','ServerOsController@store');
 Route::get('serverop/edit/{id}','ServerOsController@edit');
 Route::post('serverop/update/{id}','ServerOsController@update');
+Route::get('/netsubtypeadmin','NettypeController@index');
+Route::get('/addnetsubtype','NettypeController@create');
+Route::post('/add-netsubtype','NettypeController@store');
+Route::get('/netsubtype/edit/{id}','NettypeController@edit');
+Route::post('/netsubtype/update/{id}','NettypeController@update');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
