@@ -12,9 +12,11 @@ class ServerOsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //เรียกหน้า serveropsadmin
     {
-        $ServerOps = ServerOp::all();
+        $ServerOps = ServerOp::all(); //รวบรวมข้อมูล
+
+        // ส่งหน้า serveropsadmin พร้อมกับตัวแปร ServerOps ผ่านตัวแปร serverops
         return view('serveropsadmin')->with([
             'serverops'=>$ServerOps,
         ]);
@@ -25,7 +27,7 @@ class ServerOsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() //เรียกหน้า addserverop
     {
         return view('addserverop');
     }
@@ -36,11 +38,11 @@ class ServerOsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) 
     {
-        $this->validateData($request);
-        $ServerOps = ServerOp::create($request->all());
-        return redirect('/serveropadmin')->with('success','เพิ่มชื่อระบบปฏิบติการสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนเขียนลงในฐานข้อมูล
+        $ServerOps = ServerOp::create($request->all()); //เขียนข้อมูลลงในฐานข้อมูล
+        return redirect('/serveropadmin')->with('success','เพิ่มชื่อระบบปฏิบัติการสำเร็จ'); //ส่งกลับไปยังหน้า serveropadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -60,9 +62,11 @@ class ServerOsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) //แสดงหน้าแก้ไขข้อมูล
     {
-        $ServerOp = ServerOp::find($id);
+        $ServerOp = ServerOp::find($id); //ค้นหาข้อมูลที่จะแก้ไข
+
+        //ส่งหน้า editserverop พร้อมกับข้อมูลที่จะแก้ไข
         return view('editserverop')->with([
             'serverop'=>$ServerOp,
         ]);
@@ -77,9 +81,9 @@ class ServerOsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        ServerOp::find($id)->update($request->all());
-        return redirect('/serveropadmin')->with('success','แก้ไขชื่อระบบปฏิบัติการสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนแก้ไขในฐานข้อมูล
+        ServerOp::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/serveropadmin')->with('success','แก้ไขชื่อระบบปฏิบัติการสำเร็จ'); //ส่งกลับไปยังหน้า serveropadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**
