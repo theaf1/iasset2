@@ -27,7 +27,7 @@ class ServerOsController extends Controller
      */
     public function create()
     {
-        return view(y);
+        return view('addserverop');
     }
 
     /**
@@ -38,7 +38,9 @@ class ServerOsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateData($request);
+        $ServerOps = ServerOp::create($request->all());
+        return redirect('/serveropadmin')->with('success','เพิ่มชื่อระบบปฏิบติการสำเร็จ');
     }
 
     /**
@@ -60,7 +62,10 @@ class ServerOsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ServerOp = ServerOp::find($id);
+        return view('editserverop')->with([
+            'serverop'=>$ServerOp,
+        ]);
     }
 
     /**
@@ -72,7 +77,9 @@ class ServerOsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        ServerOp::find($id)->update($request->all());
+        return redirect('/serveropadmin')->with('success','แก้ไขชื่อระบบปฏิบัติการสำเร็จ');
     }
 
     /**
@@ -85,15 +92,17 @@ class ServerOsController extends Controller
     {
         //
     }
-    private function validateData()
+    private function validateData($data)
     {
         $rules = [
             'name'=>'required|unique:App\ServerOp,name',
         ];
 
         $messages = [
-            'name.required'=>'1',
-            'name.unique'=>'2',
+            'name.required'=>'กรุณาใส่ชื่อระบบปฏิบัติการ',
+            'name.unique'=>'มีชื่อระบบปฏิบัติการนี้ในะระบบแล้ว',
         ];
+
+        return $this->validate($data, $rules, $messages);
     }
 }
