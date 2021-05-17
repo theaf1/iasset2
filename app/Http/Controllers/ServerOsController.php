@@ -79,7 +79,7 @@ class ServerOsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) //แก้ไขข้อมูล
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนแก้ไขในฐานข้อมูล
         ServerOp::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
@@ -99,7 +99,7 @@ class ServerOsController extends Controller
     private function validateData($data)
     {
         $rules = [
-            'name'=>'required|unique:App\ServerOp,name',
+            'name'=>'required|unique:App\ServerOp,name', //ต้องมีชื่อและไม่ซ้ำกัน
         ];
 
         $messages = [
