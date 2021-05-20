@@ -120,6 +120,7 @@ Route::get('/addnetsubtype','NettypeController@create');
 Route::post('/add-netsubtype','NettypeController@store');
 Route::get('/netsubtype/edit/{id}','NettypeController@edit');
 Route::post('/netsubtype/update/{id}','NettypeController@update');
+Route::get('/assetstatusadmin','Assetstatuscontroller@index');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
