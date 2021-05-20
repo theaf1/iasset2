@@ -14,6 +14,7 @@
                                 <a href="{{url('/locationadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการสถานที่ตั้ง</a>
                                 <a href="{{url('/clienttypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของครุภัณฑ์</a>
                                 <a href="{{url('/networkconnectionadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทเครือข่าย</a>
+                                <a href="{{url('/netsubtypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทของอุปกรณ์เครือข่าย</a>
                                 <a href="{{url('/peripheraltypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของอุปกรณ์ต่อพ่วง</a>
                                 <a href="{{url('/owneradmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อเจ้าของเครื่อง</a>
                                 <a href="{{url('/serverroleclassadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อบทบาท Server</a>
