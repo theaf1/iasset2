@@ -18,6 +18,7 @@
                                 <a href="{{url('/peripheraltypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของอุปกรณ์ต่อพ่วง</a>
                                 <a href="{{url('/owneradmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อเจ้าของเครื่อง</a>
                                 <a href="{{url('/serverroleclassadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อบทบาท Server</a>
+                                <a href="{{url('/assetstatusadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อสถานะครุภัณฑ์</a>
                             </div>
                         </div>
                     </div>

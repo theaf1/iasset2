@@ -63,8 +63,8 @@ class AssetstatusController extends Controller
     public function edit($id)
     {
         $Asset_status = Asset_statuses::find($id);
-        return view('editasset')->with([
-            'asset_status'=>$Asset_status,
+        return view('editassetstatus')->with([
+            'assetstatus'=>$Asset_status,
         ]);
     }
 
@@ -98,10 +98,10 @@ class AssetstatusController extends Controller
             'name'=>'required|unique:App\Asset_statuses,name',
         ];
 
-        $messages =[
-            'name.required'=>'a',
-            'name.unique'=>'shaaaark',
+        $message =[
+            'name.required'=>'กรุณาระบุชื่อสถานะ',
+            'name.unique'=>'มีชื่อสถานะนี้แล้ว',
         ];
-        return $this->validate($data, $rules, $messages);
+        return $this->validate($data, $rules, $message);
     }
 }
