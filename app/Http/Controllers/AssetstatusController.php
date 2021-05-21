@@ -12,9 +12,10 @@ class AssetstatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //เรียกหน้าหลัก
     {
-        $Asset_statuses = Asset_statuses::all();
+        $Asset_statuses = Asset_statuses::all(); //กำหนดค่าตัวแปร Asset_statuses
+        //เรียกหน้า assetstatusadmin พร้อมกับส่งค่าตัวแปร Asset_statuses ผ่านตัวแปร assetstatuses
         return view('assetstatusadmin')->with([
             'assetstatuses'=>$Asset_statuses,
         ]);
@@ -27,7 +28,7 @@ class AssetstatusController extends Controller
      */
     public function create()
     {
-        return view('addassetstatus');
+        return view('addassetstatus'); //เรียกหน้า addassetstatus
     }
 
     /**
@@ -38,9 +39,9 @@ class AssetstatusController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $Asset_statuses = Asset_statuses::create($request->all());
-        return redirect('/assetstatusadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนเขียนลงฐานข้อมูล
+        $Asset_statuses = Asset_statuses::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
+        return redirect('/assetstatusadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //เรียกหน้า assetstatusadmin พร้อมกับส่งผลการบันทึกข้อมูล
     }
 
     /**
@@ -62,7 +63,8 @@ class AssetstatusController extends Controller
      */
     public function edit($id)
     {
-        $Asset_status = Asset_statuses::find($id);
+        $Asset_status = Asset_statuses::find($id); //ค้นห้าข้อมูลที่ต้องการแก้ไข
+        //เรียกหน้า editassetstatus พร้อมกับส่งข้อมูลผ่านตัวแปร assetstatus
         return view('editassetstatus')->with([
             'assetstatus'=>$Asset_status,
         ]);
@@ -77,9 +79,9 @@ class AssetstatusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Asset_statuses::find($id)->update($request->all());
-        return redirect('/assetstatusadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        Asset_statuses::find($id)->update($request->all()); //ค้นหาและแก้ไขข้อมูล
+        return redirect('/assetstatusadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //เรียกหน้า assetstatusadmin พร้อมกับส่งผลการบันทึกข้อมูล
     }
 
     /**
@@ -95,7 +97,7 @@ class AssetstatusController extends Controller
     private function validateData($data)
     {
         $rules =[
-            'name'=>'required|unique:App\Asset_statuses,name',
+            'name'=>'required|unique:App\Asset_statuses,name', //ต้องมีชื่อที่ไม่ซ้ำกับของเดิม
         ];
 
         $message =[
