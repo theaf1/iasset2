@@ -27,7 +27,7 @@ class BatteryController extends Controller
      */
     public function create()
     {
-        return view(y);
+        return view('addbatterytype');
     }
 
     /**

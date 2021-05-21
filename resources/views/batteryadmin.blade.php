@@ -22,10 +22,10 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4></h4>
+                    <h4>รายการประเภท Battery</h4>
                 </div>
                 <div class="card-body">
-                    <a href="#" class="btn btn-primary btn-block" role="button">aaa</a>
+                    <a href="{{url('/addbatterytype')}}" class="btn btn-primary btn-block" role="button">เพิ่มประเภท Battery</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>

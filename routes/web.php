@@ -126,6 +126,7 @@ Route::post('/add-assetstatus','AssetstatusController@store');
 Route::get('/assetstatus/edit/{id}','AssetstatusController@edit');
 Route::get('/assetstatus/update/{id}','AssetstatusController@update');
 Route::get('/batterytypeadmin','BatteryController@index');
+Route::get('/addbatterytype','BatteryController@create');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
