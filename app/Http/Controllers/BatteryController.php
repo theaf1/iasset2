@@ -38,8 +38,9 @@ class BatteryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateData($request);
         $Upsbatterytypes = Upsbatterytype::create($request->all());
-        return redirect('/x')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
+        return redirect('/batterytypeadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -62,7 +63,7 @@ class BatteryController extends Controller
     public function edit($id)
     {
         $Upsbatterytype = Upsbatterytype::find($id);
-        return view(y)->with([
+        return view('editbatterytype')->with([
             'upsbatterytype'=>$Upsbatterytype,
         ]);
     }
@@ -76,8 +77,9 @@ class BatteryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validateData($request);
         Upsbatterytype::find($id)->update($request->all());
-        return redirect('/x')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
+        return redirect('/batterytypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -97,8 +99,8 @@ class BatteryController extends Controller
         ];
 
         $messages = [
-            'name.required'=>'1',
-            'name.unique'=>'2',
+            'name.required'=>'กรุณาระบุประเภทของแบตเตอรี่',
+            'name.unique'=>'มีแบตเตอรี่ประเภทนี้แล้ว',
         ];
         return $this->validate($data, $rules, $messages);
     }

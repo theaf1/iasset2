@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$upsbatterytype['id']}}</th>
                                     <td>{{$upsbatterytype['name']}}</td>
-                                    <td><a href="#" class="btn btn-primary btn-sm" role="button">bbbb</a></td>
+                                    <td><a href="{{url('/batterytype/edit',$upsbatterytype->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
