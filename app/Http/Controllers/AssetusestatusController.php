@@ -16,7 +16,7 @@ class AssetusestatusController extends Controller
     {
         $Assetusestatuses = Asset_use_statuses::all();
 
-        return view(w)->with([
+        return view('assetusestatusadmin')->with([
             'assetusestatuses'=>$Assetusestatuses,
         ]);
     }
@@ -28,7 +28,7 @@ class AssetusestatusController extends Controller
      */
     public function create()
     {
-        return view(x);
+        return view('addassetusestatus');
     }
 
     /**
@@ -39,8 +39,9 @@ class AssetusestatusController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validateData($request);
         $Assetusestatuses = Asset_use_statuses::create($request->all());
-        return redirect('/w')->with('success','a')
+        return redirect('/assetusestatusadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -62,7 +63,10 @@ class AssetusestatusController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Assetusestatus = Asset_use_statuses::find($id);
+        return view('editassetusestatus')->with([
+            'assetusestatus'=>$Assetusestatus,
+        ]);
     }
 
     /**
@@ -74,7 +78,9 @@ class AssetusestatusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        Asset_use_statuses::find($id)->update($request->all());
+        return redirect('/assetusestatusadmin')->with('success','แก้ไขข้อมูลสำเร็จ');
     }
 
     /**
@@ -86,5 +92,17 @@ class AssetusestatusController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData($data)
+    {
+        $rules = [
+            'name'=>'required|unique:App\Asset_use_statuses,name',
+        ];
+
+        $messages =[
+            'name.required'=>'yubi',
+            'name.unique'=>'xpotato',
+        ];
+        return $this->validate($data, $rules, $messages);
     }
 }
