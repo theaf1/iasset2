@@ -9,16 +9,24 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-12 col-lg-12">
+                            <div class="col-sm-12 col-lg-6">
                                 <a href="{{url('/sectionadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการข้อมูลหน่วยงาน</a>
                                 <a href="{{url('/locationadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการสถานที่ตั้ง</a>
-                                <a href="{{url('/clienttypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของครุภัณฑ์</a>
-                                <a href="{{url('/networkconnectionadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทเครือข่าย</a>
-                                <a href="{{url('/netsubtypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทของอุปกรณ์เครือข่าย</a>
-                                <a href="{{url('/peripheraltypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของอุปกรณ์ต่อพ่วง</a>
+                                <a href="{{url('/buildingadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่ออาคาร</a>
                                 <a href="{{url('/owneradmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อเจ้าของเครื่อง</a>
-                                <a href="{{url('/serverroleclassadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อบทบาท Server</a>
                                 <a href="{{url('/assetstatusadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อสถานะครุภัณฑ์</a>
+                                <a href="{{url('/assetusestatusadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อสถานะการใช้งานครุภัณฑ์</a>
+                                
+                                
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <a href="{{url('/clienttypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของครุภัณฑ์คอมพิวเตอร์</a>
+                                <a href="{{url('/networkconnectionadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทเครือข่าย</a>
+                                <a href="{{url('/peripheraltypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของอุปกรณ์ต่อพ่วง</a>
+                                <a href="{{url('/netsubtypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทของอุปกรณ์เครือข่าย</a>
+                                <a href="{{url('/serverroleclassadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อบทบาท Server</a>
+                                <a href="{{url('/serveropadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อระบบปฏิบัติการแม่ข่าย</a>
+                                <a href="{{url('/batterytypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทของแบตเตอรี่ UPS</a>
                             </div>
                         </div>
                     </div>
