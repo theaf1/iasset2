@@ -15,7 +15,7 @@ class BuildingController extends Controller
     public function index()
     {
         $Bulidings = Building::all();
-        return view(x)->with([
+        return view('buildingadmin')->with([
             'buildings'=>$Bulidings,
         ]);
     }
@@ -27,7 +27,7 @@ class BuildingController extends Controller
      */
     public function create()
     {
-        return view(y);
+        return view('addbuilding');
     }
 
     /**
@@ -38,7 +38,9 @@ class BuildingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateData($request);
+        $Bulidings = Building::create($request->all());
+        return redirect('/buildingadmin')->with('success','บันทึกชื่ออาคารสำเร็จ');
     }
 
     /**
@@ -49,9 +51,7 @@ class BuildingController extends Controller
      */
     public function show($id)
     {
-        $this->validateData($request);
-        $Bulidings = Building::create($request->all());
-        return redirect(x)->with('success','yubi');
+        //
     }
 
     /**
@@ -62,7 +62,10 @@ class BuildingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Building = Building::find($id);
+        return view('editbuilding')->with([
+            'building'=>$Building,
+        ]);
     }
 
     /**
@@ -74,7 +77,9 @@ class BuildingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        Building::find($id)->update($request->all());
+        return redirect('/buildingadmin')->with('success','แก้ไขชื่ออาคารสำเร็จ');
     }
 
     /**
@@ -94,8 +99,8 @@ class BuildingController extends Controller
         ];
 
         $messages = [
-            'name.required'=>'1',
-            'name.unique'=>'2',
+            'name.required'=>'กรุณาระบุชื่ออาคาร',
+            'name.unique'=>'มีอาคารนี้ในระบบแล้ว',
         ];
         
         return $this->validate($data, $rules, $messages);

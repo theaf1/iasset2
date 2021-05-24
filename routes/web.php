@@ -135,6 +135,11 @@ Route::get('/addassetusestatus','AssetusestatusController@create');
 route::post('/add-assetusestatus','AssetusestatusController@store');
 Route::get('/assetusestatus/edit/{id}','AssetusestatusController@edit');
 Route::post('/assetusestatus/update/{id}','AssetusestatusController@update');
+Route::get('/buildingadmin','BuildingController@index');
+Route::get('/addbuilding','BuildingController@create');
+Route::post('/add-building','BuildingController@store');
+Route::get('/building/edit/{id}','BuildingController@edit');
+Route::post('/building/update/{id}','BuildingController@update');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
