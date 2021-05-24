@@ -100,8 +100,8 @@ class AssetusestatusController extends Controller
         ];
 
         $messages =[
-            'name.required'=>'yubi',
-            'name.unique'=>'xpotato',
+            'name.required'=>'กรุณาระบุชื่อสถานะ',
+            'name.unique'=>'มีสถานะนี้ในระบบแล้ว',
         ];
         return $this->validate($data, $rules, $messages);
     }
