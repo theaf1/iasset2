@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Building;
 use Illuminate\Http\Request;
 
-class Buildingcontroller extends Controller
+class BuildingController extends Controller
 {
     /**
      * Display a listing of the resource.
