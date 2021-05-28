@@ -321,19 +321,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--จำนวน disk จำลองที่มีอยู่-->
-                                <div class="form-group">
-                                    <label for="lun_count">จำนวน disk จำลองที่มีอยู่</label>
-                                    <input class="form-control @error('lun_count') is-invalid @enderror" name="lun_count" id="lun_count" type="number" value="{{ old('lun_count') }}">
-                                    @error('lun_count')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="card mt-4">

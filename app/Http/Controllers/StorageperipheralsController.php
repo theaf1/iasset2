@@ -252,7 +252,6 @@ class StorageperipheralsController extends Controller
             'no_of_physical_drive_max' => 'exclude_unless:is_hotswap,true|required',
             'no_of_physical_drive_max'=>'exclude_unless:is_hotswap,true|gte:2',
             'no_of_physical_drive_populated' => 'exclude_unless:is_hotswap,true|required|lte:no_of_physical_drive_max',
-            'lun_count' => 'exclude_unless:is_hotswap,true|required',
         ];
 
         //ข้อความแสดงข้อผิดพลาด
@@ -278,7 +277,6 @@ class StorageperipheralsController extends Controller
             'no_of_physical_drive_max.gte' => 'จำนวน disk ไม่เพียงพอ',
             'no_of_physical_drive_populated.required'=>'ใส่จำนวน disk ในเครื่อง',
             'no_of_physical_drive_populated.lte'=>'จำนวน disk ในเครื่องไม่ถูกต้อง',
-            'lun_count.required_if'=>'ใส่จำนวน disk จำลอง',
 
         ];
 

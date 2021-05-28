@@ -38,7 +38,6 @@ class CreateStorageperipheralsTable extends Migration
             $table->integer('data_unit_id'); //หน่วยวัดข้อมูล รับค่าจากตาราง DataUnit
             $table->integer('no_of_physical_drive_max')->nullable(); //จำนวน HDD สูงสุด
             $table->integer('no_of_physical_drive_populated')->nullable(); //จำนวน HDD ที่มีอยู่
-            $table->integer('lun_count')->nullable(); //จำนวน disk จำลอง
             $table->string('issues')->nullable(); //ปัญหาในการใช้งาน
             $table->timestamps();
         });

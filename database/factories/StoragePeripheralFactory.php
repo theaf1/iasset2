@@ -29,7 +29,6 @@ $factory->define(Storageperipherals::class, function (Faker $faker) {
         'total_capacity' => 4, //ความจุข้อมูลรวม
         'no_of_physical_drive_max' => 1, //จำนวน HDD สูงสุด
         'no_of_physical_drive_populated' => 1, //จำนวน HDD ที่มีอยู่
-        'lun_count' => 1, //จำนวน Disk จำลอง
         'issues' => 'test', //ปัญหาจำลอง
     ];
 });

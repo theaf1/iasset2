@@ -33,7 +33,6 @@ class Storageperipherals extends Model
         'total_capacity',
         'no_of_physical_drive_max',
         'no_of_physical_drive_populated',
-        'lun_count',
         'issues',
     ];
     //แสดงความสัมพันธ์กับตาราง Section

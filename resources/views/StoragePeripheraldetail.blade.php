@@ -124,11 +124,6 @@
                                 <p>จำนวน Hard Disk ที่มีอยู่ {{$storageperipheral['no_of_physical_drive_populated']}}</p>
                             </div>
                         </div>
-                        <div class="col-sm-4 col-lg-2">
-                            <div class="form-group">
-                                <p>จำนวน Disk จำลอง {{$storageperipheral['no_of_physical_drive_max']}}</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
