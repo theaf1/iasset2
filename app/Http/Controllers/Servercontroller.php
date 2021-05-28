@@ -342,7 +342,6 @@ class ServerController extends Controller
             'no_of_physical_drive_max.gte' => 'จำนวน disk ไม่เพียงพอ',
             'no_of_physical_drive_populated.required_if' => 'กรุณาระบุจำนวน disk ที่มีอยู่',
             'no_of_physical_drive_populated.lte' => 'โปรดตรวจสอบจำนวน disk ในเครื่อง',
-            'lun_count.required_if' =>'กรุณาระบุจำนวน disk จำลอง',
             'hdd_total_cap.required' => 'กรุณาระบุความจุข้อมูลรวมของเครื่อง',
             'os_id.required' => 'กรุณาเลือกระบบปฏิบัติการ',
             'role_class_id.required' =>'กรุณาเลื่อกกลุ่มงานของ server',
