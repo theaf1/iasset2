@@ -133,6 +133,10 @@ class Client extends Model
    {
       return $this->belongsTo(OsArch::class,'os_arch_id');
    }
+   public function ClientClientOperate ()
+   {
+      return $this->belongsTo(ClientOperate::class,'os_id');
+   }
    //แสดงความสัมพันธ์กับตาราง NetworkConnection
    public function networkconnection ()
    {
