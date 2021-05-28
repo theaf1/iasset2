@@ -100,7 +100,7 @@ class ClientOpController extends Controller
 
         $messages =[
             'name.required'=>'กรุณาระบุชื่อระบบปฏิบัติการ',
-            'name.unique'=>'มีระบบปฏิบัติการนีในระบบแล้ว',
+            'name.unique'=>'มีระบบปฏิบัติการนี้ในระบบแล้ว',
         ];
 
         return $this->validate($data, $rules, $messages);
