@@ -15,7 +15,7 @@ class ClientOpController extends Controller
     public function index()
     {
         $ClientOSes = ClientOperate::all();
-        return view(x)->with([
+        return view('clientopadmin')->with([
             'clientoses'=>$ClientOSes,
         ]);
     }
@@ -27,7 +27,7 @@ class ClientOpController extends Controller
      */
     public function create()
     {
-        return view(y);
+        return view('addclientop');
     }
 
     /**
@@ -38,7 +38,9 @@ class ClientOpController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateData($request);
+        $ClientOSes = ClientOperate::create($request->all());
+        return redirect('/clientopadmin')->with('success','เพิ่มระบบปฏิบัติการสำเร็จ');
     }
 
     /**
@@ -60,7 +62,10 @@ class ClientOpController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ClientOS = ClientOperate::find($id);
+        return view('editclientop')->with([
+            'clientos'=>$ClientOS,
+        ]);
     }
 
     /**
@@ -72,7 +77,9 @@ class ClientOpController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        ClientOperate::find($id)->update($request->all());
+        return redirect('/clientopadmin')->with('success','แก้ไขระบบปฏิบัติการสำเร็จ');
     }
 
     /**
@@ -92,8 +99,8 @@ class ClientOpController extends Controller
         ];
 
         $messages =[
-            'name.required'=>'1',
-            'name.unique'=>'2',
+            'name.required'=>'กรุณาระบุชื่อระบบปฏิบัติการ',
+            'name.unique'=>'มีระบบปฏิบัติการนีในระบบแล้ว',
         ];
 
         return $this->validate($data, $rules, $messages);
