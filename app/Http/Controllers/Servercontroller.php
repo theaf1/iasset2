@@ -308,7 +308,6 @@ class ServerController extends Controller
             'display_count' => 'required',
             'no_of_physical_drive_max' => 'required_if:is_raid,1|gte:2',
             'no_of_physical_drive_populated' => 'required_if:is_raid,1|lte:no_of_physical_drive_max',
-            'lun_count' => 'required_if:is_raid,1',
             'hdd_total_cap' => 'required',
             'os_id'=>'required',
             'role_class_id' => 'required',

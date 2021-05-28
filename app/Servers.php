@@ -32,7 +32,6 @@ class Servers extends Model
         'is_raid',
         'no_of_physical_drive_max',
         'no_of_physical_drive_populated',
-        'lun_count',
         'data_unit_id',
         'hdd_total_cap',
         'os_id',

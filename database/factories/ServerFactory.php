@@ -28,7 +28,6 @@ $factory->define(Servers::class, function (Faker $faker) {
         'is_raid' => 1, //RAID
         'no_of_physical_drive_max' => 8, //จำนวน HDD สูงสุด
         'no_of_physical_drive_populated'=> 5, //จำนวน HDD ที่มีอยู่
-        'lun_count' => 2, //จำนวน disk จำลอง
         'data_unit_id'=>2, //หน่วยวัดข้อมูล
         'hdd_total_cap'=> 6, //ความจุ HDD ทั้งหมด
         'os_id' => 6, //ระบบปฏิบัติการ

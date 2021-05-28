@@ -140,11 +140,6 @@
                         </div>
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
-                                <p>มี disk จำลอง {{$server['lun_count']}} ลูก</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="form-group">
                                 <p>ความจุรวมทั้งสิ้น {{$server['hdd_total_cap']}} {{$server->ServerDataUnit->name}}</p>
                             </div>
                         </div>
