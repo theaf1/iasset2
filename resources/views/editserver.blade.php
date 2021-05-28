@@ -283,9 +283,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6"><!--HDD สูงสุด-->
+                            <div class="col-sm-6 col-lg-3"><!--HDD สูงสุด-->
                                 <div class="form-group">
-                                    <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
+                                    <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้ (ลูก)</label>
                                     <input class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" value="{{ old('no_of_physical_drive_max',$server->no_of_physical_drive_max) }}">
                                     @error('no_of_physical_drive_max')
                                         <div class="invalid-feedback">
@@ -294,11 +294,9 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--จำนวน Hard Disk ที่มีอยู่-->
+                            <div class="col-sm-6 col-lg-3"> <!--จำนวน Hard Disk ที่มีอยู่-->
                                 <div class="form-group">
-                                    <label for="no_of_physical_drive_populated">จำนวน Hard Disk ที่มีอยู่</label>
+                                    <label for="no_of_physical_drive_populated">จำนวน Hard Disk ที่มีอยู่ (ลูก)</label>
                                     <input class="form-control @error('no_of_physical_drive_populated') is-invalid @enderror" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" type="number" min="2" value="{{ old('no_of_physical_drive_populated',$server->no_of_physical_drive_populated) }}">
                                     @error('no_of_physical_drive_populated')
                                         <div class="invalid-feedback">
