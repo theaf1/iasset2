@@ -439,9 +439,14 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--OS-->
                                 <div class="form-group">
-                                    <label for="os">OS</label>
-                                    <input class="form-control @error('os') is-invalid @enderror" name="os" id="os" type="text" value="{{ old('os') }}">
-                                    @error('os')
+                                    <label for="os_id">OS</label>
+                                    <select class="form-control @error('os_id') is-invalid @enderror" name="os_id" id="os_id">
+                                        <option value="" hidden></option>
+                                        @foreach ($clientoses as $clientos)
+                                            <option value="{{$clientos['id']}}" {{ old('os_id') == $clientos['id'] ? 'selected' : '' }}>{{$clientos['name']}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('os_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

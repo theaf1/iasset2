@@ -14,6 +14,7 @@ use App\NetworkConnection;
 use App\Owner;
 use App\Mobility;
 use App\Position;
+use App\ClientOperate;
 use App\OsArch;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -79,6 +80,7 @@ class ClientController extends Controller
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
         $DataUnits = DataUnit::all();
+        $ClientOperates = ClientOperate::all();
         $OsArches = OsArch::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
@@ -104,6 +106,7 @@ class ClientController extends Controller
             'multiusers'=>$Multiusers,
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
+            'clientoses'=>$ClientOperates,
             'os_arches'=>$OsArches,
             'dataunits'=>$DataUnits,
             'owners'=>$Owners,
@@ -207,6 +210,7 @@ class ClientController extends Controller
         $NetworkConnections = NetworkConnection::all();
         $Positions = Position::all();
         $DataUnits = DataUnit::all();
+        $ClientOperates = ClientOperate::all();
         $OsArches = OsArch::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
@@ -224,6 +228,7 @@ class ClientController extends Controller
             'networkconnections'=>$NetworkConnections,
             'positions'=>$Positions,
             'dataunits'=>$DataUnits,
+            'clientoses'=>$ClientOperates,
             'os_arches'=>$OsArches,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
@@ -308,7 +313,7 @@ class ClientController extends Controller
             'data_unit_id' =>'required',
             'hdd_total_cap'=>'required',
             'display_count' => 'required',
-            'os'=>'required',
+            'os_id'=>'required',
             'os_arch_id'=>'required',
             'ms_office_version'=>'required',
             'antivirus'=>'required',
@@ -348,7 +353,7 @@ class ClientController extends Controller
             'data_unit_id.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'hdd_total_cap.required'=>'กรุณาระบุความจุข้อมูลรวมของเครื่อง',
             'display_count.required'=>'กรุณาระบุจำนวนจอภาพ',
-            'os.required'=>'กรุณาระบุชื่อระบบปฏิบัติการ',
+            'os_id.required'=>'กรุณาระบุชื่อระบบปฏิบัติการ',
             'os_arch_id.required'=>'กรุณาระบุโครงสร้างระบบปฏิบัติการ',
             'ms_office_version.required'=>'กรุณาระบุรุ่นโปรแกรม Microsoft Office',
             'antivirus.required'=>'กรุณาระบุยี่ห้อและรุ่นโปรแกรม Antivirus',

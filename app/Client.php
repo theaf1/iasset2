@@ -39,7 +39,7 @@ class Client extends Model
       'data_unit_id',
       'hdd_total_cap',
       // 'display_no',
-      'os',
+      'os_id',
       'os_arch_id',
       'ms_office_version',
       'antivirus',

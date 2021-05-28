@@ -43,7 +43,7 @@ $factory->define(Client::class, function (Faker $faker) {
         'hdd_no' => 1, //จำนวน HDD
         'data_unit_id'=> 2,
         'hdd_total_cap'=> 2, //ความจุ HDD
-        'os' => 'Windows 10', //ระบบปฏิบัติการ
+        'os_id' => rand(1,5), //ระบบปฏิบัติการ
         'os_arch_id' => 2, //โครงสร้าง
         'ms_office_version' => '2010', //version Office
         'antivirus' => 'ESET7', //version antivirus
