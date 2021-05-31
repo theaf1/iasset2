@@ -34,18 +34,18 @@
                 </div>
                 <div class="card mt-4 mr-2">
                     <div class="card-header card-background text-white">
-                        <p>2</p>
+                        <h4>จัดการผู้ใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <p>blah</p>
+                        <p>กำลังพัฒนา</p>
                     </div>
                 </div>
                 <div class="card mt-4 mr-2">
                     <div class="card-header card-background text-white">
-                        <p>3</p>
+                        <h4>การบริหารจัดการเรื่องอื่นๆ</h4>
                     </div>
                     <div class="card-body">
-                        <p>blah</p>
+                        <p>กำลังพัฒนา</p>
                     </div>
                 </div>
             </div>

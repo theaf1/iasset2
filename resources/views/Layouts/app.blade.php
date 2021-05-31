@@ -45,6 +45,8 @@
               <a class="dropdown-item" href="{{ url('/networkdevices') }}">สอบทานและแก้ไขข้อมูลอุปกรณเครือข่ายคอมพิวเตอร์</a>
               <a class="dropdown-item" href="{{ url('/networkedstorage') }}">สอบทานและแก้ไขข้อมูลอุปกรณ์เก็บข้อมูลเครือข่าย</a>
               <a class="dropdown-item" href="{{ url('/upses') }}">สอบทานและแก้ไขข้อมูลเครื่องสำรองไฟฟ้า</a>
+              <div class="dropdown-divider"></div>
+              <a href="{{url('/admin')}}" class="dropdown-item">สำหรับผู้ดูแลระบบ</a>
             </div>
           </li>
         </ul>
