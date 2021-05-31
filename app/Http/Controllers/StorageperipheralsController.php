@@ -231,7 +231,7 @@ class StorageperipheralsController extends Controller
     {
         //เงื่อนไข
         $rules = [
-            'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
+            'sapid'=>'required',
             'pid'=>'nullable',
             'location_id' => 'required',
             'mobility_id' => 'required',
@@ -256,7 +256,7 @@ class StorageperipheralsController extends Controller
 
         //ข้อความแสดงข้อผิดพลาด
         $messages = [
-            'sapid.regex' => 'กรุณาตรวจสอบรหัส SAP',
+            'sapid.required' => 'กรุณาใส่รหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'section_id.required' => 'กรุณาเลือกสาขา',
             'mobility_id.required' => 'กรุณาระบุลักษณะการใช้งาน',

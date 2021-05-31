@@ -271,7 +271,7 @@ class PeripheralsController extends Controller
         //ข้อความแสดงข้อผิดพลา่ด
         $messages =[
             'type_id.required'=>'โปรดระบุชนิดของครุภัณฑ์',
-            'sapid.required'=>'1',
+            'sapid.required'=>'กรุณาระบุรหัส SAP',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้ง',
             'mobility_id.required'=>'กรุณาระบุลักษณะการติดตั้ง',
             'section_id.required'=>'กรุณาระบุหน่วยงาน',

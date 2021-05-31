@@ -265,7 +265,7 @@ class UpsController extends Controller
 
         //ข้อความแสดงข้อผิดพลาด
         $messages = [
-            'sapid.regex' => 'กรุณากรอกรหัส SAP',
+            'sapid.required' => 'กรุณากรอกรหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
             'section_id.required' => 'กรุณาเลือกสาขา',
