@@ -12,9 +12,11 @@ class BuildingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
-        $Bulidings = Building::all();
+        $Bulidings = Building::all(); //รวบรวมชื่ออาคาร
+
+        ///เรียกหน้า buildingadmin พร้อมกับส่งตัวแปร Buildings ผ่านทางตัวแปร buildings
         return view('buildingadmin')->with([
             'buildings'=>$Bulidings,
         ]);
@@ -27,7 +29,7 @@ class BuildingController extends Controller
      */
     public function create()
     {
-        return view('addbuilding');
+        return view('addbuilding'); //เรียกหน้า addbuildings
     }
 
     /**
@@ -38,9 +40,9 @@ class BuildingController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $Bulidings = Building::create($request->all());
-        return redirect('/buildingadmin')->with('success','บันทึกชื่ออาคารสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนบันทึกลงในฐานข้อมูล
+        $Bulidings = Building::create($request->all()); //เขียนข้อมูลลงในฐานข้อมูล
+        return redirect('/buildingadmin')->with('success','บันทึกชื่ออาคารสำเร็จ'); //ส่งกลับไปยังหน้า buildingadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -62,7 +64,9 @@ class BuildingController extends Controller
      */
     public function edit($id)
     {
-        $Building = Building::find($id);
+        $Building = Building::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
+        
+        //ส่งข้อมูลที่จะแก้ไขไปพร้อมกับหน้า editbuilding ด้วยตัวแปร building
         return view('editbuilding')->with([
             'building'=>$Building,
         ]);
@@ -77,9 +81,9 @@ class BuildingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Building::find($id)->update($request->all());
-        return redirect('/buildingadmin')->with('success','แก้ไขชื่ออาคารสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        Building::find($id)->update($request->all()); //ค้นหาและแก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/buildingadmin')->with('success','แก้ไขชื่ออาคารสำเร็จ'); //ส่งกลับไปยังหน้า buildingadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**
