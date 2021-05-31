@@ -14,7 +14,9 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        $Owners = Owner::all();
+        $Owners = Owner::all(); //รวบรวมข้อมูล
+
+        //เรียกหน้า owneradmin พร้อมกับส่งข้อมูลด้วยตัวแปร ownners
         return view('owneradmin')->with([
             'owners'=>$Owners,
         ]);
@@ -27,7 +29,7 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        return view('addowner');
+        return view('addowner'); //เรียกหน้า addowner
     }
 
     /**
@@ -38,9 +40,9 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $Owners = Owner::create($request->all());
-        return redirect('/owneradmin')->with('success','เพิ่มเจ้าของเครื่องสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        $Owners = Owner::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
+        return redirect('/owneradmin')->with('success','เพิ่มเจ้าของเครื่องสำเร็จ'); //ส่งกลับไปยังหน้า owneradmin พร้อมกับผลการบันทึกข้อมูล
     }
 
     /**
@@ -62,7 +64,9 @@ class OwnerController extends Controller
      */
     public function edit($id)
     {
-        $Owner = Owner::find($id);
+        $Owner = Owner::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
+
+        //เรียกหน้า editowner พร้อมกับส่งข้อมูลด้วยตัวแปร owner
         return view('editowner')->with([
             'owner'=>$Owner,
         ]);
@@ -77,9 +81,9 @@ class OwnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Owner::find($id)->update($request->all());
-        return redirect('/owneradmin')->with('success','แก้ไขชื่อเจ้าของเครื่องสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        Owner::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/owneradmin')->with('success','แก้ไขชื่อเจ้าของเครื่องสำเร็จ'); //ส่งกลับไปยังหน้า owneradmin พร้อมกับผลการแก้ไขข้อมูล
     }
 
     /**

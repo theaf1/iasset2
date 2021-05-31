@@ -14,8 +14,9 @@ class NetworkConnectionController extends Controller
      */
     public function index()
     {
-        $NetworkConnections = Networkconnection::all();
+        $NetworkConnections = Networkconnection::all(); //รวบรวมข้อมูล
 
+        //เรียกหน้า networkconnectionadmin พร้อมกับส่งข้อมูลด้วยตัวแปร networkconnections
         return view('networkconnectionadmin')->with([
             'networkconnections'=>$NetworkConnections,
         ]);
@@ -28,7 +29,7 @@ class NetworkConnectionController extends Controller
      */
     public function create()
     {
-        return view('addnetworkconnection');
+        return view('addnetworkconnection'); //เรียกหน้า addnetworkconnection
     }
 
     /**
@@ -39,9 +40,9 @@ class NetworkConnectionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $NetworkConnections = NetworkConnection::create($request->all());
-        return redirect('/networkconnectionadmin')->with('success','เพิ่มข้อมูลประเภทเครือข่ายสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        $NetworkConnections = NetworkConnection::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
+        return redirect('/networkconnectionadmin')->with('success','เพิ่มข้อมูลประเภทเครือข่ายสำเร็จ'); //ส่งกลับไปยังหน้า networkconnectionadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -63,7 +64,9 @@ class NetworkConnectionController extends Controller
      */
     public function edit($id)
     {
-        $NetworkConnection = NetworkConnection::find($id);
+        $NetworkConnection = NetworkConnection::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
+
+        //เรียกหน้า editnetworkconnection พร้อมกับส่งข้อมูลด้วยตัวแปร networkconnection
         return view('editnetworkconnection')->with([
             'networkconnection'=>$NetworkConnection,
         ]);
@@ -78,9 +81,9 @@ class NetworkConnectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Networkconnection::find($id)->update($request->all());
-        return redirect('/networkconnectionadmin')->with('success','แก้ไขประเภทเครือข่ายสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        Networkconnection::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/networkconnectionadmin')->with('success','แก้ไขประเภทเครือข่ายสำเร็จ'); //ส่งกลับไปยังหน้า networkconnectionadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**
