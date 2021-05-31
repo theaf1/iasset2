@@ -14,7 +14,9 @@ class NettypeController extends Controller
      */
     public function index()
     {
-        $NetSubtypes = NetSubtype::all();
+        $NetSubtypes = NetSubtype::all(); //รวบรวมข้อมูล
+
+        //เรียกหน้า netsubtypeadmin พร้อมกับส่งตัวแปร NetSubtypes ผ่านตัวแปร netsubtype
         return view('netsubtypeadmin')->with([
             'netsubtypes'=>$NetSubtypes,
         ]);
@@ -27,7 +29,7 @@ class NettypeController extends Controller
      */
     public function create()
     {
-        return view('addnetsubtype');
+        return view('addnetsubtype'); //เรียกหน้า addnetsubtype
     }
 
     /**
@@ -38,9 +40,9 @@ class NettypeController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $NetSubtypes = NetSubtype::create($request->all());
-        return redirect('/netsubtypeadmin')->with('success','บันทึกข้อมูลสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        $NetSubtypes = NetSubtype::create($request->all());//เขียนข้อมูลลงในฐานข้อมูล
+        return redirect('/netsubtypeadmin')->with('success','บันทึกข้อมูลสำเร็จ'); //ส่งกลับไปหน้า netsubtypeadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -62,7 +64,9 @@ class NettypeController extends Controller
      */
     public function edit($id)
     {
-        $NetSubtype = Netsubtype::find($id);
+        $NetSubtype = Netsubtype::find($id); //ค้นหาข้อมูลที่จะทำการแก้ไข
+
+        //ส่งข้อมูลที่จะแก้ไขไปพร้อมกับหน้า editnetsubtype ด้วยตัวแปร netsubtype 
         return view('editnetsubtype')->with([
             'netsubtype'=>$NetSubtype,
         ]); 
@@ -77,9 +81,9 @@ class NettypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        NetSubtype::find($id)->update($request->all());
-        return redirect('/netsubtypeadmin')->with('success','แก้ไขข้อมูลสำเร็จ');
+        $this->validateData($request); //ตรวจสอข้อมูลที่จะทำการแก้ไข
+        NetSubtype::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/netsubtypeadmin')->with('success','แก้ไขข้อมูลสำเร็จ'); //ส่งกลับไปหน้า netsubtypeadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
