@@ -21,6 +21,7 @@
                                 <div class="form-group">
                                     <label for="sapid">รหัส SAP</label>
                                     <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" autofocus value="{{ old('sapid') }}"><button type="button" class="btn btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
+                                    <small id="sapid" class="form-text">กรุณาใส่รหัส SAP 12 หลักหากไม่มีให้กดปุ่ม "ให้รหัสภายใน"</small>
                                     @error('sapid')
                                         <div class="invalid-feedback">
                                             {{ $message }}
