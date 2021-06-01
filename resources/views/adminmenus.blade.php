@@ -34,7 +34,7 @@
                 </div>
                 <div class="card mt-4 mr-2">
                     <div class="card-header card-background text-white">
-                        <h4>จัดการผู้ใช้งาน</h4>
+                        <h4 class="text-center">จัดการผู้ใช้งาน</h4>
                     </div>
                     <div class="card-body">
                         <p>กำลังพัฒนา</p>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="card mt-4 mr-2">
                     <div class="card-header card-background text-white">
-                        <h4>การบริหารจัดการเรื่องอื่นๆ</h4>
+                        <h4 class="text-center">การบริหารจัดการเรื่องอื่นๆ</h4>
                     </div>
                     <div class="card-body">
                         <p>กำลังพัฒนา</p>
