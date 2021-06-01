@@ -14,7 +14,9 @@ class RoleclassController extends Controller
      */
     public function index()
     {
-        $ServerRoleClasses = ServerRoleClass::all();
+        $ServerRoleClasses = ServerRoleClass::all(); //รวบรวมข้อมูล
+
+        //เรียกหน้า serverroleclassadmin พร้อมกับส่งข้อมูลผ่านตัวแปร serverroleclasses
         return view('serverroleclassadmin')->with([
             'serverroleclasses'=>$ServerRoleClasses,
         ]);
@@ -27,7 +29,7 @@ class RoleclassController extends Controller
      */
     public function create()
     {
-        return view('addserverrole');
+        return view('addserverrole'); //เรียกหน้า addserverrole
     }
 
     /**
@@ -38,9 +40,9 @@ class RoleclassController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $ServerRoleClasses = ServerRoleClass::create($request->all());
-        return redirect('/serverroleclassadmin')->with('success','บันทึกข้อมูลสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนบันทึกลงในฐานข้อมูล
+        $ServerRoleClasses = ServerRoleClass::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
+        return redirect('/serverroleclassadmin')->with('success','บันทึกข้อมูลสำเร็จ'); //ส่งกลับไปหน้า serverroleclassadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -62,7 +64,9 @@ class RoleclassController extends Controller
      */
     public function edit($id)
     {
-        $ServerRoleClass = ServerRoleClass::find($id);
+        $ServerRoleClass = ServerRoleClass::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
+
+        //เรียกหน้า editserverrole พร้อมกับส่งข้อมูลด้วยตัวแปร serverroleclass
         return view('editserverrole')->with([
             'serverroleclass'=>$ServerRoleClass,
         ]);
@@ -77,9 +81,9 @@ class RoleclassController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        ServerRoleClass::find($id)->update($request->all());
-        return redirect('/serverroleclassadmin')->with('success','แก้ไขข้อมูลสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        ServerRoleClass::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/serverroleclassadmin')->with('success','แก้ไขข้อมูลสำเร็จ'); //ส่งกลับไปหน้า serverroleclassadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**
