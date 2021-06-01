@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$position['id']}}</th>
                                     <td>{{$position['name']}}</td>
-                                    <td><a href="#" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/position/edit',$position->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
