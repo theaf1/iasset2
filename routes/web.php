@@ -146,6 +146,7 @@ Route::post('/add-building','BuildingController@store');
 Route::get('/building/edit/{id}','BuildingController@edit');
 Route::post('/building/update/{id}','BuildingController@update');
 Route::get('/positionadmin','PositionController@index');
+Route::get('/addposition','PositionController@create');
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');

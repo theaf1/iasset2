@@ -25,7 +25,7 @@
                     <h4>test</h4>
                 </div>
                 <div class="card-body">
-                    <a href="#" class="btn btn-primary btn-block" role="button">fff</a>
+                    <a href="{{url('/addposition')}}" class="btn btn-primary btn-block" role="button">fff</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>
