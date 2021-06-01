@@ -22,10 +22,10 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>test</h4>
+                    <h4>รายชื่อตำแหน่ง</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addposition')}}" class="btn btn-primary btn-block" role="button">fff</a>
+                    <a href="{{url('/addposition')}}" class="btn btn-primary btn-block" role="button">เพิ่มชื่อตำแหน่งบุคลากร</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>
