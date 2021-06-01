@@ -15,7 +15,9 @@ class SectionController extends Controller
      */
     public function index()
     {
-        $Sections = Section::all();
+        $Sections = Section::all(); //รวบรวมข้อมูล
+
+        //เรียกหน้า sectionadmin พร้อมกับส่งข้อมูลด้วยตัวแปร sections
         return view('sectionadmin')->with([
             'sections'=>$Sections
         ]);
@@ -28,7 +30,7 @@ class SectionController extends Controller
      */
     public function create()
     {
-        return view('addsection');
+        return view('addsection'); //เรียกหน้า addsection
     }
 
     /**
@@ -39,9 +41,9 @@ class SectionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $Sections = Section::create($request->all());
-        return redirect('/sectionadmin')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนบันทึก
+        $Sections = Section::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
+        return redirect('/sectionadmin')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งกลับไปหน้า sectionadmin พร้อมกับผลการบันทึกข้อมูล
     }
 
     /**
@@ -63,7 +65,9 @@ class SectionController extends Controller
      */
     public function edit($id)
     {
-        $Section = Section::find($id);
+        $Section = Section::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
+
+        //เรียกหน้า editsection พร้อมกับส่งข้อมูลผ่านตัวแปร section
         return view('editsection')->with([
             'section'=>$Section,
         ]);
@@ -78,9 +82,9 @@ class SectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Section::find($id)->update($request->all());
-        return redirect('/sectionadmin')->with('success','แก้ไขข้อมูลเรียบร้อยแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        Section::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/sectionadmin')->with('success','แก้ไขข้อมูลเรียบร้อยแล้ว'); //ส่งกลับไปหน้า sectionadmin พร้อมกับผลการแก้ไขข้อมูล
     }
 
     /**
