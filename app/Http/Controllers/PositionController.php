@@ -14,7 +14,9 @@ class PositionController extends Controller
      */
     public function index()
     {
-        $Positions = Position::all();
+        $Positions = Position::all(); //รวบรวมข้อมูล
+
+        //เรียกหน้า positionadmin พร้อมกับส่งข้อมูลผ่านตัวแปร positions
         return view('positionadmin')->with([
             'positions'=>$Positions,
         ]);
@@ -27,7 +29,7 @@ class PositionController extends Controller
      */
     public function create()
     {
-        return view('addposition');
+        return view('addposition'); //เรียกหน้า addposition
     }
 
     /**
@@ -38,9 +40,9 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $Positions = Position::create($request->all());
-        return redirect('/positionadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        $Positions = Position::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
+        return redirect('/positionadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //ส่งกลับไปหน้า positionadmin พร้อมกับผลการบันทึกข้อมูล
     }
 
     /**
@@ -62,7 +64,9 @@ class PositionController extends Controller
      */
     public function edit($id)
     {
-        $Position = Position::find($id);
+        $Position = Position::find($id); //ค้นหาข้อมูลที่จะทำการแก้ไข
+
+        //เรียกหน้า editposition พร้อมกับส่งข้อมูลด้วยตัวแปร position
         return view('editposition')->with([
             'position'=>$Position,
         ]);
@@ -77,9 +81,9 @@ class PositionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Position::find($id)->update($request->all());
-        return redirect('/positionadmin')->with('success','แก้ไขข้อมูลสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        Position::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/positionadmin')->with('success','แก้ไขข้อมูลสำเร็จ'); //ส่งกลับไปหน้า positionadmin พร้อมกับผลการบันทึกข้อมูล
     }
 
     /**
