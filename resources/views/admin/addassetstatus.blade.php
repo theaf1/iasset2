@@ -7,7 +7,7 @@
                     <h4>เพิ่มสถานะทางบัญชีครุภัณฑ์</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/add-assetstatus')}}" method="post">
+                    <form action="{{url('/admin/add-assetstatus')}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">

@@ -25,7 +25,7 @@
                     <h4>รายชื่อสถานะทางบัญชีครุภัณฑ์</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addassetstatus')}}" class="btn btn-primary btn-block">เพิ่มสถานะทางบัญชีครุภัณฑ์</a>
+                    <a href="{{url('/admin/addassetstatus')}}" class="btn btn-primary btn-block">เพิ่มสถานะทางบัญชีครุภัณฑ์</a>
                     <table class="table table-responsive table_hover">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$assetstatus['id']}}</th>
                                     <td>{{$assetstatus['name']}}</td>
-                                    <td><a href="{{url('/assetstatus/edit',$assetstatus->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/admin/assetstatus/edit',$assetstatus->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

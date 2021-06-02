@@ -75,6 +75,13 @@ Route::get('/servers', 'ServerController@index');
 Route::get('/server/show/{id}','ServerController@show');
 Route::get('/server/{id}', 'ServerController@edit');
 Route::put('/server/{id}/update', 'ServerController@update');
+
+//admin
+Route::get('/admin/assetstatusadmin','AssetstatusController@index');
+Route::get('/admin/addassetstatus','AssetstatusController@create');
+Route::post('/admin/add-assetstatus','AssetstatusController@store');
+Route::get('/admin/assetstatus/edit/{id}','AssetstatusController@edit');
+Route::post('/admin/assetstatus/update/{id}','AssetstatusController@update');
 //under development
 Route::get('/sectionadmin', 'SectionController@index');
 Route::get('/addsection','SectionController@create');
@@ -125,11 +132,7 @@ Route::get('/addnetsubtype','NettypeController@create');
 Route::post('/add-netsubtype','NettypeController@store');
 Route::get('/netsubtype/edit/{id}','NettypeController@edit');
 Route::post('/netsubtype/update/{id}','NettypeController@update');
-Route::get('/assetstatusadmin','AssetstatusController@index');
-Route::get('/addassetstatus','AssetstatusController@create');
-Route::post('/add-assetstatus','AssetstatusController@store');
-Route::get('/assetstatus/edit/{id}','AssetstatusController@edit');
-Route::get('/assetstatus/update/{id}','AssetstatusController@update');
+
 Route::get('/batterytypeadmin','BatteryController@index');
 Route::get('/addbatterytype','BatteryController@create');
 Route::post('/add-batterytype','BatteryController@store');
