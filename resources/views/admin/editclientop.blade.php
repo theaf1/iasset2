@@ -7,13 +7,13 @@
                     <h4></h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/add-clientop')}}" method="post">
+                    <form action="{{url('/admin/clientop/update',$clientos->id)}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="name">ชื่อระบบปฏิบัติการ</label>
-                                    <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror">
+                                    <input type="text" name="name" id="name" value="{{ old('name',$clientos->name) }}" class="form-control @error('name') is-invalid @enderror">
                                     @error('name')
                                         <div class="invalid-feedback">
                                             {{$message}}

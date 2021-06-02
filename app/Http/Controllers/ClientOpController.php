@@ -15,7 +15,7 @@ class ClientOpController extends Controller
     public function index()
     {
         $ClientOSes = ClientOperate::all();
-        return view('clientopadmin')->with([
+        return view('/admin/clientopadmin')->with([
             'clientoses'=>$ClientOSes,
         ]);
     }
@@ -27,7 +27,7 @@ class ClientOpController extends Controller
      */
     public function create()
     {
-        return view('addclientop');
+        return view('/admin/addclientop');
     }
 
     /**
@@ -40,7 +40,7 @@ class ClientOpController extends Controller
     {
         $this->validateData($request);
         $ClientOSes = ClientOperate::create($request->all());
-        return redirect('/clientopadmin')->with('success','เพิ่มระบบปฏิบัติการสำเร็จ');
+        return redirect('/admin/clientopadmin')->with('success','เพิ่มระบบปฏิบัติการสำเร็จ');
     }
 
     /**
@@ -63,7 +63,7 @@ class ClientOpController extends Controller
     public function edit($id)
     {
         $ClientOS = ClientOperate::find($id);
-        return view('editclientop')->with([
+        return view('/admin/editclientop')->with([
             'clientos'=>$ClientOS,
         ]);
     }
@@ -79,7 +79,7 @@ class ClientOpController extends Controller
     {
         $this->validateData($request);
         ClientOperate::find($id)->update($request->all());
-        return redirect('/clientopadmin')->with('success','แก้ไขระบบปฏิบัติการสำเร็จ');
+        return redirect('/admin/clientopadmin')->with('success','แก้ไขระบบปฏิบัติการสำเร็จ');
     }
 
     /**

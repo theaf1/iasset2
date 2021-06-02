@@ -25,7 +25,7 @@
                     <h4></h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addclientop')}}" class="btn btn-primary btn-block" role="button">เพิ่มระบบปฎิบัติการ</a>
+                    <a href="{{url('/admin/addclientop')}}" class="btn btn-primary btn-block" role="button">เพิ่มระบบปฎิบัติการ</a>
                     <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$clientos['id']}}</th>
                                     <td>{{$clientos['name']}}</td>
-                                    <td><a href="{{url('/clientop/edit',$clientos->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/admin/clientop/edit',$clientos->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

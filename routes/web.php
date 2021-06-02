@@ -113,6 +113,11 @@ Route::get('/admin/addclienttype','ClienttypeController@create');
 Route::post('/admin/add-clienttype','ClienttypeController@store');
 Route::get('/admin/clienttype/edit/{id}','ClienttypeController@edit');
 Route::post('/admin/clienttype/update/{id}','ClienttypeController@update');
+Route::get('/admin/clientopadmin','ClientOpController@index');
+Route::get('/admin/addclientop','ClientOpController@create');
+Route::post('/admin/add-clientop','ClientOpController@store');
+Route::get('/admin/clientop/edit/{id}','ClientOpController@edit');
+Route::post('/admin/clientop/update/{id}','ClientOpController@update');
 //under development
 
 Route::get('/admin/locationadmin','LocationController@index');
@@ -121,11 +126,6 @@ Route::post('/admin/add-location','LocationController@store');
 Route::get('/admin/location/edit/{id}','LocationController@edit');
 Route::post('/admin/location/update/{id}','Locationcontroller@update');
 
-Route::get('/clientopadmin','ClientOpController@index');
-Route::get('/addclientop','ClientOpController@create');
-Route::post('/add-clientop','ClientOpController@store');
-Route::get('/clientop/edit/{id}','ClientOpController@edit');
-Route::post('clientop/update/{id}','ClientOpController@update');
 Route::get('/peripheraltypeadmin','PeripheraltypeController@index');
 Route::get('/addperipheraltype','PeripheraltypeController@create');
 Route::post('/add-peripheraltype','PeripheraltypeController@store');
