@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form action="{{url('/add-clienttype')}}" method="post">
+            <form action="{{url('/admin/add-clienttype')}}" method="post">
                 @csrf
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">

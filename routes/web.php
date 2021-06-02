@@ -108,6 +108,11 @@ Route::get('/admin/addassetusestatus','AssetusestatusController@create');
 route::post('/admin/add-assetusestatus','AssetusestatusController@store');
 Route::get('/admin/assetusestatus/edit/{id}','AssetusestatusController@edit');
 Route::post('/admin/assetusestatus/update/{id}','AssetusestatusController@update');
+Route::get('/admin/clienttypeadmin','ClienttypeController@index');
+Route::get('/admin/addclienttype','ClienttypeController@create');
+Route::post('/admin/add-clienttype','ClienttypeController@store');
+Route::get('/admin/clienttype/edit/{id}','ClienttypeController@edit');
+Route::post('/admin/clienttype/update/{id}','ClienttypeController@update');
 //under development
 
 Route::get('/admin/locationadmin','LocationController@index');
@@ -115,11 +120,7 @@ Route::get('/admin/addlocation','LocationController@create');
 Route::post('/admin/add-location','LocationController@store');
 Route::get('/admin/location/edit/{id}','LocationController@edit');
 Route::post('/admin/location/update/{id}','Locationcontroller@update');
-Route::get('/clienttypeadmin','ClienttypeController@index');
-Route::get('/addclienttype','ClienttypeController@create');
-Route::post('/add-clienttype','ClienttypeController@store');
-Route::get('/clienttype/edit/{id}','ClienttypeController@edit');
-Route::post('/clienttype/update/{id}','ClienttypeController@update');
+
 Route::get('/clientopadmin','ClientOpController@index');
 Route::get('/addclientop','ClientOpController@create');
 Route::post('/add-clientop','ClientOpController@store');

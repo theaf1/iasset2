@@ -21,7 +21,7 @@
                                 
                             </div>
                             <div class="col-sm-12 col-lg-6">
-                                <a href="{{url('/clienttypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของครุภัณฑ์คอมพิวเตอร์</a>
+                                <a href="{{url('/admin/clienttypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของครุภัณฑ์คอมพิวเตอร์</a>
                                 <a href="{{url('/clientopadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการระบบปฏิบัติการของคอมพิวเตอร์</a>
                                 <a href="{{url('/networkconnectionadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทเครือข่าย</a>
                                 <a href="{{url('/peripheraltypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของอุปกรณ์ต่อพ่วง</a>

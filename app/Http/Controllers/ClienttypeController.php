@@ -17,7 +17,7 @@ class ClienttypeController extends Controller
         $Clienttypes = Clienttype::all(); //กำหนค่าตัวแปร Clienttypes โดยอ่านค่าจาก model Clienttype
 
         //ส่งหน้า clienttypeadmin พร้อมกับตัวแปร Clienttype ผ่านตัวแปร clienttypes
-        return view('clienttypeadmin')->with([
+        return view('/admin/clienttypeadmin')->with([
             'clienttypes'=>$Clienttypes,
         ]);
     }
@@ -29,7 +29,7 @@ class ClienttypeController extends Controller
      */
     public function create() //แสดงหน้าเพิ่มชนิดครุภัณฑ์คอมพิวเตอร์
     {
-        return view('addclienttype');
+        return view('/admin/addclienttype');
     }
 
     /**
@@ -42,7 +42,7 @@ class ClienttypeController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูล
         $Clienttypes = Clienttype::create($request->all()); //เขียนข้อมูลลงฐานข้อมูลผ่านทาง model Clienttypes
-        return redirect('/clienttypeadmin')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งกลับไปยังหน้า clienttypeadmin พร้อมผลการบันทึกข้อมูล
+        return redirect('/admin/clienttypeadmin')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งกลับไปยังหน้า clienttypeadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -67,7 +67,7 @@ class ClienttypeController extends Controller
         $Clienttypes = Clienttype::find($id); //ค้นหาชนิดของครุภัณฑ์ที่ต้องการแก้ไข
 
         //ส่งข้อมูลชนิดของครุภัณฑ์ที่ต้องการแก้ไข
-        return view('editclienttype')->with([
+        return view('/admin/editclienttype')->with([
             'clienttype'=>$Clienttypes,
         ]);
     }
@@ -83,7 +83,7 @@ class ClienttypeController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูล
         Clienttype::find($id)->update($request->all()); //แก้ไขข้อมูในฐานข้อมูล
-        return redirect('/clienttypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //ส่งกลับไปยังหน้า clienttypeadmin พร้อมผลการแก้ไขข้อมูล
+        return redirect('/admin/clienttypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //ส่งกลับไปยังหน้า clienttypeadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**
