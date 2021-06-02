@@ -25,7 +25,7 @@
                     <h4>รายชื่อเจ้าของเครื่อง</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addowner')}}" class="btn btn-block btn-primary mt-4" role="button">เพิ่มเจ้าของเครื่อง</a>
+                    <a href="{{url('/admin/addowner')}}" class="btn btn-block btn-primary mt-4" role="button">เพิ่มเจ้าของเครื่อง</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$owner['id']}}</th>
                                     <td>{{$owner['name']}}</td>
-                                    <td><a href="{{url('/owner/edit',$owner->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/admin/owner/edit',$owner->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

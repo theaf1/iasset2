@@ -93,6 +93,11 @@ Route::get('/admin/addbuilding','BuildingController@create');
 Route::post('/admin/add-building','BuildingController@store');
 Route::get('/admin/building/edit/{id}','BuildingController@edit');
 Route::post('/admin/building/update/{id}','BuildingController@update');
+Route::get('/admin/owneradmin','OwnerController@index');
+Route::get('/admin/addowner','OwnerController@create');
+Route::post('/admin/add-owner','OwnerController@store');
+Route::get('/admin/owner/edit/{id}','OwnerController@edit');
+Route::post('/admin/owner/update/{id}','OwnerController@update');
 //under development
 
 Route::get('/admin/locationadmin','LocationController@index');
@@ -120,11 +125,7 @@ Route::get('/addnetworkconnection','NetworkConnectionController@create');
 Route::post('/add-networkconnection','NetworkConnectionController@store');
 Route::get('/networkconnection/edit/{id}','NetworkConnectionController@edit');
 Route::post('/networkconnection/update/{id}','NetworkConnectionController@update');
-Route::get('/owneradmin','OwnerController@index');
-Route::get('/addowner','OwnerController@create');
-Route::post('/add-owner','OwnerController@store');
-Route::get('/owner/edit/{id}','OwnerController@edit');
-Route::post('/owner/update/{id}','OwnerController@update');
+
 Route::get('/serverroleclassadmin','RoleclassController@index');
 Route::get('/addserverrole','RoleclassController@create');
 Route::post('add-serverrole','RoleclassController@store');

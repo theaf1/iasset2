@@ -17,7 +17,7 @@ class OwnerController extends Controller
         $Owners = Owner::all(); //รวบรวมข้อมูล
 
         //เรียกหน้า owneradmin พร้อมกับส่งข้อมูลด้วยตัวแปร ownners
-        return view('owneradmin')->with([
+        return view('/admin/owneradmin')->with([
             'owners'=>$Owners,
         ]);
     }
@@ -29,7 +29,7 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        return view('addowner'); //เรียกหน้า addowner
+        return view('/admin/addowner'); //เรียกหน้า addowner
     }
 
     /**
@@ -42,7 +42,7 @@ class OwnerController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
         $Owners = Owner::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
-        return redirect('/owneradmin')->with('success','เพิ่มเจ้าของเครื่องสำเร็จ'); //ส่งกลับไปยังหน้า owneradmin พร้อมกับผลการบันทึกข้อมูล
+        return redirect('/admin/owneradmin')->with('success','เพิ่มเจ้าของเครื่องสำเร็จ'); //ส่งกลับไปยังหน้า owneradmin พร้อมกับผลการบันทึกข้อมูล
     }
 
     /**
@@ -67,7 +67,7 @@ class OwnerController extends Controller
         $Owner = Owner::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
 
         //เรียกหน้า editowner พร้อมกับส่งข้อมูลด้วยตัวแปร owner
-        return view('editowner')->with([
+        return view('/admin/editowner')->with([
             'owner'=>$Owner,
         ]);
     }
@@ -83,7 +83,7 @@ class OwnerController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
         Owner::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
-        return redirect('/owneradmin')->with('success','แก้ไขชื่อเจ้าของเครื่องสำเร็จ'); //ส่งกลับไปยังหน้า owneradmin พร้อมกับผลการแก้ไขข้อมูล
+        return redirect('/admin/owneradmin')->with('success','แก้ไขชื่อเจ้าของเครื่องสำเร็จ'); //ส่งกลับไปยังหน้า owneradmin พร้อมกับผลการแก้ไขข้อมูล
     }
 
     /**

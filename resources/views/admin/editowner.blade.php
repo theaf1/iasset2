@@ -7,7 +7,7 @@
                     <h4>เพิ่มเจ้าของเครื่อง</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/owner/update',$owner->id)}}" method="post">
+                    <form action="{{url('/admin/owner/update',$owner->id)}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
