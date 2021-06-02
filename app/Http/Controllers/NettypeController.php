@@ -103,8 +103,8 @@ class NettypeController extends Controller
         ];
 
         $messages = [
-            'name.required'=>'1',
-            'name.unique'=>'2',
+            'name.required'=>'กรุณาระบุชื่อชนิดอุปกรณเครือข่าย',
+            'name.unique'=>'มีอุปกรณเครือข่ายชนิดนี้มนระบบแล้ว',
         ];
         return $this->validate($data, $rules, $messages);
     }
