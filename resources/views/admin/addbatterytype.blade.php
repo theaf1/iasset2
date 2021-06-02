@@ -4,16 +4,16 @@
         <div class="col-12 mx-auto">
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>แก้ไขประเภทแบตเตอรี่</h4>
+                    <h4>เพิ่มประเภทแบตเตอรี่</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/batterytype/update',$upsbatterytype->id)}}" method="post">
+                    <form action="{{url('/admin/add-batterytype')}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="name">ชื่อประเภทแบตเตอรี่</label>
-                                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name',$upsbatterytype->name)}}">
+                                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
                                     @error('name')
                                         <div class="invalid-feedback">
                                             {{$message}}

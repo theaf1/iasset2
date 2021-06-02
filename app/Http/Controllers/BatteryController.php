@@ -17,7 +17,7 @@ class BatteryController extends Controller
         $Upsbatterytypes = Upsbatterytype::all(); //กำหนดค่าตัวแปร Upsbatterytypes
 
         //เรียกหน้า batteryadmin พร้อมกับส่งตัวแปร Upsbatterytypes ผ่านตัวแปร upsbatterytypes
-        return view('batteryadmin')->with([
+        return view('/admin/batteryadmin')->with([
             'upsbatterytypes'=>$Upsbatterytypes,
         ]);
     }
@@ -29,7 +29,7 @@ class BatteryController extends Controller
      */
     public function create()
     {
-        return view('addbatterytype'); //เรียกหน้า addbattery
+        return view('/admin/addbatterytype'); //เรียกหน้า addbattery
     }
 
     /**
@@ -42,7 +42,7 @@ class BatteryController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนเขียนลงฐานข้อมูล
         $Upsbatterytypes = Upsbatterytype::create($request->all()); //เขียนข้อมูลลงฐานข้อมูล
-        return redirect('/batterytypeadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //ส่งกลับไปยังหน้า batterytypeadmin พร้อมผลการบันทึก
+        return redirect('/admin/batterytypeadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //ส่งกลับไปยังหน้า batterytypeadmin พร้อมผลการบันทึก
     }
 
     /**
@@ -67,7 +67,7 @@ class BatteryController extends Controller
         $Upsbatterytype = Upsbatterytype::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
 
         //ส่งหน้า editbatterytype พร้อมกับข้อมูลที่จะแก้ไข
-        return view('editbatterytype')->with([
+        return view('/admin/editbatterytype')->with([
             'upsbatterytype'=>$Upsbatterytype,
         ]);
     }
@@ -83,7 +83,7 @@ class BatteryController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูล
         Upsbatterytype::find($id)->update($request->all()); //ทำการค้นหาและแก้ไขข้อมูลในฐานข้อมูล
-        return redirect('/batterytypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //ส่งกลับไปยังหน้า batterytypeadmin พร้อมผลการแก้ไข
+        return redirect('/admin/batterytypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //ส่งกลับไปยังหน้า batterytypeadmin พร้อมผลการแก้ไข
     }
 
     /**

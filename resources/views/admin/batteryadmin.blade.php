@@ -25,7 +25,7 @@
                     <h4>รายการประเภท Battery</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addbatterytype')}}" class="btn btn-primary btn-block" role="button">เพิ่มประเภท Battery</a>
+                    <a href="{{url('/admin/addbatterytype')}}" class="btn btn-primary btn-block" role="button">เพิ่มประเภท Battery</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$upsbatterytype['id']}}</th>
                                     <td>{{$upsbatterytype['name']}}</td>
-                                    <td><a href="{{url('/batterytype/edit',$upsbatterytype->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/admin/batterytype/edit',$upsbatterytype->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
