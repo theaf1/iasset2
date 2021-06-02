@@ -25,7 +25,7 @@
                 <h4></h4>
             </div>
             <div class="card-body">
-                <a href="{{url('/addassetusestatus')}}" class="btn btn-primary btn-block" role="button">เพิ่มสถานะการใช้งานครุภัณฑ์</a>
+                <a href="{{url('/admin/addassetusestatus')}}" class="btn btn-primary btn-block" role="button">เพิ่มสถานะการใช้งานครุภัณฑ์</a>
                 <table class="table table-hover table-responsive">
                     <thead>
                         <tr>
@@ -39,7 +39,7 @@
                             <tr>
                                 <th scope="row">{{$assetusestatus['id']}}</th>
                                 <td>{{$assetusestatus['name']}}</td>
-                                <td><a href="{{url('/assetusestatus/edit',$assetusestatus->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
+                                <td><a href="{{url('/admin/assetusestatus/edit',$assetusestatus->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
                             </tr>
                         @endforeach
                     </tbody>

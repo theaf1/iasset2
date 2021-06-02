@@ -103,6 +103,11 @@ Route::get('/admin/addposition','PositionController@create');
 Route::post('/admin/add-position','PositionController@store');
 Route::get('/admin/position/edit/{id}','PositionController@edit');
 Route::post('/admin/position/update/{id}','PositionController@update');
+Route::get('/admin/assetusestatusadmin','AssetusestatusController@index');
+Route::get('/admin/addassetusestatus','AssetusestatusController@create');
+route::post('/admin/add-assetusestatus','AssetusestatusController@store');
+Route::get('/admin/assetusestatus/edit/{id}','AssetusestatusController@edit');
+Route::post('/admin/assetusestatus/update/{id}','AssetusestatusController@update');
 //under development
 
 Route::get('/admin/locationadmin','LocationController@index');
@@ -152,11 +157,7 @@ Route::get('/addbatterytype','BatteryController@create');
 Route::post('/add-batterytype','BatteryController@store');
 Route::get('/batterytype/edit/{id}','BatteryController@edit');
 Route::post('/batterytype/update/{id}','BatteryController@update');
-Route::get('/assetusestatusadmin','AssetusestatusController@index');
-Route::get('/addassetusestatus','AssetusestatusController@create');
-route::post('/add-assetusestatus','AssetusestatusController@store');
-Route::get('/assetusestatus/edit/{id}','AssetusestatusController@edit');
-Route::post('/assetusestatus/update/{id}','AssetusestatusController@update');
+
 
 
 

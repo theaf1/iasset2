@@ -7,7 +7,7 @@
                     <h4>แก้ไขสถานะการใช้งานครุภัณฑ์</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/assetusestatus/update',$assetusestatus->id)}}" method="post">
+                    <form action="{{url('admin/assetusestatus/update',$assetusestatus->id)}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">

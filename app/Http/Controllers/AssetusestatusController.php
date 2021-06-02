@@ -17,7 +17,7 @@ class AssetusestatusController extends Controller
         $Assetusestatuses = Asset_use_statuses::all(); //กำนดค่าตัวแปร Assetusestatuses
 
         //เรียกหน้า assetusestatusadmin พร้อมกับส่งค่าตัวแปร Assetusestatuses ผ่านตัวแปร assetusestatuses
-        return view('assetusestatusadmin')->with([
+        return view('/admin/assetusestatusadmin')->with([
             'assetusestatuses'=>$Assetusestatuses,
         ]);
     }
@@ -29,7 +29,7 @@ class AssetusestatusController extends Controller
      */
     public function create() //เรียกหน้า addassetusestatus
     {
-        return view('addassetusestatus');
+        return view('/admin/addassetusestatus');
     }
 
     /**
@@ -42,7 +42,7 @@ class AssetusestatusController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
         $Assetusestatuses = Asset_use_statuses::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
-        return redirect('/assetusestatusadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //ส่งกลับไปยังหน้า assetusestatusadmin พร้อมผลการบันทึกข้อมูล
+        return redirect('/admin/assetusestatusadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //ส่งกลับไปยังหน้า assetusestatusadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -67,7 +67,7 @@ class AssetusestatusController extends Controller
         $Assetusestatus = Asset_use_statuses::find($id); //ค้นหาข้อมูลที่จะแก้ไข
 
         //เรียกหน้า editassetusestatus พร้อมกับส่งข้อมูลที่จะแก้ไขไปทางตัวแปร assetusestatus
-        return view('editassetusestatus')->with([
+        return view('/admin/editassetusestatus')->with([
             'assetusestatus'=>$Assetusestatus,
         ]);
     }
@@ -83,7 +83,7 @@ class AssetusestatusController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลที่จะทำการแก้ไข
         Asset_use_statuses::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
-        return redirect('/assetusestatusadmin')->with('success','แก้ไขข้อมูลสำเร็จ'); //ส่งกลับไปยังหน้า assetusestatusadmin พร้อมผลการแก้ไขข้อมูล
+        return redirect('/admin/assetusestatusadmin')->with('success','แก้ไขข้อมูลสำเร็จ'); //ส่งกลับไปยังหน้า assetusestatusadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**
