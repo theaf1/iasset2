@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form action="{{url('/add-peripheraltype')}}" method="post">
+            <form action="{{url('/admin/add-peripheraltype')}}" method="post">
                 @csrf
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">

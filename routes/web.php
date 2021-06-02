@@ -123,6 +123,11 @@ Route::get('/admin/addnetworkconnection','NetworkConnectionController@create');
 Route::post('/admin/add-networkconnection','NetworkConnectionController@store');
 Route::get('/admin/networkconnection/edit/{id}','NetworkConnectionController@edit');
 Route::post('/admin/networkconnection/update/{id}','NetworkConnectionController@update');
+Route::get('/admin/peripheraltypeadmin','PeripheraltypeController@index');
+Route::get('/admin/addperipheraltype','PeripheraltypeController@create');
+Route::post('/admin/add-peripheraltype','PeripheraltypeController@store');
+Route::get('/admin/peripheraltype/edit/{id}','Peripheraltypecontroller@edit');
+Route::post('/admin/peripheraltype/update/{id}','Peripheraltypecontroller@update');
 //under development
 
 Route::get('/admin/locationadmin','LocationController@index');
@@ -131,11 +136,7 @@ Route::post('/admin/add-location','LocationController@store');
 Route::get('/admin/location/edit/{id}','LocationController@edit');
 Route::post('/admin/location/update/{id}','Locationcontroller@update');
 
-Route::get('/peripheraltypeadmin','PeripheraltypeController@index');
-Route::get('/addperipheraltype','PeripheraltypeController@create');
-Route::post('/add-peripheraltype','PeripheraltypeController@store');
-Route::get('/peripheraltype/edit/{id}','Peripheraltypecontroller@edit');
-Route::post('/peripheraltype/update/{id}','Peripheraltypecontroller@update');
+
 
 
 Route::get('/serverroleclassadmin','RoleclassController@index');

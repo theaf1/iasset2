@@ -25,7 +25,7 @@
                     <h4>บัญชีชนิดอุปกรณ์ต่อพ่วง</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addperipheraltype')}}" class="btn btn-block btn-primary" role="button">เพิ่มชนิดอุปกรณ์ต่อพ่วง</a>
+                    <a href="{{url('/admin/addperipheraltype')}}" class="btn btn-block btn-primary" role="button">เพิ่มชนิดอุปกรณ์ต่อพ่วง</a>
                     <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$peripheraltype['id']}}</th>
                                     <td>{{$peripheraltype['name']}}</td>
-                                    <td><a href="{{url('/peripheraltype/edit',$peripheraltype->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/admin/peripheraltype/edit',$peripheraltype->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

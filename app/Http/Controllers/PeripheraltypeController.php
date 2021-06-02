@@ -16,7 +16,7 @@ class PeripheraltypeController extends Controller
     {
         $Peripheraltypes = Peripheraltype::all(); //กำหนดค่าตัวแปร Peripheraltypes จาก model Peripheraltype
         //ส่งค่าตัวแปร Peripheraltypes ไปยังหน้า peripheraltypeadmin ผ่านตัวแปร periphraltypes
-        return view('peripheraltypeadmin')->with([
+        return view('/admin/peripheraltypeadmin')->with([
             'peripheraltypes'=>$Peripheraltypes,
         ]);
     }
@@ -28,7 +28,7 @@ class PeripheraltypeController extends Controller
      */
     public function create() //แสดงหน้า addperiphraltype
     {
-        return view('addperipheraltype');
+        return view('/admin/addperipheraltype');
     }
 
     /**
@@ -41,7 +41,7 @@ class PeripheraltypeController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
         $Peripheraltypes = Peripheraltype::create($request->all()); //เขียนข้อมูลลงในฐานข้อมูล
-        return redirect('/peripheraltypeadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //รายงานผลการบันทึกฐานข้อมูล
+        return redirect('/admin/peripheraltypeadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //รายงานผลการบันทึกฐานข้อมูล
     }
 
     /**
@@ -65,7 +65,7 @@ class PeripheraltypeController extends Controller
     {
         $Peripheraltypes = Peripheraltype::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
         //ส่งข้อมูลที่ต้องการแก้ไขไปกับหน้า editperipheraltype
-        return view('editperipheraltype')->with([
+        return view('/admin/editperipheraltype')->with([
             'peripheraltype'=>$Peripheraltypes,
         ]);
     }
@@ -81,7 +81,7 @@ class PeripheraltypeController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
         Peripheraltype::find($id)->update($request->all()); //ทำการแก้ไขข้อมูลในฐานข้อมูล
-        return redirect('/peripheraltypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //รายงานผลการแก้ไขข้อมูล
+        return redirect('/admin/peripheraltypeadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //รายงานผลการแก้ไขข้อมูล
     }
 
     /**
