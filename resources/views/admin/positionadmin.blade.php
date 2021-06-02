@@ -25,7 +25,7 @@
                     <h4>รายชื่อตำแหน่ง</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addposition')}}" class="btn btn-primary btn-block" role="button">เพิ่มชื่อตำแหน่งบุคลากร</a>
+                    <a href="{{url('/admin/addposition')}}" class="btn btn-primary btn-block" role="button">เพิ่มชื่อตำแหน่งบุคลากร</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$position['id']}}</th>
                                     <td>{{$position['name']}}</td>
-                                    <td><a href="{{url('/position/edit',$position->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/admin/position/edit',$position->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

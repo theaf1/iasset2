@@ -98,6 +98,11 @@ Route::get('/admin/addowner','OwnerController@create');
 Route::post('/admin/add-owner','OwnerController@store');
 Route::get('/admin/owner/edit/{id}','OwnerController@edit');
 Route::post('/admin/owner/update/{id}','OwnerController@update');
+Route::get('/admin/positionadmin','PositionController@index');
+Route::get('/admin/addposition','PositionController@create');
+Route::post('/admin/add-position','PositionController@store');
+Route::get('/admin/position/edit/{id}','PositionController@edit');
+Route::post('/admin/position/update/{id}','PositionController@update');
 //under development
 
 Route::get('/admin/locationadmin','LocationController@index');
@@ -153,11 +158,7 @@ route::post('/add-assetusestatus','AssetusestatusController@store');
 Route::get('/assetusestatus/edit/{id}','AssetusestatusController@edit');
 Route::post('/assetusestatus/update/{id}','AssetusestatusController@update');
 
-Route::get('/positionadmin','PositionController@index');
-Route::get('/addposition','PositionController@create');
-Route::post('/add-position','PositionController@store');
-Route::get('/position/edit/{id}','PositionController@edit');
-Route::post('/position/update/{id}','PositionController@update');
+
 
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');

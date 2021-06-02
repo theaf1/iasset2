@@ -2,18 +2,18 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form action="{{url('/position/update',$position->id)}}" method="post">
+            <form action="{{url('/admin/add-position')}}" method="post">
                 @csrf
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
-                        <h4>แก้ไขชื่อตำแน่งบุคลากร</h4>
+                        <h4>เพิ่มชื่อตำแหน่งบุคลากร</h4>
                     </div>
                     <div class="card-body">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="name">ชื่อตำแหน่ง</label>
-                                    <input type="text" name="name" id="name" value="{{old('name',$position->name)}}" class="form-control @error('name') is-invalid @enderror">
+                                    <input type="text" name="name" id="name" value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror">
                                     @error('name')
                                         <div class="invalid-feedback">
                                             {{$message}}
