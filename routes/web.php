@@ -87,6 +87,12 @@ Route::get('/admin/addsection','SectionController@create');
 Route::post('/admin/add-section', 'SectionController@store');
 Route::get('/admin/section/edit/{id}','SectionController@edit');
 Route::post('/admin/section/update/{id}','SectionController@update');
+
+Route::get('/admin/buildingadmin','BuildingController@index');
+Route::get('/admin/addbuilding','BuildingController@create');
+Route::post('/admin/add-building','BuildingController@store');
+Route::get('/admin/building/edit/{id}','BuildingController@edit');
+Route::post('/admin/building/update/{id}','BuildingController@update');
 //under development
 
 Route::get('/admin/locationadmin','LocationController@index');
@@ -145,11 +151,7 @@ Route::get('/addassetusestatus','AssetusestatusController@create');
 route::post('/add-assetusestatus','AssetusestatusController@store');
 Route::get('/assetusestatus/edit/{id}','AssetusestatusController@edit');
 Route::post('/assetusestatus/update/{id}','AssetusestatusController@update');
-Route::get('/buildingadmin','BuildingController@index');
-Route::get('/addbuilding','BuildingController@create');
-Route::post('/add-building','BuildingController@store');
-Route::get('/building/edit/{id}','BuildingController@edit');
-Route::post('/building/update/{id}','BuildingController@update');
+
 Route::get('/positionadmin','PositionController@index');
 Route::get('/addposition','PositionController@create');
 Route::post('/add-position','PositionController@store');

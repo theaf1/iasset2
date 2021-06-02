@@ -25,7 +25,7 @@
                     <h4>รายชื่ออาคาร</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addbuilding')}}" class="btn btn-primary btn-block" role="button">เพิ่มอาคาร</a>
+                    <a href="{{url('/admin/addbuilding')}}" class="btn btn-primary btn-block" role="button">เพิ่มอาคาร</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$building['id']}}</th>
                                     <td>{{$building['name']}}</td>
-                                    <td><a href="{{url('/building/edit',$building->id)}}" class="btn btn-primary btn-sm">แก้ไขชื่ออาคาร</a></td>
+                                    <td><a href="{{url('/admin/building/edit',$building->id)}}" class="btn btn-primary btn-sm">แก้ไขชื่ออาคาร</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
