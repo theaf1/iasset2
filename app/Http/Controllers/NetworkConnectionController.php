@@ -17,7 +17,7 @@ class NetworkConnectionController extends Controller
         $NetworkConnections = Networkconnection::all(); //รวบรวมข้อมูล
 
         //เรียกหน้า networkconnectionadmin พร้อมกับส่งข้อมูลด้วยตัวแปร networkconnections
-        return view('networkconnectionadmin')->with([
+        return view('/admin/networkconnectionadmin')->with([
             'networkconnections'=>$NetworkConnections,
         ]);
     }
@@ -29,7 +29,7 @@ class NetworkConnectionController extends Controller
      */
     public function create()
     {
-        return view('addnetworkconnection'); //เรียกหน้า addnetworkconnection
+        return view('/admin/addnetworkconnection'); //เรียกหน้า addnetworkconnection
     }
 
     /**
@@ -42,7 +42,7 @@ class NetworkConnectionController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
         $NetworkConnections = NetworkConnection::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
-        return redirect('/networkconnectionadmin')->with('success','เพิ่มข้อมูลประเภทเครือข่ายสำเร็จ'); //ส่งกลับไปยังหน้า networkconnectionadmin พร้อมผลการบันทึกข้อมูล
+        return redirect('/admin/networkconnectionadmin')->with('success','เพิ่มข้อมูลประเภทเครือข่ายสำเร็จ'); //ส่งกลับไปยังหน้า networkconnectionadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -67,7 +67,7 @@ class NetworkConnectionController extends Controller
         $NetworkConnection = NetworkConnection::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
 
         //เรียกหน้า editnetworkconnection พร้อมกับส่งข้อมูลด้วยตัวแปร networkconnection
-        return view('editnetworkconnection')->with([
+        return view('/admin/editnetworkconnection')->with([
             'networkconnection'=>$NetworkConnection,
         ]);
     }
@@ -83,7 +83,7 @@ class NetworkConnectionController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
         Networkconnection::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
-        return redirect('/networkconnectionadmin')->with('success','แก้ไขประเภทเครือข่ายสำเร็จ'); //ส่งกลับไปยังหน้า networkconnectionadmin พร้อมผลการแก้ไขข้อมูล
+        return redirect('/admin/networkconnectionadmin')->with('success','แก้ไขประเภทเครือข่ายสำเร็จ'); //ส่งกลับไปยังหน้า networkconnectionadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**

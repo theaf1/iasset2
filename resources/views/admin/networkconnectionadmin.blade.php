@@ -25,7 +25,7 @@
                     <h4>รายการประเภทเครือข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addnetworkconnection')}}" class="btn btn-block btn-primary mt-4">เพิ่มประเภทเครือข่าย</a>
+                    <a href="{{url('/admin/addnetworkconnection')}}" class="btn btn-block btn-primary mt-4">เพิ่มประเภทเครือข่าย</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row" class="text-center">{{$networkconnection['id']}}</th>
                                     <td class="text-center">{{$networkconnection['name']}}</td>
-                                    <td><a href="{{url('/networkconnection/edit',$networkconnection->id)}}" class="btn btn-sm btn-primary">แก้ไข</a></td>
+                                    <td><a href="{{url('/admin/networkconnection/edit',$networkconnection->id)}}" class="btn btn-sm btn-primary">แก้ไข</a></td>
                                 </tr>                                
                             @endforeach
                         </tbody>
