@@ -89,11 +89,11 @@ Route::get('/admin/section/edit/{id}','SectionController@edit');
 Route::post('/admin/section/update/{id}','SectionController@update');
 //under development
 
-Route::get('/locationadmin','LocationController@index');
-Route::get('/addlocation','LocationController@create');
-Route::post('/add-location','LocationController@store');
-Route::get('/location/edit/{id}','LocationController@edit');
-Route::post('/location/update/{id}','Locationcontroller@update');
+Route::get('/admin/locationadmin','LocationController@index');
+Route::get('/admin/addlocation','LocationController@create');
+Route::post('/admin/add-location','LocationController@store');
+Route::get('/admin/location/edit/{id}','LocationController@edit');
+Route::post('/admin/location/update/{id}','Locationcontroller@update');
 Route::get('/clienttypeadmin','ClienttypeController@index');
 Route::get('/addclienttype','ClienttypeController@create');
 Route::post('/add-clienttype','ClienttypeController@store');

@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <a href="{{url('/admin/sectionadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการข้อมูลหน่วยงาน</a>
-                                <a href="{{url('/locationadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการสถานที่ตั้ง</a>
+                                <a href="{{url('/admin/locationadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการสถานที่ตั้ง</a>
                                 <a href="{{url('/buildingadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่ออาคาร</a>
                                 <a href="{{url('/owneradmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อเจ้าของเครื่อง</a>
                                 <a href="{{url('/positionadmin')}}" class="btn btn-info block mt-4" role="button">จัดการรายชื่อตำแหน่งบุคลากร</a>

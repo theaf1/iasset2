@@ -19,7 +19,7 @@ class LocationController extends Controller
         $Room =Room::paginate(20); //รวบรวมสถานที่จาก model Room แล้วแบ่งหน้าหน้าละ 20 บรรทัด
 
         //ส่งหน้า locationadmin และตัวแปร Rooms ผ่านตัวแปร rooms
-        return view('locationadmin')->with([
+        return view('/admin/locationadmin')->with([
             'rooms'=>$Room,
         ]);
     }
@@ -35,7 +35,7 @@ class LocationController extends Controller
         $Locations = Location::all(); //รวบรวมสถานที่จาก model Location
         $Buildings = Building::all(); //รวบรวมสถานที่จาก model Building
         //ส่งหน้า addlocation พร้อมตัวแปร
-        return view('addlocation')->with([
+        return view('/admin/addlocation')->with([
             'locations'=>$Locations,
             'buildings'=>$Buildings,
         ]);
@@ -74,7 +74,7 @@ class LocationController extends Controller
         $Rooms = Room::find($id); //ค้นหาสถานที่ที่จะแก้ไข
         $Locations = Location::all(); //รวบรวมสถานที่จาก model Room
         $Buildings = Building::all(); //รวบรวมสถานที่จาก model Room
-        return view('editlocation')->with([
+        return view('/admin/editlocation')->with([
             'rooms'=>$Rooms,
             'locations'=>$Locations,
             'buildings'=>$Buildings,
