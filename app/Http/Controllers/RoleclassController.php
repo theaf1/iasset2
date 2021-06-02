@@ -17,7 +17,7 @@ class RoleclassController extends Controller
         $ServerRoleClasses = ServerRoleClass::all(); //รวบรวมข้อมูล
 
         //เรียกหน้า serverroleclassadmin พร้อมกับส่งข้อมูลผ่านตัวแปร serverroleclasses
-        return view('serverroleclassadmin')->with([
+        return view('/admin/serverroleclassadmin')->with([
             'serverroleclasses'=>$ServerRoleClasses,
         ]);
     }
@@ -29,7 +29,7 @@ class RoleclassController extends Controller
      */
     public function create()
     {
-        return view('addserverrole'); //เรียกหน้า addserverrole
+        return view('/admin/addserverrole'); //เรียกหน้า addserverrole
     }
 
     /**
@@ -42,7 +42,7 @@ class RoleclassController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนบันทึกลงในฐานข้อมูล
         $ServerRoleClasses = ServerRoleClass::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
-        return redirect('/serverroleclassadmin')->with('success','บันทึกข้อมูลสำเร็จ'); //ส่งกลับไปหน้า serverroleclassadmin พร้อมผลการบันทึกข้อมูล
+        return redirect('/admin/serverroleclassadmin')->with('success','บันทึกข้อมูลสำเร็จ'); //ส่งกลับไปหน้า serverroleclassadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -67,7 +67,7 @@ class RoleclassController extends Controller
         $ServerRoleClass = ServerRoleClass::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
 
         //เรียกหน้า editserverrole พร้อมกับส่งข้อมูลด้วยตัวแปร serverroleclass
-        return view('editserverrole')->with([
+        return view('/admin/editserverrole')->with([
             'serverroleclass'=>$ServerRoleClass,
         ]);
     }
@@ -83,7 +83,7 @@ class RoleclassController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
         ServerRoleClass::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
-        return redirect('/serverroleclassadmin')->with('success','แก้ไขข้อมูลสำเร็จ'); //ส่งกลับไปหน้า serverroleclassadmin พร้อมผลการแก้ไขข้อมูล
+        return redirect('/admin/serverroleclassadmin')->with('success','แก้ไขข้อมูลสำเร็จ'); //ส่งกลับไปหน้า serverroleclassadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**

@@ -7,7 +7,7 @@
                     <h4>เพิ่มบทบาท</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/add-serverrole')}}" method="post">
+                    <form action="{{url('/admin/add-serverrole')}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm 12 col-lg-6">

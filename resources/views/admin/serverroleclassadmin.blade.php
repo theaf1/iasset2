@@ -25,7 +25,7 @@
                     <h4>รายการบทบาทของ Server</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addserverrole')}}" class="btn btn-block btn-primary" role="button">เพิ่มบทบาท</a>
+                    <a href="{{url('/admin/addserverrole')}}" class="btn btn-block btn-primary" role="button">เพิ่มบทบาท</a>
                     <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$serverroleclass['id']}}</th>
                                     <td>{{$serverroleclass['name']}}</td>
-                                    <td><a href="{{url('/serverrole/edit',$serverroleclass->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
+                                    <td><a href="{{url('/admin/serverrole/edit',$serverroleclass->id)}}" class="btn btn-sm btn-primary" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

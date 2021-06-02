@@ -144,11 +144,11 @@ Route::post('/admin/location/update/{id}','Locationcontroller@update');
 
 
 
-Route::get('/serverroleclassadmin','RoleclassController@index');
-Route::get('/addserverrole','RoleclassController@create');
-Route::post('add-serverrole','RoleclassController@store');
-Route::get('/serverrole/edit/{id}','RoleclassController@edit');
-Route::post('/serverrole/update/{id}','RoleclassController@update');
+Route::get('/admin/serverroleclassadmin','RoleclassController@index');
+Route::get('/admin/addserverrole','RoleclassController@create');
+Route::post('/admin/add-serverrole','RoleclassController@store');
+Route::get('/admin/serverrole/edit/{id}','RoleclassController@edit');
+Route::post('/admin/serverrole/update/{id}','RoleclassController@update');
 Route::get('/serveropadmin','ServerOsController@index');
 Route::get('/addserverop','ServerOsController@create');
 Route::post('/add-serverop','ServerOsController@store');
