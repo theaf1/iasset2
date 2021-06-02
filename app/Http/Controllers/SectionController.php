@@ -18,7 +18,7 @@ class SectionController extends Controller
         $Sections = Section::all(); //รวบรวมข้อมูล
 
         //เรียกหน้า sectionadmin พร้อมกับส่งข้อมูลด้วยตัวแปร sections
-        return view('sectionadmin')->with([
+        return view('/admin/sectionadmin')->with([
             'sections'=>$Sections
         ]);
     }
@@ -30,7 +30,7 @@ class SectionController extends Controller
      */
     public function create()
     {
-        return view('addsection'); //เรียกหน้า addsection
+        return view('/admin/addsection'); //เรียกหน้า addsection
     }
 
     /**
@@ -43,7 +43,7 @@ class SectionController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนบันทึก
         $Sections = Section::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
-        return redirect('/sectionadmin')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งกลับไปหน้า sectionadmin พร้อมกับผลการบันทึกข้อมูล
+        return redirect('/admin/sectionadmin')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งกลับไปหน้า sectionadmin พร้อมกับผลการบันทึกข้อมูล
     }
 
     /**
@@ -68,7 +68,7 @@ class SectionController extends Controller
         $Section = Section::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
 
         //เรียกหน้า editsection พร้อมกับส่งข้อมูลผ่านตัวแปร section
-        return view('editsection')->with([
+        return view('/admin/editsection')->with([
             'section'=>$Section,
         ]);
     }
@@ -84,7 +84,7 @@ class SectionController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
         Section::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
-        return redirect('/sectionadmin')->with('success','แก้ไขข้อมูลเรียบร้อยแล้ว'); //ส่งกลับไปหน้า sectionadmin พร้อมกับผลการแก้ไขข้อมูล
+        return redirect('/admin/sectionadmin')->with('success','แก้ไขข้อมูลเรียบร้อยแล้ว'); //ส่งกลับไปหน้า sectionadmin พร้อมกับผลการแก้ไขข้อมูล
     }
 
     /**

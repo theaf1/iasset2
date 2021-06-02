@@ -7,7 +7,7 @@
                     <h4>เพิ่มหน่วยงาน</h4>
                 </div>
                 <div class="card-body">
-                    <form action="/store" method="post">
+                    <form action="/admin/add-section" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">

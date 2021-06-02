@@ -25,7 +25,7 @@ Route::get('/rooms', function() {
     return $rooms;
 });
 //database operations
-Route::post('/store', 'SectionController@store');
+
 
 Route::get('/computer', 'ClientController@create');
 Route::post('/add-computer', 'ClientController@store');
@@ -82,11 +82,13 @@ Route::get('/admin/addassetstatus','AssetstatusController@create');
 Route::post('/admin/add-assetstatus','AssetstatusController@store');
 Route::get('/admin/assetstatus/edit/{id}','AssetstatusController@edit');
 Route::post('/admin/assetstatus/update/{id}','AssetstatusController@update');
+Route::get('/admin/sectionadmin', 'SectionController@index');
+Route::get('/admin/addsection','SectionController@create');
+Route::post('/admin/add-section', 'SectionController@store');
+Route::get('/admin/section/edit/{id}','SectionController@edit');
+Route::post('/admin/section/update/{id}','SectionController@update');
 //under development
-Route::get('/sectionadmin', 'SectionController@index');
-Route::get('/addsection','SectionController@create');
-Route::get('/section/edit/{id}','SectionController@edit');
-Route::post('/section/update/{id}','SectionController@update');
+
 Route::get('/locationadmin','LocationController@index');
 Route::get('/addlocation','LocationController@create');
 Route::post('/add-location','LocationController@store');
