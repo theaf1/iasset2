@@ -7,7 +7,7 @@
                     <h4>เพิ่มชื่อระบบปฏิบัติการ</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/add-serverop')}}" method="post">
+                    <form action="{{url('/admin/add-serverop')}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">

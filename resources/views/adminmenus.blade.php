@@ -27,7 +27,7 @@
                                 <a href="{{url('/admin/peripheraltypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของอุปกรณ์ต่อพ่วง</a>
                                 <a href="{{url('/admin/netsubtypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทของอุปกรณ์เครือข่าย</a>
                                 <a href="{{url('/admin/serverroleclassadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อบทบาท Server</a>
-                                <a href="{{url('/serveropadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อระบบปฏิบัติการแม่ข่าย</a>
+                                <a href="{{url('/admin/serveropadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อระบบปฏิบัติการแม่ข่าย</a>
                                 <a href="{{url('/batterytypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทของแบตเตอรี่ UPS</a>
                             </div>
                         </div>

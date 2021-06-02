@@ -25,7 +25,7 @@
                     <h4>zzz</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addserverop')}}" class="btn btn-block btn-primary">เพิ่มชื่อระบบปฏิบัติการ</a>
+                    <a href="{{url('/admin/addserverop')}}" class="btn btn-block btn-primary">เพิ่มชื่อระบบปฏิบัติการ</a>
                     <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$serverop['id']}}</th>
                                     <td>{{$serverop['name']}}</td>
-                                    <td><a href="{{url('/serverop/edit',$serverop->id)}}" class="btn btn-sm btn-primary">แก้ไข</a></td>
+                                    <td><a href="{{url('/admin/serverop/edit',$serverop->id)}}" class="btn btn-sm btn-primary">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -133,6 +133,16 @@ Route::get('/admin/addnetsubtype','NettypeController@create');
 Route::post('/admin/add-netsubtype','NettypeController@store');
 Route::get('/admin/netsubtype/edit/{id}','NettypeController@edit');
 Route::post('/admin/netsubtype/update/{id}','NettypeController@update');
+Route::get('/admin/serverroleclassadmin','RoleclassController@index');
+Route::get('/admin/addserverrole','RoleclassController@create');
+Route::post('/admin/add-serverrole','RoleclassController@store');
+Route::get('/admin/serverrole/edit/{id}','RoleclassController@edit');
+Route::post('/admin/serverrole/update/{id}','RoleclassController@update');
+Route::get('/admin/serveropadmin','ServerOsController@index');
+Route::get('/admin/addserverop','ServerOsController@create');
+Route::post('/admin/add-serverop','ServerOsController@store');
+Route::get('/admin/serverop/edit/{id}','ServerOsController@edit');
+Route::post('/admin/serverop/update/{id}','ServerOsController@update');
 //under development
 
 Route::get('/admin/locationadmin','LocationController@index');
@@ -144,16 +154,7 @@ Route::post('/admin/location/update/{id}','Locationcontroller@update');
 
 
 
-Route::get('/admin/serverroleclassadmin','RoleclassController@index');
-Route::get('/admin/addserverrole','RoleclassController@create');
-Route::post('/admin/add-serverrole','RoleclassController@store');
-Route::get('/admin/serverrole/edit/{id}','RoleclassController@edit');
-Route::post('/admin/serverrole/update/{id}','RoleclassController@update');
-Route::get('/serveropadmin','ServerOsController@index');
-Route::get('/addserverop','ServerOsController@create');
-Route::post('/add-serverop','ServerOsController@store');
-Route::get('serverop/edit/{id}','ServerOsController@edit');
-Route::post('serverop/update/{id}','ServerOsController@update');
+
 
 
 Route::get('/batterytypeadmin','BatteryController@index');

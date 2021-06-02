@@ -17,7 +17,7 @@ class ServerOsController extends Controller
         $ServerOps = ServerOp::all(); //รวบรวมข้อมูล
 
         // ส่งหน้า serveropsadmin พร้อมกับตัวแปร ServerOps ผ่านตัวแปร serverops
-        return view('serveropsadmin')->with([
+        return view('/admin/serveropsadmin')->with([
             'serverops'=>$ServerOps,
         ]);
     }
@@ -29,7 +29,7 @@ class ServerOsController extends Controller
      */
     public function create() //เรียกหน้า addserverop
     {
-        return view('addserverop');
+        return view('/admin/addserverop');
     }
 
     /**
@@ -42,7 +42,7 @@ class ServerOsController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนเขียนลงในฐานข้อมูล
         $ServerOps = ServerOp::create($request->all()); //เขียนข้อมูลลงในฐานข้อมูล
-        return redirect('/serveropadmin')->with('success','เพิ่มชื่อระบบปฏิบัติการสำเร็จ'); //ส่งกลับไปยังหน้า serveropadmin พร้อมผลการบันทึกข้อมูล
+        return redirect('/admin/serveropadmin')->with('success','เพิ่มชื่อระบบปฏิบัติการสำเร็จ'); //ส่งกลับไปยังหน้า serveropadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -67,7 +67,7 @@ class ServerOsController extends Controller
         $ServerOp = ServerOp::find($id); //ค้นหาข้อมูลที่จะแก้ไข
 
         //ส่งหน้า editserverop พร้อมกับข้อมูลที่จะแก้ไข
-        return view('editserverop')->with([
+        return view('/admin/editserverop')->with([
             'serverop'=>$ServerOp,
         ]);
     }
@@ -83,7 +83,7 @@ class ServerOsController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนแก้ไขในฐานข้อมูล
         ServerOp::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
-        return redirect('/serveropadmin')->with('success','แก้ไขชื่อระบบปฏิบัติการสำเร็จ'); //ส่งกลับไปยังหน้า serveropadmin พร้อมผลการแก้ไขข้อมูล
+        return redirect('/admin/serveropadmin')->with('success','แก้ไขชื่อระบบปฏิบัติการสำเร็จ'); //ส่งกลับไปยังหน้า serveropadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**
