@@ -17,7 +17,7 @@ class NettypeController extends Controller
         $NetSubtypes = NetSubtype::all(); //รวบรวมข้อมูล
 
         //เรียกหน้า netsubtypeadmin พร้อมกับส่งตัวแปร NetSubtypes ผ่านตัวแปร netsubtype
-        return view('netsubtypeadmin')->with([
+        return view('/admin/netsubtypeadmin')->with([
             'netsubtypes'=>$NetSubtypes,
         ]);
     }
@@ -29,7 +29,7 @@ class NettypeController extends Controller
      */
     public function create()
     {
-        return view('addnetsubtype'); //เรียกหน้า addnetsubtype
+        return view('/admin/addnetsubtype'); //เรียกหน้า addnetsubtype
     }
 
     /**
@@ -42,7 +42,7 @@ class NettypeController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
         $NetSubtypes = NetSubtype::create($request->all());//เขียนข้อมูลลงในฐานข้อมูล
-        return redirect('/netsubtypeadmin')->with('success','บันทึกข้อมูลสำเร็จ'); //ส่งกลับไปหน้า netsubtypeadmin พร้อมผลการบันทึกข้อมูล
+        return redirect('/admin/netsubtypeadmin')->with('success','บันทึกข้อมูลสำเร็จ'); //ส่งกลับไปหน้า netsubtypeadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -67,7 +67,7 @@ class NettypeController extends Controller
         $NetSubtype = Netsubtype::find($id); //ค้นหาข้อมูลที่จะทำการแก้ไข
 
         //ส่งข้อมูลที่จะแก้ไขไปพร้อมกับหน้า editnetsubtype ด้วยตัวแปร netsubtype 
-        return view('editnetsubtype')->with([
+        return view('/admin/editnetsubtype')->with([
             'netsubtype'=>$NetSubtype,
         ]); 
     }
@@ -83,7 +83,7 @@ class NettypeController extends Controller
     {
         $this->validateData($request); //ตรวจสอข้อมูลที่จะทำการแก้ไข
         NetSubtype::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
-        return redirect('/netsubtypeadmin')->with('success','แก้ไขข้อมูลสำเร็จ'); //ส่งกลับไปหน้า netsubtypeadmin พร้อมผลการบันทึกข้อมูล
+        return redirect('/admin/netsubtypeadmin')->with('success','แก้ไขข้อมูลสำเร็จ'); //ส่งกลับไปหน้า netsubtypeadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**

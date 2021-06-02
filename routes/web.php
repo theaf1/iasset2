@@ -128,6 +128,11 @@ Route::get('/admin/addperipheraltype','PeripheraltypeController@create');
 Route::post('/admin/add-peripheraltype','PeripheraltypeController@store');
 Route::get('/admin/peripheraltype/edit/{id}','Peripheraltypecontroller@edit');
 Route::post('/admin/peripheraltype/update/{id}','Peripheraltypecontroller@update');
+Route::get('/admin/netsubtypeadmin','NettypeController@index');
+Route::get('/admin/addnetsubtype','NettypeController@create');
+Route::post('/admin/add-netsubtype','NettypeController@store');
+Route::get('/admin/netsubtype/edit/{id}','NettypeController@edit');
+Route::post('/admin/netsubtype/update/{id}','NettypeController@update');
 //under development
 
 Route::get('/admin/locationadmin','LocationController@index');
@@ -149,11 +154,7 @@ Route::get('/addserverop','ServerOsController@create');
 Route::post('/add-serverop','ServerOsController@store');
 Route::get('serverop/edit/{id}','ServerOsController@edit');
 Route::post('serverop/update/{id}','ServerOsController@update');
-Route::get('/netsubtypeadmin','NettypeController@index');
-Route::get('/addnetsubtype','NettypeController@create');
-Route::post('/add-netsubtype','NettypeController@store');
-Route::get('/netsubtype/edit/{id}','NettypeController@edit');
-Route::post('/netsubtype/update/{id}','NettypeController@update');
+
 
 Route::get('/batterytypeadmin','BatteryController@index');
 Route::get('/addbatterytype','BatteryController@create');

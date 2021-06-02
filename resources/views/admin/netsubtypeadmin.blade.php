@@ -25,7 +25,7 @@
                     <h4>รายการประเภทอุปกรณ์เครือข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addnetsubtype')}}" class="btn btn-block btn-primary" role="button">เพิ่มประเภทอุปกรณ์เครือข่าย</a>
+                    <a href="{{url('/admin/addnetsubtype')}}" class="btn btn-block btn-primary" role="button">เพิ่มประเภทอุปกรณ์เครือข่าย</a>
                     <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$netsubtype['id']}}</th>
                                     <td>{{$netsubtype['name']}}</td>
-                                    <td><a href="{{url('/netsubtype/edit',$netsubtype->id)}}" class="btn btn-sm btn-primary">แก้ไข</a></td>
+                                    <td><a href="{{url('/admin/netsubtype/edit',$netsubtype->id)}}" class="btn btn-sm btn-primary">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

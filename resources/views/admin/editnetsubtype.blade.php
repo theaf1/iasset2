@@ -6,7 +6,7 @@
                 <h4>เพิ่มชนิดอุปกรณ์เครือข่าย</h4>
             </div>
             <div class="card-body">
-                <form action="{{url('/netsubtype/update',$netsubtype->id)}}" method="post">
+                <form action="{{url('/admin/netsubtype/update',$netsubtype->id)}}" method="post">
                     @csrf
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
