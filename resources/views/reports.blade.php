@@ -35,7 +35,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="asset_age">อายุครุภัณฑ์(ปี)</label>
-                                    <input type="number" class="form-control" name="asset_age" id="asset_age" min="1">
+                                    <input type="number" class="form-control" name="asset_age" id="asset_age" value="10" min="1">
                                 </div>
                             </div>
                         </div>
