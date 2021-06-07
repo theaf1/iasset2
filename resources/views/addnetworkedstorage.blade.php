@@ -282,17 +282,6 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--LUN-->
-                                <div class="form-group">
-                                    <label for="lun_count">จำนวน disk จำลองที่มีอยู่</label>
-                                    <input type="number" name="lun_count" id="lun_count" class="form-control @error('lun_count') is-invalid @enderror" value="{{ old('lun_count') }}">
-                                    @error('lun_count')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
                             <div class="col-sm-12 col-lg-6"> <!--ชื่อเครื่อง-->
                                 <div class="form-group">
                                     <label for="device_name">ชื่อเครื่อง</label>

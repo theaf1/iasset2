@@ -118,11 +118,6 @@
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
-                                <p>จำนวน Disk จำลอง {{$networkedstorage['lun_count']}} ลูก</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-6">
-                            <div class="form-group">
                                 <p>ชื่อเครื่อง: {{$networkedstorage['device_name']}}</p>
                             </div>
                         </div>

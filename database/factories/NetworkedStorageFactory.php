@@ -26,7 +26,6 @@ $factory->define(NetworkedStorage::class, function (Faker $faker) {
         'hdd_total_cap' => 32, //ความจุข้อมูลรวม
         'no_of_physical_drive_max' => 16, //จำนวน HDDสุงสุด
         'no_of_physical_drive_populated' => 8, //จำนวน HDD ที่มีอยู่
-        'lun_count' => 2, //จำนวน Disk จำลอง
         'device_name' => 'SILO-MED', //ชื่อเครื่อง
         'device_management_address' => $faker->localIpv4, //IP address ที่ใช้ควบคุมเครื่อง
         'device_communication_address' => $faker->localIpv4, //IP address ที่ใช้รับส่งข้อมูล 

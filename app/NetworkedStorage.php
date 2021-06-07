@@ -28,7 +28,6 @@ class NetworkedStorage extends Model
         'hdd_total_cap',
         'no_of_physical_drive_max',
         'no_of_physical_drive_populated',
-        'lun_count',
         'device_name',
         'device_management_address',
         'device_communication_address',

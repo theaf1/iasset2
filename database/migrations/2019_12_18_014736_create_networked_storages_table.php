@@ -34,7 +34,6 @@ class CreateNetworkedStoragesTable extends Migration
             $table->float('hdd_total_cap', 6, 4); //ความจุข้อมูลรวม
             $table->integer('no_of_physical_drive_max'); //จำนวน HDD สูงสุด
             $table->integer('no_of_physical_drive_populated'); //จำนวน HDD ที่มีอยู่
-            $table->integer('lun_count'); //จำนวน disk จำลอง
             $table->string('device_name'); //ชื่อเครื่อง
             $table->ipAddress('device_management_address'); //ip address ควบคุมเครื่อง
             $table->string('device_communication_address'); //address ที่ใช้รับส่งข้อมูล
