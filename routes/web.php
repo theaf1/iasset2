@@ -77,6 +77,9 @@ Route::get('/server/{id}', 'ServerController@edit');
 Route::put('/server/{id}/update', 'ServerController@update');
 
 //admin
+Route::get('/admin', function () {
+    return view('adminmenus');
+});
 Route::get('/admin/assetstatusadmin','AssetstatusController@index');
 Route::get('/admin/addassetstatus','AssetstatusController@create');
 Route::post('/admin/add-assetstatus','AssetstatusController@store');
@@ -149,24 +152,11 @@ Route::post('/admin/add-batterytype','BatteryController@store');
 Route::get('/admin/batterytype/edit/{id}','BatteryController@edit');
 Route::post('/admin/batterytype/update/{id}','BatteryController@update');
 //under development
-
 Route::get('/admin/locationadmin','LocationController@index');
 Route::get('/admin/addlocation','LocationController@create');
 Route::post('/admin/add-location','LocationController@store');
 Route::get('/admin/location/edit/{id}','LocationController@edit');
 Route::post('/admin/location/update/{id}','Locationcontroller@update');
-
-
-
-
-
-
-
-
-
-
-
-
 //Route::post('/client/filter','ClientIndexController@show');
 //Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
 
@@ -176,6 +166,4 @@ Route::get('/reports','ReportController@index');
 Route::post('/create-report','ReportController@report'); 
 // route to  test views
 Route::get('/pdf','PdfController@pdf');
-Route::get('/admin', function () {
-    return view('adminmenus');
-});
+
