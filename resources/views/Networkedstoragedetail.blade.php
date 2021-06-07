@@ -121,20 +121,18 @@
                                 <p>ชื่อเครื่อง: {{$networkedstorage['device_name']}}</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>IP Address ที่ใช้ควบคุมเครื่อง: {{$networkedstorage['device_management_address']}}</p>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>IP Address ที่ใช้รับส่งข้อมูล: {{$networkedstorage['device_communication_address']}}
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ใช้ protocol {{$networkedstorage['is_smb'] == 1 ? 'SMB' : ''}} {{$networkedstorage['is_fc'] == 1 ? 'Fiber Channel' : ''}} {{$networkedstorage['is_iscsi'] == 1 ? 'iSCSI' : ''}} ในการสื่อสาร</p>

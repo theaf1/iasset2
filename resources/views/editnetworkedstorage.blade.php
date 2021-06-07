@@ -292,8 +292,6 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--address ควบคุมเครื่อง-->
                                 <div class="form-group">
                                     <label for="device_management_address">IP Address ที่ใช้ควบคุมเครื่อง</label>
@@ -305,6 +303,8 @@
                                     @enderror
                                 </div>                       
                             </div>
+                        </div>  
+                        <div class="form-row">  
                             <div class="col-sm-12 col-lg-6"> <!--address รับส่งข้อมูล-->
                                 <div class="form-group">
                                     <label for="device_communication_address">Address ที่ใช้รับส่งข้อมูล</label>
@@ -316,8 +316,6 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--protocol-->
                                 <div class="form-group">
                                     <label for="type">Protocol ที่ใช้รับส่งข้อมูล</label>
