@@ -146,11 +146,14 @@ Route::get('/admin/addserverop','ServerOsController@create');
 Route::post('/admin/add-serverop','ServerOsController@store');
 Route::get('/admin/serverop/edit/{id}','ServerOsController@edit');
 Route::post('/admin/serverop/update/{id}','ServerOsController@update');
+Route::get('/admin/topologyadmin','TopologyController@index');
+Route::get('/admin/addtopology','TopologyController@create');
 Route::get('/admin/batterytypeadmin','BatteryController@index');
 Route::get('/admin/addbatterytype','BatteryController@create');
 Route::post('/admin/add-batterytype','BatteryController@store');
 Route::get('/admin/batterytype/edit/{id}','BatteryController@edit');
 Route::post('/admin/batterytype/update/{id}','BatteryController@update');
+
 //under development
 Route::get('/admin/locationadmin','LocationController@index');
 Route::get('/admin/addlocation','LocationController@create');
