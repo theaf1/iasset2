@@ -39,7 +39,7 @@ class PeripheralsController extends Controller
         );
         $Owners = Owner::all();
         $Mobility = Mobility::all();
-        $peripherals = Peripherals::all();
+        $peripherals = Peripherals::paginate(25);
         foreach ($peripherals as $peripheral) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
         {
             $peripheral_upd_eng = $peripheral->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
