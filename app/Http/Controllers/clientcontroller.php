@@ -29,7 +29,7 @@ class ClientController extends Controller
     //ประกาศตัวแปรที่่ใช้ใน controller
     public function index()
     {
-        $Clients = Client::all();
+        $Clients = Client::paginate(50);
         foreach ($Clients as $Client) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้อยู่ในรูปแบบ ว-ด-ป
         {
             $Client_upd_eng = $Client->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');

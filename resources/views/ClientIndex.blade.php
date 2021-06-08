@@ -26,13 +26,13 @@
                 </div>
                 <div class="card-body">
                 <a href="{{ url('/computer') }}"class="btn btn-lg btn-block btn-info" role="button">เพิ่มคอมพิวเตอร์</a>
-                <label for="section_filter">หน่วยงานเจ้าของเครื่อง</label>
+                {{-- <label for="section_filter">หน่วยงานเจ้าของเครื่อง</label>
                 <select name="section_filter" id="section_filter" class="form-control col-sm-6 col-lg-3" onchange="GetSectionFilter()"> 
                     <option value="">กรุณาเลือกหน่วยงาน</option>
                     @foreach($sections as $section)
                         <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
                     @endforeach
-                </select>
+                </select> --}}
 
                     <table class="table mt-4 table-hover table-responsive">
                         <thead>
@@ -84,13 +84,13 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <label for="per_page">จำนวนบรรทัด</label>
+                    {{-- <label for="per_page">จำนวนบรรทัด</label>
                     <select class="form-control col-sm-6 col-lg-3" name="" id="per_page" onchange="GetSectionFilter()">
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="30">30</option>
-                    </select>
-                    {{-- {{ $clients->links() }} --}}
+                    </select> --}}
+                    {{ $clients->links() }}
                 </div>
             </div>
         </div>
@@ -101,28 +101,28 @@
         @if(Session::has('success'))
             $('#alert').modal('show');
         @endif
-        function GetSectionFilter()
-        {
-            //console.log('GetSectionFilter')
-            var section_filter = document.getElementById("section_filter").value;
-            var per_page = document.getElementById("per_page").value;
-            console.log(section_filter)
-            axios({
-                method: 'post',
-                url: '/client/filter',
-                data: {
-                    section_filter: section_filter,
-                    per_page: per_page,
-                }
-            }).then(function (response) {
-                    console.log(response.data);
-                    var clients = response.data;
-                    console.log(clients);
-                    //document.innerHTML;
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        }
+        // function GetSectionFilter()
+        // {
+        //     //console.log('GetSectionFilter')
+        //     var section_filter = document.getElementById("section_filter").value;
+        //     var per_page = document.getElementById("per_page").value;
+        //     console.log(section_filter)
+        //     axios({
+        //         method: 'post',
+        //         url: '/client/filter',
+        //         data: {
+        //             section_filter: section_filter,
+        //             per_page: per_page,
+        //         }
+        //     }).then(function (response) {
+        //             console.log(response.data);
+        //             var clients = response.data;
+        //             console.log(clients);
+        //             //document.innerHTML;
+        //         })
+        //         .catch(function (error) {
+        //             console.log(error);
+        //         });
+        // }
     </script>
 @endsection
