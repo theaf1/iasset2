@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\ClientOperate;
 
-class CreateClientOpsTable extends Migration
+class CreateClientOperatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -43,6 +43,6 @@ class CreateClientOpsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_ops');
+        Schema::dropIfExists('client_operates');
     }
 }
