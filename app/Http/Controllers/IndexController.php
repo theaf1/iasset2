@@ -115,86 +115,6 @@ class IndexController extends Controller
     {
         //
     }
-    public function search(Request $request)
-    {
-        $this->validateQuery($request);
-        //$Results=Client::where('sapid', $request->search)->get();
-        //ทำการค้นหาข้อมูล
-        if ($request->search_class==1) 
-        {
-            $Searchclass= [
-                ['id'=>'1', 'name'=>'Client', 'ui_name'=>'คอมพิวเตอร์'],
-                ['id'=>'2', 'name'=>'Display', 'ui_name'=>'จอภาพ'],
-                ['id'=>'3', 'name'=>'Peripherals', 'ui_name'=>'อุปกรณ์ต่อพ่วง'],
-                ['id'=>'4', 'name'=>'Storageperipherals', 'ui_name'=>'อุปกรณ์ต่อพ่วงเก็บข้อมูล'],
-                ['id'=>'5', 'name'=>'Servers', 'ui_name'=>'คอมพิวเตอร์แม่ข่าย'],
-                ['id'=>'6', 'name'=>'NetworkedStorage', 'ui_name'=>'อุปกรณ์เก็บข้อมูลเครือข่าย'],
-                ['id'=>'7', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
-                ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
-            ];
-            $Rooms = Room::all();
-            \Log::info($request->all());
-            $Results = Client::search($request->keyword)->orderBy('id','asc')->paginate(10); //ค้นหาเครื่องคอมพิวเตอร์
-            \Log::info($Results);
-            // return view('results')->with([
-            //     'results'=>$Results,
-            // ]);
-            return view('index')->with([
-                'results'=>$Results,
-                'searches'=>$Searchclass,
-                'rooms'=>$Rooms,
-            ]);
-        }
-        if ($request->search_class == 2) {
-            $Results = Display::search($request->keyword)->paginate($request->per_page); //ค้นหาจอภาพ
-
-            return view('results')->with([
-                'results'=>$Results,
-            ]);
-        }
-        if ($request->search_class == 3) {
-            $Results = Peripherals::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์ต่อพ่วง
-
-            return view('results')->with([
-                'results'=>$Results,
-            ]);
-        }
-        if ($request->search_class == 4) {
-            $Results = Storageperipherals::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์ต่อพ่วงเก็บข้อมูล
-
-            return view('results')->with([
-                'results'=>$Results,
-            ]);
-        }
-        if ($request->search_class == 5) {
-            $Results = Servers::search($request->keyword)->paginate($request->per_page); //ค้นหาเครื่องคอมพิวเตอร์แม่ข่าย
-
-            return view('results')->with([
-                'results'=>$Results,
-            ]);
-        }
-        if ($request->search_class == 6) {
-            $Results = NetworkedStorage::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์เก็บข้อมูลเครือข่าย
-
-            return view('results')->with([
-                'results'=>$Results,
-            ]);
-        }
-        if ($request->search_class == 7) {
-            $Results = Networkdevices::search($request->keyword)->paginate($request->per_page); //ค้นหาอุปกรณ์เครือข่าย
-
-            return view('results')->with([
-                'results'=>$Results,
-            ]);
-        }
-        if ($request->search_class == 8) {
-            $Results = Upses::search($request->keyword)->paginate($request->per_page); //ค้นหาเครื่องสำรองไฟฟ้า
-
-            return view('results')->with([
-                'results'=>$Results,
-            ]);
-        }
-    }
     protected function searchEquipment($class, $column, $keyword, $per_page) //function ทำการค้นหาข้อมูล
     {
         //ถ้า ค่า class และ column เป็น null ให้ตีกลับไปด้วยค่า null
@@ -204,7 +124,7 @@ class IndexController extends Controller
         //กำหนดค่าตัวแปร equipmentsClass
         $equipmentsClass = [
             '',
-            '\App\client',
+            '\App\Client',
             '\App\Display',
             '\App\Peripherals',
             '\App\storageperipherals',
