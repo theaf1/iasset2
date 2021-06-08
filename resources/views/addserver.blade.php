@@ -15,7 +15,7 @@
                     </div>
                     <div class="card-body">
                         <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">

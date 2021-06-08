@@ -24,7 +24,7 @@
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
                     </div>
                     <div class="card-body">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
                                 <div class="form-group"> 
