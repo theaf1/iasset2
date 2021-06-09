@@ -124,6 +124,8 @@ Route::post('/admin/clientop/update/{id}','ClientOpController@update');
 Route::get('/admin/osarchadmin','OsarchController@index');
 Route::get('/admin/addosarch','OsarchController@create');
 Route::post('/admin/add-osarch','OsarchController@store');
+Route::get('/admin/osarch/edit/{id}','OsarchController@edit');
+Route::post('/admin/osarch/update/{id}','OsarchController@update');
 Route::get('/admin/networkconnectionadmin','NetworkConnectionController@index');
 Route::get('/admin/addnetworkconnection','NetworkConnectionController@create');
 Route::post('/admin/add-networkconnection','NetworkConnectionController@store');
