@@ -14,7 +14,9 @@ class OsarchController extends Controller
      */
     public function index()
     {
-        $Osarches = OsArch::all();
+        $Osarches = OsArch::all(); //รวบรวมข้อมูล
+
+        //เรียกหน้า osarchadmin พร้อมกับส่งข้อมูลด้วยตัวเแปร os_arches
         return view('/admin/osarchadmin')->with([
             'os_arches'=>$Osarches,
         ]);
@@ -27,7 +29,7 @@ class OsarchController extends Controller
      */
     public function create()
     {
-        return view('/admin/addosarch');
+        return view('/admin/addosarch'); //เรียกหน้า addosarch
     }
 
     /**
@@ -38,9 +40,9 @@ class OsarchController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $Osarches = OsArch::create($request->all());
-        return redirect('/admin/osarchadmin')->with('success','บันทึกข้อมูลสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        $Osarches = OsArch::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
+        return redirect('/admin/osarchadmin')->with('success','บันทึกข้อมูลสำเร็จ'); //ส่งกลับไปหน้า osarchadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -62,7 +64,9 @@ class OsarchController extends Controller
      */
     public function edit($id)
     {
-        $Osarch = OsArch::find($id);
+        $Osarch = OsArch::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
+
+        //เรียกหน้า editosarch พร้อมกับส่งข้อมูลด้วยตัวแปร osarch
         return view('/admin/editosarch')->with([
             'osarch'=>$Osarch,
         ]);
@@ -77,9 +81,9 @@ class OsarchController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        OsArch::find($id)->update($request->all());
-        return redirect('/admin/osarchadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        OsArch::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/admin/osarchadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //ส่งกลับไปหน้า osarchadmin พร้อมผลการแก้ไขข้อมูล
     }
 
     /**
