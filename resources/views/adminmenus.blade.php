@@ -23,11 +23,13 @@
                             <div class="col-sm-12 col-lg-6">
                                 <a href="{{url('/admin/clienttypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของครุภัณฑ์คอมพิวเตอร์</a>
                                 <a href="{{url('/admin/clientopadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการระบบปฏิบัติการของคอมพิวเตอร์</a>
+                                <a href="{{url('/admin/osarchadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการโครงสร้าง software</a>
                                 <a href="{{url('/admin/networkconnectionadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทเครือข่าย</a>
                                 <a href="{{url('/admin/peripheraltypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของอุปกรณ์ต่อพ่วง</a>
                                 <a href="{{url('/admin/netsubtypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทของอุปกรณ์เครือข่าย</a>
                                 <a href="{{url('/admin/serverroleclassadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อบทบาท Server</a>
                                 <a href="{{url('/admin/serveropadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อระบบปฏิบัติการแม่ข่าย</a>
+                                <a href="{{url('admin/toplogyadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการหลักการทำงานของเครื่อง UPS</a>
                                 <a href="{{url('/admin/batterytypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทของแบตเตอรี่ UPS</a>
                             </div>
                         </div>
