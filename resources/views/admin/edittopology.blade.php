@@ -4,16 +4,16 @@
         <div class="col-12 mx-auto">
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>เพิ่มชื่อหลักการทำงาน</h4>
+                    <h4>แก้ไขชื่อหลักการทำงาน</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/admin/add-topology')}}" method="post">
+                    <form action="{{url('/admin/topology/update',$topology->id)}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="name">ชื่อหลักการทำงาน</label>
-                                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
+                                    <label for="name">name</label>
+                                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name',$topology->name)}}">
                                     @error('name')
                                         <div class="invalid-feedback">
                                             {{$message}}

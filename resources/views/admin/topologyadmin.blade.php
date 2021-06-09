@@ -22,11 +22,11 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4></h4>
+                    <h4>รายชื่อหลักการทำงานของ UPS</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/admin/addtopology')}}" class="btn btn-primary btn-block" role="button">aa</a>
-                    <table class="table table-hover table-responsive">
+                    <a href="{{url('/admin/addtopology')}}" class="btn btn-primary btn-block" role="button">เพิ่มหลักการทำงาน</a>
+                    <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>
                                 <th scope="col">ลำดับที่</th>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th scope="row">{{$topology['id']}}</th>
                                     <td>{{$topology['name']}}</td>
-                                    <td><a href="#" class="btn btn-primary btn-sm" role="button">sss</a></td>
+                                    <td><a href="{{url('/admin/topology/edit',$topology->id)}}" class="btn btn-primary btn-sm" role="button">แก้ไข</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -48,4 +48,11 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script>
+        @if(Session::has('success'))
+            $("#alert").modal("show");
+        @endif
+    </script>
 @endsection

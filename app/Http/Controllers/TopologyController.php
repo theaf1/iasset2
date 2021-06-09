@@ -40,7 +40,7 @@ class TopologyController extends Controller
     {
         $this->validateData($request);
         $Topologies = Topology::create($request->all());
-        return redirect('/admin/topologyadmin')->with('success','a');
+        return redirect('/admin/topologyadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -79,7 +79,7 @@ class TopologyController extends Controller
     {
         $this->validateData($request);
         Topology::find($id)->update($request->all());
-        return redirect('/admin/topologyadmin')->with('success','k');
+        return redirect('/admin/topologyadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -99,8 +99,8 @@ class TopologyController extends Controller
         ];
 
         $messages = [
-            'name.required'=>'a',
-            'name.unique'=>'b',
+            'name.required'=>'กรุณาระบุชชื่อหลักการทำงาน',
+            'name.unique'=>'มีหลักการทำงานนในระบบแล้ว',
         ];
 
         return $this->validate($data, $rules, $messages);
