@@ -14,7 +14,9 @@ class DataUnitController extends Controller
      */
     public function index()
     {
-        $DataUnits = DataUnit::all();
+        $DataUnits = DataUnit::all(); //รวบรวมข้อมูล
+
+        //เรียกหน้า dataunitadmin พร้อมกับส่งข้อมูลด้วยตัวแปร dataunits
         return view('/admin/dataunitadmin')->with([
             'dataunits'=>$DataUnits,
         ]);
@@ -27,7 +29,7 @@ class DataUnitController extends Controller
      */
     public function create()
     {
-        return view('/admin/addataunit');
+        return view('/admin/addataunit'); //เรียกหน้า adddataunit
     }
 
     /**
@@ -38,9 +40,9 @@ class DataUnitController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $DataUnits = Dataunit::create($request->all());
-        return redirect('/admin/dataunitadmin')->with('success','a');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        $DataUnits = Dataunit::create($request->all()); //บันทึกข้อมุลลงในฐานข้อมูล
+        return redirect('/admin/dataunitadmin')->with('success','a'); //ส่งกลับไปหน้า dataunitadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -62,7 +64,9 @@ class DataUnitController extends Controller
      */
     public function edit($id)
     {
-        $DataUnit = Dataunit::find($id);
+        $DataUnit = Dataunit::find($id); //คันหาข้อมูลที่ต้องการแก้ไข
+    
+        //เรียกหน้า editdataunit พร้อมกับส่งข้อมูลด้วยตัวแปร dataunit
         return view('admin/editdataunit')->with([
             'dataunit'=>$DataUnit,
         ]);
@@ -77,9 +81,9 @@ class DataUnitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Dataunit::find($id)->update($request->all());
-        return redirect('/admin/dataunitadmin')->with('success','aa');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        Dataunit::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/admin/dataunitadmin')->with('success','aa'); //ส่งกลับไปหน้า dataunitadmin พร้อมกับผลการแก้ไขข้อมูล
     }
 
     /**
