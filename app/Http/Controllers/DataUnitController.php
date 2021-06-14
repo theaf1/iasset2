@@ -42,7 +42,7 @@ class DataUnitController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
         $DataUnits = Dataunit::create($request->all()); //บันทึกข้อมุลลงในฐานข้อมูล
-        return redirect('/admin/dataunitadmin')->with('success','a'); //ส่งกลับไปหน้า dataunitadmin พร้อมผลการบันทึกข้อมูล
+        return redirect('/admin/dataunitadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //ส่งกลับไปหน้า dataunitadmin พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -83,7 +83,7 @@ class DataUnitController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
         Dataunit::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
-        return redirect('/admin/dataunitadmin')->with('success','aa'); //ส่งกลับไปหน้า dataunitadmin พร้อมกับผลการแก้ไขข้อมูล
+        return redirect('/admin/dataunitadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //ส่งกลับไปหน้า dataunitadmin พร้อมกับผลการแก้ไขข้อมูล
     }
 
     /**
