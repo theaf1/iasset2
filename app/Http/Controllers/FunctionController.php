@@ -14,7 +14,9 @@ class FunctionController extends Controller
      */
     public function index()
     {
-        $Functions = Opsfunction::all();
+        $Functions = Opsfunction::all(); //รวบรวมข้อมูล
+
+        //เรียกหน้า functionadmin พร้อมกับส่งข้อมูลด้วยตัวแปร functions
         return view('/admin/functionadmin')->with([
             'functions'=>$Functions,
         ]);
@@ -27,7 +29,7 @@ class FunctionController extends Controller
      */
     public function create()
     {
-        return view('/admin/addfunction');
+        return view('/admin/addfunction'); //เรียกหน้า addfunction
     }
 
     /**
@@ -38,9 +40,9 @@ class FunctionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $Functions = Opsfunction::create($request->all());
-        return redirect('/admin/functionadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        $Functions = Opsfunction::create($request->all()); //บันทึกข้อมูลลงฐานข้อมูล
+        return redirect('/admin/functionadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //ส่งกลับไปหน้า functionadmin พร้อมผลการทำาน
     }
 
     /**
@@ -62,7 +64,9 @@ class FunctionController extends Controller
      */
     public function edit($id)
     {
-        $Function = Opsfunction::find($id);
+        $Function = Opsfunction::find($id); //ค้นหาข้อมูลที่จะแก้ไข
+
+        //เรียกหน้า editfunction พร้อมกับส่งข้อมูลด้วยตัวแปร function
         return view('/admin/editfunction')->with([
             'function'=>$Function,
         ]);
@@ -77,9 +81,9 @@ class FunctionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        Opsfunction::find($id)->update($request->all());
-        return redirect('/admin/functionadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        Opsfunction::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/admin/functionadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');  //ส่งกลับไปหน้า functionadmin พร้อมผลการทำาน
     }
 
     /**
