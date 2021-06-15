@@ -15,7 +15,7 @@ class FunctionController extends Controller
     public function index()
     {
         $Functions = Opsfunction::all();
-        return view('/admin/functionindex')->with([
+        return view('/admin/functionadmin')->with([
             'functions'=>$Functions,
         ]);
     }
