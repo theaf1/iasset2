@@ -40,7 +40,7 @@ class FunctionController extends Controller
     {
         $this->validateData($request);
         $Functions = Opsfunction::create($request->all());
-        return redirect('/admin/functionadmin')->with('success','a');
+        return redirect('/admin/functionadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -79,7 +79,7 @@ class FunctionController extends Controller
     {
         $this->validateData($request);
         Opsfunction::find($id)->update($request->all());
-        return redirect('/admin/functionadmin')->with('success','bb');
+        return redirect('/admin/functionadmin')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -99,8 +99,8 @@ class FunctionController extends Controller
         ];
 
         $messages = [
-            'name.required'=>'aa',
-            'name.unique'=>'aaa',
+            'name.required'=>'กรุณาระบุชื่อระบบงานภายใน',
+            'name.unique'=>'มีระบบงานภายในชื่อนี้แล้ว',
         ];
 
         return $this->validate($data, $rules, $messages);
