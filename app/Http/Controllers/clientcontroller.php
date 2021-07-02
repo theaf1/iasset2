@@ -38,29 +38,9 @@ class ClientController extends Controller
             $Client_upd_year = $Client_upd_ex[0].' '.$Client_upd_ex[1].' '.$Client_upd_year_th;
             $Client->update_date = $Client_upd_year;
         }
-        $Clienttypes =Clienttype::all();
-        //$Displays = Display::all();
-        $Mobility = Mobility::all();
-        $Sections = Section::all();
-        $Asset_statuses = Asset_statuses::all();
-        $Asset_use_statuses = Asset_use_statuses::all();
-        $Owners = Owner::all();
-        $Networkconnections = NetworkConnection::all();
-        $Positions = Position::all();
-        $DataUnits = DataUnit::all();
         //ตัวแปรที่ส่งไปยังหน้า clientindex
         return view('clientindex')->with([
             'clients'=>$Clients,
-            //'displays'=>$Displays,
-            'asset_statuses'=>$Asset_statuses,
-            'asset_use_statuses'=>$Asset_use_statuses,
-            'sections'=>$Sections,
-            'clienttypes'=>$Clienttypes,
-            //'networkconnections'=>$NetworkConnections,
-            'positions'=>$Positions,
-            'dataunits'=>$DataUnits,
-            'owners'=>$Owners,
-            'mobiles'=>$Mobility,
         ]);
     }
 
@@ -160,35 +140,10 @@ class ClientController extends Controller
     public function show($id)
     //กำหนดค่าตัวแปรที่ใช้ในการเรียกดูรายละเอียดของเครื่องคอมพิวเตอร์
     {
-        $Asset_statuses = Asset_statuses::all();
-        $Asset_use_statuses = Asset_use_statuses::all();
-        $Sections = Section::all();
-        $Clienttypes = Clienttype::all();
-        $Opsfunctions = Opsfunction::all();
-        $Multiusers = Multiuser::all();
-        $NetworkConnections = NetworkConnection::all();
-        $Positions = Position::all();
-        $DataUnits = DataUnit::all();
-        $OsArches = OsArch::all();
-        $Owners = Owner::all();
-        $Mobility = Mobility::all();
-
         $client = Client::find($id);
         //ส่งค่าตัวแปรที่กำหนดไว้ไปยังหน้า Computerdetail
         return view('Computerdetail')->with([
             'client'=>$client,
-            'asset_statuses'=>$Asset_statuses,
-            'asset_use_statuses'=>$Asset_use_statuses,
-            'sections'=>$Sections,
-            'clienttypes'=>$Clienttypes,
-            'opsfunctions'=>$Opsfunctions,
-            'multiusers'=>$Multiusers,
-            'networkconnections'=>$NetworkConnections,
-            'positions'=>$Positions,
-            'dataunits'=>$DataUnits,
-            'os_arches'=>$OsArches,
-            'owners'=>$Owners,
-            'mobiles'=>$Mobility,
         ]);
     }
 
