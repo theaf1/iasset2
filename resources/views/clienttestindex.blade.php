@@ -15,9 +15,8 @@
                             <label for="section_filter">หน่วยงานเจ้าของเครื่อง</label>
                             <select name="section_filter" id="section_filter" class="form-control"> 
                                 <option value="">กรุณาเลือกหน่วยงาน</option>
-                                <option value="0">ทุกหน่วยงาน</option>
                                 @foreach($sections as $section)
-                                    <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
+                                    <option value="{{ $section['id'] }}" {{old('section_filter') == $section['id'] ? 'selected' : ''}}>{{ $section['name'] }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -34,7 +33,7 @@
                     </div>
                     <div class="col-sm-6 col-lg-3 pt-5">
                         <div class="form-group">
-                            <button class="btn btn-primary btn-sm" type="submit">คัดกรอง</button>
+                            <button class="btn btn-primary btn-block" type="submit">คัดกรอง</button>
                         </div>
                     </div>
                 </div>
