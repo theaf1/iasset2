@@ -18,9 +18,18 @@ class Testcontroller extends Controller
     {
         
         //ตัวแปรที่ส่งไปยังหน้า clientindex
+        $Clients =$this->filterClient(request()->section_filter,request()->per_page);
+        foreach ($Clients as $Client) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้อยู่ในรูปแบบ ว-ด-ป
+        {
+            $Client_upd_eng = $Client->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
+            $Client_upd_ex = explode(' ', $Client_upd_eng);
+            $Client_upd_year_th = (int)$Client_upd_ex[2]+543;
+            $Client_upd_year = $Client_upd_ex[0].' '.$Client_upd_ex[1].' '.$Client_upd_year_th;
+            $Client->update_date = $Client_upd_year;
+        }
         return view('clienttestindex')->with([
             'sections'=>Section::all(),
-            'clients'=>$this->filterClient(request()->section_filter,request()->per_page),
+            'clients'=>$Clients,
         ]);
     }
 
