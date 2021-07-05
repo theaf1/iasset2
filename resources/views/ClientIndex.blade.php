@@ -26,14 +26,35 @@
                 </div>
                 <div class="card-body">
                 <a href="{{ url('/computer') }}"class="btn btn-lg btn-block btn-info" role="button">เพิ่มคอมพิวเตอร์</a>
-                {{-- <label for="section_filter">หน่วยงานเจ้าของเครื่อง</label>
-                <select name="section_filter" id="section_filter" class="form-control col-sm-6 col-lg-3" onchange="GetSectionFilter()"> 
-                    <option value="">กรุณาเลือกหน่วยงาน</option>
-                    @foreach($sections as $section)
-                        <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
-                    @endforeach
-                </select> --}}
-
+                <form action="{{url('/client')}}" method="get" role="search">
+                    <div class="form-row">
+                        <div class="col-sm-12 col-lg-6 mt-4">
+                            <div class="form-group">
+                                <label for="section_filter">หน่วยงานเจ้าของเครื่อง</label>
+                                <select name="section_filter" id="section_filter" class="form-control"> 
+                                    <option value="">กรุณาเลือกหน่วยงาน</option>
+                                    @foreach($sections as $section)
+                                        <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 mt-4">
+                            <div class="form-group">
+                                <label for="per_page">จำนวนบรรทัด</label>
+                                <select class="form-control" name="per_page" id="per_page">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 mt-5">
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block" type="submit">คัดกรอง</button>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table mt-4 table-hover table-responsive">
                         <thead>
                             <tr>
@@ -84,13 +105,8 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- <label for="per_page">จำนวนบรรทัด</label>
-                    <select class="form-control col-sm-6 col-lg-3" name="" id="per_page" onchange="GetSectionFilter()">
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                    </select> --}}
                     {{ $clients->links() }}
+                </form>
                 </div>
             </div>
         </div>

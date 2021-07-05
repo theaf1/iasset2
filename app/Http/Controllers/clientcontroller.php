@@ -29,7 +29,7 @@ class ClientController extends Controller
     //ประกาศตัวแปรที่่ใช้ใน controller
     public function index()
     {
-        $Clients = Client::paginate(50);
+        $Clients = $this->filterClient(request()->section_filter,request()->per_page);
         foreach ($Clients as $Client) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้อยู่ในรูปแบบ ว-ด-ป
         {
             $Client_upd_eng = $Client->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
@@ -40,6 +40,7 @@ class ClientController extends Controller
         }
         //ตัวแปรที่ส่งไปยังหน้า clientindex
         return view('clientindex')->with([
+            'sections'=>Section::all(),
             'clients'=>$Clients,
         ]);
     }
@@ -323,5 +324,12 @@ class ClientController extends Controller
         ];
 
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addcomputer หรือส่งข้อมูลไปบันทึก
+    }
+    protected function filterClient ($section_filter, $per_page)
+    {
+        return Client::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
+            'section_filter'=>$section_filter,
+            'per_page'=>$per_page,
+        ]);
     }
 }
