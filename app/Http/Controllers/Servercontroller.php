@@ -28,17 +28,7 @@ class ServerController extends Controller
     public function index()
     {
         //ตัวแปรที่ใช้ในการแสดงบัญชีคอมพิวเตอร์แม่ข่าย
-        $Asset_statuses = Asset_statuses::all();
-        $Asset_use_statuses = Asset_use_statuses::all();
-        $Sections = Section::all();
-        $ServerOSes = ServerOp::all();
-        $ServerRoleClass = ServerRoleclass::all();
-        $NetworkConnections = NetworkConnection::all();
-        $Forms = Formfactor::all();
-        $DataUnits = DataUnit::all();
-        $Owners = Owner::all();
-        $Mobility = Mobility::all();
-        $Servers = Servers::paginate(2);
+        $Servers = $this->filterServer(request()->section_filter,request()->per_page);
         foreach ($Servers as $Server) //แปลงรูปแแบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
         {
             $Server_upd_eng = $Server->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
@@ -51,16 +41,7 @@ class ServerController extends Controller
         //ตัวแปรที่ส่งไปยังหน้า ServerIndex
         return view('ServerIndex')->with([
             'servers'=>$Servers,
-            'asset_statuses'=>$Asset_statuses,
-            'asset_use_statuses'=>$Asset_use_statuses,
-            'sections'=>$Sections,
-            'server_oses'=>$ServerOSes,
-            'server_role_classes'=>$ServerRoleClass,
-            'network_connections'=>$NetworkConnections,
-            'forms'=>$Forms,
-            'dataunits'=>$DataUnits,
-            'owners'=>$Owners,
-            'mobiles'=>$Mobility,
+            'sections'=>Section::all(),
         ]);
     }
 
@@ -354,5 +335,12 @@ class ServerController extends Controller
         ];
 
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addserver หรือส่งข้อมูลไปบันทึก
+    }
+    protected function filterServer ($section_filter, $per_page)
+    {
+        return Servers::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
+            'section_filter'=>$section_filter,
+            'per_page'=>$per_page,
+        ]);
     }
 }
