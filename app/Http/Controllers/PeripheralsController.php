@@ -27,19 +27,8 @@ class PeripheralsController extends Controller
     public function index()
     {
         //กำหนดตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณต่อพ่วง
-        $Asset_statuses = Asset_statuses::all();
-        $Asset_use_statuses = Asset_use_statuses::all();
-        $Sections = Section::all();
-        $Peripheraltypes = Peripheraltype::all();
-        $Supplies = PeripheralSupply::all();
-        $PeripheralConnections = PeripheralConnect::all();
-        $ShareMethods = array(
-            ['id'=>'1', 'name'=>'OS share'],
-            ['id'=>'2', 'name'=>'network share'],
-        );
-        $Owners = Owner::all();
-        $Mobility = Mobility::all();
-        $peripherals = Peripherals::paginate(25);
+        
+        $peripherals = $this->filterPeripheral(request()->section_filter,request()->per_page);
         foreach ($peripherals as $peripheral) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
         {
             $peripheral_upd_eng = $peripheral->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
@@ -52,16 +41,7 @@ class PeripheralsController extends Controller
         //ตัวแปรที่ส่งกลับไปยังหน้า PeripheralsIndex
         return view('PeripheralsIndex')->with([
             'peripherals'=>$peripherals,
-            'asset_statuses'=>$Asset_statuses,
-            'asset_use_statuses'=>$Asset_use_statuses,
-            'sections'=>$Sections,
-            'peripheraltypes'=>$Peripheraltypes,
-            'supplies'=>$Supplies,
-            'peripheralconnections'=>$PeripheralConnections,
-            'sharemethods'=>$ShareMethods,
-            'owners'=>$Owners,
-            'mobiles'=>$Mobility,
-         
+            'sections'=>Section::all(),         
         ]);
     }
 
@@ -294,5 +274,12 @@ class PeripheralsController extends Controller
         ];
 
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปที่หน้า addperipherals หรือส่งช้อมูลไปบันทึกต่อ
+    }
+    protected function filterPeripheral ($section_filter, $per_page)
+    {
+        return Peripherals::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
+            'section_filter'=>$section_filter,
+            'per_page'=>$per_page,
+        ]);
     }
 }
