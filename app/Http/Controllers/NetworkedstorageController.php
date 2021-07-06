@@ -24,14 +24,7 @@ class NetworkedstorageController extends Controller
     public function index()
     {
         //กำหนดค่าตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณ์เก็บข้อมูลเครือข่าย
-        $Asset_statuses = Asset_statuses::all();
-        $Asset_use_statuses = Asset_use_statuses::all();
-        $Sections = Section::all();
-        $DataUnits = DataUnit::all();
-        $Owners = Owner::all();
-        $Storagetypes = Networkedstoragetype::all();
-        $Mobility = Mobility::all();
-        $Networkedstorages = NetworkedStorage::paginate(2);
+        $Networkedstorages = $this->filterNetworkedStorage(request()->section_filter,request()->per_page);
         foreach ($Networkedstorages as $Networkedstorage) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป 
         {
             $Networkedstorage_upd_eng = $Networkedstorage->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
@@ -44,14 +37,7 @@ class NetworkedstorageController extends Controller
         //ตัวแปรที่ส่งกลับไปยังหน้า NetworkedstorageIndex
         return view('NetworkedstorageIndex')->with([
             'networkedstorages'=>$Networkedstorages,
-            'asset_statuses'=>$Asset_statuses,
-            'asset_use_statuses'=>$Asset_use_statuses,
-            'sections'=>$Sections,
-            'dataunits'=>$DataUnits,
-            'owners'=>$Owners,
-            'storagetypes'=>$Storagetypes,
-            'mobiles'=>$Mobility,
-
+            'sections'=>Section::all(),
         ]);
     }
 
@@ -254,5 +240,12 @@ class NetworkedstorageController extends Controller
         ];
 
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้าเดิมหรือบันทึกข้อมูล
+    }
+    protected function filterNetworkedStorage ($section_filter, $per_page)
+    {
+        return NetworkedStorage::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
+            'section_filter'=>$section_filter,
+            'per_page'=>$per_page,
+        ]);
     }
 }
