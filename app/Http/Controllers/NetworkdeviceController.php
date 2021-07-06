@@ -22,13 +22,7 @@ class NetworkdeviceController extends Controller
     public function index()
     {
         //กำหนดตัวแปรที่ใช้ในการแสดงบัญชีอุปกรณ์เครือข่าย
-        $Asset_statuses = Asset_statuses::all();
-        $Asset_use_statuses = Asset_use_statuses::all();
-        $Sections = Section::all();
-        $NetSubtypes = NetSubtype::all();
-        $Owners = Owner::all();
-        $Mobility = Mobility::all();
-        $Networkdevices = Networkdevices::paginate(2);
+        $Networkdevices = $this->filterNetworkDevice(request()->section_filter,request()->per_page);
         foreach ($Networkdevices as $Networkdevice) //แปลงรูปแบบวันที่แก้ไขข้อมูลให้เป็น ว-ด-ป
         {
             $Networkdevice_upd_eng = $Networkdevice->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
@@ -41,12 +35,7 @@ class NetworkdeviceController extends Controller
 
         return view('NetworkdeviceIndex')->with([
             'networkdevices'=>$Networkdevices,
-            'asset_statuses'=>$Asset_statuses,
-            'asset_use_statuses'=>$Asset_use_statuses,
-            'sections'=>$Sections,
-            'netsubtypes'=>$NetSubtypes,
-            'owners'=>$Owners,
-            'mobiles'=>$Mobility,
+            'sections'=>Section::all(),
         ]);
     }
 
@@ -225,5 +214,12 @@ class NetworkdeviceController extends Controller
         ];
 
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addnetworkdevices หรือส่งข้อมูลไปบันทึก
+    }
+    protected function filterNetworkDevice ($section_filter, $per_page)
+    {
+        return Networkdevices::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
+            'section_filter'=>$section_filter,
+            'per_page'=>$per_page,
+        ]);
     }
 }
