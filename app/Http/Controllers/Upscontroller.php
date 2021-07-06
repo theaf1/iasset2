@@ -25,23 +25,7 @@ class UpsController extends Controller
     {
     
         //รายการตัวแปรที่ใช้ในการแสดงบัญชีเครื่องสำรองไฟฟ้า
-        $Asset_statuses = Asset_statuses::all();
-        $Asset_use_statuses = Asset_use_statuses::all();
-        $Sections = Section::all();
-        $Owners = Owner::all();
-        $Forms = Formfactor::all();
-        $Topos = Topology::all();
-        $Modular = array(
-            ['id'=>'1', 'value'=>'0', 'name'=>'ไม่ได้'],
-            ['id'=>'2', 'value'=>'1', 'name'=>'ได้'],
-        );
-        $Bat_type = Upsbatterytype::all();
-        $ExBat = array(
-            ['id'=>'1', 'value'=>'0', 'name'=>'ไม่มี'],
-            ['id'=>'2', 'value'=>'1', 'name'=>'มี'],
-        );
-        $Mobility = Mobility::all();
-        $Upses = Upses::paginate(2);
+        $Upses = $this->filterUps(request()->section_filter,request()->per_page);
         foreach ($Upses as $Ups) //เปลี่ยนวันที่แก้ไขข้อมูลใหัอยู่ในรูปแบบ ว-ด-ป
         {
             $ups_upd_eng = $Ups->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
@@ -53,16 +37,7 @@ class UpsController extends Controller
 
         return view('UpsIndex')->with([
             'upses'=>$Upses,
-            'asset_statuses'=>$Asset_statuses,
-            'asset_use_statuses'=>$Asset_use_statuses,
-            'sections'=>$Sections,
-            'owners'=>$Owners,
-            'forms'=>$Forms,
-            'topos'=>$Topos,
-            'modulars'=>$Modular,
-            'bat_types'=>$Bat_type,
-            'exbats'=>$ExBat,
-            'mobiles'=>$Mobility,
+            'sections'=>Section::all(),
         ]);
     }
 
@@ -283,5 +258,12 @@ class UpsController extends Controller
         ];
 
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้าต้นทางหรือส่งข้อมูลไปบันทึก
+    }
+    protected function filterUps ($section_filter, $per_page)
+    {
+        return Upses::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
+            'section_filter'=>$section_filter,
+            'per_page'=>$per_page,
+        ]);
     }
 }
