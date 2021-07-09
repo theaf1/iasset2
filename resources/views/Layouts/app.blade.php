@@ -38,13 +38,13 @@
               <a class="dropdown-item" href="{{ url('/ns') }}">เพิ่มข้อมูลอุปกรณ์เก็บข้อมูลเครือข่าย</a>
               <a class="dropdown-item" href="{{ url('/ups') }}">เพิ่มข้อมูลเครื่องสำรองไฟฟ้า</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ url('/client') }}">สอบทานและแก้ไขข้อมูลคอมพิวเตอร์</a>
-              <a class="dropdown-item" href="{{ url('/peripheral') }}">สอบทานและแก้ไขข้อมูลอุปกรณ์ต่อพ่วง</a>
-              <a class="dropdown-item" href="{{ url('/storageperipheral') }}">สอบทานและแก้ไขข้อมูลอุปกรณ์ต่อพ่วงเก็บข้อมูล</a>
-              <a class="dropdown-item" href="{{ url('/servers') }}">สอบทานและแก้ไขข้อมูลคอมพิวเตอร์แม่ข่าย</a>
-              <a class="dropdown-item" href="{{ url('/networkdevices') }}">สอบทานและแก้ไขข้อมูลอุปกรณเครือข่ายคอมพิวเตอร์</a>
-              <a class="dropdown-item" href="{{ url('/networkedstorage') }}">สอบทานและแก้ไขข้อมูลอุปกรณ์เก็บข้อมูลเครือข่าย</a>
-              <a class="dropdown-item" href="{{ url('/upses') }}">สอบทานและแก้ไขข้อมูลเครื่องสำรองไฟฟ้า</a>
+              <a class="dropdown-item" href="{{ url('/client') }}">แก้ไขข้อมูลคอมพิวเตอร์</a>
+              <a class="dropdown-item" href="{{ url('/peripheral') }}">แก้ไขข้อมูลอุปกรณ์ต่อพ่วง</a>
+              <a class="dropdown-item" href="{{ url('/storageperipheral') }}">แก้ไขข้อมูลอุปกรณ์ต่อพ่วงเก็บข้อมูล</a>
+              <a class="dropdown-item" href="{{ url('/servers') }}">แก้ไขข้อมูลคอมพิวเตอร์แม่ข่าย</a>
+              <a class="dropdown-item" href="{{ url('/networkdevices') }}">แก้ไขข้อมูลอุปกรณเครือข่ายคอมพิวเตอร์</a>
+              <a class="dropdown-item" href="{{ url('/networkedstorage') }}">แก้ไขข้อมูลอุปกรณ์เก็บข้อมูลเครือข่าย</a>
+              <a class="dropdown-item" href="{{ url('/upses') }}">แก้ไขข้อมูลเครื่องสำรองไฟฟ้า</a>
               <div class="dropdown-divider"></div>
               <a href="{{url('/admin')}}" class="dropdown-item">สำหรับผู้ดูแลระบบ</a>
             </div>
