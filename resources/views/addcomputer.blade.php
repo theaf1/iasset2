@@ -245,14 +245,14 @@
                             <div class="col-sm-12 col-lg-6"> <!-- สิทธิ์ Admin -->
                                 <div class="form-group">
                                     <div class="form-check">
-                                        <label for="permission">สิทธิ์ Admin</label><br>
+                                        <label for="permission">สิทธิ์ Admin เครื่อง</label><br>
                                         <div class="form-check-inline">
                                             <input type="radio" class="form-check-input @error('permission') is-invalid @enderror" name="permission" id="admin" value="1" {{ old('permission') == 1 ? 'checked' : ''}}>
-                                            <label class="form-check-label" for="admin">มีสิทธิ์</label>
+                                            <label class="form-check-label" for="admin">มีสิทธิ์ admin เครื่อง</label>
                                         </div>
                                         <div class="form-check-inline">
                                             <input type="radio" class="form-check-input @error('permission') is-invalid @enderror" name="permission" id="no_permission" value="0" {{ old('permission') == 0 && old('permission') !== null ? 'checked' : ''}}>
-                                            <label class="form-check-label" for="no_permission">ไม่มีสิทธิ์</label> 
+                                            <label class="form-check-label" for="no_permission">ไม่มีสิทธิ์ admin เครื่อง</label> 
                                             @error('permission')
                                                 <div class="invalid-feedback ml-5">
                                                     {{ $message }}
