@@ -162,7 +162,7 @@
                                     <label for="multi_user">จำนวนผู้ใช้งาน</label>
                                     <div class="form-check">
                                         @foreach ($multiusers as $multiuser)
-                                        <label class="radio"><input type="radio" name="multi_user_id" id="multi_user" value="{{ $multiuser['id'] }}" {{ old('multi_user_id',$client->multi_user_id) == $multiuser['id'] ? 'checked' : ''}}> {{ $multiuser['name'] }}</label>
+                                            <label class="radio"><input type="radio" name="multi_user_id" id="multi_user" value="{{ $multiuser['id'] }}" {{ old('multi_user_id',$client->multi_user_id) == $multiuser['id'] ? 'checked' : ''}}> {{ $multiuser['name'] }}</label>
                                         @endforeach
                                     </div>
                                 </div>
@@ -359,7 +359,7 @@
                                             <input type="radio" class="form-check-input @error('data_unit_id') is-invalid @enderror pl-2" name="data_unit_id" id="data_unit" value="{{ $dataunit['id'] }}" {{ old('data_unit_id',$client->data_unit_id) == $dataunit['id'] ? 'checked' : '' }}>
                                             <label for="data_unit" class="form-check-label pl-1">{{ $dataunit['name'] }}</label>
                                         @endforeach
-                                        @error('data_unit')
+                                        @error('data_unit_id')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>

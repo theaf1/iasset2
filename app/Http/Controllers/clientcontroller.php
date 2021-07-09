@@ -252,7 +252,7 @@ class ClientController extends Controller
             'function_id' => 'required',
             'asset_status_id' => 'required',
             'asset_use_status_id' => 'required',
-            'user' =>'required_if:multi_user,0',
+            'user' =>'required_if:multi_user_id,1',
             'position_id'=>'required',
             'section_id' => 'required',
             'owner_id' => 'required',
