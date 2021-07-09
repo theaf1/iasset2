@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-3">
-                            <p>{{$client['permission'] == 1 ? 'มี' : 'ไม่มี'}}สิทธ์ Admin</p>
+                            <p>{{$client['permission'] == 1 ? 'มี' : 'ไม่มี'}}สิทธ์ Admin เครื่อง</p>
                         </div>
                     </div>
                     <div class="form-row">
@@ -151,7 +151,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card pt-1 pb-1">
+                    <div class="card">
                         <div class="card-header card-background text-white">
                             <h5>จอภาพ</h5>
                         </div>
@@ -276,7 +276,7 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>network</h4>
+                    <h4>ข้อมูลด้านเครือข่าย</h4>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
