@@ -59,7 +59,8 @@
                             <div class="col-sm-12 col-lg-6"> <!-- รหัสครุภัณฑ์ -->
                                 <div class="form-group">
                                     <label for="pid">รหัสครุภัณฑ์</label>
-                                    <input type="text" class="form-control" id="pid" name="pid" placeholder="11006000-I-9999-001-0001/99" value="{{ old('pid') }}">
+                                    <input type="text" class="form-control" id="pid" name="pid">
+                                    <small>test</small>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ห้อง -->
@@ -623,7 +624,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--ip address-->
                                 <div class="form-group">
                                     <label for="ip_address">IP Address</label>
-                                    <input class="form-control @error('ip_address') is-invalid @enderror" name="ip_address" id="ip_address" type="text" placeholder="127.0.0.1" value="{{ old('ip_address') }}">
+                                    <input class="form-control @error('ip_address') is-invalid @enderror" name="ip_address" id="ip_address" type="text" value="{{ old('ip_address') }}">
                                     @error('ip_address')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -634,7 +635,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--mac address-->
                                 <div class="form-group">
                                     <label for="mac_address">MAC Address</label>
-                                    <input class="form-control @error('mac_address') is-invalid @enderror" name="mac_address" id="mac_address" type="text" placeholder="12-34-56-78-90-AB" value="{{ old('mac_address') }}">
+                                    <input class="form-control @error('mac_address') is-invalid @enderror" name="mac_address" id="mac_address" type="text" value="{{ old('mac_address') }}">
                                     @error('mac_address')
                                         <div class="invalid-feedback">
                                             {{ $message }}
