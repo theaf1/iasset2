@@ -27,7 +27,7 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                เมนูหลัก
+               เพิ่มครุภัณฑ์
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ url('/computer') }}">เพิ่มข้อมูลคอมพิวเตอร์</a>
@@ -41,7 +41,7 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                เมนูรอง
+                แก้ไชครุภัณฑ์
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ url('/client') }}">แก้ไขข้อมูลคอมพิวเตอร์</a>
