@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="col-12 mx-auto">
             <form action="{{ url('/') }}" method="get" role="search" >
-                <div class="form-row">
+                <div class="form-row mt-4">
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
                             <label for="search_class">ต้องการค้นหา</label>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
-                            <label for="search_column">ที่มี</label>
+                            <label for="search_column">สถานที่ตั้งเครื่อง</label>
                             <select class="form-control" name="search_column" id="search_column">
                                 <option value="" hidden></option>
                                 @foreach($rooms as $room)
@@ -35,7 +35,7 @@
                 <div class="form-row">    
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
-                            <label for="keyword">คำสำคัญ</label>
+                            <label for="keyword">คำสำคัญที่ใช้ในการค้นหา</label>
                             <input type="text" name="keyword" id="keyword" class="form-control">
                         </div>
                     </div>
