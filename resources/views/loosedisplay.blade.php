@@ -138,10 +138,18 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
+                                    <label for="serial_no">serial number</label>
+                                    <input type="text" name="serial_no" id="serial_no" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
                                     <label for="display_size">ขนาดจอภาพ (นิ้ว)</label>
                                     <input type="number" name="display_size" id="display_size" class="form-control" min="0">
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="display_ratio">สัดส่วนจอภาพ</label>
@@ -152,8 +160,6 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="signal_types">รองรับสัญญาณภาพ</label>
@@ -173,6 +179,31 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-header card-background text-white">
+                        <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="issues">ปัญหาในการใช้งาน</label>
+                                    <textarea name="issues" id="issues" rows="5" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="remarks">หมายเหตุ</label>
+                                    <textarea name="remarks" id="remarks" rows="5" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-lg btn-success">บันทึกข้อมูล</button>
+                    <button type="reset" class="btn btn-lg btn-danger">ล้างข้อมูล</button>
                 </div>
             </form>
         </div>
