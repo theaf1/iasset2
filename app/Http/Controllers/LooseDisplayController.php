@@ -43,7 +43,8 @@ class LooseDisplayController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateData($request);
+        return $request->all();
     }
 
     /**
@@ -104,7 +105,28 @@ class LooseDisplayController extends Controller
             'asset_use_status_id'=>'required',
             'brand'=>'required',
             'model'=>'required',
-            
+            'serial_no'=>'required',
+            'display_size'=>'required',
+            'display_ratio_id'=>'required',
         ];
+
+        $messages = [
+            'display_sapid.required'=>'กรุณาตรวจสอบรหัส SAP',
+            'year.required'=>'กรุณาระบุปีทะเบียนครุภัณฑ์',
+            'location_id.required'=>'กรุณาระบุสถานที่ตั้งเครื่อง',
+            'section_id.required'=>'กรุณาระบุหน่วยงาน',
+            'response_person.required'=>'กรุณาระบุชื่อผู้รับผิดชอบ',
+            'position_id.required'=>'กรุณาระบุตำแหน่งผู้รับผิดชอบ',
+            'tel_no.required'=>'กรุณาระบุหมายเลขโทรศัพท์',
+            'asset_status_id.required'=>'กรุณาระบุสถานะของครุภัณฑ์',
+            'asset_use_status_id.required'=>'กรุณาระบุสถานะการใช้งานของครุภัณฑ์',
+            'brand.required'=>'กรุณาระบุยี่ห้อ',
+            'model.required'=>'กรุณาระบุรุ่น',
+            'serial_no.required'=>'กรุณาระบุ serial number',
+            'display_size.required'=>'กรุณาระบุขนาดจอภาพ',
+            'display_ratio_id.required'=>'กรุณาระบุสัดส่วนภาพ',
+        ];
+
+        return $this->validate($data, $rules, $messages);
     }
 }

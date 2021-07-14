@@ -189,3 +189,4 @@ Route::post('/create-report','ReportController@report');
 Route::get('/pdf','PdfController@pdf');
 Route::get('/test','Testcontroller@index');
 Route::get('/loosedisplay','LooseDisplayController@create');
+Route::post('/add-loosedisplay','LooseDisplayController@store');
