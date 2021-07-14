@@ -90,4 +90,21 @@ class LooseDisplayController extends Controller
     {
         //
     }
+    private function validateData ($data)
+    {
+        $rules = [
+            'display_sapid'=>'required',
+            'year'=>'required',
+            'location_id'=>'required',
+            'section_id'=>'required',
+            'response_person'=>'required',
+            'position_id'=>'required',
+            'tel_no'=>'required',
+            'asset_status_id'=>'required',
+            'asset_use_status_id'=>'required',
+            'brand'=>'required',
+            'model'=>'required',
+            
+        ];
+    }
 }
