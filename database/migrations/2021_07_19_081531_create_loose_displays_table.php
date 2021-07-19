@@ -20,6 +20,7 @@ class CreateLooseDisplaysTable extends Migration
             $table->year('year');
             $table->integer('owner_id');
             $table->integer('location_id');
+            $table->integer('section_id');
             $table->string('response_person');
             $table->integer('position_id');
             $table->string('tel_no');
