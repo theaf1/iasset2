@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateLooseDisplaysTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('loose_displays', function (Blueprint $table) {
+            $table->id();
+            $table->string('display_sapid');
+            $table->string('display_pid')->nullable();
+            $table->year('year');
+            $table->integer('location_id');
+            $table->string('response_person');
+            $table->integer('position_id');
+            $table->string('tel_no');
+            $table->integer('asset_status_id');
+            $table->integer('asset_use_status_id');
+            $table->string('brand');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('loose_displays');
+    }
+}
