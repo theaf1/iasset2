@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Owner;
 use App\Section;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
@@ -28,6 +29,7 @@ class LooseDisplayController extends Controller
     public function create()
     {
         return view('loosedisplay')->with([
+            'owners'=>Owner::all(),
             'sections'=>Section::all(),
             'asset_statuses'=>Asset_statuses::all(),
             'asset_use_statuses'=>Asset_use_statuses::all(),

@@ -40,6 +40,24 @@
                             </div>
                         </div>
                         <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="owner">ที่มา</label>
+                                    <div class="form-check-inline pl-2">
+                                        @foreach ($owners as $owner)
+                                            <input type="radio" class="form-check-input ml-1 @error('owner_id') is-invalid @enderror" name="owner_id" id="owner1" value="{{ $owner['id'] }}" {{ old('owner_id') == $owner['id'] ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="owner1">{{ $owner['name'] }}</label>    
+                                        @endforeach
+                                        @error('owner_id')
+                                            <div class="invalid-feedback ml-5">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
                             <div class="col-sm-12 col-lg-6"> <!-- ห้อง -->
                                 <div class="form-group">
                                     <label for="room">ห้อง</label>
@@ -51,14 +69,14 @@
                                     @enderror
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
                                     <label for="building">ตึก</label>
                                     <output type="text" class="form-control" name="building" id="building" value="{{ old('building') }}"/>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6"> <!-- ชั้น -->
                                 <div class="form-group">
                                     <label for="location">ชั้น</label>
@@ -66,6 +84,8 @@
                                 </div>
                             </div>
                             <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->
+                        </div>
+                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
@@ -82,8 +102,6 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="response_person">ผู้รับผิดชอบ</label>
@@ -95,7 +113,9 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-3">
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="position">ตำแหน่งผู้รับผิดชอบ</label>
                                     <select class="form-control @error('position_id') is-invalid @enderror" name="position_id" id="position">
@@ -111,7 +131,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-3">
+                            <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="tel_no">หมายเลขโทรศัพท์</label>
                                     <input class="form-control @error('tel_no') is-invalid @enderror" type="tel" value="{{old('tel_no')}}" name="tel_no" id="tel_no">
