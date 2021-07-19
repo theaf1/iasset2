@@ -10,6 +10,7 @@ class LooseDisplay extends Model
         'display_sapid',
         'display_pid',
         'year',
+        'owner_id',
         'location_id',
         'section_id',
         'response_person',
@@ -22,5 +23,12 @@ class LooseDisplay extends Model
         'serial_no',
         'display_size',
         'display_ratio_id',
+        'is_vga',
+        'is_dvi',
+        'is_hdmi',
+        'is_dp',
+        'issues',
+        'remarks',
+
     ];
 }

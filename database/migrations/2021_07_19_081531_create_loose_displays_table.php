@@ -18,6 +18,7 @@ class CreateLooseDisplaysTable extends Migration
             $table->string('display_sapid');
             $table->string('display_pid')->nullable();
             $table->year('year');
+            $table->integer('owner_id');
             $table->integer('location_id');
             $table->string('response_person');
             $table->integer('position_id');
@@ -25,6 +26,16 @@ class CreateLooseDisplaysTable extends Migration
             $table->integer('asset_status_id');
             $table->integer('asset_use_status_id');
             $table->string('brand');
+            $table->string('model');
+            $table->string('serial_no');
+            $table->integer('display_size');
+            $table->integer('display_ratio_id');
+            $table->boolean('is_vga')->default(0);
+            $table->boolean('is_dvi')->default(0);
+            $table->boolean('is_hdmi')->default(0);
+            $table->boolean('is_dp')->default(0);
+            $table->string('issues')->nullable();
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }
