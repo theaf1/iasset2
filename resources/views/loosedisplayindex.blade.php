@@ -51,11 +51,21 @@
                             </div>
                             <div class="col-sm-6 col-lg-3 mt-5">
                                 <div class="form-group">
-                                    <button class="btn btn-primary btn-block" type="submit">คัดกรอง</button>
+                                    <button class="btn btn-primary btn-block" type="submit">ค้นหา</button>
                                 </div>
                             </div>
                         </div>
                     </form>
+                    <table class="table table-hover table-responsive mt-4">
+                        <thead>
+                            <tr>
+                                <th scope="col">ลำดับที่</th>
+                                <th scope="col">รหัส SAP</th>
+                                <th scope="col">รหัสครุภัณฑ์</th>
+                                <th scope="col">สถานที่ตั้ง</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </div>
