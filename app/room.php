@@ -58,4 +58,8 @@ class Room extends Model
     {
         return $this->hasMany(Upses::class,'location_id');
     }
+    public function RoomLooseDisplay ()
+    {
+        return $this->hasMany(LooseDisplay::class,'location_id');
+    }
 }

@@ -31,4 +31,12 @@ class LooseDisplay extends Model
         'remarks',
 
     ];
+    public function LooseDisplayOwner ()
+    {
+        return $this->belongsTo(Owner::class,'owner_id');
+    }
+    public function LooseDisplayRoom ()
+    {
+        return $this->belongsTo(Room::class,'location_id');
+    }
 }
