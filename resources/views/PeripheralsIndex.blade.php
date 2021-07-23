@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-3 mt-5">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">คัดกรอง</button>
+                                    <button type="submit" class="btn btn-primary">ค้นหา</button>
                                 </div>
                             </div>
                         </div>
