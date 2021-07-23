@@ -48,4 +48,8 @@ class Asset_statuses extends Model
     {
         return $this->hasMany(Upses::class,'asset_status_id');
     }
+    public function AssetStatusLooseDisplays ()
+    {
+        return $this->hasMany(LooseDisplay::class,'asset_status_id');
+    }
 }

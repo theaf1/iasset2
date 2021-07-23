@@ -28,4 +28,8 @@ class Position extends Model
     {
         return $this->hasMany(Storageperipherals::class,'position_id');
     }
+    public function PositionLoosedisplay ()
+    {
+        return $this->hasMany(LooseDisplay::class,'position_id');
+    }
 }
