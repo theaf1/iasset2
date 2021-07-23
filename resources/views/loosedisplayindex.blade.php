@@ -63,8 +63,32 @@
                                 <th scope="col">รหัส SAP</th>
                                 <th scope="col">รหัสครุภัณฑ์</th>
                                 <th scope="col">สถานที่ตั้ง</th>
+                                <th scope="col">ที่มา</th>
+                                <th scope="col">ผู้รับผิดชอบ</th>
+                                <th scope="col">ขนาดจอภาพ (นิ้ว)</th>
+                                <th scope="col">สัดส่วนจอภาพ</th>
+                                <th scope="col">สถานะการใช้งาน</th>
+                                <th scope="col">แก้ไขข้อมูลล่าสุดเมื่อ</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            @isset($loosedisplays)
+                                @foreach ($loosedisplays as $loosedisplay)
+                                    <tr>
+                                        <th scope="row">{{$loosedisplay['id']}}</th>
+                                        <td>{{$loosedisplay['display_sapid']}}</td>
+                                        <td>{{$loosedisplay['display_pid']}}</td>
+                                        <td>{{$loosedisplay->LooseDisplayRoom->name}}</td>
+                                        <td>{{$loosedisplay->LooseDisplayOwner->name}}</td>
+                                        <td>{{$loosedisplay['response_person']}}</td>
+                                        <td>{{$loosedisplay['display_size']}}</td>
+                                        <td>{{$loosedisplay->LooseDisplayRatio->name}}</td>
+                                        <td>{{$loosedisplay->LooseDisplayAssetUseStatus->name}}</td>
+                                        <td>{{$loosedisplay['update_date']}}</td>
+                                    </tr>
+                                @endforeach
+                            @endisset
+                        </tbody>
                     </table>
                 </div>
             </div>
