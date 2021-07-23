@@ -55,4 +55,8 @@ class LooseDisplay extends Model
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
+    public function LooseDisplayRatio ()
+    {
+        return $this->belongsTo(DisplayRatio::class,'display_ratio_id');
+    }
 }
