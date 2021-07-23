@@ -48,4 +48,8 @@ class Owner extends Model
     {
         return $this->hasMany(Upses::class,'owner_id');
     }
+    public function OwnerLooseDisplay ()
+    {
+        return $this->hasMany(Loosedisplay::class,'owner_id');
+    }
 }

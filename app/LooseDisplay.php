@@ -39,4 +39,20 @@ class LooseDisplay extends Model
     {
         return $this->belongsTo(Room::class,'location_id');
     }
+    public function LooseDisplaySection ()
+    {
+        return $this->belongsTo(Section::class,'section_id');
+    }
+    public function LooseDisplayPosition ()
+    {
+        return $this->belongsTo(Position::class,'position_id');
+    }
+    public function LoosedisplayAssetStatus ()
+    {
+        return $this->belongsTo(Asset_statuses::class,'asset_status_id');
+    }
+    public function LoosedisplayAssetUseStatus ()
+    {
+        return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
+    }
 }

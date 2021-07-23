@@ -48,6 +48,10 @@ class Section extends Model
     {
         return $this->hasMany(Upses::class,'section_id');
     }
+    public function SectionLoosedisplay ()
+    {
+        return $this->hasMany(LooseDisplay::class,'section_id');
+    }
     //import ข้อมูลจากไฟล์ CSV
     public static function loadData($fileName){
     $sectionRecords = loadCSV($fileName);
