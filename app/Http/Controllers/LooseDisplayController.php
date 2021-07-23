@@ -19,7 +19,7 @@ class LooseDisplayController extends Controller
      */
     public function index()
     {
-        $LooseDisplays = $this->filterLooseDisplay(request()->$section_filter,request()->$per_page);
+        $LooseDisplays = $this->filterLooseDisplay(request()->section_filter,request()->per_page);
         foreach ($LooseDisplays as $LooseDisplay)
         {
             $LooseDisplay_upd_eng = $LooseDisplay->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
@@ -30,6 +30,7 @@ class LooseDisplayController extends Controller
         }
         return view('loosedisplayindex')->with([
             'sections'=>Section::all(),
+            'loosedisplays'=>$LooseDisplays,
         ]);
     }
 
