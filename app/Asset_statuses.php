@@ -48,6 +48,7 @@ class Asset_statuses extends Model
     {
         return $this->hasMany(Upses::class,'asset_status_id');
     }
+    //แสดงความสัมพันธ์กับตาราง LooseDisplay
     public function AssetStatusLooseDisplays ()
     {
         return $this->hasMany(LooseDisplay::class,'asset_status_id');

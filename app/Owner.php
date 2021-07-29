@@ -48,6 +48,7 @@ class Owner extends Model
     {
         return $this->hasMany(Upses::class,'owner_id');
     }
+    //แสดงความสัมพันธ์กับตาราง LooseDisplay
     public function OwnerLooseDisplay ()
     {
         return $this->hasMany(Loosedisplay::class,'owner_id');

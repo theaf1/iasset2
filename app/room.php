@@ -58,6 +58,7 @@ class Room extends Model
     {
         return $this->hasMany(Upses::class,'location_id');
     }
+    //แสดงความสัมพันธ์กับตาราง LooseDisplay
     public function RoomLooseDisplay ()
     {
         return $this->hasMany(LooseDisplay::class,'location_id');

@@ -28,6 +28,7 @@ class Position extends Model
     {
         return $this->hasMany(Storageperipherals::class,'position_id');
     }
+    //แสดงความสัมพันธ์กับตาราง LooseDisplay
     public function PositionLoosedisplay ()
     {
         return $this->hasMany(LooseDisplay::class,'position_id');

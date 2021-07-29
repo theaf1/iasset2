@@ -48,6 +48,7 @@ class Section extends Model
     {
         return $this->hasMany(Upses::class,'section_id');
     }
+    //แสดงความสัมพันธ์กับตาราง LooseDisplay
     public function SectionLoosedisplay ()
     {
         return $this->hasMany(LooseDisplay::class,'section_id');

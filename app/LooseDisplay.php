@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class LooseDisplay extends Model
 {
+    //กำหนดค่าที่สามารถแก้ไขเปลี่ยนแปลงได้
     protected $fillable = [
         'display_sapid',
         'display_pid',
@@ -31,30 +32,37 @@ class LooseDisplay extends Model
         'remarks',
 
     ];
+    //กำหนความสัมพันธ์กับตาราง Owner
     public function LooseDisplayOwner ()
     {
         return $this->belongsTo(Owner::class,'owner_id');
     }
+    //กำหนดความสัมพันธ์กับตาราง Room
     public function LooseDisplayRoom ()
     {
         return $this->belongsTo(Room::class,'location_id');
     }
+    //กำหนดความสัมพันธ์กับตาราง Section
     public function LooseDisplaySection ()
     {
         return $this->belongsTo(Section::class,'section_id');
     }
+    //แสดงความสัมพันธ์กับตาราง Position
     public function LooseDisplayPosition ()
     {
         return $this->belongsTo(Position::class,'position_id');
     }
+    //แสดงความสัมพันธ์กับตาราง Asset_statuses
     public function LoosedisplayAssetStatus ()
     {
         return $this->belongsTo(Asset_statuses::class,'asset_status_id');
     }
+    //แสดงความสัมพันธ์กับตาราง Asset_use_statuses
     public function LoosedisplayAssetUseStatus ()
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
+    //แสดงความสัมพันธ์กับตาราง DisplayRatio
     public function LooseDisplayRatio ()
     {
         return $this->belongsTo(DisplayRatio::class,'display_ratio_id');

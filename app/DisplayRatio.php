@@ -10,6 +10,7 @@ class DisplayRatio extends Model
         'id',
         'name',
     ];
+    //แสดงความสัมพันธ์กับตาราง LooseDisplay
     public function DisplayRatioLoose ()
     {
         return $this->hasMany(LooseDisplay::class,'display_ratio_id');
