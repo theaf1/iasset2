@@ -7,6 +7,7 @@ use App\Section;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Position;
+use App\DisplayRatio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -47,6 +48,7 @@ class LooseDisplayController extends Controller
             'asset_statuses'=>Asset_statuses::all(),
             'asset_use_statuses'=>Asset_use_statuses::all(),
             'positions'=>Position::all(),
+            'displayratios'=>DisplayRatio::all(),
         ]);
     }
 
@@ -71,7 +73,10 @@ class LooseDisplayController extends Controller
      */
     public function show($id)
     {
-        //
+        $Loosedisplay = LooseDisplay::find($id);
+        return view('loosedisplaydetail')->with([
+            'loosedisplay'=>$LooseDisplay,
+        ]);
     }
 
     /**
@@ -82,7 +87,16 @@ class LooseDisplayController extends Controller
      */
     public function edit($id)
     {
-        //
+        $LooseDisplay = LooseDisplay::find($id);
+        return view('editloosedisplay')->with([
+            'owners'=>Owner::all(),
+            'sections'=>Section::all(),
+            'asset_statuses'=>Asset_statuses::all(),
+            'asset_use_statuses'=>Asset_use_statuses::all(),
+            'positions'=>Position::all(),
+            'displayratios'=>DisplayRatio::all(),
+            'loosedisplay'=>$LooseDisplay,
+        ]);
     }
 
     /**
@@ -94,7 +108,7 @@ class LooseDisplayController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request->all();
     }
 
     /**

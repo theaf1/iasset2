@@ -69,6 +69,8 @@
                                 <th scope="col">สัดส่วนจอภาพ</th>
                                 <th scope="col">สถานะการใช้งาน</th>
                                 <th scope="col">แก้ไขข้อมูลล่าสุดเมื่อ</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -85,6 +87,8 @@
                                         <td>{{$loosedisplay->LooseDisplayRatio->name}}</td>
                                         <td>{{$loosedisplay->LooseDisplayAssetUseStatus->name}}</td>
                                         <td>{{$loosedisplay['update_date']}}</td>
+                                        <td><a href="#" class="btn btn-info" role="button">รายละเอียด</a></td>
+                                        <td><a href="#" class="btn btn-primary" role="button">แก้ไข</a></td>
                                     </tr>
                                 @endforeach
                             @endisset
