@@ -10,7 +10,6 @@ class LooseDisplay extends Model
     protected $fillable = [
         'display_sapid',
         'display_pid',
-        'year',
         'owner_id',
         'location_id',
         'section_id',

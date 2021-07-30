@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <form action="{{url('/loosedisplay/update/',$loosedisplay->id)}}" method="post">
+            <form action="{{url('/loosedisplay/update',$loosedisplay->id)}}" method="post">
                 @csrf
                 <div class="card mt-4">
                     <div class="card-header card-background text-white">
@@ -27,17 +27,7 @@
                                     <input type="text" name="display_pid" id="display_pid" value="{{old('display_pid',$loosedisplay->display_pid)}}" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-3">
-                                <div class="form-group">
-                                    <label for="year">ปี พ.ศ.</label>
-                                    <input class="form-control @error('year') is-invalid @enderror" type="number" value="{{old('year')}}" name="year" id="year">
-                                    @error('year')
-                                        <div class="invalid-feedback">
-                                            {{$message}}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">

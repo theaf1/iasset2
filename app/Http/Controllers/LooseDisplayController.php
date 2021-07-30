@@ -125,7 +125,6 @@ class LooseDisplayController extends Controller
     {
         $rules = [
             'display_sapid'=>'required',
-            'year'=>'required',
             'location_id'=>'required',
             'section_id'=>'required',
             'response_person'=>'required',
@@ -142,7 +141,6 @@ class LooseDisplayController extends Controller
 
         $messages = [
             'display_sapid.required'=>'กรุณาตรวจสอบรหัส SAP',
-            'year.required'=>'กรุณาระบุปีทะเบียนครุภัณฑ์',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้งเครื่อง',
             'section_id.required'=>'กรุณาระบุหน่วยงาน',
             'response_person.required'=>'กรุณาระบุชื่อผู้รับผิดชอบ',

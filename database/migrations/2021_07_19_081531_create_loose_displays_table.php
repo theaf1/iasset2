@@ -17,7 +17,6 @@ class CreateLooseDisplaysTable extends Migration
             $table->id();
             $table->string('display_sapid');
             $table->string('display_pid')->nullable();
-            $table->year('year');
             $table->integer('owner_id');
             $table->integer('location_id');
             $table->integer('section_id');
