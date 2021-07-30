@@ -2,6 +2,12 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
+            @if ( $message = Session::get('success')) <!--แจ้งผลการบันทึกข้อมูล-->
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ $message }}
+                </div>
+            @endif
             <form action="{{url('/add-loosedisplay')}}" method="post">
                 @csrf
                 <div class="card mt-4">
