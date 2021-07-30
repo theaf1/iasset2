@@ -94,8 +94,17 @@
                             @endisset
                         </tbody>
                     </table>
+                    {{$loosedisplays->links()}}
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+<script>
+    @if(Session::has('success'))
+        $("#alert").modal("show");
+
+    @endif
+</script>
 @endsection
