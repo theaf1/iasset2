@@ -21,7 +21,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-3">
+                            <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="display_pid">รหัสครุภัณฑ์</label>
                                     <input type="text" name="display_pid" id="display_pid" value="{{old('display_pid')}}" class="form-control">
