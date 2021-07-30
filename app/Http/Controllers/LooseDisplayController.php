@@ -20,7 +20,8 @@ class LooseDisplayController extends Controller
      */
     public function index()
     {
-        $LooseDisplays = $this->filterLooseDisplay(request()->section_filter,request()->per_page);
+        $LooseDisplays = $this->filterLooseDisplay(request()->section_filter,request()->per_page); //รวบรวมข้อมูลแบ่งตามหน่วยงานและแบ่งหน้า
+        //แปลงปี คศ ให้เป็น พศ
         foreach ($LooseDisplays as $LooseDisplay)
         {
             $LooseDisplay_upd_eng = $LooseDisplay->updated_at->locale('th-th')->isoFormat('Do MMMM YYYY');
@@ -29,6 +30,7 @@ class LooseDisplayController extends Controller
             $LooseDisplay_upd_year = $LooseDisplay_upd_ex[0].' '.$LooseDisplay_upd_ex[1].' '.$LooseDisplay_upd_year_th;
             $LooseDisplay->update_date = $LooseDisplay_upd_year;
         }
+        //เรียกหน้า loosedisplayindex พร้อมกับส่งตัวแปร
         return view('loosedisplayindex')->with([
             'sections'=>Section::all(),
             'loosedisplays'=>$LooseDisplays,
@@ -42,6 +44,7 @@ class LooseDisplayController extends Controller
      */
     public function create()
     {
+        //เรียกหน้า addloosedisplay พร้อมกับส่งตัวแปร
         return view('addloosedisplay')->with([
             'owners'=>Owner::all(),
             'sections'=>Section::all(),
@@ -60,9 +63,9 @@ class LooseDisplayController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $LooseDisplay = LooseDisplay::create($request->all());
-        return redirect()->back()->with('success','บันทึกข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนบันทึก
+        $LooseDisplay = LooseDisplay::create($request->all()); //เขียนข้อมูลงในฐานข้อมูล
+        return redirect()->back()->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //รายงานผลการบันทึกข้อมูล
     }
 
     /**
@@ -73,7 +76,8 @@ class LooseDisplayController extends Controller
      */
     public function show($id)
     {
-        $LooseDisplay = LooseDisplay::find($id);
+        $LooseDisplay = LooseDisplay::find($id); //ค้นหาข้อมูล
+        //เรียกหน้า loosedisplaydetail พ้อมกับส่งตัวแปร
         return view('loosedisplaydetail')->with([
             'loosedisplay'=>$LooseDisplay,
         ]);
@@ -87,7 +91,8 @@ class LooseDisplayController extends Controller
      */
     public function edit($id)
     {
-        $LooseDisplay = LooseDisplay::find($id);
+        $LooseDisplay = LooseDisplay::find($id); //ค้นหาข้อมูล
+        //เรียกหน้า editloosedisplay พร้อมกับส่งตัวแปร
         return view('editloosedisplay')->with([
             'owners'=>Owner::all(),
             'sections'=>Section::all(),
@@ -108,7 +113,9 @@ class LooseDisplayController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request->all();
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        LooseDisplay::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/loosedisplay')->with('success','แก้ไขข้อมูลสำเร็จ'); //รายงานผลการแก้ไขข้อมูล
     }
 
     /**
@@ -121,8 +128,9 @@ class LooseDisplayController extends Controller
     {
         //
     }
-    private function validateData ($data)
+    private function validateData ($data) //ตรวจสอบข้อมูล
     {
+        //เงิ่อนไข
         $rules = [
             'display_sapid'=>'required',
             'location_id'=>'required',
@@ -139,6 +147,7 @@ class LooseDisplayController extends Controller
             'display_ratio_id'=>'required',
         ];
 
+        //ข้อความแจ้งเตือน
         $messages = [
             'display_sapid.required'=>'กรุณาตรวจสอบรหัส SAP',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้งเครื่อง',
@@ -157,7 +166,7 @@ class LooseDisplayController extends Controller
 
         return $this->validate($data, $rules, $messages);
     }
-    protected function filterLooseDisplay ($section_filter, $per_page)
+    protected function filterLooseDisplay ($section_filter, $per_page) //รวมข้อมูลแล้วแบ่งหน้า
     {
         return LooseDisplay::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
             'section_filter'=>$section_filter,
