@@ -73,7 +73,7 @@ class LooseDisplayController extends Controller
      */
     public function show($id)
     {
-        $Loosedisplay = LooseDisplay::find($id);
+        $LooseDisplay = LooseDisplay::find($id);
         return view('loosedisplaydetail')->with([
             'loosedisplay'=>$LooseDisplay,
         ]);
