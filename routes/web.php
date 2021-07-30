@@ -192,3 +192,5 @@ Route::get('/loosedisplay','LooseDisplaycontroller@index');
 Route::get('/addloosedisplay','LooseDisplayController@create');
 Route::post('/add-loosedisplay','LooseDisplayController@store');
 Route::get('/loosedisplay/show/{id}','LooseDisplayController@show');
+Route::get('/loosedisplay/edit/{id}','LooseDisplayController@edit');
+Route::post('/loosedisplay/update/{id}','LooseDisplayController@update');
