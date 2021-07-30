@@ -88,7 +88,7 @@
                                         <td>{{$loosedisplay->LooseDisplayAssetUseStatus->name}}</td>
                                         <td>{{$loosedisplay['update_date']}}</td>
                                         <td><a href="{{url('/loosedisplay/show',$loosedisplay->id)}}" class="btn btn-info" role="button">รายละเอียด</a></td>
-                                        <td><a href="#" class="btn btn-primary" role="button">แก้ไข</a></td>
+                                        <td><a href="{{url('/loosedisplay/edit',$loosedisplay->id)}}" class="btn btn-primary" role="button">แก้ไข</a></td>
                                     </tr>
                                 @endforeach
                             @endisset
