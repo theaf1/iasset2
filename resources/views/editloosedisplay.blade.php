@@ -21,13 +21,12 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-3">
+                            <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="display_pid">รหัสครุภัณฑ์</label>
                                     <input type="text" name="display_pid" id="display_pid" value="{{old('display_pid',$loosedisplay->display_pid)}}" class="form-control">
                                 </div>
                             </div>
-                            
                         </div>
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
@@ -51,7 +50,7 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ห้อง -->
                                 <div class="form-group">
                                     <label for="room">ห้อง</label>
-                                    <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"  value="{{ old('room') }}"/>
+                                    <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"  value="{{ old('room',$loosedisplay->LooseDisplayRoom->name) }}"/>
                                     @error('location_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
