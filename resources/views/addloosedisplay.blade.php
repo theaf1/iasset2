@@ -238,9 +238,9 @@
                                     <label for="display_ratio">สัดส่วนจอภาพ</label>
                                     <select name="display_ratio_id" id="display_ratio" class="form-control  @error('display_ratio_id') is-invalid @enderror">
                                         <option value=""></option>
-                                        <option value="1" {{old('display_ratio_id') == 1 ? 'selected' : ''}}>4:3</option>
-                                        <option value="2" {{old('display_ratio_id') == 2 ? 'selected' : ''}}>16:9</option>
-                                        <option value="3" {{old('display_ratio_id') == 3 ? 'selected' : ''}}>16:10</option>
+                                        @foreach ($displayratios as $displayratio)
+                                            <option value="{{$displayratio['id']}}" {{old('display_ratio_id') == $displayratio['id'] ? 'selected' : ''}}>{{$displayratio['name']}}</option>
+                                        @endforeach
                                     </select>
                                     @error('display_ratio_id')
                                         <div class="invalid-feedback">
