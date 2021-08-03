@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class LooseDisplay extends Model
 {
+    use Searchable;
     //กำหนดค่าที่สามารถแก้ไขเปลี่ยนแปลงได้
     protected $fillable = [
         'display_sapid',
