@@ -37,6 +37,7 @@
                 <a class="dropdown-item" href="{{ url('/network') }}">เพิ่มข้อมูลอุปกรณเครือข่าย</a>
                 <a class="dropdown-item" href="{{ url('/ns') }}">เพิ่มข้อมูลอุปกรณ์เก็บข้อมูลเครือข่าย</a>
                 <a class="dropdown-item" href="{{ url('/ups') }}">เพิ่มข้อมูลเครื่องสำรองไฟฟ้า</a>
+                <a href="{{url('/addloosedisplay')}}" class="dropdown-item">เพิ่มข้อมูลจอภาพที่ไม่ได้ต่อกับคอมพิวเตอร์</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -51,6 +52,7 @@
                 <a class="dropdown-item" href="{{ url('/networkdevices') }}">แก้ไขข้อมูลอุปกรณเครือข่ายคอมพิวเตอร์</a>
                 <a class="dropdown-item" href="{{ url('/networkedstorage') }}">แก้ไขข้อมูลอุปกรณ์เก็บข้อมูลเครือข่าย</a>
                 <a class="dropdown-item" href="{{ url('/upses') }}">แก้ไขข้อมูลเครื่องสำรองไฟฟ้า</a>
+                <a class="dropdown-item" href="{{ url('/loosedisplay') }}">แก้ไขข้อมูลจอภาพที่ไม่ได้ต่อกับคอมพิวเตอร์</a>
               </div>
             </li>
             <li class="nav-item">
