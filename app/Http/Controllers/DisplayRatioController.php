@@ -61,7 +61,10 @@ class DisplayRatioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $DisplayRatio = DisplayRatio::find($id);
+        return view('/admin/editdisplayratio')->with([
+            'displayratio'=>$DisplayRatio,
+        ]);
     }
 
     /**
@@ -73,7 +76,9 @@ class DisplayRatioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateData($request);
+        Displayratio::find($id)->update($request->all());
+        return redirect('/admin/displayratio')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**
