@@ -196,3 +196,5 @@ Route::get('/loosedisplay/edit/{id}','LooseDisplayController@edit');
 Route::post('/loosedisplay/update/{id}','LooseDisplayController@update');
 
 Route::get('/admin/displayratio','DisplayRatioController@index');
+Route::get('/admin/adddisplayratio','DisplayRatioController@create');
+Route::post('/admin/add-displayratio','DisplayRatioController@store');

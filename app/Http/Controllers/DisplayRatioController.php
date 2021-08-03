@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Displayratio;
+use App\DisplayRatio;
 use Illuminate\Http\Request;
 
 class DisplayRatioController extends Controller
@@ -37,7 +37,9 @@ class DisplayRatioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateData($request);
+        $DisplayRatios = DisplayRatio::create($request->all());
+        return redirect('/admin/displayratio')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
     }
 
     /**
@@ -83,5 +85,19 @@ class DisplayRatioController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData ($data)
+    {
+        $rules = [
+            'name'=>'required|unique:App\Displayratio,name|regex:/[0-9]?[0-9]:[0-9]?[0-9]/',
+        ];
+
+        $messages = [
+            'name.required'=>'กรุณาระบุสัดส่วนของจอภาพ',
+            'name.unique'=>'มีสัดส่วนจอภาพนี้ในระบบแล้ว',
+            'name.regex'=>'กรุณาตรวจสอบความถูกต้องของสัดส่วน',
+        ];
+
+        return $this->validate($data, $rules, $messages);
     }
 }
