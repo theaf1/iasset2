@@ -14,12 +14,14 @@
                     <div class="card-header card-background text-white">
                         <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
                     </div>
-                    <div class="card-body">    
+                    <div class="card-body">
+                        <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="display_sapid">รหัส SAP</label>
-                                    <input type="text" name="display_sapid" id="display_sapid" value="{{old('display_sapid')}}" class="form-control @error('display_sapid') is-invalid @enderror">
+                                    <input type="text" name="display_sapid" id="display_sapid" value="{{old('display_sapid')}}" class="form-control @error('display_sapid') is-invalid @enderror"><button type="button" class="btn btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
+                                    <small id="sapid" class="form-text">กรุณาใส่รหัส SAP 12 หลักหากไม่มีให้กดปุ่ม "ให้รหัสภายใน"</small>
                                     @error('display_sapid')
                                         <div class="invalid-feedback">
                                             {{$message}}
@@ -347,14 +349,14 @@
         var lastsap = document.getElementById("last_sap").value
         if(lastsap == 0)
         {
-            document.getElementById("sapid").value = 'MED-001'
+            document.getElementById("display_sapid").value = 'MED-001'
             return true
         }
         var splitsap = lastsap.split("-")
         console.log(splitsap)
         
         internalsap = parseInt(splitsap[1])+1
-        document.getElementById("sapid").value = 'MED-'+internalsap
+        document.getElementById("display_sapid").value = 'MED-'+internalsap
     }
 </script>
 @endsection

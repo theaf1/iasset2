@@ -45,6 +45,17 @@ class LooseDisplayController extends Controller
     public function create()
     {
         //เรียกหน้า addloosedisplay พร้อมกับส่งตัวแปร
+        $lastInternalSapId = LooseDisplay::where('display_sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
+        
+        if($lastInternalSapId == null)
+        {
+            $temp = 0;
+        }
+        else
+        {
+            $temp = $lastInternalSapId->sapid;
+        }
+
         return view('addloosedisplay')->with([
             'owners'=>Owner::all(),
             'sections'=>Section::all(),
@@ -52,6 +63,7 @@ class LooseDisplayController extends Controller
             'asset_use_statuses'=>Asset_use_statuses::all(),
             'positions'=>Position::all(),
             'displayratios'=>DisplayRatio::all(),
+            'lastinternalsap'=>$temp,
         ]);
     }
 
