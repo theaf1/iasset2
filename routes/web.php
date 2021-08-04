@@ -178,9 +178,6 @@ Route::get('/admin/addlocation','LocationController@create');
 Route::post('/admin/add-location','LocationController@store');
 Route::get('/admin/location/edit/{id}','LocationController@edit');
 Route::post('/admin/location/update/{id}','Locationcontroller@update');
-//Route::post('/client/filter','ClientIndexController@show');
-//Route::post('/peripheral/filter','PeripheralsIndexcontroller@show');
-
 
 Route::get('/','IndexController@index');
 Route::get('/reports','ReportController@index');
