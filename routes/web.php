@@ -187,7 +187,6 @@ Route::get('/reports','ReportController@index');
 Route::post('/create-report','ReportController@report'); 
 // route to  test views
 Route::get('/pdf','PdfController@pdf');
-Route::get('/test','Testcontroller@index');
 Route::get('/loosedisplay','LooseDisplaycontroller@index');
 Route::get('/addloosedisplay','LooseDisplayController@create');
 Route::post('/add-loosedisplay','LooseDisplayController@store');
