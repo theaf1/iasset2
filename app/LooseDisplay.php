@@ -23,6 +23,7 @@ class LooseDisplay extends Model
         'brand',
         'model',
         'serial_no',
+        'display_type_id',
         'display_size',
         'display_ratio_id',
         'is_vga',
@@ -62,6 +63,11 @@ class LooseDisplay extends Model
     public function LoosedisplayAssetUseStatus ()
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
+    }
+    //แสดงความสัมพันธ์กับตาราง Displaytype
+    public function LooseDisplayType ()
+    {
+        return $this->belongsTo(DisplayType::class,'display_type_id');
     }
     //แสดงความสัมพันธ์กับตาราง DisplayRatio
     public function LooseDisplayRatio ()

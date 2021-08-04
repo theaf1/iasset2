@@ -28,6 +28,7 @@ class CreateLooseDisplaysTable extends Migration
             $table->string('brand');
             $table->string('model');
             $table->string('serial_no');
+            $table->integer('display_type_id');
             $table->integer('display_size');
             $table->integer('display_ratio_id');
             $table->boolean('is_vga')->default(0);

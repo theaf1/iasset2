@@ -10,4 +10,8 @@ class DisplayType extends Model
         'id',
         'name',
     ];
+    public function TypeLooseDisplay ()
+    {
+        return $this->hasMany(LooseDisplay::class,'display_type_id');
+    }
 }

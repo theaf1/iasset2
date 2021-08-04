@@ -209,7 +209,23 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6">
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="form-group">
+                                    <label for="displaytype">ชนิดของจอภาพ</label>
+                                    <select name="display_type_id" id="displaytype" class="form-control @error('display_type_id') is-invalid @enderror">
+                                        <option value="" hidden></option>
+                                        @foreach ($displaytypes as $displaytype)
+                                            <option value="{{$displaytype['id']}}" {{old('display_type_id',$loosedisplay->display_type_id) == $displaytype['id'] ? 'selected' : ''}}>{{$displaytype['name']}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('display_type_id')
+                                        <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
                                 <div class="form-group">
                                     <label for="display_size">ขนาดจอภาพ (นิ้ว)</label>
                                     <input type="number" name="display_size" id="display_size" value="{{old('display_size',$loosedisplay->display_size)}}" class="form-control @error('display_size') is-invalid @enderror" min="0">

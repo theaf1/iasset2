@@ -7,6 +7,7 @@ use App\Section;
 use App\Asset_statuses;
 use App\Asset_use_statuses;
 use App\Position;
+use App\DisplayType;
 use App\DisplayRatio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -63,6 +64,7 @@ class LooseDisplayController extends Controller
             'asset_use_statuses'=>Asset_use_statuses::all(),
             'positions'=>Position::all(),
             'displayratios'=>DisplayRatio::all(),
+            'displaytypes'=>DisplayType::all(),
             'lastinternalsap'=>$temp,
         ]);
     }
@@ -111,6 +113,7 @@ class LooseDisplayController extends Controller
             'asset_statuses'=>Asset_statuses::all(),
             'asset_use_statuses'=>Asset_use_statuses::all(),
             'positions'=>Position::all(),
+            'displaytypes'=>DisplayType::all(),
             'displayratios'=>DisplayRatio::all(),
             'loosedisplay'=>$LooseDisplay,
         ]);
@@ -155,6 +158,7 @@ class LooseDisplayController extends Controller
             'brand'=>'required',
             'model'=>'required',
             'serial_no'=>'required',
+            'display_type_id'=>'required',
             'display_size'=>'required',
             'display_ratio_id'=>'required',
         ];
@@ -172,6 +176,7 @@ class LooseDisplayController extends Controller
             'brand.required'=>'กรุณาระบุยี่ห้อ',
             'model.required'=>'กรุณาระบุรุ่น',
             'serial_no.required'=>'กรุณาระบุ serial number',
+            'display_type_id.required'=>'กรุณาระบุชนิดของจอภาพ',
             'display_size.required'=>'กรุณาระบุขนาดจอภาพ',
             'display_ratio_id.required'=>'กรุณาระบุสัดส่วนภาพ',
         ];
