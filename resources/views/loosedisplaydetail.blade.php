@@ -59,7 +59,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-lg-6">
-                            <p>จอภาพขนาด {{$loosedisplay['display_size']}} นิ้วมีสัดส่วนภาพ {{$loosedisplay->LooseDisplayRatio->name}}</p>
+                            <p>จอภาพชนิด {{$loosedisplay->LooseDisplayType->name}} ขนาด {{$loosedisplay['display_size']}} นิ้วมีสัดส่วนภาพ {{$loosedisplay->LooseDisplayRatio->name}}</p>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <p>รองรับสัญญาณภาพ {{$loosedisplay['is_vga'] == 1 ? 'VGA' : ''}} {{$loosedisplay['is_dvi'] == 1 ? 'DVI' : ''}} {{$loosedisplay['is_hdmi'] == 1 ? 'HDMI' : ''}} {{$loosedisplay['is_dp'] == 1 ? 'DisplayPort' : ''}}</p>
