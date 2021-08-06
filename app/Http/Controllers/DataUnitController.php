@@ -103,8 +103,8 @@ class DataUnitController extends Controller
         ];
 
         $messages = [
-            'name.required'=>'2',
-            'name.unique'=>'4',
+            'name.required'=>'กรุณาระบุหน่วยนับข้อมูล',
+            'name.unique'=>'มีหน่วยนับข้อมูลนี้ในระบบแล้ว',
         ];
 
         return $this->validate($data, $rules, $messages);
