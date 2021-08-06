@@ -22,10 +22,10 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4></h4>
+                    <h4>รายการชนิดจอภาพ</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/admin/addisplaytype')}}" class="btn btn-block btn-primary" role="button">เพิ่มชนิดจอภาพ</a>
+                    <a href="{{url('/admin/adddisplaytype')}}" class="btn btn-block btn-primary" role="button">เพิ่มชนิดจอภาพ</a>
                     <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
