@@ -1,0 +1,33 @@
+@extends('Layouts.app')
+@section('content')
+    <div class="container-fluid">
+        <div class="col-12 mx-auto">
+            <div class="card mt-4">
+                <div class="card-header card-background text-white">
+                    <h4></h4>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="btn btn-block btn-primary" role="button">aaaa</a>
+                    <table class="table table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">ลำดับที่</th>
+                                <th scope="col">ชื่อ</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($displaytypes as $displaytype)
+                                <tr>
+                                    <th scope="row">{{$displaytype['id']}}</th>
+                                    <td>{{$displaytype['name']}}</td>
+                                    <td><a href="#" class="btn btn-sm btn-primary">แก้ไข</a></td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

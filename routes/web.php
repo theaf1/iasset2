@@ -196,3 +196,4 @@ Route::get('/admin/adddisplayratio','DisplayRatioController@create');
 Route::post('/admin/add-displayratio','DisplayRatioController@store');
 Route::get('/admin/displayratio/edit/{id}','DisplayRatioController@edit');
 Route::post('/admin/displayratio/update/{id}','DisplayRatioController@update');
+Route::get('/admin/displaytype','DisplayTypeController@index');
