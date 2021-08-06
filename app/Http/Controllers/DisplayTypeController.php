@@ -14,6 +14,7 @@ class DisplayTypeController extends Controller
      */
     public function index()
     {
+        //เรียกหน้า displaytypeadmin และส่งข้อมูล
         return view('/admin/displaytypeadmin')->with([
             'displaytypes'=>DisplayType::all(),
         ]);
@@ -26,6 +27,7 @@ class DisplayTypeController extends Controller
      */
     public function create()
     {
+        //เรียกหน้า addddisplaytype
         return view('/admin/adddisplaytype');
     }
 
@@ -37,9 +39,9 @@ class DisplayTypeController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $DisplayTypes = DisplayType::create($request->all());
-        return redirect('/admin/displaytype')->with('success','บันทึกข้อมูลสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนบันทึก
+        $DisplayTypes = DisplayType::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
+        return redirect('/admin/displaytype')->with('success','บันทึกข้อมูลสำเร็จ'); //ส่งกลับไปหน้า displaytypeadmin พร้อใผลการบันทึกข้อมูล
     }
 
     /**
@@ -61,6 +63,7 @@ class DisplayTypeController extends Controller
      */
     public function edit($id)
     {
+        //เรียกหน้า editdisplaytype และส่งข้อมูล
         return view('/admin/editdisplaytype')->with([
             'displaytype'=>DisplayType::find($id),
         ]);
@@ -75,9 +78,9 @@ class DisplayTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        DisplayType::find($id)->update($request->all());
-        return redirect('/admin/displaytype')->with('success','แก้ไขข้อมูลสำเร็จ');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        DisplayType::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/admin/displaytype')->with('success','แก้ไขข้อมูลสำเร็จ'); //ส่งกลับไปหน้า displaytypeadmin พร้อมผลการแก้ไข
     }
 
     /**
