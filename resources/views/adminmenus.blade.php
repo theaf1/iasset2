@@ -23,7 +23,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <a href="{{url('/admin/clienttypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการชนิดของครุภัณฑ์คอมพิวเตอร์</a>
-                                <a href="{{url('/admin/dataunitadmin')}}" class="btn btn-info btn-block" role="button">จัดการหน่วยวัดปริมาณข้อมูล</a>
+                                <a href="{{url('/admin/dataunitadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการหน่วยวัดปริมาณข้อมูล</a>
                                 <a href="{{url('/admin/clientopadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการระบบปฏิบัติการของคอมพิวเตอร์</a>
                                 <a href="{{url('/admin/osarchadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการโครงสร้าง software</a>
                                 <a href="{{url('/admin/networkconnectionadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทเครือข่าย</a>
@@ -33,6 +33,8 @@
                                 <a href="{{url('/admin/serveropadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการรายชื่อระบบปฏิบัติการแม่ข่าย</a>
                                 <a href="{{url('admin/topologyadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการหลักการทำงานของเครื่อง UPS</a>
                                 <a href="{{url('/admin/batterytypeadmin')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทของแบตเตอรี่ UPS</a>
+                                <a href="{{url('/admin/displayratio')}}" class="btn btn-info btn-block mt-4" role="button">จัดการสัดส่วนจอภาพ</a>
+                                <a href="{{url('/admin/displaytype')}}" class="btn btn-info btn-block mt-4" role="button">จัดการประเภทของจอภาพ</a>                                
                             </div>
                         </div>
                     </div>
