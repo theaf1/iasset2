@@ -11,6 +11,7 @@ use App\Servers;
 use App\Networkdevices;
 use App\Networkedstorage;
 use App\Upses;
+use App\LooseDisplay;
 use App\Section;
 use Carbon\Carbon;
 use PDF;
@@ -120,6 +121,7 @@ class ReportController extends Controller
             $Networkdevice_Results = Networkdevices::all()->count(); //นับอุปกรณ์เครือข่าย
             $Networkedstorage_Results = Networkedstorage::all()->count(); //นับอุปกรณ์เก็บข้อมูลเครือข่าย
             $Upses_Results = Upses::all()->count(); //นับเครื่องสำรองไฟฟ้า
+            $LooseDisplay_Results = Loosedisplay::all()->count();
             $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
             $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
             $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
@@ -134,6 +136,7 @@ class ReportController extends Controller
                 'networkdevices'=>$Networkdevice_Results,
                 'networkedstorage'=>$Networkedstorage_Results,
                 'upses'=>$Upses_Results,
+                'loosedisplays'=>$LooseDisplay_Results,
                 'now'=>$Now,
             ]);
         }
