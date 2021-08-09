@@ -32,6 +32,7 @@ class IndexController extends Controller
                 ['id'=>'6', 'name'=>'NetworkedStorage', 'ui_name'=>'อุปกรณ์เก็บข้อมูลเครือข่าย'],
                 ['id'=>'7', 'name'=>'Networkdevices', 'ui_name'=>'อุปกรณ์เครือข่าย'],
                 ['id'=>'8', 'name'=>'Upses', 'ui_name'=>'เครื่องสำรองไฟฟ้า'],
+                ['id'=>'9', 'name'=>'LooseDisplay', 'ui_name'=>'จอภาพที่ไม่ได้ใช้งานกับคอมพิวเตอร์']
             ],
             'rooms'=>Room::all(),
             'results'=>$this->searchEquipment(request()->search_class,request()->search_column,request()->keyword,request()->per_page), //ส่งคำสำคัญไปค้นหาในฐานข้อมูลด้วย function searchEquipment
@@ -120,6 +121,7 @@ class IndexController extends Controller
             '\App\NetworkedStorage',
             '\App\Networkdevices',
             '\App\Upses',
+            '\App\LooseDisplay',
         ];
         $modelClass = $equipmentsClass[$class]; //
         return $modelClass::search($keyword)
