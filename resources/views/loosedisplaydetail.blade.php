@@ -9,10 +9,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-12 col-lg-6">
-                            <p>รหัส SAP: {{$loosedisplay['display_sapid']}}</p>
+                            <p>รหัส SAP: {{$loosedisplay['sapid']}}</p>
                         </div>
                         <div class="col-sm-12 col-lg-6">
-                            <p>รหัสครุภัณฑ์: {{$loosedisplay['display_pid']}}</p>
+                            <p>รหัสครุภัณฑ์: {{$loosedisplay['pid']}}</p>
                         </div>
                     </div>
                     <div class="row">

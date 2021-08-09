@@ -20,9 +20,9 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group"> <!--รหัส SAP-->
                                     <label for="display_sapid">รหัส SAP</label>
-                                    <input type="text" name="display_sapid" id="display_sapid" value="{{old('display_sapid')}}" class="form-control @error('display_sapid') is-invalid @enderror"><button type="button" class="btn btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
+                                    <input type="text" name="sapid" id="display_sapid" value="{{old('sapid')}}" class="form-control @error('sapid') is-invalid @enderror"><button type="button" class="btn btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
                                     <small id="sapid" class="form-text">กรุณาใส่รหัส SAP 12 หลักหากไม่มีให้กดปุ่ม "ให้รหัสภายใน"</small>
-                                    @error('display_sapid')
+                                    @error('sapid')
                                         <div class="invalid-feedback">
                                             {{$message}}
                                         </div>
@@ -32,7 +32,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="display_pid">รหัสครุภัณฑ์</label> <!--รหัสครุภัณฑ์-->
-                                    <input type="text" name="display_pid" id="display_pid" value="{{old('display_pid')}}" class="form-control">
+                                    <input type="text" name="pid" id="display_pid" value="{{old('pid')}}" class="form-control">
                                 </div>
                             </div>
                         </div>

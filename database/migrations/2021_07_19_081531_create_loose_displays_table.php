@@ -15,8 +15,8 @@ class CreateLooseDisplaysTable extends Migration
     {
         Schema::create('loose_displays', function (Blueprint $table) {
             $table->id();
-            $table->string('display_sapid');
-            $table->string('display_pid')->nullable();
+            $table->string('sapid');
+            $table->string('pid')->nullable();
             $table->integer('owner_id');
             $table->integer('location_id');
             $table->integer('section_id');

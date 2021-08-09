@@ -46,7 +46,7 @@ class LooseDisplayController extends Controller
     public function create()
     {
         //เรียกหน้า addloosedisplay พร้อมกับส่งตัวแปร
-        $lastInternalSapId = LooseDisplay::where('display_sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
+        $lastInternalSapId = LooseDisplay::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
         
         if($lastInternalSapId == null)
         {
@@ -147,7 +147,7 @@ class LooseDisplayController extends Controller
     {
         //เงิ่อนไข
         $rules = [
-            'display_sapid'=>'required',
+            'sapid'=>'required',
             'location_id'=>'required',
             'section_id'=>'required',
             'response_person'=>'required',
@@ -165,7 +165,7 @@ class LooseDisplayController extends Controller
 
         //ข้อความแจ้งเตือน
         $messages = [
-            'display_sapid.required'=>'กรุณาตรวจสอบรหัส SAP',
+            'sapid.required'=>'กรุณาตรวจสอบรหัส SAP',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้งเครื่อง',
             'section_id.required'=>'กรุณาระบุหน่วยงาน',
             'response_person.required'=>'กรุณาระบุชื่อผู้รับผิดชอบ',

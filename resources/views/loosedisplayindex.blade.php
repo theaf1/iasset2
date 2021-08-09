@@ -78,8 +78,8 @@
                                 @foreach ($loosedisplays as $loosedisplay)
                                     <tr>
                                         <th scope="row">{{$loosedisplay['id']}}</th>
-                                        <td>{{$loosedisplay['display_sapid']}}</td>
-                                        <td>{{$loosedisplay['display_pid']}}</td>
+                                        <td>{{$loosedisplay['sapid']}}</td>
+                                        <td>{{$loosedisplay['pid']}}</td>
                                         <td>{{$loosedisplay->LooseDisplayRoom->name}}</td>
                                         <td>{{$loosedisplay->LooseDisplayOwner->name}}</td>
                                         <td>{{$loosedisplay['response_person']}}</td>

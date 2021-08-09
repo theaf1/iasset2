@@ -13,8 +13,8 @@
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
                                     <label for="display_sapid">รหัส SAP</label>
-                                    <input type="text" name="display_sapid" id="display_sapid" value="{{old('display_sapid',$loosedisplay->display_sapid)}}" class="form-control @error('display_sapid') is-invalid @enderror">
-                                    @error('display_sapid')
+                                    <input type="text" name="sapid" id="display_sapid" value="{{old('sapid',$loosedisplay->sapid)}}" class="form-control @error('sapid') is-invalid @enderror">
+                                    @error('sapid')
                                         <div class="invalid-feedback">
                                             {{$message}}
                                         </div>
@@ -24,7 +24,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="display_pid">รหัสครุภัณฑ์</label> 
-                                    <input type="text" name="display_pid" id="display_pid" value="{{old('display_pid',$loosedisplay->display_pid)}}" class="form-control">
+                                    <input type="text" name="pid" id="display_pid" value="{{old('pid',$loosedisplay->pid)}}" class="form-control">
                                 </div>
                             </div>
                         </div>

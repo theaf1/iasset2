@@ -10,8 +10,8 @@ class LooseDisplay extends Model
     use Searchable;
     //กำหนดค่าที่สามารถแก้ไขเปลี่ยนแปลงได้
     protected $fillable = [
-        'display_sapid',
-        'display_pid',
+        'sapid',
+        'pid',
         'owner_id',
         'location_id',
         'section_id',
