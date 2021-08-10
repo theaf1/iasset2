@@ -117,28 +117,5 @@
         @if(Session::has('success'))
             $('#alert').modal('show');
         @endif
-        // function GetSectionFilter()
-        // {
-        //     //console.log('GetSectionFilter')
-        //     var section_filter = document.getElementById("section_filter").value;
-        //     var per_page = document.getElementById("per_page").value;
-        //     console.log(section_filter)
-        //     axios({
-        //         method: 'post',
-        //         url: '/client/filter',
-        //         data: {
-        //             section_filter: section_filter,
-        //             per_page: per_page,
-        //         }
-        //     }).then(function (response) {
-        //             console.log(response.data);
-        //             var clients = response.data;
-        //             console.log(clients);
-        //             //document.innerHTML;
-        //         })
-        //         .catch(function (error) {
-        //             console.log(error);
-        //         });
-        // }
     </script>
 @endsection
