@@ -31,6 +31,9 @@
                 <tr>
                     <td>เครื่องสำรองไฟฟ้า</td><td class="text-center">{{$upses}}</td>
                 </tr>
+                <tr>
+                    <td>จอภาพที่ไม่ได้ต่อกับคอมพิวเตอร์</td><td class="text-center">{{$loosedisplays}}</td>
+                </tr>
             </tbody>
         </table>
         <p class="text-center">ออกรายงาน ณ วันที่ {{$now}}</p>

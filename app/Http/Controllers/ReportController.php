@@ -149,6 +149,7 @@ class ReportController extends Controller
             $Networkdevice_Results = Networkdevices::where('section_id',$request->report_section)->count(); //นับอุปกรณ์เครือข่าย
             $Networkedstorage_Results = Networkedstorage::where('section_id',$request->report_section)->count(); //นับอุปกรณ์เก็บข้อมูลเครือข่าย
             $Upses_Results = Upses::where('section_id',$request->report_section)->count(); //นับเครื่องสำรองไฟฟ้า
+            $x = LooseDisplay::where('section_id',$request->report_section)->count(); //นับจำนวนจอภาพที่ไม่ได้ใช้กับคอมพิวเตอร์
             $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
             $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
             $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
@@ -165,6 +166,7 @@ class ReportController extends Controller
                 'networkdevices'=>$Networkdevice_Results,
                 'networkedstorage'=>$Networkedstorage_Results,
                 'upses'=>$Upses_Results,
+                'loosedisplays'=>$x,
                 'now'=>$Now,
             ]);
         }
