@@ -56,12 +56,30 @@
                     <button type="reset" class="btn btn-lg btn-danger">Reset</button>
                 </div>
             </form>
+            <div class="modal fade" id="alert" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">ข้อความจากระบบ</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            @if(Session::has('success'))
+                                {{ Session::get('success') }} 
+                            @endif
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">รับทราบ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
                     <h4 class="text-center">ผลการค้นหา</h4>
                 </div>
                 <div class="card-body">
-                    <table class="table mt4 table-hover table-responsive">
+                    <table class="table mt-4 table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th scope="col">ลำดับที่</th>
@@ -87,9 +105,7 @@
                         {{$results->links()}}
                     @endisset
                 </div>
-            </div>
-            
-            
+            </div>            
         </div>
     </div>
 @endsection

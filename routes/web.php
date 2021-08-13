@@ -78,7 +78,7 @@ Route::put('/server/{id}/update', 'ServerController@update');
 
 //admin
 Route::get('/admin', function () {
-    return view('adminmenus');
+    return view('/admin/adminmenus');
 });
 Route::get('/admin/assetstatusadmin','AssetstatusController@index');
 Route::get('/admin/addassetstatus','AssetstatusController@create');
