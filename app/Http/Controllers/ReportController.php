@@ -284,12 +284,13 @@ class ReportController extends Controller
         }
         if ($request->report_id == 11)
         {
-            $LooseDisplay_Results = LooseDisplay::where('section_id', $request->report_section)->get();
+            $LooseDisplay_Results = LooseDisplay::where('section_id', $request->report_section)->get(); //รวบรวมข้อมูลจอภาพที่ไม่ได้ต่อกับคอมพิวเตอร์
             $Now_eng = Carbon::Now()->locale('th-th')->isoFormat('Do MMMM YYYY'); //อ่านค่าเวลาปัจจุบันแล้วจัดให้อยูในรูปแบบ วันที่-เดือน-คศ
             $Now_ex = explode(' ', $Now_eng); //แยกส่วนวันที่
             $Year_th = (int)$Now_ex[2]+543; //แปลง คศ. ให้เป็น พศ.
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
-
+            
+            //ส่งข้อมูลไปทำการแสดงผล
             return view('/reports/loosedisplaysectionreport')->with([
                 'loosedisplays'=>$LooseDisplay_Results,
                 'now'=>$Now,
