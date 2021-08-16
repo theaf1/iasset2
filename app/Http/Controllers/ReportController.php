@@ -39,7 +39,7 @@ class ReportController extends Controller
             ['id'=>'10', 'name'=>'บัญชีครุภัณฑ์เครื่องสำรองไฟฟ้าประจำหน่วยงาน'],
         );
         //ส่งค่าตัวแปรไปยังหน้า reports
-        return view('reports')->with([
+        return view('/reports/reports')->with([
             'sections'=>$Sections,
             'reporttypes'=>$Reports,
         ]);
@@ -128,7 +128,7 @@ class ReportController extends Controller
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
             
             //ส่งค่าไปแสดงผล
-            return view('total_report')->with([
+            return view('/reports/total_report')->with([
                 'client'=>$Client_Results,
                 'peripherals'=>$Peripherals_Results,
                 'storageperipheral'=>$Storageperipherals_Results,
@@ -157,7 +157,7 @@ class ReportController extends Controller
             $Section = Section::where('id',$request->report_section)->get(); //อ่านค่าหน่วยงาน
 
             //ส่งค่าไปแสดงผล
-            return view('section_report')->with([
+            return view('/reports/section_report')->with([
                 'section'=>$Section,
                 'client'=>$Client_Results,
                 'peripherals'=>$Peripherals_Results,
@@ -192,7 +192,7 @@ class ReportController extends Controller
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
 
             //ส่งค่าไปแสดงผล
-            return view('clientreportsection')->with([
+            return view('/reports/clientreportsection')->with([
                 'clients'=>$Client_Results,
                 'now'=>$Now,
             ]);
@@ -206,7 +206,7 @@ class ReportController extends Controller
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
 
             //ส่งค่าไปแสดงผล
-            return view('peripheralsreportsection')->with([
+            return view('/reports/peripheralsreportsection')->with([
                 'peripherals'=>$Peripherals_Results,
                 'now'=>$Now,
             ]);
@@ -220,7 +220,7 @@ class ReportController extends Controller
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th;//รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
 
             //ส่งค่าไปแสดงผล
-            return view('storageperipheralreportsection')->with([
+            return view('/reports/storageperipheralreportsection')->with([
                 'storageperipherals'=>$Storageperipherals_Results,
                 'now'=>$Now,
             ]);
@@ -234,7 +234,7 @@ class ReportController extends Controller
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
 
             //ส่งค่าไปแสดงผล
-            return view('serverreportsection')->with([
+            return view('/reports/serverreportsection')->with([
                 'servers'=>$Servers_Results,
                 'now'=>$Now,
             ]);
@@ -248,7 +248,7 @@ class ReportController extends Controller
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
 
             //ส่งค่าไปแสดงผล
-            return view('networkdevicereportsection')->with([
+            return view('/reports/networkdevicereportsection')->with([
                 'networkdevices'=>$Networkdevice_Results,
                 'now'=>$Now,
             ]);
@@ -262,7 +262,7 @@ class ReportController extends Controller
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
 
             //ส่งค่าไปแสดงผล
-            return view('networkedstoragereportsection')->with([
+            return view('/reports/networkedstoragereportsection')->with([
                 'networkedstorages'=>$Networkedstorage_Results,
                 'now'=>$Now,
             ]);
@@ -276,7 +276,7 @@ class ReportController extends Controller
             $Now =  $Now_ex[0].' '.$Now_ex[1].' '.$Year_th; //รวมวันที่ในรูปแแบบ วันที่-เดือน-พศ
 
             //ส่งค่าไปแสดงผล
-            return view('upsreportsection')->with([
+            return view('/reports/upsreportsection')->with([
                 'upses'=>$Upses_Results,
                 'now'=>$Now,
             ]);
