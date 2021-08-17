@@ -105,13 +105,15 @@ class ClientController extends Controller
     //บันทึกข้อมูลที่ได้รับจากหน้า addcomputer ผ่านทางตัวแปร request
     public function store(Request $request)
     {
+        \Log::debug($request);
+        $displayCount = request()->input('display_count');
         if (request()->has('displayCount')) {
             $displayCount = request()->input('displayCount');
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
         $client = Client::create($request->all());//บันทึกข้อมูลลงตาราง Clients
-        //\Log::info(session());
+        //\Log::info('test');
 
         $displayCount = request()->input('display_count');
         for ($i = 0; $i < $displayCount; $i++)
@@ -126,10 +128,10 @@ class ClientController extends Controller
             Display::create($display); //บันทึกข้อมูลลงตาราง Displays
         } 
 
-        //return redirect()->back()->with('displayCount',$displayCount);
+        return redirect()->back()->with('displayCount',$displayCount);
         //return redirect('/addcomputer')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว')
         
-        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว','displayCount',$displayCount);
+        //return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว','displayCount',$displayCount);
     }
 
     /**

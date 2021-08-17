@@ -423,7 +423,7 @@
                                             <div class="col-sm-12 col-lg-3">
                                                 <div class="form-group">
                                                     <label for="display_ratio">สัดส่วนจอภาพ</label>
-                                                    <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" pattern="{0-9}:{0-9}" value="{{ old('display_size.' . $i) }}">
+                                                    <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" value="{{ old('display_size.' . $i) }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -706,7 +706,7 @@
     if (hasDisplay > 0) {
         $('#display_count').focus();
     }
-    
+    console.log(hasDisplay)
     var room = null;
     $("#room_autocomplete").autocomplete({
         paramName: "name",
@@ -746,6 +746,7 @@
         let displayCount = select.options[select.selectedIndex].value;
         document.getElementById("computer_form").action = `{{ url('/add-computer?displayCount=${displayCount}')}}`;
         document.getElementById("computer_form").submit();
+        console.log(displayCount)
     }
     // script generate internal SAP
     function generateInternalSAP() {
