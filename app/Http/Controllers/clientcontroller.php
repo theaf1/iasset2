@@ -106,7 +106,7 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         \Log::debug($request);
-        $displayCount = request()->input('display_count');
+        //$displayCount = request()->input('display_count');
         if (request()->has('displayCount')) {
             $displayCount = request()->input('displayCount');
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
