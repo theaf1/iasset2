@@ -22,6 +22,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+        
         return view('index')->with([
             'searches'=>[
                 ['id'=>'1', 'name'=>'Client', 'ui_name'=>'คอมพิวเตอร์'],
@@ -124,6 +125,10 @@ class IndexController extends Controller
             '\App\LooseDisplay',
         ];
         $modelClass = $equipmentsClass[$class]; //
+        // if ($class == 2)
+        // {
+        //     return $modelClass::search($keyword)->paginate($per_page);
+        // }
         return $modelClass::search($keyword)
             ->where('location_id', $column)
             ->paginate($per_page)
