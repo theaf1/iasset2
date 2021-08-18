@@ -331,7 +331,7 @@
             </div>
             <div class="text-center mt-4">
                 <button type="submit" class="btn btn-lg btn-success">บันทึกข้อมูล</button>
-                <button type="reset" class="btn btn-lg btn-danger">ยกเลิก</button>
+                <button type="reset" class="btn btn-lg btn-danger">ยกเลิกการแก้ไข</button>
             </div>
             </form>
         </div>
