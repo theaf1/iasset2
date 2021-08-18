@@ -106,6 +106,7 @@
                         </tbody>
                     </table>
                     {{ $clients->links() }}
+                    <p>1</p>
                 </form>
                 </div>
             </div>
