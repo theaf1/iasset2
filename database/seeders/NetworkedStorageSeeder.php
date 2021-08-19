@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\NetworkedStorage;
 
 class NetworkedStorageSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class NetworkedStorageSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\NetworkedStorage::class,1)->create();
+        factory(App\Models\NetworkedStorage::class,1)->create();
     }
 }

@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Networkdevices;
+use App\Models\Networkdevices;
 class NetworkDeviceSeeder extends Seeder
 {
     /**
@@ -13,6 +13,6 @@ class NetworkDeviceSeeder extends Seeder
      */
     public function run() //เรียก factoty ที่เกี่ยวข้อง
     {
-        factory(Networkdevices::class,5)->create();
+        factory(App\Models\Networkdevices::class,5)->create();
     }
 }

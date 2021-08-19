@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Storageperipherals;
 
 class StorageperipheralSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class StorageperipheralSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Storageperipherals::class,2)->create(); //เรียก StoragePripheralFactory
+        factory(App\Models\Storageperipherals::class,2)->create(); //เรียก StoragePripheralFactory
     }
 }

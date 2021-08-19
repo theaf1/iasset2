@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Upses;
 
 class UpsSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class UpsSeeder extends Seeder
      */
     public function run() //เรียก factory ที่เกี่ยวข้อง
     {
-        factory(App\Upses::class,1)->create();
+        factory(App\Models\Upses::class,1)->create();
     }
 }

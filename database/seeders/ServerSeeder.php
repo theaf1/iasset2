@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Servers;
 
 class ServerSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class ServerSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Servers::class,5)->create();
+        factory(App\Models\Servers::class,5)->create();
     }
 }
