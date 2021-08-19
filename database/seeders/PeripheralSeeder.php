@@ -1,8 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
-class NetworkedStorageSeeder extends Seeder
+class PeripheralSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +13,6 @@ class NetworkedStorageSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\NetworkedStorage::class,1)->create();
+        factory(App\Peripherals::class,50)->create();
     }
 }

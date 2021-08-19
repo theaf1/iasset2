@@ -1,8 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
-class StorageperipheralSeeder extends Seeder
+class ServerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +13,6 @@ class StorageperipheralSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Storageperipherals::class,2)->create(); //เรียก StoragePripheralFactory
+        factory(App\Servers::class,5)->create();
     }
 }
