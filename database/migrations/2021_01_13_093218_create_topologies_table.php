@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Topology;
+use App\Models\Topology;
 
 class CreateTopologiesTable extends Migration
 {

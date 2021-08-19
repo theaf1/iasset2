@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Asset_use_statuses;
+use App\Models\Asset_use_statuses;
 
 class CreateAssetUseStatusesTable extends Migration
 {

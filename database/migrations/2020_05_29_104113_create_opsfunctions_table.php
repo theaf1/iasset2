@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Opsfunction;
+use App\Models\Opsfunction;
 
 class CreateOpsfunctionsTable extends Migration
 {

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\Asset_statuses;
+use App\Models\Asset_statuses;
 
 class CreateAssetStatusesTable extends Migration
 {

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\PeripheralConnect;
+use App\Models\PeripheralConnect;
 
 class CreatePeripheralConnectsTable extends Migration
 {
