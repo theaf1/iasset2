@@ -14,6 +14,7 @@ use App\Models\Asset_use_statuses;
 use App\Models\DataUnit;
 use App\Models\NetworkConnection;
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 $factory->define(Client::class, function (Faker $faker) {
     return [

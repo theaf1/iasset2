@@ -9,6 +9,7 @@ use App\Models\Owner;
 use App\Models\Asset_statuses;
 use App\Models\Asset_use_statuses;
 use App\Models\Upses;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Faker;
 
 $factory->define(Upses::class, function (Faker $faker) {

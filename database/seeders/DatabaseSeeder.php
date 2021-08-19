@@ -13,14 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run() //เรียก seeder ที่ต้องใช้งาน
     {
-        $this->call([
-            ClientSeeder::class, //Seed ตาราง Display และ Client
-            PeripheralSeeder::class, //Seed ตาราง Peripherals
-            StorageperipheralSeeder::class, //Seed ตาราง Storageperipherals
-            NetworkDeviceSeeder::class, //Seed ตาราง Storageperipherals
-            ServerSeeder::class, //seed ตาราง Servers
-            NetworkedStorageSeeder::class, //seed ตาราง NetworkedStorage
-            UpsSeeder::class, //seed ตาราง Upses 
-        ]); 
+        $this->call(ClientSeeder::class)->create(); //Seed ตาราง Display และ Client
+        $this->call(PeripheralSeeder::class)->create(); //Seed ตาราง Peripherals
+        $this->call(StorageperipheralSeeder::class)->create(); //Seed ตาราง Storageperipherals
+        $this->call(NetworkDeviceSeeder::class)->create(); //Seed ตาราง Storageperipherals
+        $this->call(ServerSeeder::class)->create(); //seed ตาราง Servers
+        $this->call(NetworkedStorageSeeder::class)->create(); //seed ตาราง NetworkedStorage
+        $this->call(UpsSeeder::class)->create(); //seed ตาราง Upses 
     }
 }

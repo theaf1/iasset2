@@ -9,6 +9,7 @@ use App\Models\NetSubtype;
 use App\Models\Owner;
 use App\Models\Mobility;
 use App\Models\Networkdevices;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Faker;
 
 //กำหนดค่าจำลองต่างๆในตาราง Networkdevices

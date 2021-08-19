@@ -4,6 +4,7 @@
 
 use App\Models\Display;
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 //กำหนดค่าจำลองต่างๆของตาราง Display
 $factory->define(Display::class, function (Faker $faker) {
