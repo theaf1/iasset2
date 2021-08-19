@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Peripherals;
+use App\Models\Peripherals;
 use Faker\Generator as Faker;
 
 //กำหนดค่าจำลองต่างๆในตาราง Peripherals

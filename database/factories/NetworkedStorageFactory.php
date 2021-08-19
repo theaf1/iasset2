@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\NetworkedStorage;
+use App\Models\NetworkedStorage;
 use Faker\Generator as Faker;
 
 //กำหนคค่าจำลองต่างๆในตาราง NetworkedStorage

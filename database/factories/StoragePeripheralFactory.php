@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Storageperipherals;
+use App\Models\Storageperipherals;
 use Faker\Generator as Faker;
 
 $factory->define(Storageperipherals::class, function (Faker $faker) {

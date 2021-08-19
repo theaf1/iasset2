@@ -2,13 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\location;
-use App\Mobility;
-use App\Section;
-use App\Owner;
-use App\Asset_statuses;
-use App\Asset_use_statuses;
-use App\Upses;
+use App\Models\location;
+use App\Models\Mobility;
+use App\Models\Section;
+use App\Models\Owner;
+use App\Models\Asset_statuses;
+use App\Models\Asset_use_statuses;
+use App\Models\Upses;
 use Faker\Generator as Faker;
 
 $factory->define(Upses::class, function (Faker $faker) {

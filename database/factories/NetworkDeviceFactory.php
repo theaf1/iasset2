@@ -2,13 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Asset_statuses;
-use App\Asset_use_statuses;
-use App\Section;
-use App\NetSubtype;
-use App\Owner;
-use App\Mobility;
-use App\Networkdevices;
+use App\Models\Asset_statuses;
+use App\Models\Asset_use_statuses;
+use App\Models\Section;
+use App\Models\NetSubtype;
+use App\Models\Owner;
+use App\Models\Mobility;
+use App\Models\Networkdevices;
 use Faker\Generator as Faker;
 
 //กำหนดค่าจำลองต่างๆในตาราง Networkdevices

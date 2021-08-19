@@ -2,17 +2,17 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Client;
-use App\Location;
-use App\Mobility;
-use App\Section;
-use App\Position;
-use App\Opsfunction;
-use App\Owner;
-use App\Asset_statuses;
-use App\Asset_use_statuses;
-use App\DataUnit;
-use App\NetworkConnection;
+use App\Models\Client;
+use App\Models\Location;
+use App\Models\Mobility;
+use App\Models\Section;
+use App\Models\Position;
+use App\Models\Opsfunction;
+use App\Models\Owner;
+use App\Models\Asset_statuses;
+use App\Models\Asset_use_statuses;
+use App\Models\DataUnit;
+use App\Models\NetworkConnection;
 use Faker\Generator as Faker;
 
 $factory->define(Client::class, function (Faker $faker) {
