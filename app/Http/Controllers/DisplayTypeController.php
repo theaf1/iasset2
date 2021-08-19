@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\DisplayType;
+use App\Models\DisplayType;
 use Illuminate\Http\Request;
 
 class DisplayTypeController extends Controller

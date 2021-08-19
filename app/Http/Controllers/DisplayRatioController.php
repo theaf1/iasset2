@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\DisplayRatio;
+use App\Models\DisplayRatio;
 use Illuminate\Http\Request;
 
 class DisplayRatioController extends Controller

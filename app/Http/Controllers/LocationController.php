@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Room;
-use App\Location;
-use App\Building;
+use App\Models\Room;
+use App\Models\Location;
+use App\Models\Building;
 
 class LocationController extends Controller
 {

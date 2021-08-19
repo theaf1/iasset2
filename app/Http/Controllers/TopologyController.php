@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Topology;
+use App\Models\Topology;
 use Illuminate\Http\Request;
 
 class TopologyController extends Controller

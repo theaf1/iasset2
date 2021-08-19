@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Asset_statuses;
-use App\Asset_use_statuses;
-use App\Section;
-use App\Servers;
-use App\Display;
-use App\Formfactor;
-use App\DataUnit;
-use App\serverOp;
-use App\OsArch;
-use App\ServerRoleClass;
-use App\NetworkConnection;
-use App\Owner;
-use App\Mobility;
+use App\Models\Asset_statuses;
+use App\Models\Asset_use_statuses;
+use App\Models\Section;
+use App\Models\Servers;
+use App\Models\Display;
+use App\Models\Formfactor;
+use App\Models\DataUnit;
+use App\Models\serverOp;
+use App\Models\OsArch;
+use App\Models\ServerRoleClass;
+use App\Models\NetworkConnection;
+use App\Models\Owner;
+use App\Models\Mobility;
 
 class ServerController extends Controller
 {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Upsbatterytype;
+use App\Models\Upsbatterytype;
 use Illuminate\Http\Request;
 
 class BatteryController extends Controller

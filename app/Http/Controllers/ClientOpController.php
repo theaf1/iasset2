@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ClientOperate;
+use App\Models\ClientOperate;
 use Illuminate\Http\Request;
 
 class ClientOpController extends Controller

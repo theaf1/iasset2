@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 
-use App\Client;
-use App\Peripherals;
-use App\Storageperipherals;
-use App\Servers;
-use App\Networkdevices;
-use App\NetworkedStorage;
-use App\Upses;
-use App\room;
+use App\Models\Client;
+use App\Models\Peripherals;
+use App\Models\Storageperipherals;
+use App\Models\Servers;
+use App\Models\Networkdevices;
+use App\Models\NetworkedStorage;
+use App\Models\Upses;
+use App\Models\room;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller

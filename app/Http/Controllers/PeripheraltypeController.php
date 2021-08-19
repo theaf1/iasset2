@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Peripheraltype;
+use App\Models\Peripheraltype;
 
 class PeripheraltypeController extends Controller
 {

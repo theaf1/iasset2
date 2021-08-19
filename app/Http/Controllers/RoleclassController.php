@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ServerRoleclass;
+use App\Models\ServerRoleclass;
 
 class RoleclassController extends Controller
 {

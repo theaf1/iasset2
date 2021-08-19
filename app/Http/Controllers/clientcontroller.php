@@ -1,21 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Asset_statuses;
-use App\Asset_use_statuses;
-use App\Section;
-use App\Client;
-use App\Display;
-use App\Clienttype;
-use App\Opsfunction;
-use App\Multiuser;
-use App\DataUnit;
-use App\NetworkConnection;
-use App\Owner;
-use App\Mobility;
-use App\Position;
-use App\ClientOperate;
-use App\OsArch;
+use App\Models\Asset_statuses;
+use App\Models\Asset_use_statuses;
+use App\Models\Section;
+use App\Models\Client;
+use App\Models\Display;
+use App\Models\Clienttype;
+use App\Models\Opsfunction;
+use App\Models\Multiuser;
+use App\Models\DataUnit;
+use App\Models\NetworkConnection;
+use App\Models\Owner;
+use App\Models\Mobility;
+use App\Models\Position;
+use App\Models\ClientOperate;
+use App\Models\OsArch;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

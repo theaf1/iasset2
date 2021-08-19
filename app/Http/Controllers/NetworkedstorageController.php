@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Asset_statuses;
-use App\Asset_use_statuses;
-use App\Section;
-use App\NetworkedStorage;
-use App\Owner;
-use App\Mobility;
-use App\DataUnit;
-use App\Networkedstoragetype;
+use App\Models\Asset_statuses;
+use App\Models\Asset_use_statuses;
+use App\Models\Section;
+use App\Models\NetworkedStorage;
+use App\Models\Owner;
+use App\Models\Mobility;
+use App\Models\DataUnit;
+use App\Models\Networkedstoragetype;
 use Carbon\Carbon;
 
 class NetworkedstorageController extends Controller

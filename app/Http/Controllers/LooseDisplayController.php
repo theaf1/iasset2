@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\LooseDisplay;
-use App\Owner;
-use App\Section;
-use App\Asset_statuses;
-use App\Asset_use_statuses;
-use App\Position;
-use App\DisplayType;
-use App\DisplayRatio;
+use App\Models\LooseDisplay;
+use App\Models\Owner;
+use App\Models\Section;
+use App\Models\Asset_statuses;
+use App\Models\Asset_use_statuses;
+use App\Models\Position;
+use App\Models\DisplayType;
+use App\Models\DisplayRatio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

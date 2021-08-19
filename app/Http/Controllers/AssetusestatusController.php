@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Asset_use_statuses;
+use App\Models\Asset_use_statuses;
 use Illuminate\Http\Request;
 
 class AssetusestatusController extends Controller

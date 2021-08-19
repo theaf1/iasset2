@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\OsArch;
+use App\Models\OsArch;
 use Illuminate\Http\Request;
 
 class OsarchController extends Controller

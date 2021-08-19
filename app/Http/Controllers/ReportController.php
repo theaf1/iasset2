@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Client;
-use App\Peripherals;
-use App\Storageperipherals;
-use App\Servers;
-use App\Networkdevices;
-use App\Networkedstorage;
-use App\Upses;
-use App\LooseDisplay;
-use App\Section;
+use App\Models\Client;
+use App\Models\Peripherals;
+use App\Models\Storageperipherals;
+use App\Models\Servers;
+use App\Models\Networkdevices;
+use App\Models\Networkedstorage;
+use App\Models\Upses;
+use App\Models\LooseDisplay;
+use App\Models\Section;
 use Carbon\Carbon;
 use PDF;
 

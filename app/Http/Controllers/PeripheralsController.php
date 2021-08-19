@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Asset_statuses;
-use App\Asset_use_statuses;
-use App\Section;
-use App\Peripherals;
-use App\Peripheraltype;
-use App\Multiuser;
-use App\Position;
-use App\Owner;
-use App\Mobility;
-use App\PeripheralConnect;
-use App\PeripheralSupply;
+use App\Models\Asset_statuses;
+use App\Models\Asset_use_statuses;
+use App\Models\Section;
+use App\Models\Peripherals;
+use App\Models\Peripheraltype;
+use App\Models\Multiuser;
+use App\Models\Position;
+use App\Models\Owner;
+use App\Models\Mobility;
+use App\Models\PeripheralConnect;
+use App\Models\PeripheralSupply;
 use Carbon\Carbon;
 
 class PeripheralsController extends Controller

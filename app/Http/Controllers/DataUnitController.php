@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\DataUnit;
+use App\Models\DataUnit;
 use Illuminate\Http\Request;
 
 class DataUnitController extends Controller

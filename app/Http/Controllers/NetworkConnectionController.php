@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\NetworkConnection;
+use App\Models\NetworkConnection;
 
 class NetworkConnectionController extends Controller
 {
