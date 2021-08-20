@@ -201,3 +201,6 @@ Route::get('/admin/adddisplaytype','DisplayTypeController@create');
 Route::Post('/add-displaytype','DisplayTypeController@store');
 Route::get('/admin/displaytype/edit/{id}','DisplayTypeController@edit');
 Route::post('/admin/displaytype/update/{id}','DisplayTypeController@update');
+Route::get('/login', function () {
+    return view('/auth/login');
+});
