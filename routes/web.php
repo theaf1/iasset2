@@ -17,7 +17,7 @@
 
 // room automation script by Nongnapat
 Route::get('/rooms', function() {
-    $rooms = \App\Room::with(['location' => function($query) {
+    $rooms = \App\Models\Room::with(['location' => function($query) {
                             $query->with('building');
                         }])
                         ->where('name', 'like', '%' . request()->input('name') . '%')
