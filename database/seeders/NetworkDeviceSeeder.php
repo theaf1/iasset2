@@ -13,6 +13,6 @@ class NetworkDeviceSeeder extends Seeder
      */
     public function run() //เรียก factoty ที่เกี่ยวข้อง
     {
-        factory(App\Models\Networkdevices::class,5)->create();
+        factory(Networkdevices::class,5)->create();
     }
 }

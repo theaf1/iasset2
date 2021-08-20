@@ -14,6 +14,6 @@ class ServerSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Servers::class,5)->create();
+        factory(Servers::class,5)->create();
     }
 }

@@ -14,6 +14,6 @@ class StorageperipheralSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Storageperipherals::class,2)->create(); //เรียก StoragePripheralFactory
+        factory(Storageperipherals::class,2)->create(); //เรียก StoragePripheralFactory
     }
 }
