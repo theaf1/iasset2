@@ -14,6 +14,6 @@ class UpsSeeder extends Seeder
      */
     public function run() //เรียก factory ที่เกี่ยวข้อง
     {
-        factory(App\Models\Upses::class,1)->create();
+        factory(Upses::class,1)->create();
     }
 }

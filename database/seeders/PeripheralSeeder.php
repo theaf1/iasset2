@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Model\Peripherals;
+use App\Models\Peripherals;
 
 class PeripheralSeeder extends Seeder
 {
@@ -14,6 +14,6 @@ class PeripheralSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Peripherals::class,50)->create();
+        factory(Peripherals::class,50)->create();
     }
 }

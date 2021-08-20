@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Scout\Searchable;
 
 class NetworkedStorage extends Model
 {
     use Searchable;
+    use HasFactory;
     //column ที่สามารถเพิ่มและแก้ไขข้อมูลได้
     protected $fillable = [
         'sapid',
