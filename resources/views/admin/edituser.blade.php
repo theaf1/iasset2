@@ -1,5 +1,5 @@
 @extends('Layouts.app')
-@section('name')
+@section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
             <div class="card mt-4">
@@ -20,6 +20,19 @@
                                 <div class="form-group">
                                     <label for="email">E-mail</label>
                                     <input type="email" name="email" id="email" class="form-control" value="{{old('email',$user->email)}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="role_id">บทบาท</label>
+                                    <select name="role_id" id="role_id" class="form-control">
+                                        <option value="" hidden></option>
+                                        @foreach ($roles as $role)
+                                            <option value="{{$role['id']}}">{{$role['name']}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
