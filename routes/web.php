@@ -207,3 +207,5 @@ Route::get('/login', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/users','Usercontroller@index');
+Route::get('/admin/users/edit/{id}','Usercontroller@edit');
