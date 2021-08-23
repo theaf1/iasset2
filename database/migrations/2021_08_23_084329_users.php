@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Role;
 
-class CreateRolesTable extends Migration
+class Users extends Migration
 {
     /**
      * Run the migrations.
@@ -14,21 +13,15 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('email');
+            $table->string('password')->bcrypt();
+            $table->string('remember_token')->bcrypt()->nullable();
+            $table->dateTime('email_verified_at')->nullable();
             $table->timestamps();
         });
-
-        $Roles = array(
-            ['name'=>'ผู้ดูแลระบบ'],
-            ['name'=>'ผู้ใช้งาน'],
-        );
-
-        foreach ($Roles as $Role) 
-        {
-            Role::create($Role);
-        }
     }
 
     /**
@@ -38,6 +31,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('users');
     }
 }
