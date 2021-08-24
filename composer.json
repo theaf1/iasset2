@@ -11,14 +11,14 @@
         "php": "^7.2.5",
         "barryvdh/laravel-dompdf": "^0.9.0",
         "fideloper/proxy": "^4.2",
-        "fruitcake/laravel-cors": "^1.0",
+        "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
         "laravel/legacy-factories": "^1.1",
-        "laravel/scout": "^8.6",
+        "laravel/scout": "^9.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
-        "yab/laravel-scout-mysql-driver": "^3.0"
+        "yab/laravel-scout-mysql-driver": "^5.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
