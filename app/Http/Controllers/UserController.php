@@ -15,6 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        //เรียกหน้า useradmin พร้อมกับส่งตัวแปร
         return view('/admin/useradmin')->with([
             'users'=>User::all(),
         ]);
@@ -60,7 +61,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $User = User::find($id);
+        $User = User::find($id); //ค้นหา user ที่ต้องการแก้ไข
+
+        //เรียกหน้า edituser พร้อมกับส่งข้อมูล
         return view('/admin/edituser')->with([
             'user'=>$User,
             'roles'=>Role::all(),
