@@ -25,7 +25,7 @@
                     <h4>บัญชีอุปกรณ์ต่อพ่วงเก็บข้อมูล</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{ url('/storage') }}" class="btn btn-primary btn-block btn-lg btn-info" role="button">เพิ่มอุปกรณ์ต่อพ่วงเก็บข้อมูล</a>
+                    <a href="{{ url('/storage') }}" class="btn btn-primary btn-block btn-lg" role="button">เพิ่มอุปกรณ์ต่อพ่วงเก็บข้อมูล</a>
                     <form action="{{url('/storageperipheral')}}" method="get" role="search">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6 mt-4">

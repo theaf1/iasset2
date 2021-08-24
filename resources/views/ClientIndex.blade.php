@@ -25,7 +25,7 @@
                     <h4>ตารางบัญชีคอมพิวเตอร์</h4>
                 </div>
                 <div class="card-body">
-                <a href="{{ url('/computer') }}"class="btn btn-lg btn-block btn-info" role="button">เพิ่มคอมพิวเตอร์</a>
+                <a href="{{ url('/computer') }}"class="btn btn-lg btn-block btn-primary" role="button">เพิ่มคอมพิวเตอร์</a>
                 <form action="{{url('/client')}}" method="get" role="search">
                     <div class="form-row">
                         <div class="col-sm-12 col-lg-6 mt-4">

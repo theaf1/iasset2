@@ -25,7 +25,7 @@
                     <h4>บัญชีอุปกรณ์เก็บข้อมูลเครือข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{ url('/ns') }}" class="btn btn-primary btn-block btn-lg btn-info" role="button">เพิ่มอุปกรณ์เก็บข้อมูลเครือข่าย</a>
+                    <a href="{{ url('/ns') }}" class="btn btn-primary btn-block btn-lg" role="button">เพิ่มอุปกรณ์เก็บข้อมูลเครือข่าย</a>
                     <form action="{{url('/networkedstorage')}}" method="get" role="search">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6 mt-4">

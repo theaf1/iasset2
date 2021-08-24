@@ -25,7 +25,7 @@
                     <h4>บัญชีคอมพิวเตอร์แม่ข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{ url('/server') }}" class="btn btn-primary btn-info btn-block btn-lg" role="button">เพิ่มคอมพิวเตอร์แม่ข่าย</a>
+                    <a href="{{ url('/server') }}" class="btn btn-primary btn-block btn-lg" role="button">เพิ่มคอมพิวเตอร์แม่ข่าย</a>
                     <form action="{{url('/servers')}}" method="get" role="search">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6 mt-4">
