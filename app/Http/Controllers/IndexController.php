@@ -114,15 +114,15 @@ class IndexController extends Controller
         //กำหนดค่าตัวแปร equipmentsClass
         $equipmentsClass = [
             '',
-            '\App\Client',
-            '\App\Display',
-            '\App\Peripherals',
-            '\App\storageperipherals',
-            '\App\Servers',
-            '\App\NetworkedStorage',
-            '\App\Networkdevices',
-            '\App\Upses',
-            '\App\LooseDisplay',
+            '\App\Models\Client',
+            '\App\Models\Display',
+            '\App\Models\Peripherals',
+            '\App\Models\storageperipherals',
+            '\App\Models\Servers',
+            '\App\Models\NetworkedStorage',
+            '\App\Models\Networkdevices',
+            '\App\Models\Upses',
+            '\App\Models\LooseDisplay',
         ];
         $modelClass = $equipmentsClass[$class]; //
         // if ($class == 2)
