@@ -21,8 +21,8 @@ class CreateRolesTable extends Migration
         });
 
         $Roles = array(
-            ['name'=>'ผู้ดูแลระบบ'],
             ['name'=>'ผู้ใช้งาน'],
+            ['name'=>'ผู้ดูแลระบบ'],
         );
 
         foreach ($Roles as $Role) 
