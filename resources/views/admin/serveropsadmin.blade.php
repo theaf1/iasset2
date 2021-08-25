@@ -22,7 +22,7 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
-                    <h4>zzz</h4>
+                    <h4>รายชื่อระบบปฏิบัติการเครือข่าย</h4>
                 </div>
                 <div class="card-body">
                     <a href="{{url('/admin/addserverop')}}" class="btn btn-block btn-primary">เพิ่มชื่อระบบปฏิบัติการ</a>

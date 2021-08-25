@@ -27,6 +27,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="text-center mt-4">
+                        <a href="{{url('/admin')}}" class="btn btn-secondary btn-block" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
+                    </div>
                 </div>
             </div>
         </div>

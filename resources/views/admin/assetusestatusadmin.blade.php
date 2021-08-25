@@ -22,7 +22,7 @@
         </div>
         <div class="card mt-4">
             <div class="card-header card-background text-white">
-                <h4></h4>
+                <h4>รายชื่อสถานะการใช้งานครุภัณฑ์</h4>
             </div>
             <div class="card-body">
                 <a href="{{url('/admin/addassetusestatus')}}" class="btn btn-primary btn-block" role="button">เพิ่มสถานะการใช้งานครุภัณฑ์</a>
