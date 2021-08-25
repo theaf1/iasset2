@@ -44,7 +44,11 @@
                         <h4 class="text-center">จัดการผู้ใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <p>กำลังพัฒนา</p>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6">
+                                <a href="{{url('/admin/users')}}" class="btn btn-info btn-block mt-4">บริหารผู้ใช้งาน</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card mt-4 mr-2">
