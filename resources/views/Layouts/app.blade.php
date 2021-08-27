@@ -59,7 +59,7 @@
               <a href="{{url('/admin')}}" class="nav-link text-white">สำหรับผู้ดูแลระบบ</a>
             </li> 
             <li class="nav-item">
-              <a href="#" class="nav-link text-white">ออกจากระบบ</a>
+              <a href="#" class="btn btn-sm btn-warning" role="button">ออกจากระบบ</a>
             </li>
           </ul>
         </div>
