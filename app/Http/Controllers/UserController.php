@@ -79,7 +79,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $this->validateData($request);
+        return $request->all();
     }
 
     /**
@@ -91,5 +92,19 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validateData ($data)
+    {
+        $rules = [
+            'name'=>'required',
+            'email'=>'required',
+        ];
+
+        $messages = [
+            'name.required'=>'กรุณาระบุชื่อ',
+            'email.required'=>'กรุณาใส่ email',
+        ];
+
+        return $this->validate($data, $rules, $messages);
     }
 }

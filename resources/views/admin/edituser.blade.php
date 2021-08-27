@@ -7,19 +7,29 @@
                     <h4></h4>
                 </div>
                 <div class="card-body">
-                    <form action="#" method="post">
+                    <form action="{{url('/admin/users/update',$user->id)}}" method="post">
                         @csrf
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="name">ชื่อ</label>
-                                    <input type="text" name="name" id="name" class="form-control" value="{{old('name',$user->name)}}">
+                                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name',$user->name)}}">
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="email">E-mail</label>
-                                    <input type="email" name="email" id="email" class="form-control" value="{{old('email',$user->email)}}">
+                                    <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email',$user->email)}}">
+                                    @error('email')
+                                        <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -37,6 +47,10 @@
                             </div>
                         </div>
                     </form>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-lg btn-success">Submit</button>
+                        <button type="reset" class="btn btn-lg btn-danger">Reset</button>
+                    </div>
                 </div>
             </div>
         </div>
