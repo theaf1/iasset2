@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ServerSeeder::class,
             NetworkedStorageSeeder::class,
             UpsSeeder::class,
+            LoosedisplaySeeder::class,
         ]);
     }
 }
