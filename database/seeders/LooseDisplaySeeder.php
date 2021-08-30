@@ -12,7 +12,7 @@ class LooseDisplaySeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run() //เรียก factory ที่เกี่ยวข้อง
     {
         factory(LooseDisplay::class,5)->create();
     }
