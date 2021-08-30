@@ -3,11 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 
 class Building extends Model
 {
-    use Searchable; // กำหนด column ที่สามารถเปลี่ยนแปลงข้อมูลได้
+ // กำหนด column ที่สามารถเปลี่ยนแปลงข้อมูลได้
     protected $fillable = [
         'id',
         'name'

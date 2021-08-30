@@ -3,11 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 
 class Clienttype extends Model
 {
-    use Searchable;
     //column ที่สามารถเพิ่มและแก้ไขข้อมูล
     protected $fillable = [
         'id',
