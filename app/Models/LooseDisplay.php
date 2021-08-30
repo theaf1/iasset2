@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Scout\Searchable;
 
 class LooseDisplay extends Model
 {
+    use HasFactory;
     use Searchable;
     //กำหนดค่าที่สามารถแก้ไขเปลี่ยนแปลงได้
     protected $fillable = [
