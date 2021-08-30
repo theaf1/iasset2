@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run() //เรียก seeder ที่ต้องใช้งาน
     {
         $this->call([
-            #UpsSeederNew::class,
             ClientSeeder::class,
             PeripheralSeeder::class,
             StorageperipheralSeeder::class,
