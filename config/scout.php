@@ -117,7 +117,7 @@ return [
     ],
     'mysql' => [
         'mode' => 'LIKE',
-        'model_directories' => [app_path()],
+        'model_directories' => [app_path(),'App\Models'],
         'min_search_length' => 0,
         'min_fulltext_search_length' => 4,
         'min_fulltext_search_fallback' => 'LIKE',
