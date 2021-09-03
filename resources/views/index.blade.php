@@ -52,8 +52,8 @@
                     </div>
                 </div>
                 <div class="text-center mt-4 mr-2">
-                    <button type="submit" class="btn btn-lg btn-success">Submit</button>
-                    <button type="reset" class="btn btn-lg btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-lg btn-primary">ค้นหาครุภัณฑ์</button>
+                    <button type="reset" class="btn btn-lg btn-danger">ยกเลิก</button>
                 </div>
             </form>
             <div class="modal fade" id="alert" tabindex="-1" role="dialog">
