@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\LooseDisplay;
 use App\Models\Owner;
+use App\Models\Mobility;
 use App\Models\Section;
 use App\Models\Asset_statuses;
 use App\Models\Asset_use_statuses;
@@ -58,6 +59,7 @@ class LooseDisplayController extends Controller
         }
 
         return view('addloosedisplay')->with([
+            'mobilities'=>Mobility::all(),
             'owners'=>Owner::all(),
             'sections'=>Section::all(),
             'asset_statuses'=>Asset_statuses::all(),
@@ -108,6 +110,7 @@ class LooseDisplayController extends Controller
         $LooseDisplay = LooseDisplay::find($id); //ค้นหาข้อมูล
         //เรียกหน้า editloosedisplay พร้อมกับส่งตัวแปร
         return view('editloosedisplay')->with([
+            'mobilities'=>Mobility::all(),
             'owners'=>Owner::all(),
             'sections'=>Section::all(),
             'asset_statuses'=>Asset_statuses::all(),
