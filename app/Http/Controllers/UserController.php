@@ -79,7 +79,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $this->validateData($request);
+        $this->validateData($request);
         return $request->all();
     }
 
