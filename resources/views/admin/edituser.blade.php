@@ -46,11 +46,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-lg btn-success">Submit</button>
+                            <button type="reset" class="btn btn-lg btn-danger">Reset</button>
+                        </div>
                     </form>
-                    <div class="text-center mt-4">
-                        <button type="submit" class="btn btn-lg btn-success">Submit</button>
-                        <button type="reset" class="btn btn-lg btn-danger">Reset</button>
-                    </div>
                 </div>
             </div>
         </div>
