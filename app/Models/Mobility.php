@@ -45,4 +45,8 @@ class Mobility extends Model
     {
         return $this->hasMany(Upses::class,'mobility_id');
     }
+    public function MobilityLooseDisplay ()
+    {
+        return $this->hasMany(LooseDisplay::class,'mobility_id');
+    }
 }

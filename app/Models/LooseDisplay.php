@@ -16,6 +16,7 @@ class LooseDisplay extends Model
         'pid',
         'owner_id',
         'location_id',
+        'mobility_id',
         'section_id',
         'response_person',
         'position_id',
@@ -45,6 +46,10 @@ class LooseDisplay extends Model
     public function LooseDisplayRoom ()
     {
         return $this->belongsTo(Room::class,'location_id');
+    }
+    public function LooseDisplayMobility ()
+    {
+        return $this->belongsTo(Mobility::class,'mobility_id');
     }
     //กำหนดความสัมพันธ์กับตาราง Section
     public function LooseDisplaySection ()

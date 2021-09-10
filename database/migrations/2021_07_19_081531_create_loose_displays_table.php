@@ -18,6 +18,7 @@ class CreateLooseDisplaysTable extends Migration
             $table->string('sapid');
             $table->string('pid')->nullable();
             $table->integer('owner_id');
+            $table->integer('mobility_id');
             $table->integer('location_id');
             $table->integer('section_id');
             $table->string('response_person');

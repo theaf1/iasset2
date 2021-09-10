@@ -11,6 +11,7 @@ $factory->define(LooseDisplay::class, function (Faker $faker) {
         'sapid' => rand(131100000000,131100099999), //จำลองรหัส SAP
         'pid' => '1224H001-7440-001-0001/64', //จำลองรหัสครุภัณฑ์
         'owner_id'=> 2, //เจ้าของเครื่อง
+        'mobility_id' => 1,
         'location_id' => 8, //สถานที่ตั้ง
         'section_id' => 1, //หน่วยงาน
         'response_person' => $faker->name, //ผู้รับผิดชอบ

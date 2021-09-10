@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-sm-12 col-lg-6"> <!--ที่มา-->
+                            <div class="col-sm-12 col-lg-3"> <!--ที่มา-->
                                 <div class="form-group">
                                     <label for="owner">ที่มา</label>
                                     <div class="form-check-inline pl-2">
@@ -45,8 +45,22 @@
                                     </div>
                                 </div>
                             </div>
-                        
-                        
+                            <div class="col-sm-12 col-lg-3">
+                                <div class="form-group">
+                                    <label for="is_mobile">ลักษณะการใช้งาน</label>
+                                    <div class="form-check pl-5">
+                                        @foreach ($mobiles as $mobile)
+                                            <input class="form-check-input @error('mobility_id') is-invalid @enderror" type="radio" name="mobility_id" id="is_mobile" value="{{$mobile['id']}}" {{old('mobility_id',$loosedisplay->mobility_id) == $mobile['id'] ? 'checked' : '' }}>
+                                            <label for="is_mobile" class="form-check-label">{{$mobile['name']}}</label><br>
+                                        @endforeach
+                                        @error('mobility_id')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ห้อง -->
                                 <div class="form-group">
                                     <label for="room">ห้อง</label>

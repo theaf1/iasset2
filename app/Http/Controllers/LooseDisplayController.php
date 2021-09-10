@@ -59,7 +59,7 @@ class LooseDisplayController extends Controller
         }
 
         return view('addloosedisplay')->with([
-            'mobilities'=>Mobility::all(),
+            'mobiles'=>Mobility::all(),
             'owners'=>Owner::all(),
             'sections'=>Section::all(),
             'asset_statuses'=>Asset_statuses::all(),
@@ -110,7 +110,7 @@ class LooseDisplayController extends Controller
         $LooseDisplay = LooseDisplay::find($id); //ค้นหาข้อมูล
         //เรียกหน้า editloosedisplay พร้อมกับส่งตัวแปร
         return view('editloosedisplay')->with([
-            'mobilities'=>Mobility::all(),
+            'mobiles'=>Mobility::all(),
             'owners'=>Owner::all(),
             'sections'=>Section::all(),
             'asset_statuses'=>Asset_statuses::all(),
@@ -151,7 +151,9 @@ class LooseDisplayController extends Controller
         //เงิ่อนไข
         $rules = [
             'sapid'=>'required',
+            'owner_id'=>'required',
             'location_id'=>'required',
+            'mobility_id'=>'required',
             'section_id'=>'required',
             'response_person'=>'required',
             'position_id'=>'required',
@@ -169,6 +171,8 @@ class LooseDisplayController extends Controller
         //ข้อความแจ้งเตือน
         $messages = [
             'sapid.required'=>'กรุณาตรวจสอบรหัส SAP',
+            'owner_id.required'=>'กรุณาระบุที่มาของครุภัณฑ์',
+            'mobility_id.required'=>'กรุณาระบุลักษณะการใช้งาน',
             'location_id.required'=>'กรุณาระบุสถานที่ตั้งเครื่อง',
             'section_id.required'=>'กรุณาระบุหน่วยงาน',
             'response_person.required'=>'กรุณาระบุชื่อผู้รับผิดชอบ',
