@@ -16,8 +16,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12 col-lg-6">
+                        <div class="col-sm-12 col-lg-3">
                             <p>ที่มา: {{$loosedisplay->LooseDisplayOwner->name}}</p>
+                        </div>
+                        <div class="col-sm-12 col-lg-3">
+                            <p>ลักษณะการใช้งาน: {{$loosedisplay->LooseDisplayMobility->name}}</p>
                         </div>
                         <div class="col-sm-12 col-lg-6">
                             <p>สถานที่ตั้ง: {{$loosedisplay->LooseDisplayRoom->name}} ชั้น {{$loosedisplay->LooseDisplayRoom->location->floor}} ตึก {{$loosedisplay->LooseDisplayRoom->location->building->name}}</p>
