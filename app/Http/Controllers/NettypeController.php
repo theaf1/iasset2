@@ -16,7 +16,7 @@ class NettypeController extends Controller
     {
         $NetSubtypes = NetSubtype::all(); //รวบรวมข้อมูล
 
-        //เรียกหน้า netsubtypeadmin พร้อมกับส่งตัวแปร NetSubtypes ผ่านตัวแปร netsubtype
+        //เรียกหน้า netsubtypeadmin พร้อมกับส่งตัวแปร NetSubtypes ผ่านตัวแปร netsubtypes
         return view('/admin/netsubtypeadmin')->with([
             'netsubtypes'=>$NetSubtypes,
         ]);
