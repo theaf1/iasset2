@@ -40,7 +40,7 @@
                                     <select name="role_id" id="role_id" class="form-control">
                                         <option value="" hidden></option>
                                         @foreach ($roles as $role)
-                                            <option value="{{$role['id']}}">{{$role['name']}}</option>
+                                            <option value="{{$role['id']}}" {{old('role_id',$user->role_id) == $role['id'] ? 'selected' : '' }}>{{$role['name']}}</option>
                                         @endforeach
                                     </select>
                                 </div>

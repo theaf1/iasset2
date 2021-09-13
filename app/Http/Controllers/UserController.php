@@ -80,7 +80,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $this->validateData($request);
-        return $request->all();
+        User::find($id)->update($request->all());
+        return redirect('/admin/users')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
     }
 
     /**
