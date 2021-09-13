@@ -36,6 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //แสดงความสัมพันธ์กับตาราง Role
     public function UserRole ()
     {
         return $this->belongsTo(Role::class,'role_id');

@@ -13,6 +13,7 @@ class Role extends Model
         'name',
     ];
 
+    //แสดงความสัมพันธ์กับตาราง User
     public function RoleUser ()
     {
         return $this->hasMany(User::class,'role_id');
