@@ -47,7 +47,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data) //กำหนดคุณสมบัติของค่าต่างๆที่ใช้ในการขึ้นทะเบียนผูใช้งานระบบ
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
@@ -62,7 +62,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create(array $data) //เขียนข้อมูลลงลงในตาราง user
     {
         return User::create([
             'name' => $data['name'],
