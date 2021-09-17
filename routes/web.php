@@ -210,3 +210,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin/users','UserController@index');
 Route::get('/admin/users/edit/{id}','UserController@edit');
 Route::post('/admin/users/update/{id}','UserController@update');
+Route::post('/exit','Auth\LoginController@logout');

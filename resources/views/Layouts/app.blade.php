@@ -58,9 +58,10 @@
             <li class="nav-item">
               <a href="{{url('/admin')}}" class="nav-link text-white">สำหรับผู้ดูแลระบบ</a>
             </li> 
-            <li class="nav-item">
-              <a href="#" class="btn btn-sm btn-warning" role="button">ออกจากระบบ</a>
-            </li>
+            <form action="{{url('/exit')}}" method="POST" class="d-flex">
+              @csrf
+              <button type="menu" class="btn btn-warning mr-2">ออกจากระบบ</button>
+            </form>
           </ul>
         </div>
       </nav>
