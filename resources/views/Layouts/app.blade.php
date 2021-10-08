@@ -25,6 +25,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+            @if (Auth::check())
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                เพิ่มครุภัณฑ์
@@ -55,14 +56,17 @@
                 <a class="dropdown-item" href="{{ url('/loosedisplay') }}">แก้ไขข้อมูลจอภาพที่ไม่ได้ต่อกับคอมพิวเตอร์</a>
               </div>
             </li>
+            @endif
             <li class="nav-item">
               <a href="{{url('/admin')}}" class="nav-link text-white">สำหรับผู้ดูแลระบบ</a>
             </li> 
+          </ul>
+          @if (Auth::check())
             <form action="{{url('/exit')}}" method="POST" class="d-flex">
               @csrf
-              <button type="menu" class="btn btn-warning mr-2">ออกจากระบบ</button>
+              <button type="menu" class="btn btn-sm btn-warning mt-4">ออกจากระบบ</button>
             </form>
-          </ul>
+          @endif
         </div>
       </nav>
     @yield('content')
