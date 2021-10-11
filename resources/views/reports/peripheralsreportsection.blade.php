@@ -178,7 +178,7 @@
                 </div>
             @endforeach
             <div class="text-center mt-4">
-                <p>ออกรายงานเมื่อวันที่ {{$now}}</p>
+                <p>ออกรายงานเมื่อวันที่ {{$now}} โดย {{Auth::user()->name}}</p>
                 <a href="{{url('/reports')}}" class="btn btn-primary btn-lg mb-4" role="button">ย้อนกลับ</a>
             </div>
         </div>
