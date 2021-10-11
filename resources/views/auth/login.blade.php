@@ -56,6 +56,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('เข้าสู่ระบบ') }}
                                 </button>
+                                <button type="reset" class="btn btn-danger">{{__('ยกเลิก')}}</button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">

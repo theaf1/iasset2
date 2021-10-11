@@ -76,6 +76,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('ลงทะเบียน') }}
                                 </button>
+                                <button type="reset" class="btn btn-danger">{{__('ยกเลิก')}}</button>
                             </div>
                         </div>
                     </form>
