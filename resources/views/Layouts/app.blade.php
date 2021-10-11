@@ -57,9 +57,11 @@
               </div>
             </li>
             @endif
-            <li class="nav-item">
-              <a href="{{url('/admin')}}" class="nav-link text-white">สำหรับผู้ดูแลระบบ</a>
-            </li> 
+            @if (Auth::check())
+              <li class="nav-item">
+                <a href="{{url('/admin')}}" class="nav-link text-white">สำหรับผู้ดูแลระบบ</a>
+              </li>
+            @endif
           </ul>
           @if (Auth::check())
             <form action="{{url('/exit')}}" method="POST" class="d-flex">
