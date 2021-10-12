@@ -64,6 +64,11 @@
             @endif
           </ul>
           @if (Auth::check())
+               <span class="navbar-text text-white pr-2">
+                  สวัสดี {{Auth::user()->name}}
+               </span> 
+          @endif
+          @if (Auth::check())
             <form action="{{url('/exit')}}" method="POST" class="d-flex">
               @csrf
               <button type="menu" class="btn btn-sm btn-warning mt-4">ออกจากระบบ</button>
