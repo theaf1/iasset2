@@ -52,15 +52,16 @@ class LoginController extends Controller
             //'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
+        $remember = $request->remember;
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
             return redirect('/');
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'username' => 'The provided credentials do not match our records.',
         ]);
     }
 
