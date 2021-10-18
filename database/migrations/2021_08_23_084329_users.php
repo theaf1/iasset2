@@ -22,6 +22,7 @@ class Users extends Migration
             $table->string('remember_token')->bcrypt()->nullable();
             $table->dateTime('email_verified_at')->nullable();
             $table->integer('role_id')->default(1);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

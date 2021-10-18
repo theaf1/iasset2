@@ -45,6 +45,15 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-sm-12 col-lg-6">
+                                
+                                <div class="form-group">
+                                    <label for="is_actine">สถานะผู้ใช้งาน</label>
+                                    <div class="form-check">
+                                        <label for="is_active" class="checkbox-inline"><input class="form-check-input" type="checkbox" name="is_active" id="is_active" {{old('is_active',$user->is_active) == 1 ? 'checked' : ''}}>ใช้งาน</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-lg btn-success">Submit</button>
