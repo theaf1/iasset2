@@ -25,7 +25,7 @@
                     <h4>รายชื่อระบบปฏิบัติการเครือข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/admin/addserverop')}}" class="btn btn-block btn-primary">เพิ่มชื่อระบบปฏิบัติการ</a>
+                    <a href="{{url('/admin/addserverop')}}" class="btn btn-primary">เพิ่มชื่อระบบปฏิบัติการ</a>
                     <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
@@ -45,7 +45,7 @@
                         </tbody>
                     </table>
                     <div class="text-center mt-4">
-                        <a href="{{url('/admin')}}" class="btn btn-secondary btn-block" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
+                        <a href="{{url('/admin')}}" class="btn btn-secondary" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,7 @@
                     <h4>รายการประเภทอุปกรณ์เครือข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/admin/addnetsubtype')}}" class="btn btn-block btn-primary" role="button">เพิ่มประเภทอุปกรณ์เครือข่าย</a>
+                    <a href="{{url('/admin/addnetsubtype')}}" class="btn btn-primary" role="button">เพิ่มประเภทอุปกรณ์เครือข่าย</a>
                     <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
@@ -45,7 +45,7 @@
                         </tbody>
                     </table>
                     <div class="text-center mt-4">
-                        <a href="{{url('/admin')}}" class="btn btn-secondary btn-block" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
+                        <a href="{{url('/admin')}}" class="btn btn-secondary" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
                     </div>
                 </div>
             </div>

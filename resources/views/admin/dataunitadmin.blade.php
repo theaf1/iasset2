@@ -25,7 +25,7 @@
                     <h4>รายการหน่วยวัดปริมาณข้อมูล</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/admin/adddataunit')}}" class="btn btn-primary btn-block btn-lg mt-4" role="button">เพิ่มหน่วยวัดปริมาณข้อมูล</a>
+                    <a href="{{url('/admin/adddataunit')}}" class="btn btn-primary btn-lg mt-4" role="button">เพิ่มหน่วยวัดปริมาณข้อมูล</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>

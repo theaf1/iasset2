@@ -25,7 +25,7 @@
                 <h4>รายชื่อสถานะการใช้งานครุภัณฑ์</h4>
             </div>
             <div class="card-body">
-                <a href="{{url('/admin/addassetusestatus')}}" class="btn btn-primary btn-block" role="button">เพิ่มสถานะการใช้งานครุภัณฑ์</a>
+                <a href="{{url('/admin/addassetusestatus')}}" class="btn btn-primary" role="button">เพิ่มสถานะการใช้งานครุภัณฑ์</a>
                 <table class="table table-hover table-responsive">
                     <thead>
                         <tr>
@@ -45,7 +45,7 @@
                     </tbody>
                 </table>
                 <div class="text-center mt-4">
-                    <a href="{{url('/admin')}}" class="btn btn-secondary btn-block" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
+                    <a href="{{url('/admin')}}" class="btn btn-secondary" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
                 </div>
             </div>
         </div>

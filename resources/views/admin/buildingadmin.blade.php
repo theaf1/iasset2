@@ -25,7 +25,7 @@
                     <h4>รายชื่ออาคาร</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/admin/addbuilding')}}" class="btn btn-primary btn-block" role="button">เพิ่มอาคาร</a>
+                    <a href="{{url('/admin/addbuilding')}}" class="btn btn-primary" role="button">เพิ่มอาคาร</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>

@@ -25,7 +25,7 @@
                     <h4>รายชื่อสถานะทางบัญชีครุภัณฑ์</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/admin/addassetstatus')}}" class="btn btn-primary btn-block">เพิ่มสถานะทางบัญชีครุภัณฑ์</a>
+                    <a href="{{url('/admin/addassetstatus')}}" class="btn btn-primary">เพิ่มสถานะทางบัญชีครุภัณฑ์</a>
                     <table class="table table-responsive table_hover">
                         <thead>
                             <tr>
@@ -45,7 +45,7 @@
                         </tbody>
                     </table>
                     <div class="text-center mt-4">
-                        <a href="{{url('/admin')}}" class="btn btn-secondary btn-block" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
+                        <a href="{{url('/admin')}}" class="btn btn-secondary" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,7 @@
                 <h4>รายชื่อหน่วยงาน</h4>
             </div>
             <div class="card-body">
-                <a href="{{url('/admin/addsection')}}" class="btn btn-primary btn-block">เพิ่มหน่วยงาน</a>
+                <a href="{{url('/admin/addsection')}}" class="btn btn-primary">เพิ่มหน่วยงาน</a>
                 <table class="table table-responsive table-hover mt-4">
                     <thead>
                         <tr>
@@ -45,7 +45,7 @@
                     </tbody>
                 </table>
                 <div class="text-center mt-4">
-                    <a href="{{url('/admin')}}" class="btn btn-secondary btn-block" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
+                    <a href="{{url('/admin')}}" class="btn btn-secondary" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
                 </div>
             </div>
         </div>

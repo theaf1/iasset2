@@ -25,7 +25,7 @@
                     <h4>รายการชนิดของครุภัณฑ์คอมพิวเตอร์</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/admin/addclienttype')}}" class="btn btn-block btn-primary" role="button">เพิ่มชนิดของครุภัณฑ์คอมพิวเตอร์</a>
+                    <a href="{{url('/admin/addclienttype')}}" class="btn btn-primary" role="button">เพิ่มชนิดของครุภัณฑ์คอมพิวเตอร์</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>

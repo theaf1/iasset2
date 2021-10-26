@@ -25,7 +25,7 @@
                     <h5>รายการชนิดจอภาพ</h5>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/admin/adddisplaytype')}}" class="btn btn-block btn-primary mt-4" role="button">เพิ่มชนิดจอภาพ</a>
+                    <a href="{{url('/admin/adddisplaytype')}}" class="btn btn-primary mt-4" role="button">เพิ่มชนิดจอภาพ</a>
                     <table class="table table-hover table-responsive mt-4">
                         <thead>
                             <tr>
@@ -45,7 +45,7 @@
                         </tbody>
                     </table>
                     <div class="text-center mt-4">
-                        <a href="{{url('/admin')}}" class="btn btn-secondary btn-block" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
+                        <a href="{{url('/admin')}}" class="btn btn-secondary" role="button">กลับไปเมนูผู้ดูแลระบบ</a>
                     </div>
                 </div>
             </div>
