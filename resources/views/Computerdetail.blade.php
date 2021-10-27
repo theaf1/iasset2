@@ -331,7 +331,7 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="{{url('/client')}}" class="btn btn-info btn-lg btn-block mb-4" role="button">ย้อนกลับ</a>
+                <a href="{{url('/client')}}" class="btn btn-info btn-lg mb-4" role="button">ย้อนกลับ</a>
             </div>
         </div>
     </div>

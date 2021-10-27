@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="text-center mt-4">
-            <a href="{{ url('/loosedisplay') }}" class="btn btn-block btn-lg btn-info mb-4" role="button">ย้อนกลับ</a>
+            <a href="{{ url('/loosedisplay') }}" class="btn btn-lg btn-info mb-4" role="button">ย้อนกลับ</a>
         </div>
     </div>
 @endsection

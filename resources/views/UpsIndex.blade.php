@@ -25,7 +25,7 @@
                     <h4>บัญชีเครื่องสำรองไฟฟ้า</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{ url('/ups') }}" class="btn btn-primary btn-block btn-lg" role="button">เพิ่มเครื่องสำรองไฟฟ้า</a>
+                    <a href="{{ url('/ups') }}" class="btn btn-primary btn-lg" role="button">เพิ่มเครื่องสำรองไฟฟ้า</a>
                     <form action="{{url('/upses')}}" method="get" role="search">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6 mt-4">
@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-3 mt-5">
                                 <div class="form-group">
-                                    <button class="btn btn-primary btn-block" type="submit">ค้นหา</button>
+                                    <button class="btn btn-primary" type="submit">ค้นหา</button>
                                 </div>
                             </div>
                         </div>

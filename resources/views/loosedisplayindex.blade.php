@@ -25,7 +25,7 @@
                     <h4>บัญชีจอภาพที่ไม่ได้ใช้กับคอมพิวเตอร์</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{url('/addloosedisplay')}}" class="btn btn-primary btn-lg btn-block" role="button">เพิ่มจอภาพที่ไม่ได้ใช้กับคอมพิวเตอร์</a>
+                    <a href="{{url('/addloosedisplay')}}" class="btn btn-primary btn-lg" role="button">เพิ่มจอภาพที่ไม่ได้ใช้กับคอมพิวเตอร์</a>
                     <form action="{{url('/loosedisplay')}}" method="get" role="search">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6 mt-4">
@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-3 mt-5">
                                 <div class="form-group">
-                                    <button class="btn btn-primary btn-block" type="submit">ค้นหา</button>
+                                    <button class="btn btn-primary" type="submit">ค้นหา</button>
                                 </div>
                             </div>
                         </div>

@@ -287,7 +287,7 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="{{ url('/servers') }}" class="btn btn-lg btn-block btn-info mb-4" role="button">ย้อนกลับ</a>
+                <a href="{{ url('/servers') }}" class="btn btn-lg btn-info mb-4" role="button">ย้อนกลับ</a>
             </div>
         </div>
     </div>
