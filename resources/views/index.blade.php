@@ -3,11 +3,11 @@
     <div class="container-fluid">
         <div class="col-12 mx-auto">
             <form action="{{ url('/') }}" method="get" role="search" >
-                <div class="form-row mt-4">
+                <div class="row mt-4">
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
-                            <label for="search_class">ต้องการค้นหา</label>
-                            <select name="search_class" id="search_class" class="form-control @error('search_class') is-invalid @enderror">
+                            <label for="search_class" class="form-label">ต้องการค้นหา</label>
+                            <select name="search_class" id="search_class" class="form-select @error('search_class') is-invalid @enderror">
                                 <option value="" hidden></option>
                                 @foreach ($searches as $search)
                                     <option value="{{ $search['id'] }}">{{ $search['ui_name'] }}</option>
@@ -22,8 +22,8 @@
                     </div>
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
-                            <label for="search_column">สถานที่ตั้งเครื่อง</label>
-                            <select class="form-control" name="search_column" id="search_column">
+                            <label for="search_column" class="form-label">สถานที่ตั้งเครื่อง</label>
+                            <select class="form-select" name="search_column" id="search_column">
                                 <option value="" hidden></option>
                                 @foreach($rooms as $room)
                                     <option value="{{$room['id']}}">{{$room['name']}}</option>
@@ -32,17 +32,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row">    
+                <div class="row">    
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
-                            <label for="keyword">คำสำคัญที่ใช้ในการค้นหา</label>
+                            <label for="keyword" class="form-label">คำสำคัญที่ใช้ในการค้นหา</label>
                             <input type="text" name="keyword" id="keyword" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-6">
                         <div class="form-group">
-                            <label for="per_page">ผลการค้นหาต่อหน้า</label>
-                            <select name="per_page" id="per_page" class="form-control">
+                            <label for="per_page" class="form-label">ผลการค้นหาต่อหน้า</label>
+                            <select name="per_page" id="per_page" class="form-select">
                                 <option value="2">2</option>
                                 <option value="10">10</option>
                                 <option value="20" selected>20</option>

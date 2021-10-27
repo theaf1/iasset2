@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group row">
+                        <div class="row pb-3">
                             <label for="username" class="col-md-4 col-form-label text-md-right">ชื่อผู้ใช้งาน</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{old('username')}}" required autocomplete="username" autofocus>
@@ -36,7 +36,7 @@
                             </div>
                         </div> --}}
 
-                        <div class="form-group row">
+                        <div class="form-group row pb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }}</label>
 
                             <div class="col-md-6">
@@ -50,7 +50,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row pb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>

@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        <div class="form-group row">
+                        <div class="row pb-3">
                             <label for="username" class="col-md-4 col-form-label text-md-right">{{__('User Name')}}</label>
                             <div class="col-md-6">
                                 <input type="text" name="username" id="username" class="form-control">
@@ -21,7 +21,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="row pb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อในระบบ') }}</label>
 
                             <div class="col-md-6">
@@ -35,7 +35,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row pb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('ที่อยู่ E-mail') }}</label>
 
                             <div class="col-md-6">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row pb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }}</label>
 
                             <div class="col-md-6">
@@ -63,7 +63,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row pb-3">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('ยืนยันรหัสผ่าน') }}</label>
 
                             <div class="col-md-6">
