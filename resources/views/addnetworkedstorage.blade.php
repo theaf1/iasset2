@@ -16,10 +16,10 @@
                     <div class="card-body">
                         <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
-                                    <label for="sapid">รหัส SAP</label>
+                                    <label for="sapid" class="form-label">รหัส SAP</label>
                                     <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" value="{{ old('sapid') }}"><button type="button" class="btn btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
                                     <small id="sapid" class="form-text">กรุณาใส่รหัส SAP 12 หลักหากไม่มีให้กดปุ่ม "ให้รหัสภายใน"</small>
                                     @error('sapid')
@@ -31,12 +31,12 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
                                 <div class="form-group">
-                                    <label for="pid">รหัสครุภัณฑ์</label>
+                                    <label for="pid" class="form-label">รหัสครุภัณฑ์</label>
                                     <input type="text" class="form-control" id="pid" name="pid" value="{{ old('pid') }}">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ห้อง-->
                                 <div class="form-group">
                                     <label for="room">ห้อง</label>
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->    
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
                                     <label for="location">ชั้น</label>
@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section">หน่วยงาน</label>
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                                 <div class="form-group">
                                     <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
@@ -138,7 +138,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--สถานะครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="asset_status">สถานะของครุภัณฑ์</label>
@@ -179,7 +179,7 @@
                         <h4>คุณลักษณะของครุภัณฑ์</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ชนิด-->
                                 <div class="form-group">
                                     <label for="type">ชนิดของอุปกรณ์</label> 
@@ -198,7 +198,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
                                     <label for="brand">ยี่ห้อ</label>
@@ -222,7 +222,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--serial no.-->
                                 <div class="form-group">
                                     <label for="serial_no">Serial Number</label>
@@ -257,7 +257,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--จำนวน HDD สูงสุด-->
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
@@ -281,7 +281,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ชื่อเครื่อง-->
                                 <div class="form-group">
                                     <label for="device_name">ชื่อเครื่อง</label>
@@ -305,7 +305,7 @@
                                 </div>                       
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--address รับส่งข้อมูล-->
                                 <div class="form-group">
                                     <label for="device_communication_address">Address ที่ใช้รับส่งข้อมูล</label>
@@ -320,7 +320,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--protocol-->
                                 <div class="form-group">
                                     <label for="type">Protocol ที่ใช้รับส่งข้อมูล</label>
-                                    <div class="form-check form-check-inline pl-2">
+                                    <div class="form-check-inline pl-2">
                                         <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_smb" id="smb" value="1" {{ old('is_smb') == 1 ? 'checked' : '' }}><label for="smb">SMB</label></label>
                                         <label class="form-check-label pl-2"><input type="checkbox" class="form-check-input" name="is_fc" id="fc" value="1" {{ old('is_fc') == 1 ? 'checked' : '' }}><label for="is_fc">Fiber Channel</label></label>
                                         <label class="form-check-label pl-2"><input type="checkbox" class="form-check-input" name="is_iscsi" id="iscsi" value="1" {{ old('is_iscsi') == 1 ? 'checked' : '' }}><label for="iscsi">iSCSI</label></label>
@@ -335,7 +335,7 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
                                     <label for="remarks">หมายเหตุ</label><br>
