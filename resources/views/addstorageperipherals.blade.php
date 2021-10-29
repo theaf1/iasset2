@@ -16,10 +16,10 @@
                     <div class="card-body">
                         <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
-                                    <label for="sapid">รหัส SAP</label>
+                                    <label for="sapid" class="form-label">รหัส SAP</label>
                                     <input type="text" class="form-control  @error('sapid') is-invalid @enderror" id="sapid" name="sapid" value="{{ old('sapid') }}"><button type="button" class="btn btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
                                     <small id="sapid" class="form-text">กรุณาใส่รหัส SAP 12 หลักหากไม่มีให้กดปุ่ม "ให้รหัสภายใน"</small>
                                     @error('sapid')
@@ -31,15 +31,15 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
                                 <div class="form-group">
-                                    <label for="pid">รหัสครุภัณฑ์</label>
+                                    <label for="pid"class="form-label">รหัสครุภัณฑ์</label>
                                     <input type="text" class="form-control" id="pid" name="pid" value="{{ old('pid') }}">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"><!--ห้อง-->
                                 <div class="form-group">
-                                    <label for="room">ห้อง</label>
+                                    <label for="room" class="form-label">ห้อง</label>
                                     <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"/ value="{{ old('room') }}">
                                     @error('location_id')
                                         <div class="invalid-feedback">
@@ -50,22 +50,22 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
-                                    <label for="building">ตึก</label>
+                                    <label for="building" class="form-label">ตึก</label>
                                     <output type="text" class="form-control" name="building" id="building" />
                                 </div>
                             </div>
                         </div>
                         <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->    
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
-                                    <label for="location">ชั้น</label>
+                                    <label for="location" class="form-label">ชั้น</label>
                                     <output type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--ลักษณะการติดตั้ง-->
                                 <div class="form-group">
-                                    <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
+                                    <label for="is_mobile" class="form-label">ลักษณะการติดตั้ง</label><br>
                                     <div class="form-check form-check-inline">
                                         @foreach ($mobiles as $mobile)
                                             <input class="form-check-input @error('mobility_id') is-invalid @enderror" type="radio" name="mobility_id" id="is_mobile" value="{{ $mobile['id'] }}" {{ old('mobility_id') == $mobile['id'] &&old('mobility_id') !==null ? 'checked' : '' }}>
@@ -80,11 +80,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
-                                    <label for="section">หน่วยงาน</label>
-                                    <select class="form-control @error('section_id') is-invalid @enderror" name="section_id" id="section">
+                                    <label for="section" class="form-label">หน่วยงาน</label>
+                                    <select class="form-select @error('section_id') is-invalid @enderror" name="section_id" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
                                             <option value="{{ $section['id'] }}" {{ old('section_id') == $section['id'] ? 'selected' : '' }}>{{ $section['name'] }}</option>
@@ -98,10 +98,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-3">  <!-- จำนวนผู้ใช้งาน -->
                                 <div class="form-group">
-                                    <label for="multi_user">จำนวนผู้ใช้งาน</label>
+                                    <label for="multi_user" class="form-label">จำนวนผู้ใช้งาน</label>
                                     <div class="form-check">
                                         @foreach ($multiusers as $multiuser)
                                             <input class="form-check-input @error('multi_user_id') is-invalid @enderror" type="radio" name="multi_user_id" id="multi_user" value="{{ $multiuser['id'] }}" {{ old('multi_user_id') == $multiuser['id'] ? 'checked' : ''}}>
@@ -117,7 +117,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-3"> <!--ชื่อผู้ใช้งาน-->
                                 <div class="form-group">
-                                    <label for="user">ชื่อผู้ใช้งาน</label><br>
+                                    <label for="user" class="form-label">ชื่อผู้ใช้งาน</label><br>
                                     <input type="text" class="form-control @error('user') is-invalid @enderror" id="user" name="user" value="{{ old('user') }}">
                                     @error('user')
                                         <div class="invalid-feedback">
@@ -128,8 +128,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--ตำแหน่งผู้ใช้งาน-->
                                 <div class="form-group">
-                                    <label for="position">ตำแหน่งผู้ใช้งาน</label>
-                                    <select class="form-control @error('position_id') is-invalid @enderror" name="position_id" id="position">
+                                    <label for="position" class="form-label">ตำแหน่งผู้ใช้งาน</label>
+                                    <select class="form-select @error('position_id') is-invalid @enderror" name="position_id" id="position">
                                         <option value="" hidden></option>
                                         @foreach ($positions as $position)
                                             <option value="{{ $position['id'] }}" {{ old('position_id') == $position['id'] ? 'selected' : ''}}>{{ $position['name'] }}</option>
@@ -143,10 +143,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                                 <div class="form-group">
-                                    <label for="tel_no">หมายเลขโทรศัพท์</label>
+                                    <label for="tel_no" class="form-label">หมายเลขโทรศัพท์</label>
                                     <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" value="{{ old('tel_no') }}">
                                     @error('tel_no')
                                         <div class="invalid-feedback">
@@ -157,7 +157,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
                                 <div class="form-group">
-                                    <label for="owner">เจ้าของเครื่อง</label><br>
+                                    <label for="owner" class="form-label">เจ้าของเครื่อง</label><br>
                                     <div class="form-check">
                                         @foreach ($owners as $owner)
                                             <input class="form-check-input @error('owner_id') is-invalid @enderror" type="radio" name="owner_id" id="owner" value="{{ $owner['id'] }}" {{ old('owner_id') == $owner['id'] ? 'checked' : ''}}>
@@ -172,11 +172,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                                 <div class="form-group">
-                                    <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                    <select class="form-control @error('asset_status_id') is-invalid @enderror" name="asset_status_id" id="asset_status">
+                                    <label for="asset_status" class="form-label">สถานะของครุภัณฑ์</label>
+                                    <select class="form-select @error('asset_status_id') is-invalid @enderror" name="asset_status_id" id="asset_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_statuses as $asset_status)
                                             <option value="{{ $asset_status['id'] }}" {{ old('asset_status_id') == $asset_status['id'] ? 'selected' : '' }}>{{ $asset_status['name'] }}</option>
@@ -191,8 +191,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--สถานะการใช้งาน-->
                                 <div class="form-group">
-                                    <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                    <select class="form-control @error('asset_use_status_id') is-invalid @enderror" name="asset_use_status_id" id="asset_use_status">
+                                    <label for="asset_use_status" class="form-label">สถานะการใช้งานของครุภัณฑ์</label>
+                                    <select class="form-select @error('asset_use_status_id') is-invalid @enderror" name="asset_use_status_id" id="asset_use_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_use_statuses as $asset_use_status)
                                             <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status_id') == $asset_use_status['id'] ? 'selected' : '' }}>{{ $asset_use_status['name'] }}</option>
@@ -213,7 +213,7 @@
                         <h4>คุณสมบัติของเครื่อง</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
                                     <label for="brand">ยี่ห้อ</label>
@@ -237,7 +237,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--serial number-->
                                 <div class="form-group">
                                     <label for="serial_no">Serial Number จากผู้ผลิต</label>
@@ -266,7 +266,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ความจุข้อมูล-->
                                 <div class="form-group">
                                     <label for="total_capacity">ความจุข้อมูล</label>
@@ -298,7 +298,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--จำนวน Hard Disk สูงสุดที่ยอมรับได้-->
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
@@ -329,7 +329,7 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
                                     <label for="remarks">หมายเหตุ</label><br>

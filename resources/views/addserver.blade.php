@@ -16,10 +16,10 @@
                     <div class="card-body">
                         <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
-                                    <label for="sapid">รหัส SAP</label>
+                                    <label for="sapid" class="form-label">รหัส SAP</label>
                                     <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" autofocus value="{{ old('sapid') }}"><button type="button" class="btn btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
                                     <small id="sapid" class="form-text">กรุณาใส่รหัส SAP 12 หลักหากไม่มีให้กดปุ่ม "ให้รหัสภายใน"</small>
                                     @error('sapid')
@@ -31,15 +31,15 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รห้สครุภัณฑ์-->
                                 <div class="form-group">
-                                    <label for="pid">รหัสครุภัณฑ์</label>
+                                    <label for="pid" class="form-label">รหัสครุภัณฑ์</label>
                                     <input type="text" class="form-control" id="pid" name="pid" value="{{ old('pid') }}">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ที่ตั้ง-->
                                 <div class="form-group">
-                                    <label for="room_autocomplete">สถานที่ตั้ง</label>
+                                    <label for="room_autocomplete" class="form-label">สถานที่ตั้ง</label>
                                     <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete" placeholder="กรุณาระบุห้องที่เครื่องตั้งอยู่" value="{{ old('room') }}"/>
                                     @error('location_id')
                                         <div class="invalid-feedback">
@@ -50,22 +50,22 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
-                                    <label for="building">ตึก</label>
+                                    <label for="building" class="form-label">ตึก</label>
                                     <output type="text" class="form-control" name="building" id="building" disabled/>
                                 </div>
                             </div>
                         </div>
                         <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->    
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
-                                    <label for="location">ชั้น</label>
+                                    <label for="location" class="form-label">ชั้น</label>
                                     <output type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--การติดตั้ง-->
                                 <div class="form-group">
-                                <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
+                                <label for="is_mobile" class="form-label">ลักษณะการติดตั้ง</label><br>
                                     <div class="form-check form-check-inline">
                                         @foreach ($mobiles as $mobile)
                                             <input class="form-check-input @error('mobility_id') is-invalid @enderror" type="radio" name="mobility_id" id="is_mobile" value="{{ $mobile['id'] }}" {{ old('mobility_id') == $mobile['id'] && old('mobility_id') !== null ? 'checked' : '' }}>
@@ -80,11 +80,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
-                                <label for="section">หน่วยงาน</label>
-                                    <select class="form-control @error('section_id') is-invalid @enderror" name="section_id" id="section">
+                                <label for="section" class="form-label">หน่วยงาน</label>
+                                    <select class="form-select @error('section_id') is-invalid @enderror" name="section_id" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
                                             <option value="{{ $section['id'] }}" {{ old('section_id') == $section['id'] ? 'selected' : ''}}>{{ $section['name'] }}</option>
@@ -99,7 +99,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--เบอร์โทร-->
                                 <div class="form-group">
-                                    <label for="tel_no">หมายเลขโทรศัพท์</label>
+                                    <label for="tel_no" class="form-label">หมายเลขโทรศัพท์</label>
                                 <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" placeholder="9-9999" value="{{ old('tel_no') }}">
                                     @error('tel_no')
                                         <div class="invalid-feedback">
@@ -109,11 +109,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                                 <div class="form-group">
-                                    <label for="response_person">ชื่อผู้รับผิดชอบ</label><br>
-                                <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person" value="{{ old('response_person') }}">
+                                    <label for="response_person" class="form-label">ชื่อผู้รับผิดชอบ</label><br>
+                                    <input type="text" class="form-control @error('response_person') is-invalid @enderror" id="response_person" name="response_person" value="{{ old('response_person') }}">
                                     @error('response_person')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -123,7 +123,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
                                 <div class="form-group">
-                                    <label for="owner">เจ้าของเครื่อง</label><br>
+                                    <label for="owner" class="form-label">เจ้าของเครื่อง</label><br>
                                     <div class="form-check">
                                         @foreach ($owners as $owner)
                                             <input class="form-check-input @error('owner_id') is-invalid @enderror" type="radio" name="owner_id" id="owner" value="{{ $owner['id'] }}" {{ old('owner_id') == $owner['id'] ? 'checked' : ''}}>
@@ -138,11 +138,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                         <div class="col-sm-12 col-lg-6"> <!--สถานะครุภัณฑ์-->
                             <div class="form-group">
-                                <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                <select class="form-control @error('asset_status_id') is-invalid @enderror" name="asset_status_id" id="asset_status">
+                                <label for="asset_status" class="form-label">สถานะของครุภัณฑ์</label>
+                                <select class="form-select @error('asset_status_id') is-invalid @enderror" name="asset_status_id" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_statuses as $asset_status)
                                         <option value="{{ $asset_status['id'] }}" {{ old('asset_status_id') == $asset_status['id'] ? 'selected' : '' }}>{{ $asset_status['name'] }}</option>
@@ -157,8 +157,8 @@
                         </div>
                         <div class="col-sm-12 col-lg-6"><!--สถานะการใช้งาน-->
                             <div class="form-group">
-                            <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                <select class="form-control @error('asset_use_status_id') is-invalid @enderror" name="asset_use_status_id" id="asset_status">
+                            <label for="asset_use_status" class="form-label">สถานะการใช้งานของครุภัณฑ์</label>
+                                <select class="form-select @error('asset_use_status_id') is-invalid @enderror" name="asset_use_status_id" id="asset_status">
                                     <option value="" hidden></option>
                                     @foreach($asset_use_statuses as $asset_use_status)
                                         <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status_id') == $asset_use_status['id'] ? 'selected' : '' }}>{{ $asset_use_status['name'] }}</option>
@@ -179,10 +179,10 @@
                         <h4>คุณสมบัติของเครื่อง</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
-                                    <label for="brand">ยี่ห้อ</label>
+                                    <label for="brand" class="form-label">ยี่ห้อ</label>
                                 <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text" value="{{ old('brand') }}">
                                     @error('brand')
                                         <div class="invalid-feedback">
@@ -193,7 +193,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                                 <div class="form-group">
-                                    <label for="model">รุ่น</label>
+                                    <label for="model" class="form-label">รุ่น</label>
                                 <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text" value="{{ old('model') }}">
                                     @error('model')
                                         <div class="invalid-feedback">
@@ -203,10 +203,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"><!--serial no.-->
                                 <div class="form-group">
-                                    <label for="serial_no">Serial Number จากผู้ผลิต</label>
+                                    <label for="serial_no" class="form-label">Serial Number จากผู้ผลิต</label>
                                     <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
                                     @error('serial_no')
                                         <div class="invalid-feedback">
@@ -217,7 +217,7 @@
                             </div>              
                             <div class="col-sm-12 col-lg-6"> <!--form factor-->
                                 <div class="form-group">
-                                    <label for="form-factor">ลักษณะของเครื่อง</label>
+                                    <label for="form-factor" class="form-label">ลักษณะของเครื่อง</label>
                                     <div class="form-check">
                                         @foreach($forms as $form)
                                             <input class="form-check-input" type="radio" name="form_factor_id" id="form_factor" value="{{ $form['id'] }}" {{ old('form_factor_id') == $form['id'] ? 'checked' : '' }}>
@@ -227,10 +227,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">    
+                        <div class="row">    
                             <div class="col-sm-12 col-lg-6"> <!--cpu model-->
                                 <div class="form-group">
-                                    <label for="cpu_model">CPU Model</label>
+                                    <label for="cpu_model" class="form-label">CPU Model</label>
                                 <input class="form-control @error('cpu_model') is-invalid @enderror" name="cpu_model" id="cpu_model" type="text" value="{{ old('cpu_model') }}">
                                     @error('cpu_model')
                                         <div class="invalid-feedback">
@@ -241,7 +241,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--cpu speed-->
                                 <div class="form-group">
-                                    <label for="cpu_speed">CPU Speed (GHz)</label>
+                                    <label for="cpu_speed" class="form-label">CPU Speed (GHz)</label>
                                 <input class="form-control @error('cpu_speed') is-invalid @enderror" name="cpu_speed" id="cpu_speed" type="number" min="0" step="0.1" value="{{ old('cpu_speed') }}">
                                     @error('cpu_speed')
                                         <div class="invalid-feedback">
@@ -251,11 +251,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--socket-->
                                 <div class="form-group">
-                                    <label for="cpu_socket_no">จำนวน Socket CPU</label>
-                                <input class="form-control @error('cpu_socket_no') is-invalid @enderror" name="cpu_socket_no" id="cpu_socket_no" type="number" min="0" value="{{ old('cpu_socket_no') }}">
+                                    <label for="cpu_socket_no" class="form-label">จำนวน Socket CPU</label>
+                                    <input class="form-control @error('cpu_socket_no') is-invalid @enderror" name="cpu_socket_no" id="cpu_socket_no" type="number" min="0" value="{{ old('cpu_socket_no') }}">
                                     @error('cpu_socket_no')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -265,8 +265,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--RAM-->
                                 <div class="form-group">
-                                    <label for="ram_size">RAM Size (GB)</label>
-                                <input class="form-control @error('ram_size') is-invalid @enderror" name="ram_size" id="ram_size" type="number" min="0" step="0.1" value="{{ old('ram_size') }}">
+                                    <label for="ram_size" class="form-label">RAM Size (GB)</label>
+                                    <input class="form-control @error('ram_size') is-invalid @enderror" name="ram_size" id="ram_size" type="number" min="0" step="0.1" value="{{ old('ram_size') }}">
                                     @error('ram_size')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -275,10 +275,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--raid-->
                                 <div class="form-group">
-                                    <label for="is_raid">RAID</label><br>
+                                    <label for="is_raid" class="form-label">RAID</label><br>
                                     <div class="form-check-inline">
                                         <label class="form-check-label"><input type="checkbox" class="form-check-input" name="is_raid" id="is_raid" value="1" {{ old('is_raid') == 1 ? 'checked' : ''}}><label for="is_raid">RAID</label></label>
                                     </div>
@@ -286,7 +286,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-3"><!--HDD สูงสุด-->
                                 <div class="form-group">
-                                    <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้ (ลูก)</label>
+                                    <label for="no_of_physical_drive_max" class="form-label">จำนวน Hard Disk สูงสุดที่ยอมรับได้ (ลูก)</label>
                                     <input class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" value="{{ old('no_of_physical_drive_max') }}">
                                     @error('no_of_physical_drive_max')
                                         <div class="invalid-feedback">
@@ -297,7 +297,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-3"> <!--จำนวน Hard Disk ที่มีอยู่-->
                                 <div class="form-group">
-                                    <label for="no_of_physical_drive_populated">จำนวน Hard Disk ที่มีอยู่ (ลูก)</label>
+                                    <label for="no_of_physical_drive_populated" class="form-label">จำนวน Hard Disk ที่มีอยู่ (ลูก)</label>
                                     <input class="form-control @error('no_of_physical_drive_populated') is-invalid @enderror" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" type="number" min="2" value="{{ old('no_of_physical_drive_populated') }}">
                                     @error('no_of_physical_drive_populated')
                                         <div class="invalid-feedback">
@@ -307,10 +307,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class='form-row'>
+                        <div class='row'>
                             <div class="col-sm-12 col-lg-6"> <!--HDD capacity-->
                                 <div class="form-group">
-                                    <label for=hdd_total_cap>ความจุรวมของ HDD</label>
+                                    <label for=hdd_total_cap class="form-label">ความจุรวมของ HDD</label>
                                         <div class="form-check-inline pl-1">
                                             @foreach ($dataunits as $dataunit)
                                                 <input type="radio" class="form-check-input @error('data_unit_id') is-invalid @enderror" name="data_unit_id" id="data_unit" value="{{ $dataunit['id'] }}" {{ old('data_unit_id') == $dataunit['id'] ? 'checked' : '' }}>
@@ -332,8 +332,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
                                 <div class="form-group"> 
-                                    <label for="display_count">จำนวนจอที่ใช้งาน</label>
-                                    <select class="form-control @error('display_count') is-invalid @enderror" id="display_count" name="display_count" onchange="displayCountSelected(this)">
+                                    <label for="display_count" class="form-label">จำนวนจอที่ใช้งาน</label>
+                                    <select class="form-select @error('display_count') is-invalid @enderror" id="display_count" name="display_count" onchange="displayCountSelected(this)">
                                         <option value="" hidden></option>
                                         <option value="1" {{ old('display_count', session()->has('display_count')) == 1 ? 'selected' : ''}}>1</option>
                                         <option value="2" {{ old('display_count', session()->has('display_count')) == 2 ? 'selected' : ''}}>2</option>
@@ -351,33 +351,33 @@
                         @if (session()->has('displayCount')) <!--script จอภาพ-->
                             <?php $displayCount = session()->get('displayCount') ? session()->get('displayCount') : $server->DisplayServer->count() ?>
                             @for ($i = 0; $i < session()->get('displayCount') ; $i++)
-                                <div class="card mb-2">
+                                <div class="card mt-2 mb-2">
                                     <div class="card-header">
                                         จอภาพที่ {{ $i+1 }}
                                     </div>
                                     <div class="card-body pt-1 pb-1" >
-                                        <div class="form-row">   
+                                        <div class="row">   
                                             <div class="col-sm-12 col-lg-3"> <!--sap จอ-->
                                                 <div class="form-group">
-                                                    <label for="display_sapid">SAP จอ</label>
+                                                    <label for="display_sapid" class="form-label">SAP จอ</label>
                                                     <input class="form-control" name="display_sapid[]" id="display_sapid" type="text" value="{{ old('display_sapid.' . $i) }}">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-lg-3"> <!--ครุภัณฑ์จอ-->
                                                 <div class="form-group">
-                                                    <label for="display_pid">รหัสครุภัณฑ์จอภาพ</label>
+                                                    <label for="display_pid" class="form-label">รหัสครุภัณฑ์จอภาพ</label>
                                                     <input class="form-control" name="display_pid[]" id="display_pid" type="text" value="{{ old('display_pid.' . $i) }}">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
                                                 <div class="form-group">
-                                                    <label for="display_size">ขนาดจอภาพ (นิ้ว)</label>
+                                                    <label for="display_size" class="form-label">ขนาดจอภาพ (นิ้ว)</label>
                                                     <input class="form-control" name="display_size[]" id="display_size" type="number" step="0.1" min="0" value="{{ old('display_size.' . $i) }}">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-lg-3">
                                                 <div class="form-group">
-                                                    <label for="display_ratio">สัดส่วนจอภาพ</label>
+                                                    <label for="display_ratio" class="form-label">สัดส่วนจอภาพ</label>
                                                     <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" pattern="{0-9}:{0-9}" value="{{ old('display_ratio.' . $i) }}">
                                                 </div>
                                             </div>
@@ -393,10 +393,10 @@
                         <h4>ข้อมูลด้าน Software</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--OS-->
                                 <div class="form-group">
-                                    <label for="os">OS</label>
+                                    <label for="os" class="form-label">OS</label>
                                     <select class="form-control @error('os_id') is-invalid @enderror" name="os_id" id="os">
                                         <option value="" hidden></option>
                                         @foreach($server_oses as $server_os)
@@ -412,24 +412,22 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--os architecture-->
                                 <div class="form-group">
-                                    <label for="os_arch">OS architecture</label><br>
-                                    <div class="form-check form-check-inline">
-                                        <div class="form-check-inline">
-                                            @foreach ($os_arches as $os_arch)
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="os_arch_id" id="os_arch" value="{{ $os_arch['id'] }}" {{ old('os_arch_id') == $os_arch['id'] ? 'checked' : '' }}><label for="os_arch"> {{ $os_arch['name'] }}</label>
-                                                </label>
-                                            @endforeach
-                                        </div>
+                                    <label for="os_arch" class="form-label">OS architecture</label><br>
+                                    <div class="form-check-inline">
+                                        @foreach ($os_arches as $os_arch)
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="os_arch_id" id="os_arch" value="{{ $os_arch['id'] }}" {{ old('os_arch_id') == $os_arch['id'] ? 'checked' : '' }}><label for="os_arch"> {{ $os_arch['name'] }}</label>
+                                            </label>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"><!--กลุ่มของบทบาท-->
                                 <div class="form-group">
-                                    <label for="role_class">กลุ่มของบทบาท</label>
-                                    <select class="form-control @error('role_class_id') is-invalid @enderror" name="role_class_id" id="role_class">
+                                    <label for="role_class" class="form-label">กลุ่มของบทบาท</label>
+                                    <select class="form-select @error('role_class_id') is-invalid @enderror" name="role_class_id" id="role_class">
                                         <option value="" hidden selected></option>
                                         @foreach($server_role_classes as $server_role_class)
                                             <option value="{{ $server_role_class['id'] }}" {{ old('role_class_id') == $server_role_class['id'] ? 'selected' : '' }}>{{ $server_role_class['name'] }}</option>
@@ -444,7 +442,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"><!--บทบาท-->
                                 <div class="form-group">
-                                    <label for="role_subclass">บทบาท</label><br>
+                                    <label for="role_subclass" class="form-label">บทบาท</label><br>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" name="is_ad" id="is_ad" value="1" {{ old('is_ad') == 1 ? 'checked' : '' }}><label for="is_ad">Active Directory</label><br>
                                         <input type="checkbox" class="form-check-input" name="is_dns" id="is_dns" value="1" {{ old('is_dns') == 1 ? 'checked' : '' }}><label for="is_dns">DNS</label><br>
@@ -457,10 +455,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--other software-->
                                 <div class="form-group">
-                                    <label for="other_software">Software อื่นๆ</label><br>
+                                    <label for="other_software" class="form-label">Software อื่นๆ</label><br>
                                     <div class="form-check-inline">
                                         <label class="form-check-label">
                                             <input type="checkbox" class="form-check-input" name="other_software" id="other_software" value="1" {{ old('other_software') == 1 ? 'checked' : ''}}><label for="other_software">มี Software อื่นๆ</label>
@@ -470,13 +468,13 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--other software details-->
                                 <div class="form-group">
-                                    <label for="other_software_detail">โปรดกรอกรายชื่อ Software</label>
-                                <textarea class="form-control @error('other_software_detail') is-invalid @enderror" name="other_software_detail" id="other_software_detail" rows="2">{{ old('other_software_detail') }}</textarea>
-                                @error('other_software_detail')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                    <label for="other_software_detail" class="form-label">โปรดกรอกรายชื่อ Software</label>
+                                    <textarea class="form-control @error('other_software_detail') is-invalid @enderror" name="other_software_detail" id="other_software_detail" rows="2">{{ old('other_software_detail') }}</textarea>
+                                    @error('other_software_detail')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -487,11 +485,11 @@
                         <h4>ข้อมูลด้านเครือข่าย</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--lan type-->
                                 <div class="form-group">
-                                    <label for="lan_type">ประเภทเครือข่าย</label><br>
-                                    <select class="form-control @error('lan_type_id') is-invalid @enderror" name="lan_type_id" id="lan_type">
+                                    <label for="lan_type" class="form-label">ประเภทเครือข่าย</label><br>
+                                    <select class="form-select @error('lan_type_id') is-invalid @enderror" name="lan_type_id" id="lan_type">
                                         <option value="" hidden></option>
                                         @foreach($network_connections as $network_connection)
                                             <option value="{{ $network_connection['id'] }}" {{ old('lan_type_id') == $network_connection['id'] ? 'selected' : '' }}>{{ $network_connection['name'] }}</option>
@@ -506,15 +504,15 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--lan outlet-->
                                 <div class="form-group">
-                                    <label for="lan_outlet_no">LAN outlet No</label>
-                                <input class="form-control" name="lan_outlet_no" id="lan_outlet_no" type="text" value="{{ old('lan_outlet_no') }}">
+                                    <label for="lan_outlet_no" class="form-label">LAN outlet No</label>
+                                    <input class="form-control" name="lan_outlet_no" id="lan_outlet_no" type="text" value="{{ old('lan_outlet_no') }}">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ip address-->
                                 <div class="form-group">
-                                    <label for="ip_address">IP Address</label>
+                                    <label for="ip_address" class="form-label">IP Address</label>
                                     <input class="form-control @error('ip_address') is-invalid @enderror" name="ip_address" id="ip_address" type="text" placeholder="127.0.0.1" value="{{ old('ip_address') }}">
                                     @error('ip_address')
                                         <div class="invalid-feedback">
@@ -525,7 +523,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--mac address-->
                                 <div class="form-group">
-                                    <label for="mac_address">MAC Address</label>
+                                    <label for="mac_address" class="form-label">MAC Address</label>
                                     <input class="form-control @error('mac_address') is-invalid @enderror" name="mac_address" id="mac_address" type="text" placeholder="12-34-56-78-90-AB" value="{{ old('mac_address') }}">
                                     @error('mac_address')
                                         <div class="invalid-feedback">
@@ -535,10 +533,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col sm-12 col-lg-6"><!--computer name-->
                                 <div class="form-group">
-                                    <label for="computer_name">Computer Name</label>
+                                    <label for="computer_name" class="form-label">Computer Name</label>
                                     <input class="form-control" name="computer_name" id="computer_name" type="text" value="{{ old('computer_name') }}">
                                 </div>
                             </div>
@@ -550,16 +548,16 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"><!--หมายเหตุ-->
                                 <div class="form-group">
-                                    <label for="remarks">หมายเหตุ</label><br>
+                                    <label for="remarks" class="form-label">หมายเหตุ</label><br>
                                     <textarea class="form-control" name="remarks" id="remarks" rows="2">{{ old('remarks') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--issues-->
                                 <div class="form-group">
-                                    <label for="issues">ปัญหาในการใช้งาน</label>
+                                    <label for="issues" class="form-label">ปัญหาในการใช้งาน</label>
                                     <textarea class="form-control" name="issues" id="issues" rows="2">{{ old('issuses') }}</textarea>
                                 </div>
                             </div>
