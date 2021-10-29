@@ -216,7 +216,7 @@
                         <div class="row">
                             <div class="col-sm12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
-                                    <label for="brand">ยี่ห้อ</label>
+                                    <label for="brand" class="form-label">ยี่ห้อ</label>
                                     <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text" value="{{ old('brand') }}">
                                     @error('brand')
                                         <div class="invalid-feedback">
@@ -227,7 +227,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                                 <div class="form-group">
-                                    <label for="model">รุ่น</label>
+                                    <label for="model" class="form-label">รุ่น</label>
                                     <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text" value="{{ old('model') }}">
                                     @error('model')
                                         <div class="invalid-feedback">
@@ -240,7 +240,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--serial number-->
                                 <div class="form-group">
-                                    <label for="serial_no">Serial Number จากผู้ผลิต</label>
+                                    <label for="serial_no" class="form-label">Serial Number จากผู้ผลิต</label>
                                     <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no') }}">
                                     @error('serial_no')
                                         <div class="invalid-feedback">
@@ -251,8 +251,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--วิธีการเชื่อมต่อ-->
                                 <div class="form-group">
-                                    <label for="connectivity">วิธีการเชื่อมต่อ</label>
-                                    <select class="form-control @error('connectivity') is-invalid @enderror" name="connectivity" id="connectivity">
+                                    <label for="connectivity" class="form-label">วิธีการเชื่อมต่อ</label>
+                                    <select class="form-select @error('connectivity') is-invalid @enderror" name="connectivity" id="connectivity">
                                         <option value="" hidden></option>
                                         @foreach ($connectivities as $connectivity)
                                             <option value="{{ $connectivity['id'] }}" {{ old('connectivity') == $connectivity['id'] ? 'selected' : '' }}>{{ $connectivity['name'] }}</option>
@@ -269,7 +269,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ความจุข้อมูล-->
                                 <div class="form-group">
-                                    <label for="total_capacity">ความจุข้อมูล</label>
+                                    <label for="total_capacity" class="form-label">ความจุข้อมูล</label>
                                         <div class="form-check-inline pl-1">
                                             @foreach ($dataunits as $dataunit)
                                                 <input type="radio" class="form-check-input @error('data_unit_id') is-invalid @enderror" name="data_unit_id" id="dataunit" value="{{ $dataunit['id'] }}" {{ old('data_unit_id') == $dataunit['id'] ? 'checked' : '' }} >
@@ -301,7 +301,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--จำนวน Hard Disk สูงสุดที่ยอมรับได้-->
                                 <div class="form-group">
-                                    <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
+                                    <label for="no_of_physical_drive_max" class="form-label">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
                                     <input class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" value="{{ old('no_of_physical_drive_max') }}">
                                     @error('no_of_physical_drive_max')
                                         <div class="invalid-feedback">
@@ -312,7 +312,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--จำนวน Hard Disk ที่มีอยู่-->
                                 <div class="form-group">
-                                    <label for="no_of_physical_drive_populated">จำนวน Hard Disk ที่มีอยู่</label>
+                                    <label for="no_of_physical_drive_populated" class="form-label">จำนวน Hard Disk ที่มีอยู่</label>
                                     <input class="form-control @error('no_of_physical_drive_populated') is-invalid @enderror" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" type="number" value="{{ old('no_of_physical_drive_populated') }}">
                                     @error('no_of_physical_drive_populated')
                                         <div class="invalid-feedback">
@@ -332,13 +332,13 @@
                         <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
-                                    <label for="remarks">หมายเหตุ</label><br>
+                                    <label for="remarks" class="form-label">หมายเหตุ</label><br>
                                     <textarea class="form-control" name="remarks" id="remarks" rows="2">{{ old('remarks') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--ปัญหาในการใช้งาน-->
                                 <div class="form-group">
-                                    <label for="issues">ปัญหาในการใช้งาน</label>
+                                    <label for="issues" class="form-label">ปัญหาในการใช้งาน</label>
                                     <textarea class="form-control" name="issues" id="issues" rows="2">{{ old('issues') }}</textarea>
                                 </div>
                             </div>
