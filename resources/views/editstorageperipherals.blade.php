@@ -16,10 +16,10 @@
                     </div>
                     <div class="card-body">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
-                                    <label for="sapid">รหัส SAP</label>
+                                    <label for="sapid" class="form-label">รหัส SAP</label>
                                     <input type="text" class="form-control  @error('sapid') is-invalid @enderror" id="sapid" name="sapid" value="{{ old('sapid',$storageperipheral->sapid) }}">
                                     @error('sapid')
                                         <div class="invalid-feedback">
@@ -30,15 +30,15 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รหัสครุภัณฑ์-->
                                 <div class="form-group">
-                                    <label for="pid">รหัสครุภัณฑ์</label>
+                                    <label for="pid" class="form-label">รหัสครุภัณฑ์</label>
                                     <input type="text" class="form-control" id="pid" name="pid" value="{{ old('pid',$storageperipheral->pid) }}">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"><!--ห้อง-->
                                 <div class="form-group">
-                                    <label for="room">ห้อง</label>
+                                    <label for="room" class="form-label">ห้อง</label>
                                     <input type="text" class="form-control @error('location_id') is-invalid @enderror" name="room" id="room_autocomplete"/ value="{{ old('room',$storageperipheral->StoragePeripheralRoom->name) }}">
                                     @error('location_id')
                                         <div class="invalid-feedback">
@@ -49,22 +49,22 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
-                                    <label for="building">ตึก</label>
-                                    <output type="text" class="form-control" name="building" id="building" />
+                                    <label for="building" class="form-label">ตึก</label>
+                                    <input type="text" class="form-control" name="building" id="building" disabled/>
                                 </div>
                             </div>
                         </div>
                         <input hidden type="number" name="location_id" value="{{ old('location_id',$storageperipheral->location_id) }}"><!--ค่า location_id-->    
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
-                                    <label for="location">ชั้น</label>
-                                    <output type="text" class="form-control" name="location" id="location" disabled/>
+                                    <label for="location" class="form-label">ชั้น</label>
+                                    <input type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--ลักษณะการติดตั้ง-->
                                 <div class="form-group">
-                                    <label for="is_mobile">ลักษณะการติดตั้ง</label><br>
+                                    <label for="is_mobile"class="form-label">ลักษณะการติดตั้ง</label><br>
                                     <div class="form-check form-check-inline">
                                         @foreach ($mobiles as $mobile)
                                             <input class="form-check-input" type="radio" name="mobility_id" id="is_mobile" value="{{ $mobile['id'] }}" {{ old('mobility_id',$storageperipheral->mobility_id) == $mobile['id'] ? 'checked' : '' }}>
@@ -79,11 +79,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
-                                    <label for="section">หน่วยงาน</label>
-                                    <select class="form-control @error('section_id') is-invalid @enderror" name="section_id" id="section">
+                                    <label for="section" class="form-label">หน่วยงาน</label>
+                                    <select class="form-select @error('section_id') is-invalid @enderror" name="section_id" id="section">
                                         <option value="" hidden></option>
                                         @foreach($sections as $section)
                                             <option value="{{ $section['id'] }}" {{ old('section_id',$storageperipheral->section_id) == $section['id'] ? 'selected' : '' }}>{{ $section['name'] }}</option>
@@ -97,10 +97,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-3">  <!-- จำนวนผู้ใช้งาน -->
                                 <div class="form-group">
-                                    <label for="multi_user">จำนวนผู้ใช้งาน</label>
+                                    <label for="multi_user" class="form-label">จำนวนผู้ใช้งาน</label>
                                     <div class="form-check">
                                         @foreach ($multiusers as $multiuser)
                                             <input class="form-check-input @error('multi_user_id') is-invalid @enderror" type="radio" name="multi_user_id" id="multi_user" value="{{ $multiuser['id'] }}" {{ old('multi_user_id',$storageperipheral->multi_user_id) == $multiuser['id'] ? 'checked' : ''}}>
@@ -116,7 +116,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-3"> <!--ชื่อผู้ใช้งาน-->
                                 <div class="form-group">
-                                    <label for="user">ชื่อผู้ใช้งาน</label><br>
+                                    <label for="user" class="form-label">ชื่อผู้ใช้งาน</label><br>
                                     <input type="text" class="form-control @error('user') is-invalid @enderror" id="user" name="user" value="{{ old('user',$storageperipheral->user) }}">
                                     @error('user')
                                         <div class="invalid-feedback">
@@ -127,8 +127,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--ตำแหน่งผู้ใช้งาน-->
                                 <div class="form-group">
-                                    <label for="position">ตำแหน่งผู้ใช้งาน</label>
-                                    <select class="form-control @error('position_id') is-invalid @enderror" name="position_id" id="position">
+                                    <label for="position" class="form-label">ตำแหน่งผู้ใช้งาน</label>
+                                    <select class="form-select @error('position_id') is-invalid @enderror" name="position_id" id="position">
                                         <option value="" hidden></option>
                                         @foreach ($positions as $position)
                                             <option value="{{ $position['id'] }}" {{ old('position_id',$storageperipheral->position_id) == $position['id'] ? 'selected' : ''}}>{{ $position['name'] }}</option>
@@ -142,10 +142,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                                 <div class="form-group">
-                                    <label for="tel_no">หมายเลขโทรศัพท์</label>
+                                    <label for="tel_no" class="form-label">หมายเลขโทรศัพท์</label>
                                     <input type="text" class="form-control @error('tel_no') is-invalid @enderror" name="tel_no" id="tel_no" value="{{ old('tel_no',$storageperipheral->tel_no) }}">
                                     @error('tel_no')
                                         <div class="invalid-feedback">
@@ -156,7 +156,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--เจ้าของเครื่อง-->
                                 <div class="form-group">
-                                    <label for="owner">เจ้าของเครื่อง</label><br>
+                                    <label for="owner" class="form-label">เจ้าของเครื่อง</label><br>
                                     <div class="form-check">
                                         @foreach ($owners as $owner)
                                             <input class="form-check-input @error('owner_id') is-invalid @enderror" type="radio" name="owner_id" id="owner" value="{{ $owner['id'] }}" {{ old('owner_id',$storageperipheral->owner_id) == $owner['id'] ? 'checked' : ''}}>
@@ -171,11 +171,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                                 <div class="form-group">
-                                    <label for="asset_status">สถานะของครุภัณฑ์</label>
-                                    <select class="form-control @error('asset_status_id') is-invalid @enderror" name="asset_status_id" id="asset_status">
+                                    <label for="asset_status" class="form-label">สถานะของครุภัณฑ์</label>
+                                    <select class="form-select @error('asset_status_id') is-invalid @enderror" name="asset_status_id" id="asset_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_statuses as $asset_status)
                                             <option value="{{ $asset_status['id'] }}" {{ old('asset_status_id',$storageperipheral->asset_status_id) == $asset_status['id'] ? 'selected' : '' }}>{{ $asset_status['name'] }}</option>
@@ -190,8 +190,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--สถานะการใช้งาน-->
                                 <div class="form-group">
-                                    <label for="asset_use_status">สถานะการใช้งานของครุภัณฑ์</label>
-                                    <select class="form-control @error('asset_use_status_id') is-invalid @enderror" name="asset_use_status_id" id="asset_use_status">
+                                    <label for="asset_use_status" class="form-label">สถานะการใช้งานของครุภัณฑ์</label>
+                                    <select class="form-select @error('asset_use_status_id') is-invalid @enderror" name="asset_use_status_id" id="asset_use_status">
                                         <option value="" hidden></option>
                                         @foreach($asset_use_statuses as $asset_use_status)
                                             <option value="{{ $asset_use_status['id'] }}" {{ old('asset_use_status_id',$storageperipheral->asset_use_status_id) == $asset_use_status['id'] ? 'selected' : '' }}>{{ $asset_use_status['name'] }}</option>
@@ -212,10 +212,10 @@
                         <h4>คุณสมบัติของเครื่อง</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
-                                    <label for="brand">ยี่ห้อ</label>
+                                    <label for="brand" class="form-label">ยี่ห้อ</label>
                                     <input class="form-control @error('brand') is-invalid @enderror" name="brand" id="brand" type="text" value="{{ old('brand',$storageperipheral->brand) }}">
                                     @error('brand')
                                         <div class="invalid-feedback">
@@ -226,7 +226,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--รุ่น-->
                                 <div class="form-group">
-                                    <label for="model">รุ่น</label>
+                                    <label for="model" class="form-label">รุ่น</label>
                                     <input class="form-control @error('model') is-invalid @enderror" name="model" id="model" type="text" value="{{ old('model',$storageperipheral->model) }}">
                                     @error('model')
                                         <div class="invalid-feedback">
@@ -236,10 +236,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--serial number-->
                                 <div class="form-group">
-                                    <label for="serial_no">Serial Number จากผู้ผลิต</label>
+                                    <label for="serial_no" class="form-label">Serial Number จากผู้ผลิต</label>
                                     <input class="form-control @error('serial_no') is-invalid @enderror" name="serial_no" id="serial_no" type="text" value="{{ old('serial_no',$storageperipheral->serial_no) }}">
                                     @error('serial_no')
                                         <div class="invalid-feedback">
@@ -250,8 +250,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--วิธีการเชื่อมต่อ-->
                                 <div class="form-group">
-                                    <label for="connectivity">วิธีการเชื่อมต่อ</label>
-                                    <select class="form-control @error('connectivity') is-invalid @enderror" name="connectivity" id="connectivity">
+                                    <label for="connectivity" class="form-label">วิธีการเชื่อมต่อ</label>
+                                    <select class="form-select @error('connectivity') is-invalid @enderror" name="connectivity" id="connectivity">
                                         <option value="" hidden></option>
                                         @foreach ($connectivities as $connectivity)
                                             <option value="{{ $connectivity['id'] }}" {{ old('connectivity',$storageperipheral->connectivity) == $connectivity['id'] ? 'selected' : '' }}>{{ $connectivity['name'] }}</option>
@@ -265,10 +265,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--ความจุข้อมูล-->
                                 <div class="form-group">
-                                    <label for="total_capacity">ความจุข้อมูล</label>
+                                    <label for="total_capacity" class="form-label">ความจุข้อมูล</label>
                                         <div class="form-check-inline pl-1">
                                             @foreach ($dataunits as $dataunit)
                                                 <input type="radio" class="form-check-input @error('data_unit_id') is-invalid @enderror" name="data_unit_id" id="dataunit" value="{{ $dataunit['id'] }}" {{ old('data_unit_id',$storageperipheral->data_unit_id) == $dataunit['id'] ? 'checked' : '' }} >
@@ -297,10 +297,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--จำนวน Hard Disk สูงสุดที่ยอมรับได้-->
                                 <div class="form-group">
-                                    <label for="no_of_physical_drive_max">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
+                                    <label for="no_of_physical_drive_max" class="form-label">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
                                     <input class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" value="{{ old('no_of_physical_drive_max',$storageperipheral->no_of_physical_drive_max) }}">
                                     @error('no_of_physical_drive_max')
                                         <div class="invalid-feedback">
@@ -311,7 +311,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--จำนวน Hard Disk ที่มีอยู่-->
                                 <div class="form-group">
-                                    <label for="no_of_physical_drive_populated">จำนวน Hard Disk ที่มีอยู่</label>
+                                    <label for="no_of_physical_drive_populated" class="form-label">จำนวน Hard Disk ที่มีอยู่</label>
                                     <input class="form-control @error('no_of_physical_drive_populated') is-invalid @enderror" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" type="number" value="{{ old('no_of_physical_drive_populated',$storageperipheral->no_of_physical_drive_populated) }}">
                                     @error('no_of_physical_drive_populated')
                                         <div class="invalid-feedback">
@@ -328,16 +328,16 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
-                                    <label for="remarks">หมายเหตุ</label><br>
+                                    <label for="remarks" class="form-label">หมายเหตุ</label><br>
                                     <textarea class="form-control" name="remarks" id="remarks" rows="2">{{ old('remarks',$storageperipheral->remarks) }}</textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--ปัญหาในการใช้งาน-->
                                 <div class="form-group">
-                                    <label for="issues">ปัญหาในการใช้งาน</label>
+                                    <label for="issues" class="form-label">ปัญหาในการใช้งาน</label>
                                     <textarea class="form-control" name="issues" id="issues" rows="2">{{ old('issues',$storageperipheral->issues) }}</textarea>
                                 </div>
                             </div>

@@ -25,7 +25,9 @@
                     <h4>ตารางบัญชีอุปกรณ์ต่อพ่วง</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{ url('/peripherals') }}" class="btn btn-primary btn-primary btn-lg" role="button">เพิ่มอุปกรณ์ต่อพ่วง</a>
+                    <div class="d-grid gap-2">
+                        <a href="{{ url('/peripherals') }}" class="btn btn-primary" role="button">เพิ่มอุปกรณ์ต่อพ่วง</a>
+                    </div>
                     <form action="{{url('/peripheral')}}" method="get" role="search">
                         <div class="form-row">
                             <div class="col-sm-12 col-lg-6 mt-4">
