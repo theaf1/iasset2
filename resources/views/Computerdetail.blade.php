@@ -8,7 +8,7 @@
                     <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>รหัส SAP: {{$client['sapid']}}</p>
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <P>สถานที่ตั้ง: {{$client->ClientRoom->name}}</P>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
                                 <p>ลักษณะการติดตั้ง: {{$client->ClientMobility->name}}</p>
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
                                 <p>ผู้{{$client->ClientMultiUser->name}}</p>
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>หน่วยงาน: {{$client->clientsection->name}}</p>
@@ -86,7 +86,7 @@
                             <p>{{$client['permission'] == 1 ? 'มี' : 'ไม่มี'}}สิทธ์ Admin เครื่อง</p>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm12 col-lg-6">
                             <div class="form-group">
                                 <p>ครุภัณฑ์{{$client->ClientAssetStatus->name}}</p>
@@ -105,7 +105,7 @@
                     <h4>hardware</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
                                 <p>ยี่ห้อ: {{$client['brand']}}</p>
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
                                 <p>CPU: {{$client['cpu_model']}}</p>
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ปริมาณหน่วยความจำภายในเครื่อง {{$client['ram_size']}} GB</p> 
@@ -157,7 +157,7 @@
                         </div>
                         <div class="card-body">
                             @foreach ($client->displays as $display)
-                                <div class="form-row">
+                                <div class="row">
                                     <div class="col-sm-12 col-lg-3">
                                         <div class="form-group">
                                             <p>รห้ส SAP: {{$display['display_sapid']}}</p>
@@ -189,7 +189,7 @@
                     <h4>software</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ระบบปฏิบัติการ: {{$client->ClientClientOperate->name}}</p>
@@ -201,7 +201,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>Microsoft Office: {{$client['ms_office_version']}}</p>
@@ -213,7 +213,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>PDF Reader: {{$client['pdf_reader']}}</p>
@@ -225,7 +225,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>IE Version: {{$client['ie_version']}}</p>
@@ -237,7 +237,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>Chrome version: {{$client['chrome_version']}}</p>
@@ -249,7 +249,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>Software คณะ</p>
@@ -279,7 +279,7 @@
                     <h4>ข้อมูลด้านเครือข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>เครือข่าย: {{$client->networkconnection->name}}</p>
@@ -292,7 +292,7 @@
                         </div>
                         
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm12 col-lg-6">
                             <div class="form-group">
                                 <p>IP Address: {{$client['ip_address']}}
@@ -316,13 +316,13 @@
                     <h4>หมายเหตุและปัญหาการใช้งาน</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-12">
                             <label for="issues">ปัญหาในการใช้งาน</label>
                             <p>{{$client['issues']}}</p>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-12">
                             <label for="remarks">หมายเหตุ</label>
                             <p>{{$client['remarks']}}</p>
@@ -330,7 +330,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
+            <div class="text-center mt-4 d-grid gap-2">
                 <a href="{{url('/client')}}" class="btn btn-info btn-lg mb-4" role="button">ย้อนกลับ</a>
             </div>
         </div>

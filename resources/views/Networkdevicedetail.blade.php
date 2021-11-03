@@ -7,7 +7,7 @@
                     <h4>ข้อมูลพื้นฐานของครุภัณฑ์</h4>
                 </div>
                 <div class="card-body">   
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>รห้ส SAP: {{$networkdevice['sapid'] == null ? 'ไม่มี' : $networkdevice['sapid']}}</p>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ห้อง {{$networkdevice->NetworkDeviceRoom->name}} ชั้น {{$networkdevice->NetworkDeviceRoom->Location->floor}} ตึก{{$networkdevice->NetworkDeviceRoom->Location->building->name}}</p>
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>หน่วยงาน: {{$networkdevice->NetworkDeviceSection->name}}</p>
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ที่มา: {{$networkdevice->NetworkDeviceOwner->name}}</p>
@@ -72,9 +72,9 @@
                     <h4>ข้อมูลจำเพาะ</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-6 col-lg-3">
-                            <div class="form-row">
+                            <div class="row">
                                 <p>{{$networkdevice->netsubtype->name}}</p>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>Serial Number: {{$networkdevice['serial_no'] }}</p>
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>มี {{$networkdevice['port_count']}} port</p>
@@ -113,7 +113,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>IP address ที่ใช้ควบคุมเครื่อง: {{$networkdevice['device_management_address'] == null ? 'ไม่มี' : $networkdevice['device_management_address']}}</p>
@@ -132,7 +132,7 @@
                     <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="remarks">หมายเหตุ</label><br>
@@ -149,7 +149,7 @@
                 </div>
             </div>
         </div>
-        <div class="text-center mt-4">
+        <div class="text-center mt-4 d-grid gap-2">
             <a href="{{ url('/networkdevices') }}" class="btn btn-lg btn-info mb-4" role="button">ย้อนกลับ</a>
         </div>
     </div>

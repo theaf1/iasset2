@@ -7,7 +7,7 @@
                     <h4>ข้อมูลทั่วไป</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>รหัส SAP: {{$server['sapid'] == null ? 'ไม่มี' : $server['sapid']}}</p>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ที่ตั้ง: {{$server->ServerRoom->name}} ชั้น {{$server->ServerRoom->location->floor}} ตึก{{$server->ServerRoom->location->building->name}}</p>
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ผู้รับผิดชอบ: {{$server['response_person']}}</p>
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>หมายเลขโทรศัพท์: {{$server['tel_no']}}</p>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ครุภัณฑ์{{$server->ServerAssetStatus->name}}</p>
@@ -74,7 +74,7 @@
                     <h4>รายละเอียด</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ยี่ห้อ: {{$server['brand']}}</p>
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>Serial number: {{$server['serial_no']}}</p>
@@ -96,7 +96,7 @@
                             <p>เป็นเครื่องแบบ {{$server->ServerFormFactor->name}}</p>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>CPU: {{$server['cpu_model']}}</p>
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>มี socket CPU {{$server['cpu_socket_no'] }} socket</p>
@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>{{$server['is_raid'] == 1 ? 'มี' : 'ไม่มี'}} RAID</p>
@@ -132,7 +132,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>มี Hard Disk ใช้งานอยู่ {{$server['no_of_physical_drive_populated']}} ลูก</p>
@@ -150,7 +150,7 @@
                         </div>
                         <div class="card-body">
                             @foreach ($server->ServerDisplay as $display)
-                                <div class="form-row">
+                                <div class="row">
                                     <div class="col-sm-12 col-lg-3">
                                         <div class="form-group">
                                             <p>รห้ส SAP: {{$display['display_sapid']}}</p>
@@ -182,7 +182,7 @@
                     <h4>รายละเอียด Software</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ระบบปฏิบัติการ: {{$server->ServerOs->name}}</p>
@@ -194,7 +194,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>กลุ่มของบทบาท: {{$server->ServerRoleClass->name}}</p>
@@ -213,7 +213,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>{{$server['other_software'] == 1 ? 'มี' : 'ไม่มี'}} Software อื่นๆ</p>
@@ -232,7 +232,7 @@
                     <h4>รายละเอียดด้านเครือข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ประเภทเครือข่าย: {{$server->ServerNetworkConnection->name}}</p>
@@ -244,7 +244,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>IP Address: {{$server['ip_address']}}</p>
@@ -256,7 +256,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>LAN Outlet: {{$server['lan_outlet_no']}}</p>
@@ -270,7 +270,7 @@
                     <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="remarks">หมายเหตุ</label><br>
@@ -286,7 +286,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
+            <div class="text-center mt-4 d-grid gap-2">
                 <a href="{{ url('/servers') }}" class="btn btn-lg btn-info mb-4" role="button">ย้อนกลับ</a>
             </div>
         </div>

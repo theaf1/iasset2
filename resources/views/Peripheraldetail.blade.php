@@ -7,7 +7,7 @@
                     <h4>ข้อมูลครุภัณฑ์พื้นฐาน</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>รหัส SAP: {{$peripheral['sapid']}}</p>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-6 col-lg-3">
                             <div class="form-group">
                                 <p>สถานที่ตั้ง: {{$peripheral->PeripheralRoom->name}}</p>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm 12 col-lg-6">
                             <div class="form-group">
                                 <p>ลักษณะการติดตั้ง: {{$peripheral->PeripheralMobility->name}}</p>
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ผู้ใช้งาน{{$peripheral->PeripheralMultiUser->name}}</p> 
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>หมายเลขโทรศัพท์ {{$peripheral['tel_no']}}</p>
@@ -94,7 +94,7 @@
                     <h4>รายละเอียดครุภัณฑ์</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ชนิด: {{$peripheral->peripheraltype->name}}</p>
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>Serial Number: {{$peripheral['serial_no']}}</p>
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>วิธีการเชื่อมต่อ: {{$peripheral->PeripheralConnect->name}}</p>
@@ -135,7 +135,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm12 col-lg-6">
                             <div class="form-group">
                                 <p>LAN outlet: {{$peripheral['lan_outlet_no']}}</p>
@@ -147,7 +147,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <p>share name: {{$peripheral['share_name']}}</p>
                         </div>
@@ -159,7 +159,7 @@
                     <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>หมายเหตุ:</p>
@@ -175,7 +175,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
+            <div class="text-center mt-4 d-grid gap-2">
                 <a href="{{url('/peripheral')}}" class="btn btn-info btn-lg mb-4" role="button">ย้อนกลับ</a>
             </div>
         </div>
