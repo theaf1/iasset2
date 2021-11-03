@@ -27,7 +27,7 @@
           <ul class="navbar-nav mr-auto">
             @if (Auth::check())
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                เพิ่มครุภัณฑ์
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -42,7 +42,7 @@
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 แก้ไขข้อมูลครุภัณฑ์
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
