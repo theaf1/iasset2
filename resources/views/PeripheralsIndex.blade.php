@@ -29,11 +29,11 @@
                         <a href="{{ url('/peripherals') }}" class="btn btn-primary" role="button">เพิ่มอุปกรณ์ต่อพ่วง</a>
                     </div>
                     <form action="{{url('/peripheral')}}" method="get" role="search">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6 mt-4">
                                 <div class="form-group">
-                                    <label for="section_filter">หน่วยงานเจ้าของเครื่อง</label>
-                                    <select name="section_filter" id="section_filter" class="form-control"> 
+                                    <label for="section_filter" class="form-label">หน่วยงานเจ้าของเครื่อง</label>
+                                    <select name="section_filter" id="section_filter" class="form-select"> 
                                         <option value="">กรุณาเลือกหน่วยงาน</option>
                                         @foreach($sections as $section)
                                             <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
@@ -43,8 +43,8 @@
                             </div>
                             <div class="col-sm-6 col-lg-3 mt-4">
                                 <div class="form-group">
-                                    <label for="per_page">จำนวนบรรทัด</label>
-                                    <select class="form-control" name="per_page" id="per_page">
+                                    <label for="per_page" class="form-label">จำนวนบรรทัด</label>
+                                    <select class="form-select" name="per_page" id="per_page">
                                         <option value="10">10</option>
                                         <option value="20">20</option>
                                         <option value="30">30</option>
@@ -52,9 +52,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-lg-3 mt-5">
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">ค้นหา</button>
-                                </div>
+                                <button type="submit" class="btn btn-primary">ค้นหา</button>    
                             </div>
                         </div>
                         <table class="table mt-4 table-hover">

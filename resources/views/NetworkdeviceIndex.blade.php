@@ -25,13 +25,15 @@
                     <h4>บัญชีอุปกรณ์เครือข่าย</h4>
                 </div>
                 <div class="card-body">
-                    <a href="{{ url('/network') }}" class="btn btn-primary btn-lg" role="button">เพิ่มอุปกรณ์เครือข่าย</a>
+                    <div class="d-grid gap-2">
+                        <a href="{{ url('/network') }}" class="btn btn-primary btn-lg" role="button">เพิ่มอุปกรณ์เครือข่าย</a>
+                    </div>
                     <form action="{{url('/networkdevices')}}" method="get" role="search">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6 mt-4">
                                 <div class="form-group">
-                                    <label for="section_filter">หน่วยงานเจ้าของเครื่อง</label>
-                                    <select name="section_filter" id="section_filter" class="form-control"> 
+                                    <label for="section_filter" class="form-label">หน่วยงานเจ้าของเครื่อง</label>
+                                    <select name="section_filter" id="section_filter" class="form-select"> 
                                         <option value="">กรุณาเลือกหน่วยงาน</option>
                                         @foreach($sections as $section)
                                             <option value="{{ $section['id'] }}">{{ $section['name'] }}</option>
@@ -41,8 +43,8 @@
                             </div>
                             <div class="col-sm-6 col-lg-3 mt-4">
                                 <div class="form-group">
-                                    <label for="per_page">จำนวนบรรทัด</label>
-                                    <select class="form-control" name="per_page" id="per_page">
+                                    <label for="per_page" class="form-label">จำนวนบรรทัด</label>
+                                    <select class="form-select" name="per_page" id="per_page">
                                         <option value="10">10</option>
                                         <option value="20">20</option>
                                         <option value="30">30</option>
@@ -51,7 +53,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-3 mt-5">
                                 <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">ค้นหา</button>
+                                    <button class="btn btn-primary mt-2" type="submit">ค้นหา</button>
                                 </div>
                             </div>
                         </div>
