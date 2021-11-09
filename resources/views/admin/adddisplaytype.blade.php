@@ -9,10 +9,10 @@
                 <div class="card-body">
                     <form action="{{url('/add-displaytype')}}" method="post">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="name">ชื่อชนิดจอภาพ</label>
+                                    <label for="name" class="form-label">ชื่อชนิดจอภาพ</label>
                                     <input type="text" name="name" id="name" value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror">
                                     @error('name')
                                         <div class="invalid-feedback">

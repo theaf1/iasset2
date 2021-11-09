@@ -9,10 +9,10 @@
                 <div class="card-body">
                     <form action="{{url('/admin/add-batterytype')}}" method="post">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="name">ชื่อประเภทแบตเตอรี่</label>
+                                    <label for="name" class="form-label">ชื่อประเภทแบตเตอรี่</label>
                                     <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
                                     @error('name')
                                         <div class="invalid-feedback">

@@ -9,10 +9,10 @@
                 <div class="card-body">
                     <form action="{{url('/admin/add-dataunit')}}" method="post">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="name">ชื่อหน่วยวัดปริมาณข้อมูล</label>
+                                    <label for="name" class="form-label">ชื่อหน่วยวัดปริมาณข้อมูล</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{old('name')}}">
                                     @error('name')
                                         <div class="invalid-feedback">
