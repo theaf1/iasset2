@@ -7,7 +7,7 @@
                     <h4>ข้อมูลทั่วไป</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>รหัส SAP: {{$ups['sapid']}}</p>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ตั้งอยู่ที่ {{$ups->UpsRoom->name}} ชั้น {{ $ups->UpsRoom->Location->floor }} ตึก {{ $ups->UpsRoom->Location->building->name }}</p>
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 {{$ups->UpsMobility->name}}
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-4 col-lg3">
                             <div class="form-group">
                                 <p>หมายเลขโทรศัพท์: {{ $ups['tel_no'] }}</p>
@@ -72,7 +72,7 @@
                     <h4>รายละเอียดของครุภัณฑ์</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>ยี่ห้อ: {{ $ups['brand'] }}</p>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>serial number: {{ $ups['serial_no'] }}</p>
@@ -96,7 +96,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>หลักการทำงาน: {{$ups->UpsTopology->name}}</p>
@@ -106,7 +106,7 @@
                             <p>กำลังไฟสูงสุด {{ $ups['capacity'] }} KVA</p>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-4 col-lg-3">
                             <div class="form-group">
                                 <p>เปลี่ยนกำลังไฟสูงสุด{{ $ups['is_modular'] == 1 ? 'ได้' : 'ไม่ได้' }}</p>
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <p>IP Address ที่ใช้ควบคุมเครื่อง: {{ $ups['device_management_address'] }}</p>
@@ -137,7 +137,7 @@
                     <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
+                    <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="issues">ปัญหาในการใช้งาน</label><br>

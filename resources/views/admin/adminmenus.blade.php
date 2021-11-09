@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <div class="card-deck">
+            <div class="card-group">
                 <div class="card mt-4 mr-2">
                     <div class="card-header card-background text-white">
                         <h4 class="text-center">จัดการข้อมูลส่วนกลาง</h4>

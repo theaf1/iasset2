@@ -9,10 +9,10 @@
                 <div class="card-body">
                     <form action="{{url('/admin/users/update',$user->id)}}" method="post">
                         @csrf
-                        <div class="form-row">
+                        <div class="row mb-1">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="name">ชื่อ</label>
+                                    <label for="name" class="form-label">ชื่อ</label>
                                     <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name',$user->name)}}">
                                     @error('name')
                                         <div class="invalid-feedback">
@@ -23,7 +23,7 @@
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="email">E-mail</label>
+                                    <label for="email" class="form-label">E-mail</label>
                                     <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email',$user->email)}}">
                                     @error('email')
                                         <div class="invalid-feedback">
@@ -33,10 +33,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="role_id">บทบาท</label>
+                                    <label for="role_id" class="form-label">บทบาท</label>
                                     <select name="role_id" id="role_id" class="form-control">
                                         <option value="" hidden></option>
                                         @foreach ($roles as $role)
@@ -46,9 +46,8 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
-                                
                                 <div class="form-group">
-                                    <label for="is_actine">สถานะผู้ใช้งาน</label>
+                                    <label for="is_active" class="form-label mt-1">สถานะผู้ใช้งาน</label>
                                     <div class="form-check">
                                         <label for="is_active" class="checkbox-inline"><input class="form-check-input" type="checkbox" name="is_active" id="is_active" {{old('is_active',$user->is_active) == 1 ? 'checked' : ''}}>ใช้งาน</label>
                                     </div>

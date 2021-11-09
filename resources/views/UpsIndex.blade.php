@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-3 pt-5">
                                 <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">ค้นหา</button>
+                                    <button class="btn btn-primary mt-2" type="submit">ค้นหา</button>
                                 </div>
                             </div>
                         </div>
