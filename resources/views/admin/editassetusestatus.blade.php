@@ -9,9 +9,9 @@
                 <div class="card-body">
                     <form action="{{url('admin/assetusestatus/update',$assetusestatus->id)}}" method="post">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
-                                <div class="form-group">
+                                <div class="form-group" class="form-label">
                                     <label for="name">ชื่อสถานะการใช้งาน</label>
                                     <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name',$assetusestatus->name)}}">
                                     @error('name')

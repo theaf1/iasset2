@@ -9,10 +9,10 @@
                 <div class="card-body">
                     <form action="/admin/add-section" method="post">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="section_name">ชื่อหน่วยงาน</label>
+                                    <label for="section_name" class="form-label">ชื่อหน่วยงาน</label>
                                     <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="section_name" value="{{ old('name') }}">
                                     @error('name')
                                         <div class="invalid-feedback">
