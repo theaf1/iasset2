@@ -9,10 +9,10 @@
                 <div class="card-body">
                     <form action="{{url('/admin/displayratio/update',$displayratio->id)}}" method="post">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="name">สัดส่วนจอภาพ</label>
+                                    <label for="name" class="form-label">สัดส่วนจอภาพ</label>
                                     <input type="text" name="name" id="name" value="{{old('name',$displayratio->name)}}" class="form-control @error('name') is-invalid @enderror">
                                     @error('name')
                                         <div class="invalid-feedback">

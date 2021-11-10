@@ -9,10 +9,10 @@
                 <div class="card-body">
                     <form action="{{url('/admin/dataunit/update',$dataunit->id)}}" method="post">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="name">name</label>
+                                    <label for="name" class="form-label">name</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{old('name',$dataunit->name)}}">
                                     @error('name')
                                         <div class="invalid-feedback">

@@ -9,31 +9,31 @@
                 <div class="card-body">
                     <form action="{{url('/admin/location/update',$rooms->id)}}" method="post">
                         @csrf
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="room_name">ห้อง</label>
+                                    <label for="room_name" class="form-label">ห้อง</label>
                                     <input type="text" name="room" id="room_name" class="form-control" value="{{old('room',$rooms->name)}}">
                                 </div> 
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="floor">ชั้น</label>
+                                    <label for="floor" class="form-label">ชั้น</label>
                                     <input type="number" class="form-control" name="floor" id="floor" min="1" max="30" value="{{old('floor',$rooms->location->floor)}}">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="wing">ฝั่ง</label>
+                                    <label for="wing" class="form-label">ฝั่ง</label>
                                     <input type="text" class="form-control" name="wing_name" id="wing" value="{{old('wing_name',$rooms->location->wing)}}">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="building">อาคาร</label>
-                                    <select name="building" id="building" class="form-control">
+                                    <label for="building" class="form-label">อาคาร</label>
+                                    <select name="building" id="building" class="form-select">
                                         <option value="" hidden></option>
                                         @foreach ($buildings as $building)
                                             <option value="{{$building['id']}}" {{old('building',$rooms->location->building->id) == $building['id'] ? 'selected' : ''}}>{{$building['name']}}</option>

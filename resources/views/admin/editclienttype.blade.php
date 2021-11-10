@@ -9,10 +9,10 @@
                         <h4>แก้ไขชนิดของครุภัณฑ์คอมพิวเตอร์</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="name">ชื่อชนิดครุภัณฑ์คอมพิวเตอร์</label>
+                                    <label for="name" class="form-label">ชื่อชนิดครุภัณฑ์คอมพิวเตอร์</label>
                                     <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name',$clienttype->name)}}">
                                     @error('name')
                                         <div class="invalid-feedback">
