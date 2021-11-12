@@ -9,10 +9,10 @@
                         <h4>แก้ไขชื่อตำแน่งบุคลากร</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="name">ชื่อตำแหน่ง</label>
+                                    <label for="name" class="form-label">ชื่อตำแหน่ง</label>
                                     <input type="text" name="name" id="name" value="{{old('name',$position->name)}}" class="form-control @error('name') is-invalid @enderror">
                                     @error('name')
                                         <div class="invalid-feedback">
