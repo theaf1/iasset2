@@ -420,7 +420,7 @@
                                             <div class="col-sm-12 col-lg-3">
                                                 <div class="form-group">
                                                     <label for="display_ratio" class="form-label">สัดส่วนจอภาพ</label>
-                                                    <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" value="{{ old('display_size.' . $i) }}">
+                                                    <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" value="{{ old('display_ratio.' . $i) }}">
                                                 </div>
                                             </div>
                                         </div>
