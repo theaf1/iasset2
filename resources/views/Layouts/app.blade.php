@@ -69,10 +69,12 @@
                 </span> 
             @endif
             @if (Auth::check())
+            <span class="navbar-text text-white">
               <form action="{{url('/exit')}}" method="POST" class="d-flex">
                 @csrf
-                <button type="menu" class="btn btn-sm btn-warning mt-4">ออกจากระบบ</button>
+                <button type="submit" class="btn btn-sm btn-warning mt-4 pl-3">ออกจากระบบ</button>
               </form>
+            </span>
             @endif
           </div>
         </div>
