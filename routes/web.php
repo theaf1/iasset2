@@ -214,3 +214,6 @@ Route::post('/exit','Auth\LoginController@logout');
 Route::get('/forgot',function () {
     return view('/auth/passwords/email');
 });
+Route::get('/newreset',function () {
+    return view('/auth/passwords/newreset');
+});
