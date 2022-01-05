@@ -217,3 +217,4 @@ Route::get('/forgot',function () {
 Route::get('/newreset',function () {
     return view('/auth/passwords/newreset');
 });
+//
