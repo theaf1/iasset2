@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mt-4">
-                <div class="card-header card-background text-white">{{ __('เข้าสู่ระบบ') }}</div>
+                <div class="card-header card-background text-white">
+                    <h4>เข้าสู่ระบบ</h4>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
