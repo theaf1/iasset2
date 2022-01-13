@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
 
 class ResetPasswordController extends Controller
 {
@@ -20,7 +21,35 @@ class ResetPasswordController extends Controller
     */
 
     use ResetsPasswords;
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('/Auth/passwords/newreset');
+    }
+    public function execute()
+    {
+       return $request->all();
+    }
+    private function validate_reset ($data)
+    {
+        $rules = [
+            'email'=>'required|email',
+            'password'=>'required|min:8|confirmed',
+        ];
 
+        $message = [
+            'email.required'=>'1',
+            'email.email'=>'2',
+            'password.required'=>'3',
+            'password.min'=>'4',
+            'password.confirmed'=>'5',
+        ];
+        return $this->validate($data, $rules, $message);
+    }
     /**
      * Where to redirect users after resetting their password.
      *
