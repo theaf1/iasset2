@@ -69,17 +69,17 @@
                         <div class="col-sm-12 col-lg-6"> <!--ตึก-->
                             <div class="form-group">
                                 <label for="building" class="form-label">ตึก</label>
-                                <output type="text" class="form-control" name="building" id="building"/>
+                                <input disabled type="text" class="form-control" name="building" id="building"/>
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6"><!--ชั้น-->
                             <div class="form-group">
                                 <label for="location" class="form-label">ชั้น</label>
-                                <output type="text" class="form-control" name="location" id="location"/>   
+                                <input disabled type="text" class="form-control" name="location" id="location"/>   
                             </div>
                         </div>
-                    <input hidden type="number" value="{{ old('location_id')}}" name="location_id"><!--ค่า location_id-->
                     </div>
+                    <input hidden type="number" value="{{ old('location_id')}}" name="location_id"><!--ค่า location_id-->
                     <div class="row">
                         <div class="col-sm-12 col-lg-6"> <!--ลักษณะการติดตั้ง-->
                             <div class="form-group">

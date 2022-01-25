@@ -51,7 +51,7 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
                                     <label for="building" class="form-label">ตึก</label>
-                                    <output type="text" class="form-control" name="building" id="building" disabled/>
+                                    <input disabled type="text" class="form-control" name="building" id="building" disabled/>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
                                     <label for="location" class="form-label">ชั้น</label>
-                                    <output type="text" class="form-control" name="location" id="location" disabled/>
+                                    <input disabled type="text" class="form-control" name="location" id="location" disabled/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--การติตตั้ง-->

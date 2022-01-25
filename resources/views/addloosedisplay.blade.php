@@ -85,13 +85,13 @@
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
                                     <label for="building" class="form-label">ตึก</label>
-                                    <output type="text" class="form-control" name="building" id="building" value="{{ old('building') }}"/>
+                                    <input disabled type="text" class="form-control" name="building" id="building" value="{{ old('building') }}"/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ชั้น -->
                                 <div class="form-group">
                                     <label for="location" class="form-label">ชั้น</label>
-                                    <input type="text" class="form-control" name="location" id="location" value="{{ old('location') }}"/>
+                                    <input disabled type="text" class="form-control" name="location" id="location" value="{{ old('location') }}"/>
                                 </div>
                             </div>
                             <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->
@@ -143,8 +143,8 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
-                                <div class="form-group" class="form-label">
-                                    <label for="tel_no">หมายเลขโทรศัพท์</label>
+                                <div class="form-group">
+                                    <label for="tel_no" class="form-label">หมายเลขโทรศัพท์</label>
                                     <input class="form-control @error('tel_no') is-invalid @enderror" type="tel" value="{{old('tel_no')}}" name="tel_no" id="tel_no">
                                     @error('tel_no')
                                         <div class="invalid-feedback">
@@ -156,8 +156,8 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12 col-lg-6"> <!--สถานะครุภัณฑ์-->
-                                <div class="form-group" class="form-label">
-                                    <label for="asset_status">สถานะของครุภัณฑ์</label>
+                                <div class="form-group">
+                                    <label for="asset_status" class="form-label">สถานะของครุภัณฑ์</label>
                                     <select name="asset_status_id" id="asset_status" class="form-select @error('asset_status_id') is-invalid @enderror">
                                         <option value=""></option>
                                         @foreach ($asset_statuses as $asset_status)
