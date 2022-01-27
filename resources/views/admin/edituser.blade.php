@@ -37,7 +37,7 @@
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="role_id" class="form-label">บทบาท</label>
-                                    <select name="role_id" id="role_id" class="form-control">
+                                    <select name="role_id" id="role_id" class="form-select">
                                         <option value="" hidden></option>
                                         @foreach ($roles as $role)
                                             <option value="{{$role['id']}}" {{old('role_id',$user->role_id) == $role['id'] ? 'selected' : '' }}>{{$role['name']}}</option>
