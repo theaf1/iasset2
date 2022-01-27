@@ -47,13 +47,15 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'username'=> ['required'],
-            'password' => ['required'],
-        ]);
-        $remember = $request->remember;
+        $username=$request->username;
+        $password=$request->password;
+        // $credentials = $request->validate([
+        //     'username'=> ['required'],
+        //     'password' => ['required'],
+        // ]);
+        // $remember = $request->remember;
 
-        if (Auth::attempt($credentials, $remember)) {
+        if (Auth::attempt(['username'=>$username, 'password'=>$password, 'is_active'=>1])) {
             $request->session()->regenerate();
 
             return redirect('/');
@@ -61,6 +63,7 @@ class LoginController extends Controller
 
         return back()->withErrors([
             'username' => 'กรุณาตรวจสอบชื่อและรหัสผ่านให้ถูกต้อง',
+            'is_active'=>'5555',
         ]);
     }
 

@@ -49,7 +49,8 @@
                                 <div class="form-group">
                                     <label for="is_active" class="form-label mt-1">สถานะผู้ใช้งาน</label>
                                     <div class="form-check">
-                                        <label for="is_active" class="checkbox-inline"><input class="form-check-input" type="checkbox" name="is_active" id="is_active" {{old('is_active',$user->is_active) == 1 ? 'checked' : ''}}>ใช้งาน</label>
+                                        <label for="is_active" class="form-check-label"><input class="form-check-input" type="radio" name="is_active" id="is_active" value="1" {{old('is_active',$user->is_active) == 1 ? 'checked' : ''}}>ใช้งาน</label><br>
+                                        <label for="is_active" class="form-check-label"><input class="form-check-input" type="radio" name="is_active" id="is_active" value="0" {{old('is_active',$user->is_active) == 0 ? 'checked' : ''}}>ไม่ใช้งาน</label>
                                     </div>
                                 </div>
                             </div>
