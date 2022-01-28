@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 class LoginController extends Controller
 {
     /*
@@ -47,24 +48,35 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        $username=$request->username;
-        $password=$request->password;
-        // $credentials = $request->validate([
-        //     'username'=> ['required'],
-        //     'password' => ['required'],
-        // ]);
-        // $remember = $request->remember;
+        $credentials = $request->validate([
+            'username'=> ['required'],
+            'password' => ['required'],
+        ]);
+        $remember = $request->remember;
 
-        if (Auth::attempt(['username'=>$username, 'password'=>$password, 'is_active'=>1])) {
+        if (Auth::attempt($credentials, $remember)) 
+        {
             $request->session()->regenerate();
-
-            return redirect('/');
+            $user=Auth::user();
+            \Log::info($user->is_active);
+            if ($user->is_active ==1) 
+            {
+                return redirect('/');
+            }
+            \Log::info('nope');
+            // Auth::logout();
+            // $request->session()->invalidate();
+            // $request->session()->regenerateToken();
+            return back()->withErrors([
+                'is_active'=>'555',
+            ]);
+            
         }
-
         return back()->withErrors([
             'username' => 'กรุณาตรวจสอบชื่อและรหัสผ่านให้ถูกต้อง',
-            'is_active'=>'5555',
         ]);
+
+        
     }
 
     /**
