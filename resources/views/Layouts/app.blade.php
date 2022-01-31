@@ -58,9 +58,11 @@
               </li>
               @endif
               @if (Auth::check())
-                <li class="nav-item">
-                  <a href="{{url('/admin')}}" class="nav-link text-white">สำหรับผู้ดูแลระบบ</a>
-                </li>
+                @if (Auth::user()->role_id == 2)
+                  <li class="nav-item">
+                    <a href="{{url('/admin')}}" class="nav-link text-white">สำหรับผู้ดูแลระบบ</a>
+                  </li>
+                @endif
               @endif
             </ul>
             @if (Auth::check())
