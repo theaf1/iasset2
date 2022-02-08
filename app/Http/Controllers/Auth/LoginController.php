@@ -61,12 +61,13 @@ class LoginController extends Controller
             \Log::info($user->is_active);
             if ($user->is_active ==1) 
             {
+                \Log::info('ok');
                 return redirect('/');
             }
             \Log::info('nope');
-            // Auth::logout();
-            // $request->session()->invalidate();
-            // $request->session()->regenerateToken();
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
             return back()->withErrors([
                 'is_active'=>'555',
             ]);
