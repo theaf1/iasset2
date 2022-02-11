@@ -218,3 +218,6 @@ Route::get('/forgot',function () {
 //     return view('/auth/passwords/newreset');
 // });
 Route::get('/reset','Auth\ResetPasswordController@index');
+Route::get('/denied',function (){
+    return view('/auth/denied');
+});
