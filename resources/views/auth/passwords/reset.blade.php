@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('ตั้งรหัสผ่านใหม่') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
+                    <form method="POST" action="{{ url('/execute') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('ตั้งรหัสผ่านใหม่') }}
