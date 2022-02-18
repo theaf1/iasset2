@@ -6,7 +6,7 @@
                 <h4>ตั้งรหัสผ่านใหม่</h4>
             </div>
             <div class="card-body">
-                <form action="">
+                <form action="{{url('/execute')}}" method="POST">
                     @csrf
                     <div class="row pb-3">
                         <label for="email" class="col-md-4 col-form-label text-md-right">email</label>
