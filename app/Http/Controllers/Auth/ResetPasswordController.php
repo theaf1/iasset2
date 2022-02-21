@@ -30,45 +30,47 @@ class ResetPasswordController extends Controller
      */
     public function index()
     {
-        return view('/Auth/passwords/newreset');
+        return view('/Auth/passwords/newreset')->with([
+            'token'=>'1',
+        ]);
     }
     public function execute()
     {
         return $request->all(); //troubleshooting
-        $this->validate_reset($request);
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user, $password) {
-                $user->forceFill([
-                    'password' => Hash::make($password)
-                ])->setRememberToken(Str::random(60));
+        // $this->validate_reset($request);
+        // $status = Password::reset(
+        //     $request->only('email', 'password', 'password_confirmation', 'token'),
+        //     function ($user, $password) {
+        //         $user->forceFill([
+        //             'password' => Hash::make($password)
+        //         ])->setRememberToken(Str::random(60));
      
-                $user->save();
+        //         $user->save();
      
-                event(new PasswordReset($user));
-            }
-        );
+        //         event(new PasswordReset($user));
+        //     }
+        // );
      
-        return $status === Password::PASSWORD_RESET
-                    ? redirect()->route('login')->with('status', __($status))
-                    : back()->withErrors(['email' => [__($status)]]);
+        // return $status === Password::PASSWORD_RESET
+        //             ? redirect()->route('login')->with('status', __($status))
+        //             : back()->withErrors(['email' => [__($status)]]);
     }
-    private function validate_reset ($data)
-    {
-        $rules = [
-            'email'=>'required|email',
-            'password'=>'required|min:8|confirmed',
-        ];
+    // private function validate_reset ($data)
+    // {
+    //     $rules = [
+    //         'email'=>'required|email',
+    //         'password'=>'required|min:8|confirmed',
+    //     ];
 
-        $message = [
-            'email.required'=>'1',
-            'email.email'=>'2',
-            'password.required'=>'3',
-            'password.min'=>'4',
-            'password.confirmed'=>'5',
-        ];
-        return $this->validate($data, $rules, $message);
-    }
+    //     $message = [
+    //         'email.required'=>'1',
+    //         'email.email'=>'2',
+    //         'password.required'=>'3',
+    //         'password.min'=>'4',
+    //         'password.confirmed'=>'5',
+    //     ];
+    //     return $this->validate($data, $rules, $message);
+    // }
     /**
      * Where to redirect users after resetting their password.
      *
