@@ -25,7 +25,7 @@ class Users extends Migration
             $table->integer('role_id')->default(1);
             $table->boolean('is_active')->default(1);
             $table->string('security_q')->bcrypt();
-            $table->string('security_q')->bcrypt();
+            $table->string('security_a')->bcrypt();
             $table->timestamps();
         });
     }
