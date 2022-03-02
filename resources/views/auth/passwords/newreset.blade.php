@@ -13,12 +13,22 @@
                         <label for="email" class="col-md-4 col-form-label text-md-right">email ที่เคยสมัครไว้</label>
                         <div class="col-md-6">
                             <input class="form-control" type="email" name="email" id="email">
+                            @error('email')
+                                <span class="invalid-feedback">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row pb-3">
                         <label for="new_password" class="col-md-4 col-form-label text-md-right">รหัสผ่านใหม่</label>
                         <div class="col-md-6">
                             <input class="form-control" type="password" name="password" id="new_password">
+                            @error('password')
+                                <span class="invalid-feedback">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row pb-3">
@@ -36,7 +46,12 @@
                     <div class="row pb-3">
                         <label for="security_a" class="col-md-4 col-form-label text-md-right">คำตอบ</label>
                         <div class="col-md-6">
-                            <input type="text" id="security_a" name="security_a" class="form-control" value="a">
+                            <input type="text" id="security_a" name="security_a" class="form-control">
+                            @error('security_a')
+                                <span class="invalid-feedback">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="mt-4 text-md-center">
