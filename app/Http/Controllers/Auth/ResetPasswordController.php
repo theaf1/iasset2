@@ -28,12 +28,14 @@ class ResetPasswordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //เรียกหน้า reset password และส่ง reset token
     {
         return view('/Auth/passwords/newreset')->with([
             'token'=>'1',
         ]);
     }
+
+    //ทำการ reset password
     public function execute(Request $request)
     {
        
