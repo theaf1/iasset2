@@ -9,7 +9,7 @@
                 <form action="{{url('/execute')}}" method="POST">
                     @csrf
                     <input type="hidden" name="token" value="{{$token}}">
-                    <div class="row pb-3">
+                    {{-- <div class="row pb-3">
                         <label for="email" class="col-md-4 col-form-label text-md-right">email ที่เคยสมัครไว้</label>
                         <div class="col-md-6">
                             <input class="form-control" type="email" name="email" id="email">
@@ -19,7 +19,7 @@
                                 </span>
                             @enderror
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row pb-3">
                         <label for="new_password" class="col-md-4 col-form-label text-md-right">รหัสผ่านใหม่</label>
                         <div class="col-md-6">

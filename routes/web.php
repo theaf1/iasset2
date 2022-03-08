@@ -217,7 +217,7 @@ Route::get('/forgot',function () {
 // Route::get('/newreset',function () {
 //     return view('/auth/passwords/newreset');
 // });
-Route::get('/reset','Auth\ResetPasswordController@index');
+Route::get('/reset','Auth\ForgotPasswordController@index');
 Route::post('/execute','Auth\ResetPasswordController@execute');
 Route::get('/denied',function (){
     return view('/auth/denied');
