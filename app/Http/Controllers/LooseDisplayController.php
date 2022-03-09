@@ -47,9 +47,9 @@ class LooseDisplayController extends Controller
     public function create()
     {
         //เรียกหน้า addloosedisplay พร้อมกับส่งตัวแปร
-        $lastInternalSapId = LooseDisplay::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
+        $lastInternalSapId = LooseDisplay::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first(); //ค้นหาเลขรหัสทรัพย์สินภายในลำดับสุดท้าย
         
-        if($lastInternalSapId == null)
+        if($lastInternalSapId == null) //ตรวจสอบว่าค่ารหัสทรัพย์สินภายในเป็นค่าว่างหรือไม่
         {
             $temp = 0;
         }
@@ -93,7 +93,7 @@ class LooseDisplayController extends Controller
     public function show($id)
     {
         $LooseDisplay = LooseDisplay::find($id); //ค้นหาข้อมูล
-        //เรียกหน้า loosedisplaydetail พ้อมกับส่งตัวแปร
+        //เรียกหน้า loosedisplaydetail พร้อมกับส่งตัวแปร
         return view('loosedisplaydetail')->with([
             'loosedisplay'=>$LooseDisplay,
         ]);

@@ -20,7 +20,7 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //เรียกหน้า index พร้อมกับส่งข้อมูลประกอบ
     {
         
         return view('index')->with([

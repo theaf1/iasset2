@@ -48,6 +48,7 @@ class NetworkedstorageController extends Controller
      */
     public function create()
     {
+        //รวบรวมข้อมูลที่ใช้ในการบันทึก
         $Asset_statuses = Asset_statuses::all();
         $Asset_use_statuses = Asset_use_statuses::all();
         $Sections = Section::all();
