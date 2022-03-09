@@ -77,7 +77,7 @@
                                 <button type="reset" class="btn btn-danger">{{__('ยกเลิก')}}</button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ url('/reset') }}">
+                                    <a class="btn btn-link" href="{{ url('/forgot') }}">
                                         {{ __('ลืมรหัสผ่าน?') }}
                                     </a>
                                 @endif
