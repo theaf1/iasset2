@@ -91,6 +91,7 @@ class Servers extends Model
     {
         return $this->belongsTo(Formfactor::class,'form_factor_id');
     }
+    //แสดงความสัมพันธ์กับตาราง Display
     public function ServerDisplay ()
     {
         return $this->hasMany(Display::class,'client_id');

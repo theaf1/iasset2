@@ -85,10 +85,12 @@ class Peripherals extends Model
     {
         return $this->belongsTo(Asset_use_statuses::class,'asset_use_status_id');
     }
+    //แสดงความสัมพันธ์กับตาราง  PeripheralSupply
     Public function PeripheralSupply ()
     {
         return $this->belongsTo(PeripheralSupply::class,'supply_consumables_id');
     }
+    //แสดงความสัมพันธ์กับตาราง PeripheralConnect
     Public function PeripheralConnect ()
     {
         return $this->belongsTo(PeripheralConnect::class,'connectivity_id');

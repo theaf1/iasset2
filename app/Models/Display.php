@@ -24,6 +24,7 @@ class Display extends Model
     {
         return $this->belongsTo(Client::class,'client_id');
     }
+    //แสดงความสัมพันธ์กับตาราง server
     public function DisplayServer ()
     {
         return $this->belongsTo(Servers::class,'client_id');

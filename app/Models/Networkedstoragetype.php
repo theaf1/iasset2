@@ -10,6 +10,7 @@ class Networkedstoragetype extends Model
         'id',
         'name',
     ];
+    //แสดงความสัมพันธ์กับตาราง NetworkedStorage
     public function TypeNetworkedStorage ()
     {
         return $this->hasMany(Networkedstorage::class,'storage_type_id');

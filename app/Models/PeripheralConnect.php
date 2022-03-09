@@ -10,6 +10,7 @@ class PeripheralConnect extends Model
         'id',
         'name',
     ];
+    //แดงความสัมพันธกับตาราง Peripherals
     public function ConnectPeripheral ()
     {
         return $this->hasMany(Peripherals::class,'connectivity_id');

@@ -10,6 +10,8 @@ class PeripheralSupply extends Model
         'id',
         'name',
     ];
+
+    //แสดงความสัมพันธ์กับตาราง Peripherals 
     public function SupplyPeripheral ()
     {
         return $this->hasMany(Peripheral::class,'supply_consumables_id');

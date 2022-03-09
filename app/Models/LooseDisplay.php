@@ -47,6 +47,7 @@ class LooseDisplay extends Model
     {
         return $this->belongsTo(Room::class,'location_id');
     }
+    //กำหนดความสัมพันธ์กับตาราง Mobility
     public function LooseDisplayMobility ()
     {
         return $this->belongsTo(Mobility::class,'mobility_id');

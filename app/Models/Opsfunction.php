@@ -11,6 +11,7 @@ class Opsfunction extends Model
         'name',
     ];
     
+    //แสดงความสัมพันธ์กับตาราง Client
     public function OpsFunctionClient ()
     {
         return $this->hasMany(Client::class,'function_id');
