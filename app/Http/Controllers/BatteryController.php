@@ -98,10 +98,12 @@ class BatteryController extends Controller
     }
     private function validateData($data)
     {
+        //เงื่อนไขในการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\Upsbatterytype,name',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้
         $messages = [
             'name.required'=>'กรุณาระบุประเภทของแบตเตอรี่',
             'name.unique'=>'มีแบตเตอรี่ประเภทนี้แล้ว',

@@ -245,6 +245,7 @@ class ClientController extends Controller
     }
     //function ตรวจสอบข้อมูลก่อนการบันทึก
     private function validateData($data){
+        //เงื่อนไขการตรวจสอบข้อมูล
         $rules = [
             'type_id' =>'required',
             'sapid' => 'required',
@@ -290,6 +291,7 @@ class ClientController extends Controller
             'issues' => 'nullable',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งาน
         $messages = [
             'type_id.required'=>'กรุณาระบุชนิดของครุภัณฑ์คอมพิวเตอร์',
             'sapid.required'=>'กรุณาตรวจสอบรหัส SAP',

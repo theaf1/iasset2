@@ -95,10 +95,12 @@ class DisplayTypeController extends Controller
     }
     private function validateData($data)
     {
+        //เงื่อนไขการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\DisplayType,name',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งาน
         $messages = [
             'name.required'=>'กรุณาระบุชื่อชนิดจอภาพ',
             'name.unique'=>'มีชื่อจอภาพชนิดนี้ในระบบแล้ว',

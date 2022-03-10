@@ -12,8 +12,9 @@ class DisplayRatioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //เรียกหน้า displayratioadmin
     {
+        //ส่งหน้า displayratioadmin พร้อมกับข้อมูลจาก model DisplayRatio
         return view('/admin/displayratioadmin')->with([
             'displayratios'=>DisplayRatio::all(),
         ]);
@@ -26,7 +27,7 @@ class DisplayRatioController extends Controller
      */
     public function create()
     {
-        return view('/admin/adddisplayratio');
+        return view('/admin/adddisplayratio'); //ส่งหน้า adddisplayratio ไปแสดงผล
     }
 
     /**
@@ -37,9 +38,9 @@ class DisplayRatioController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateData($request);
-        $DisplayRatios = DisplayRatio::create($request->all());
-        return redirect('/admin/displayratio')->with('success','บันทึกข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการบันทึก
+        $DisplayRatios = DisplayRatio::create($request->all()); //บันทึกข้อมูลลงในฐานข้อมูล
+        return redirect('/admin/displayratio')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //ส่งกลับไปหน้า displayratioadmin พร้อมกับผลการบันทึกข้อมูล
     }
 
     /**
@@ -61,7 +62,8 @@ class DisplayRatioController extends Controller
      */
     public function edit($id)
     {
-        $DisplayRatio = DisplayRatio::find($id);
+        $DisplayRatio = DisplayRatio::find($id); //ค้นหาข้อมูลที่ต้องการแก้ไข
+        //ส่งหน้า editdisplayratio ไปพร้อมกับข้อมูลที่ตต้องการแก้ไข
         return view('/admin/editdisplayratio')->with([
             'displayratio'=>$DisplayRatio,
         ]);
@@ -74,11 +76,11 @@ class DisplayRatioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) //ทำการแก้ไขข้อมูลในฐานข้อมูล
     {
-        $this->validateData($request);
-        Displayratio::find($id)->update($request->all());
-        return redirect('/admin/displayratio')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        Displayratio::find($id)->update($request->all()); //แก้ไขข้อมูลในฐานข้อมูล
+        return redirect('/admin/displayratio')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //ส่งไปหน้า displayratioadmin พร้อมกับผลการแก้ไขข้อมูล
     }
 
     /**
@@ -91,12 +93,14 @@ class DisplayRatioController extends Controller
     {
         //
     }
-    private function validateData ($data)
+    private function validateData ($data) //ตรวจสอบข้อมูลที่ได้รับ
     {
+        //เงื่อนไขการตวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\Displayratio,name|regex:/[0-9]?[0-9]:[0-9]?[0-9]/',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งาน
         $messages = [
             'name.required'=>'กรุณาระบุสัดส่วนของจอภาพ',
             'name.unique'=>'มีสัดส่วนจอภาพนี้ในระบบแล้ว',

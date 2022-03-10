@@ -98,10 +98,12 @@ class BuildingController extends Controller
     }
     private function validateData($data)
     {
+        //เงื่อนไขในการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\Building,name',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งาน
         $messages = [
             'name.required'=>'กรุณาระบุชื่ออาคาร',
             'name.unique'=>'มีอาคารนี้ในระบบแล้ว',

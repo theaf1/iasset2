@@ -98,10 +98,12 @@ class DataUnitController extends Controller
     }
     private function validateData ($data)
     {
+        //เงื่อนไขการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\DataUnit,name',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งาน
         $messages = [
             'name.required'=>'กรุณาระบุหน่วยนับข้อมูล',
             'name.unique'=>'มีหน่วยนับข้อมูลนี้ในระบบแล้ว',
