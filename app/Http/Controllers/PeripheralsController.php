@@ -207,7 +207,7 @@ class PeripheralsController extends Controller
     {
         $this->validateData($request); //ตรวจสอบข้อมูลที่แก้ไข
         Peripherals::find($id)->update($request->all()); //ค้นหาและแก้ไขข้อมูลในตาราง peripherals
-        return redirect('/peripheral')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
+        return redirect('/peripheral')->with('success','แก้ไขข้อมูลสำเร็จแล้ว'); //ส่งกลับไปหน้า peripheralsindex พร้อมผลการบันทึกข้อมูล
     }
 
     /**
@@ -222,7 +222,7 @@ class PeripheralsController extends Controller
     }
     //function ตรวจสอบข้อมูล
     private function validateData($data){
-        //เงื่อนไข
+        //เงื่อนไขในการตรวจสอบข้อมูล
         $rules = [
             'type_id'=>'required',
             'sapid'=>'required',

@@ -96,12 +96,14 @@ class ServerOsController extends Controller
     {
         //
     }
-    private function validateData($data)
+    private function validateData($data) //ตรวจสอบข้อมูลที่ได้รับ
     {
+        //เงื่อนไขในการตรวจสอบ
         $rules = [
             'name'=>'required|unique:App\ServerOp,name', //ต้องมีชื่อและไม่ซ้ำกัน
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งาน
         $messages = [
             'name.required'=>'กรุณาใส่ชื่อระบบปฏิบัติการ',
             'name.unique'=>'มีชื่อระบบปฏิบัติการนี้ในะระบบแล้ว',

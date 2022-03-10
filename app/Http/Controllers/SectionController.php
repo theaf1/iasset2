@@ -97,11 +97,14 @@ class SectionController extends Controller
     {
         //
     }
-    private function validateData($data)
+    private function validateData($data) //ตรวจสอบข้อมูลที่ได้รับ
     {
+        //เงื่อนไขในการตรวจสอบข้อมูล
         $rules = [
             'name'=>'unique:App\Section,name',
         ];
+
+        //ข้อความแจ้งเตือนผู้ใช้งาน
         $messages = [
             'name.unique'=>'มีหน่วยงานนี้แล้ว'
         ];

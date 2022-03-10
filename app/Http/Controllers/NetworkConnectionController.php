@@ -96,11 +96,14 @@ class NetworkConnectionController extends Controller
     {
         //
     }
-    private function validateData($data)
+    private function validateData($data) //ตรวจสอบข้อมูลที่ได้รับ
     {
+        //เงิื่อนไขการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\NetworkConnection,name',
         ];
+
+        //ข้อความแจ้งเตือนผู้ใช้
         $messages = [
             'name.required'=>'กรุณาใส่ชื่อประเภทเครือข่าย',
             'name.unique'=>'มีเครือข่ายประเภทนี้แล้ว',

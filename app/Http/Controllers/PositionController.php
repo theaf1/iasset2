@@ -97,12 +97,14 @@ class PositionController extends Controller
         //
     }
 
-    private function validateData ($data)
+    private function validateData ($data) //ตรวจสอบข้อมูลที่ได้รับ
     {
+        //เงื่อนไขในการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\Position,name',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งาน
         $messages = [
             'name.required'=>'กรุณาระบุชื่อตำแหน่ง',
             'name.unique'=>'มีตำแหน่งนี้ในระบบแล้ว',

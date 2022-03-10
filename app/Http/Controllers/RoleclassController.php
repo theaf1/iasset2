@@ -96,12 +96,14 @@ class RoleclassController extends Controller
     {
         //
     }
-    private function validateData($data)
+    private function validateData($data) //ตรวจสอบข้อมูลที่ได้รับ
     {
+        //เงื่อนไขในการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\ServerRoleClass,name',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งาน
         $messages = [
             'name.required'=>'กรุณาใส่ชื่อบทบาท',
             'name.unique'=>'มีชื่อบทบาทนี้แล้ว',

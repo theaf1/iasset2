@@ -96,10 +96,12 @@ class PeripheraltypeController extends Controller
     }
     private function validateData ($data)
     {
+        //เงื่อนไขในการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\Peripheraltype,name', //กำหนดให้ต้องมีข้อมูลและไม่ซ้ำกับของเดิม
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้
         $messages = [
             'name.required'=>'กรุณาระบุชื่อชนิดอุปกรณ์ต่อพ่วง',
             'name.unique'=>'มีชื่ออุปกรณ์ต่อพ่วงชนิดนี้แล้ว',

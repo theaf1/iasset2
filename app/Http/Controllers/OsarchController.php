@@ -96,12 +96,14 @@ class OsarchController extends Controller
     {
         //
     }
-    private function validateData ($data)
+    private function validateData ($data) //ตรวจสอบข้อมูลที่ได้รับ
     {
+        //เงื่อนไขในการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\OsArch,name',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งานระบบ
         $messages =[
             'name.required'=>'กรุณาระบุชื่อโครงสร้าง',
             'name.unique'=>'มีโครงสร้างนี้ในระบบแล้ว',
