@@ -35,7 +35,7 @@
                 </tr>
             </tbody>
         </table>
-        <p class="text-center">ออกรายงาน ณ วันที่ {{$now}} โดย {{Auth::user()->name}}</p>
+        <p class="text-center">ออกรายงาน ณ วันที่ {{$now}} โดย</p>
         <div class="text-center">
             <a href="{{url('/reports')}}" class="btn btn-primary btn-lg mb-4" role="button">ย้อนกลับ</a>
         </div>
