@@ -259,8 +259,9 @@ class UpsController extends Controller
 
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้าต้นทางหรือส่งข้อมูลไปบันทึก
     }
-    protected function filterUps ($section_filter, $per_page)
+    protected function filterUps ($section_filter, $per_page) //ค้นหา ups ไปแสดงผลใน upsindex
     {
+        //ค้นหา ups ตามหน่วยงานและแบ่งหน้าตามจำนวนที่ต้องการพร้อมกับส่งข้อมูลการค้นหากลับไป
         return Upses::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
             'section_filter'=>$section_filter,
             'per_page'=>$per_page,

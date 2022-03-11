@@ -96,12 +96,14 @@ class TopologyController extends Controller
     {
         //
     }
-    private function validateData ($data)
+    private function validateData ($data) //ตรวจสอบข้อมูลที่ได้รับ
     {
+        //เงื่อนไขในการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required|unique:App\Topology,name',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งานระบบ
         $messages = [
             'name.required'=>'กรุณาระบุชชื่อหลักการทำงาน',
             'name.unique'=>'มีหลักการทำงานนในระบบแล้ว',

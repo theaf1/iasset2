@@ -336,8 +336,9 @@ class ServerController extends Controller
 
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addserver หรือส่งข้อมูลไปบันทึก
     }
-    protected function filterServer ($section_filter, $per_page)
+    protected function filterServer ($section_filter, $per_page) //ค้นหา server ไปแสดงผลใน serverindex
     {
+        //ค้นหา server ตามหน่วยงานและแบ่งหน้าตามจำนวนที่ต้องการพร้อมกับส่งข้อมูลการค้นหากลับไป
         return Servers::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
             'section_filter'=>$section_filter,
             'per_page'=>$per_page,

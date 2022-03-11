@@ -79,9 +79,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateData($request);
-        User::find($id)->update($request->all());
-        return redirect('/admin/users')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');
+        $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
+        User::find($id)->update($request->all()); //แก้ไขข้อมูลลงในฐานข้อมูล
+        return redirect('/admin/users')->with('success','แก้ไขข้อมูลสำเร็จแล้ว');//ส่งกลับไปหน้า useradmin พร้อมกับส่งผลการบันทึกข้อมูล
     }
 
     /**
@@ -94,13 +94,15 @@ class UserController extends Controller
     {
         //
     }
-    private function validateData ($data)
+    private function validateData ($data) //ตรวจสอบข้อมูลที่ได้รับ
     {
+        //เงื่อนไขการตรวจสอบข้อมูล
         $rules = [
             'name'=>'required',
             'email'=>'required',
         ];
 
+        //ข้อความแจ้งเตือนผู้ใช้งาน
         $messages = [
             'name.required'=>'กรุณาระบุชื่อ',
             'email.required'=>'กรุณาใส่ email',

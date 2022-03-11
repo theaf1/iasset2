@@ -263,8 +263,9 @@ class StorageperipheralsController extends Controller
 
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addstorageperipherals หรือส่งข้อมูลไปบันทึก
     }
-    protected function filterStoragePeripheral ($section_filter, $per_page)
+    protected function filterStoragePeripheral ($section_filter, $per_page) //ค้นหา storageperipherals ไปแสดงผลใน storageperipheralsindex
     {
+        //ค้นหา storageperipherals ตามหน่วยงานและแบ่งหน้าตามจำนวนที่ต้องการพร้อมกับส่งข้อมูลการค้นหากลับไป
         return Storageperipherals::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
             'section_filter'=>$section_filter,
             'per_page'=>$per_page,
