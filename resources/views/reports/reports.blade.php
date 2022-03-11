@@ -9,11 +9,11 @@
                         <h4>รายงาน</h4>
                     </div>
                     <div class="card-body">
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="reports">กรุณาเลือกรายงานที่ต้องการ</label>
-                                    <select name="report_id" id="reports" class="form-control">
+                                    <label for="reports" class="form-label">กรุณาเลือกรายงานที่ต้องการ</label>
+                                    <select name="report_id" id="reports" class="form-select">
                                         @foreach ($reporttypes as $reporttype)
                                             <option value="{{$reporttype['id']}}">{{$reporttype['name']}}</option>
                                         @endforeach
@@ -22,8 +22,8 @@
                             </div>
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="section">หน่วยงาน</label>
-                                    <select name="report_section" id="section" class="form-control">
+                                    <label for="section" class="form-label">หน่วยงาน</label>
+                                    <select name="report_section" id="section" class="form-select">
                                         @foreach ($sections as $section)
                                             <option value="{{$section['id']}}">{{$section['name']}}</option>
                                         @endforeach
@@ -31,10 +31,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
-                                    <label for="asset_age">อายุครุภัณฑ์(ปี)</label>
+                                    <label for="asset_age" class="form-label mt-1">อายุครุภัณฑ์(ปี)</label>
                                     <input type="number" class="form-control" name="asset_age" id="asset_age" value="10" min="1">
                                 </div>
                             </div>
