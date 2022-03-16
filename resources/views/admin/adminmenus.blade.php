@@ -13,7 +13,7 @@
                                 <a href="{{url('/admin/sectionadmin')}}" class="btn btn-info mt-4" role="button">จัดการข้อมูลหน่วยงาน</a>
                                 <a href="{{url('/admin/locationadmin')}}" class="btn btn-info mt-4" role="button">จัดการสถานที่ตั้ง</a>
                                 <a href="{{url('/admin/buildingadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่ออาคาร</a>
-                                <a href="{{url('/admin/functionadmin')}}" class="btn btn-info mt-4" role="button">จัดการายชื่อระบบงาน</a>
+                                <a href="{{url('/admin/functionadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อระบบงาน</a>
                                 <a href="{{url('/admin/owneradmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อเจ้าของเครื่อง</a>
                                 <a href="{{url('/admin/positionadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อตำแหน่งบุคลากร</a>
                                 <a href="{{url('/admin/assetstatusadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อสถานะครุภัณฑ์</a>
