@@ -218,6 +218,7 @@ Route::get('/forgot',function () {
 //     return view('/auth/passwords/newreset');
 // });
 Route::get('/reset','Auth\ForgotPasswordController@index');
+Route::post('/email','Auth\ForgotPasswordController@EmailCheck');
 Route::post('/execute','Auth\ResetPasswordController@execute');
 Route::get('/denied',function (){
     return view('/auth/denied');

@@ -20,19 +20,22 @@ class ForgotPasswordController extends Controller
     |
     */
 
-    use SendsPasswordResetEmails;
+    //use SendsPasswordResetEmails;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() //เรียกหน้า reset password และส่ง reset token
+    public function index() //เรียกหน้า reset password
     {
-        return view('/Auth/passwords/newreset')->with([
-            'token'=>'1',
-        ]);
+        return view('/Auth/passwords/email');
     }
-
+    public function EmailCheck (Request $request)
+    {
+        //$request->validate(['email' => 'required|email']);
+        $link=Password::sendResetLink($request->only('email'));
+        return $link;
+    }
     // Route::post('/forgot-password', function (Request $request) {
     //     $request->validate(['email' => 'required|email']);
      
