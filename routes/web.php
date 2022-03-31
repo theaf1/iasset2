@@ -223,4 +223,3 @@ Route::post('/execute','Auth\ResetPasswordController@execute');
 Route::get('/denied',function (){
     return view('/auth/denied');
 });
-//test
