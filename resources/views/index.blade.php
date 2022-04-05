@@ -43,7 +43,6 @@
                         <div class="form-group">
                             <label for="per_page" class="form-label">ผลการค้นหาต่อหน้า</label>
                             <select name="per_page" id="per_page" class="form-select">
-                                <option value="2">2</option>
                                 <option value="10">10</option>
                                 <option value="20" selected>20</option>
                                 <option value="30">30</option>
