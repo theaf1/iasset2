@@ -25,8 +25,8 @@
                     <div class="card-body">
                         <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
                         @csrf
-                        <div class="row">
-                            <div class="col-sm-12 col-lg-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
+                        <div class="row pt-1 pb-1">
+                            <div class="col-sm-12 col-lg-6 col-xxl-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
                                 <div class="form-group"> 
                                     <label for="type" class="form-label">ชนิด</label>
                                     <select class="form-select @error('type_id') is-invalid @enderror" id="type" name="type_id">
@@ -42,7 +42,7 @@
                                     @enderror
                                 </div> 
                             </div>     
-                            <div class="col-sm-12 col-lg-6"> <!-- รหัส SAP -->
+                            <div class="col-sm-12 col-lg-6 col-xxl-6"> <!-- รหัส SAP -->
                                 <div class="form-group">
                                     <label for="sapid" class="form-label">รหัส SAP</label>
                                     <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรอกรหัส SAP" value="{{ old('sapid') }}"/><button type="button" class="btn btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
@@ -169,7 +169,7 @@
                             <div class="col-sm-12 col-lg-3"> <!-- ชื่อผู้ใช้งาน -->
                                 <div class="form-group">
                                     <label for="user" class="form-label">ชื่อผู้ใช้งาน</label><br>
-                                    <input type="text" class="form-select @error('user') is-invalid @enderror" id="user" name="user" value="{{ old('user') }}">
+                                    <input type="text" class="form-control @error('user') is-invalid @enderror" id="user" name="user" value="{{ old('user') }}">
                                     @error('user')
                                         <div class="invalid-feedback">
                                             {{ $message }}
