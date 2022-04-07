@@ -20,7 +20,7 @@ $factory->define(Client::class, function (Faker $faker) {
     return [
         'type_id'=> 1, //สุ่มค่า type_id
         'sapid' => rand(131100000000,131100099999), //สุ่มรหัส SAP
-        'pid'=> '11000800-S-7440-001-0001/64', //รหัสครุภัณฑ์
+        'pid'=> '11000800-S-7440-001-0001/2564', //รหัสครุภัณฑ์
         'location_id'=> rand(1,124), //ที่ตั้ง
         'mobility_id'=> 2, //เคลื่อนที่ได้
         'section_id'=> rand(1,25), //หน่วยงาน
