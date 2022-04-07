@@ -234,7 +234,7 @@
                         <div class="col-sm-12 col-lg-6"><!--หลักการทำงาน-->
                             <div class="form-group">
                                 <label for="topology" class="form-label">หลักการทำงาน</label>
-                                <select class="form-control @error('topology_id') is-invalid @enderror" name="topology_id" id="topology">
+                                <select class="form-select @error('topology_id') is-invalid @enderror" name="topology_id" id="topology">
                                     <option value="" hidden>กรุณาเลือก</option>
                                     @foreach ($topos as $topo)
                                         <option value="{{ $topo['id'] }}" {{ old('topology_id') == $topo['id'] ? 'selected' : '' }}>{{ $topo['name'] }}</option>

@@ -25,9 +25,9 @@
                     <div class="card-body">
                         <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
                         @csrf
-                        <div class="row pt-1 pb-1">
-                            <div class="col-sm-12 col-lg-6 col-xxl-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
-                                <div class="form-group"> 
+                        <div class="row mb-2">
+                            <div class="col-sm-12 col-lg-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
+                                 
                                     <label for="type" class="form-label">ชนิด</label>
                                     <select class="form-select @error('type_id') is-invalid @enderror" id="type" name="type_id">
                                         <option value="" hidden></option>
@@ -40,10 +40,10 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div> 
+                                 
                             </div>     
-                            <div class="col-sm-12 col-lg-6 col-xxl-6"> <!-- รหัส SAP -->
-                                <div class="form-group">
+                            <div class="col-sm-12 col-lg-6"> <!-- รหัส SAP -->
+                                
                                     <label for="sapid" class="form-label">รหัส SAP</label>
                                     <input type="text" class="form-control @error('sapid') is-invalid @enderror" id="sapid" name="sapid" placeholder="กรอกรหัส SAP" value="{{ old('sapid') }}"/><button type="button" class="btn btn-primary mt-3" onclick="generateInternalSAP()">ให้รหัสภายใน</button>
                                     <small id="sapid" class="form-text">กรุณาใส่รหัส SAP 12 หลักหากไม่มีให้กดปุ่ม "ให้รหัสภายใน"</small>
@@ -52,15 +52,15 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div>
+                                
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col-sm-12 col-lg-6"> <!-- รหัสครุภัณฑ์ -->
-                                <div class="form-group">
+                                
                                     <label for="pid" class="form-label">รหัสครุภัณฑ์</label>
                                     <input type="text" class="form-control" id="pid" name="pid">
-                                </div>
+                                
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ห้อง -->
                                 <label for="room" class="form-label">ห้อง</label>
@@ -72,22 +72,22 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
-                                <div class="form-group">
+                                
                                     <label for="building" class="form-label">ตึก</label>
                                     <input class="form-control" name="building" id="building" value="{{ old('building') }}"/>
-                                </div>
+                                
                             </div>
                             <div class="col-sm-12 col-lg-6"> <!-- ชั้น -->
-                                <div class="form-group">
+                                
                                     <label for="location" class="form-label">ชั้น</label>
                                     <input type="text" class="form-control" name="location" id="location" value="{{ old('location') }}"/>
-                                </div>
+                                
                             </div>
                         </div>
                         <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->
-                        <div class="row"> 
+                        <div class="row mb-2"> 
                             <div class="col-sm-12 col-lg-6"> <!-- ลักษณะการใช้งาน -->
                                 <div class="form-group">
                                     <label for="is_mobile" class="form-label">ลักษณะการใช้งาน</label><br>
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">    
+                        <div class="row mb-2">    
                             <div class="col-sm-12 col-lg-6"> <!-- สถานะของครุภัณฑ์ -->
                                 <div class="form-group">
                                     <label for="asset_status" class="form-label">สถานะของครุภัณฑ์</label><br>
@@ -155,7 +155,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row"> 
+                        <div class="row mb-2"> 
                             <div class="col-sm-12 col-lg-3">  <!-- จำนวนผู้ใช้งาน -->
                                 <div class="form-group">
                                     <label for="multi_user" class="form-label">จำนวนผู้ใช้งาน</label>
@@ -194,7 +194,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col-sm-12 col-lg-6"> <!-- หน่วยงาน -->
                                 <div class="form-group">
                                     <label for="section" class="form-label">หน่วยงาน</label>
@@ -228,7 +228,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                                 <div class="form-group">
                                     <label for="tel_no" class="form-label">หมายเลขโทรศัพท์</label>
@@ -244,11 +244,11 @@
                                 <div class="form-group">
                                     <div class="form-check">
                                         <label for="permission" class="form-label">สิทธิ์ Admin เครื่อง</label><br>
-                                        <div class="form-check-inline">
+                                        <div class="form-check">
                                             <input type="radio" class="form-check-input @error('permission') is-invalid @enderror" name="permission" id="admin" value="1" {{ old('permission') == 1 ? 'checked' : ''}}>
                                             <label class="form-check-label" for="admin">มีสิทธิ์ admin เครื่อง</label>
                                         </div>
-                                        <div class="form-check-inline">
+                                        <div class="form-check">
                                             <input type="radio" class="form-check-input @error('permission') is-invalid @enderror" name="permission" id="no_permission" value="0" {{ old('permission') == 0 && old('permission') !== null ? 'checked' : ''}}>
                                             <label class="form-check-label" for="no_permission">ไม่มีสิทธิ์ admin เครื่อง</label> 
                                             @error('permission')
