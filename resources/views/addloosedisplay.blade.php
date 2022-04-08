@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-body">
                         <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}"> <!--ที่พักค่ารหัสSAP ภายในชั่วคราว-->
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group"> <!--รหัส SAP-->
                                     <label for="display_sapid" class="form-label">รหัส SAP</label>
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-3"> <!--ที่มา-->
                                 <div class="form-group">
                                     <label for="owner" class="form-label">ที่มา</label> 
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
                                     <label for="building" class="form-label">ตึก</label>
@@ -96,7 +96,7 @@
                             </div>
                             <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section" class="form-label">หน่วยงาน</label>
@@ -125,7 +125,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--ตำแหน่ง-->
                                 <div class="form-group">
                                     <label for="position" class="form-label">ตำแหน่งผู้รับผิดชอบ</label>
@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--สถานะครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="asset_status" class="form-label">สถานะของครุภัณฑ์</label>
@@ -195,7 +195,7 @@
                         <h4>คุณสมบัติของเครื่อง</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
                                     <label for="brand" class="form-label">ยี่ห้อ</label>
@@ -219,7 +219,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--serial number-->
                                 <div class="form-group">
                                     <label for="serial_no" class="form-label">serial number</label>
@@ -259,7 +259,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--สัดส่วนจอภาพ-->
                                 <div class="form-group">
                                     <label for="display_ratio" class="form-label">สัดส่วนจอภาพ</label>
@@ -301,7 +301,7 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--ปัญหาการใช้งาน-->
                                 <div class="form-group">
                                     <label for="issues" class="form-label">ปัญหาในการใช้งาน</label>

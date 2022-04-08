@@ -268,7 +268,7 @@
                         <h4>คุณสมบัติของเครื่อง</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
                                     <label for="brand" class="form-label">ยี่ห้อ</label>
@@ -282,7 +282,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--serial no.-->
                                 <div class="form-group">
                                     <label for="serial_no" class="form-label">Serial Number จากผู้ผลิต</label>
@@ -301,7 +301,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--ความเร็ว CPU-->
                                 <div class="form-group">
                                     <label for="cpu_speed" class="form-label">CPU Speed (GHz)</label>
@@ -325,7 +325,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row  mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--RAM-->
                                 <div class="form-group">
                                     <label for="ram_size" class="form-label">RAM Size (GB)</label>
@@ -349,7 +349,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--HDD capacity-->
                                 <div class="form-group">
                                     <label for=hdd_total_cap class="form-label">ความจุรวมของ HDD</label>
@@ -435,7 +435,7 @@
                         <h4>ข้อมูลด้าน software</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--OS-->
                                 <div class="form-group">
                                     <label for="os_id" class="form-label">OS</label>
@@ -455,10 +455,10 @@
                             <div class="col-sm-12 col-lg-6"> <!--os architecture-->
                                 <div class="form-group">
                                     <label for="os_arch" class="form-label">OS architecture</label><br>
-                                    <div class="form-check form-check-inline">
+                                    <div class="form-check">
                                         @foreach ($os_arches as $os_arch)
-                                            <div class="form-check-inline">
-                                                <input type="radio" class="form-check-input  @error('os_arch_id') is-invalid @enderror" name="os_arch_id" id="os_arch" value="{{ $os_arch['id'] }}" {{ old('os_arch_id') == $os_arch['id'] ? 'checked' : ''}}><label class="form-check-label @error('os_arch_id') is-invalid @enderror" for="os_arch"> {{ $os_arch['name'] }}</label><br>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input @error('os_arch_id') is-invalid @enderror" name="os_arch_id" id="os_arch" value="{{ $os_arch['id'] }}" {{ old('os_arch_id') == $os_arch['id'] ? 'checked' : ''}}><label class="form-check-label @error('os_arch_id') is-invalid @enderror" for="os_arch"> {{ $os_arch['name'] }}</label><br>
                                                 @error('os_arch_id')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -470,7 +470,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--office version-->
                                 <div class="form-group">
                                     <label for="ms_office_version" class="form-label">Microsoft Office Version</label>
@@ -494,7 +494,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--pdf reader-->
                                 <div class="form-group">
                                     <label for="pdf_reader" class="form-label">PDF reader</label>
@@ -513,7 +513,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row  mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--ie version-->
                                 <div class="form-group">
                                     <label for="ie_version" class="form-label">IE version</label>
@@ -532,7 +532,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--chrome-version-->
                                 <div class="form-group">
                                     <label for="chrome_version" class="form-label">Chrome version</label>
@@ -546,7 +546,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--program ระบบ รพ-->
                                 <div class="form-group">
                                     <label for="faculty_software" class="form-label">Software คณะ</label><br>
@@ -593,7 +593,7 @@
                         <h4>ข้อมูลด้านเครือข่าย</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--lan type-->
                                 <div class="form-group">
                                     <label for="lan_type" class="form-label">ประเภทเครือข่าย</label><br>
@@ -617,7 +617,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--ip address-->
                                 <div class="form-group">
                                     <label for="ip_address" class="form-label">IP Address</label>
@@ -641,7 +641,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row  mb-2 mt-2">
                             <div class="col sm-12 col-lg-6"><!--computer name-->
                                 <div class="form-group">
                                     <label for="computer_name" class="form-label">Computer Name</label>
@@ -669,7 +669,7 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- หมายเหตุ -->
                                 <div class="form-group">
                                     <label for="remarks" class="form-label">หมายเหตุ</label><br>
