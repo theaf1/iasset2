@@ -222,7 +222,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--serial no.-->
                                 <div class="form-group">
                                     <label for="serial_no" class="form-label">Serial Number</label>
@@ -257,7 +257,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--จำนวน HDD สูงสุด-->
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_max" class="form-label">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
@@ -281,7 +281,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--ชื่อเครื่อง-->
                                 <div class="form-group">
                                     <label for="device_name" class="form-label">ชื่อเครื่อง</label>
@@ -305,7 +305,7 @@
                                 </div>                       
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--address รับส่งข้อมูล-->
                                 <div class="form-group">
                                     <label for="device_communication_address" class="form-label">Address ที่ใช้รับส่งข้อมูล</label>
@@ -335,7 +335,7 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
                                     <label for="remarks" class="form-label">หมายเหตุ</label><br>
