@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-body">
                         @csrf
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                                 <div class="form-group">
                                     <label for="sapid" class="form-label">รหัส SAP</label>
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--ห้อง-->
                                 <div class="form-group">
                                     <label for="room" class="form-label">ห้อง</label>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <input hidden type="number" name="location_id" value="{{ old('location_id',$networkedstorage->location_id) }}"><!--ค่า location_id-->    
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                                 <div class="form-group">
                                     <label for="location" class="form-label">ชั้น</label>
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--หน่วยงาน-->
                                 <div class="form-group">
                                     <label for="section" class="form-label">หน่วยงาน</label>
@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                                 <div class="form-group">
                                     <label for="response_person" class="form-label">ชื่อผู้รับผิดชอบ</label><br>
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--สถานะครุภัณฑ์-->
                                 <div class="form-group">
                                     <label for="asset_status" class="form-label">สถานะของครุภัณฑ์</label>
@@ -178,7 +178,7 @@
                         <h4>คุณลักษณะของครุภัณฑ์</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--ชนิด-->
                                 <div class="form-group">
                                     <label for="type" class="form-label">ชนิดของอุปกรณ์</label> 
@@ -221,7 +221,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--serial no.-->
                                 <div class="form-group">
                                     <label for="serial_no" class="form-label">Serial Number</label>
@@ -256,7 +256,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--จำนวน HDD สูงสุด-->
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_max" class="form-label">จำนวน Hard Disk สูงสุดที่ยอมรับได้</label>
@@ -280,7 +280,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--ชื่อเครื่อง-->
                                 <div class="form-group">
                                     <label for="device_name" class="form-label">ชื่อเครื่อง</label>
@@ -334,7 +334,7 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเหตุ-->
                                 <div class="form-group">
                                     <label for="remarks" class="form-label">หมายเหตุ</label><br>
