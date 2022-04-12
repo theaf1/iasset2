@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
                     @csrf
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6"> <!--รหัส SAP-->
                             <div class="form-group">
                                 <label for="sapid" class="form-label">รหัส SAP</label>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group"><!--ห้อง-->
                                 <label for="room" class="form-label">ห้อง</label>
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->    
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6"><!-- ชั้น -->
                             <div class="form-group">
                                 <label for="location" class="form-label">ชั้น</label>
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6"> <!--ผู้รับผิดชอบ-->
                             <div class="form-group">
                                 <label for="response_person" class="form-label">ชื่อผู้รับผิดชอบ</label><br>
@@ -109,7 +109,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                             <div class="form-group">
                                 <label for="tel_no" class="form-label">หมายเลขโทรศัพท์</label>
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6"> <!--สถานะของครุภัณฑ์-->
                             <div class="form-group">
                                 <label for="asset_status" class="form-label">สถานะของครุภัณฑ์</label>
@@ -180,7 +180,7 @@
                     <h4>คุณสมบัติเฉพาะ</h4>
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                             <div class="form-group">
                                 <label for="brand" class="form-label">ยี่ห้อ</label>
@@ -204,7 +204,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6"><!--Serial Number จากผู้ผลิต-->
                             <div class="form-group">
                                 <label for="serial_no" class="form-label">Serial Number จากผู้ผลิต</label>
@@ -230,7 +230,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6"><!--หลักการทำงาน-->
                             <div class="form-group">
                                 <label for="topology" class="form-label">หลักการทำงาน</label>
@@ -259,7 +259,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-4 col-lg-3">
                             <div class="form-group">
                             <label for="is_modular" class="form-label">ความสามารถในการเปลี่ยนกำลังไฟสูงสุด</label><br>
@@ -295,7 +295,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="device_management_address" class="form-label">IP address ที่ใช้ควบคุมเครื่อง</label>
@@ -315,7 +315,7 @@
                     <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row mb-2 mt-2">
                         <div class="col-sm-12 col-lg-6">
                             <div class="form-group">
                                 <label for="remarks" class="form-label">หมายเหตุ</label><br>

@@ -25,7 +25,7 @@
                     </div>
                     <div class="card-body">
                         @csrf
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
                                 <div class="form-group"> 
                                     <label for="type" class="form-label">ชนิด</label>
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- รหัสครุภัณฑ์ -->
                                 <div class="form-group">
                                     <label for="pid" class="form-label">รหัสครุภัณฑ์</label>
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 <div class="form-group">
                                     <label for="building" class="form-label">ตึก</label>
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <input hidden type="number" name="location_id" value="{{ old('location_id',$client->location_id) }}"><!--ค่า location_id-->
-                        <div class="row"> 
+                        <div class="row mb-2 mt-2"> 
                             <div class="col-sm-12 col-lg-6"> <!-- ลักษณะการใช้งาน -->
                                 <div class="form-group">
                                     <label for="is_mobile" class="form-label">ลักษณะการใช้งาน</label><br>
@@ -122,7 +122,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">    
+                        <div class="row mb-2 mt-2">    
                             <div class="col-sm-12 col-lg-6"> <!-- สถานะของครุภัณฑ์ -->
                                 <div class="form-group">
                                     <label for="asset_status" class="form-label">สถานะของครุภัณฑ์</label><br>
@@ -156,7 +156,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row"> 
+                        <div class="row mb-2 mt-2"> 
                             <div class="col-sm-12 col-lg-3">  <!-- จำนวนผู้ใช้งาน -->
                                 <div class="form-group">
                                     <label for="multi_user" class="form-label">จำนวนผู้ใช้งาน</label>
@@ -195,7 +195,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- หน่วยงาน -->
                                 <div class="form-group">
                                     <label for="section" class="form-label">หน่วยงาน</label>
@@ -229,7 +229,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--หมายเลขโทรศัพท์-->
                                 <div class="form-group">
                                     <label for="tel_no" class="form-label">หมายเลขโทรศัพท์</label>
@@ -269,7 +269,7 @@
                         <h4>คุณสมบัติของเครื่อง</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--ยี่ห้อ-->
                                 <div class="form-group">
                                     <label for="brand" class="form-label">ยี่ห้อ</label>
@@ -326,7 +326,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--RAM-->
                                 <div class="form-group">
                                     <label for="ram_size" class="form-label">RAM Size (GB)</label>
@@ -350,7 +350,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--HDD capacity-->
                                 <div class="form-group">
                                     <label for=hdd_total_cap class="form-label">ความจุรวมของ HDD</label>
@@ -436,7 +436,7 @@
                         <h4>ข้อมูลด้าน software</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--OS-->
                                 <div class="form-group">
                                     <label for="os" class="form-label">OS</label>
@@ -471,7 +471,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--office version-->
                                 <div class="form-group">
                                     <label for="ms_office_version" class="form-label">Microsoft Office Version</label>
@@ -495,7 +495,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--pdf reader-->
                                 <div class="form-group">
                                     <label for="pdf_reader" class="form-label">PDF reader</label>
@@ -514,7 +514,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--ie version-->
                                 <div class="form-group">
                                     <label for="ie_version" class="form-label">IE version</label>
@@ -533,7 +533,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--chrome-version-->
                                 <div class="form-group">
                                     <label for="chrome_version" class="form-label">Chrome version</label>
@@ -547,7 +547,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--program ระบบ รพ-->
                                 <div class="form-group">
                                     <label for="faculty_software" class="form-label">Software คณะ</label><br>
@@ -594,7 +594,7 @@
                         <h4>ข้อมูลด้านเครือข่าย</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--lan type-->
                                 <div class="form-group">
                                     <label for="lan_type" class="form-label">ประเภทเครือข่าย</label><br>
@@ -618,7 +618,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!--ip address-->
                                 <div class="form-group">
                                     <label for="ip_address" class="form-label">IP Address</label>
@@ -642,7 +642,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col sm-12 col-lg-6"><!--computer name-->
                                 <div class="form-group">
                                     <label for="computer_name" class="form-label">Computer Name</label>
@@ -670,7 +670,7 @@
                         <h4>หมายเหตุและปัญหาในการใช้งาน</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- หมายเหตุ -->
                                 <div class="form-group">
                                     <label for="remarks" class="form-label">หมายเหตุ</label><br>
