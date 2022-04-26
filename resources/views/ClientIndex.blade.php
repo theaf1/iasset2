@@ -29,8 +29,8 @@
                         <a href="{{ url('/computer') }}"class="btn btn-primary" role="button">เพิ่มคอมพิวเตอร์</a>
                     </div>
                     <form action="{{url('/client')}}" method="get" role="search">
-                        <div class="row">
-                            <div class="col-sm-12 col-lg-6 mt-4">
+                        <div class="row  mt-2 mb-2">
+                            <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="section_filter" class="form-label">หน่วยงานเจ้าของเครื่อง</label>
                                     <select name="section_filter" id="section_filter" class="form-select"> 
@@ -41,7 +41,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3 mt-4">
+                            <div class="col-sm-6 col-lg-3">
                                 <div class="form-group">
                                     <label for="per_page" class="form-label">จำนวนบรรทัด</label>
                                     <select class="form-select" name="per_page" id="per_page">
@@ -51,7 +51,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3 pt-5">
+                            <div class="col-sm-6 col-lg-3 mt-4">
                                 <div class="form-group">
                                     <button class="btn btn-primary" type="submit">ค้นหา</button>
                                 </div>
