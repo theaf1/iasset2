@@ -2,61 +2,65 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-12 mx-auto">
-            <div class="card-group pl-2">
-                <div class="card mt-4 mr-2">
-                    <div class="card-header card-background text-white">
-                        <h4 class="text-center">จัดการข้อมูลส่วนกลาง</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-12 col-lg-6">
-                                <a href="{{url('/admin/sectionadmin')}}" class="btn btn-info mt-4" role="button">จัดการข้อมูลหน่วยงาน</a>
-                                <a href="{{url('/admin/locationadmin')}}" class="btn btn-info mt-4" role="button">จัดการสถานที่ตั้ง</a>
-                                <a href="{{url('/admin/buildingadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่ออาคาร</a>
-                                <a href="{{url('/admin/functionadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อระบบงาน</a>
-                                <a href="{{url('/admin/owneradmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อเจ้าของเครื่อง</a>
-                                <a href="{{url('/admin/positionadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อตำแหน่งบุคลากร</a>
-                                <a href="{{url('/admin/assetstatusadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อสถานะครุภัณฑ์</a>
-                                <a href="{{url('/admin/assetusestatusadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อสถานะการใช้งานครุภัณฑ์</a>
-                                
-                                
-                            </div>
-                            <div class="col-sm-12 col-lg-6">
-                                <a href="{{url('/admin/clienttypeadmin')}}" class="btn btn-info mt-4" role="button">จัดการชนิดของครุภัณฑ์คอมพิวเตอร์</a>
-                                <a href="{{url('/admin/dataunitadmin')}}" class="btn btn-info mt-4" role="button">จัดการหน่วยวัดปริมาณข้อมูล</a>
-                                <a href="{{url('/admin/clientopadmin')}}" class="btn btn-info mt-4" role="button">จัดการระบบปฏิบัติการของคอมพิวเตอร์</a>
-                                <a href="{{url('/admin/osarchadmin')}}" class="btn btn-info mt-4" role="button">จัดการโครงสร้าง software</a>
-                                <a href="{{url('/admin/networkconnectionadmin')}}" class="btn btn-info mt-4" role="button">จัดการประเภทเครือข่าย</a>
-                                <a href="{{url('/admin/peripheraltypeadmin')}}" class="btn btn-info mt-4" role="button">จัดการชนิดของอุปกรณ์ต่อพ่วง</a>
-                                <a href="{{url('/admin/netsubtypeadmin')}}" class="btn btn-info mt-4" role="button">จัดการประเภทของอุปกรณ์เครือข่าย</a>
-                                <a href="{{url('/admin/serverroleclassadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อบทบาท Server</a>
-                                <a href="{{url('/admin/serveropadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อระบบปฏิบัติการแม่ข่าย</a>
-                                <a href="{{url('admin/topologyadmin')}}" class="btn btn-info mt-4" role="button">จัดการหลักการทำงานของเครื่อง UPS</a>
-                                <a href="{{url('/admin/batterytypeadmin')}}" class="btn btn-info mt-4" role="button">จัดการประเภทของแบตเตอรี่ UPS</a>
-                                <a href="{{url('/admin/displayratio')}}" class="btn btn-info mt-4" role="button">จัดการสัดส่วนจอภาพ</a>
-                                <a href="{{url('/admin/displaytype')}}" class="btn btn-info mt-4" role="button">จัดการประเภทของจอภาพ</a>                                
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card mt-4 mr-2">
+                        <div class="card-header card-background text-white">
+                            <h4 class="text-center">จัดการข้อมูลส่วนกลาง</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <a href="{{url('/admin/sectionadmin')}}" class="btn btn-info mt-4" role="button">จัดการข้อมูลหน่วยงาน</a>
+                                    <a href="{{url('/admin/locationadmin')}}" class="btn btn-info mt-4" role="button">จัดการสถานที่ตั้ง</a>
+                                    <a href="{{url('/admin/buildingadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่ออาคาร</a>
+                                    <a href="{{url('/admin/functionadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อระบบงาน</a>
+                                    <a href="{{url('/admin/owneradmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อเจ้าของเครื่อง</a>
+                                    <a href="{{url('/admin/positionadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อตำแหน่งบุคลากร</a>
+                                    <a href="{{url('/admin/assetstatusadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อสถานะครุภัณฑ์</a>
+                                    <a href="{{url('/admin/assetusestatusadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อสถานะการใช้งานครุภัณฑ์</a>
+                                </div>
+                                <div class="col-sm-12 col-lg-6">
+                                    <a href="{{url('/admin/clienttypeadmin')}}" class="btn btn-info mt-4" role="button">จัดการชนิดของครุภัณฑ์คอมพิวเตอร์</a>
+                                    <a href="{{url('/admin/dataunitadmin')}}" class="btn btn-info mt-4" role="button">จัดการหน่วยวัดปริมาณข้อมูล</a>
+                                    <a href="{{url('/admin/clientopadmin')}}" class="btn btn-info mt-4" role="button">จัดการระบบปฏิบัติการของคอมพิวเตอร์</a>
+                                    <a href="{{url('/admin/osarchadmin')}}" class="btn btn-info mt-4" role="button">จัดการโครงสร้าง software</a>
+                                    <a href="{{url('/admin/networkconnectionadmin')}}" class="btn btn-info mt-4" role="button">จัดการประเภทเครือข่าย</a>
+                                    <a href="{{url('/admin/peripheraltypeadmin')}}" class="btn btn-info mt-4" role="button">จัดการชนิดของอุปกรณ์ต่อพ่วง</a>
+                                    <a href="{{url('/admin/netsubtypeadmin')}}" class="btn btn-info mt-4" role="button">จัดการประเภทของอุปกรณ์เครือข่าย</a>
+                                    <a href="{{url('/admin/serverroleclassadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อบทบาท Server</a>
+                                    <a href="{{url('/admin/serveropadmin')}}" class="btn btn-info mt-4" role="button">จัดการรายชื่อระบบปฏิบัติการแม่ข่าย</a>
+                                    <a href="{{url('admin/topologyadmin')}}" class="btn btn-info mt-4" role="button">จัดการหลักการทำงานของเครื่อง UPS</a>
+                                    <a href="{{url('/admin/batterytypeadmin')}}" class="btn btn-info mt-4" role="button">จัดการประเภทของแบตเตอรี่ UPS</a>
+                                    <a href="{{url('/admin/displayratio')}}" class="btn btn-info mt-4" role="button">จัดการสัดส่วนจอภาพ</a>
+                                    <a href="{{url('/admin/displaytype')}}" class="btn btn-info mt-4" role="button">จัดการประเภทของจอภาพ</a>                                
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card mt-4 mr-2">
-                    <div class="card-header card-background text-white">
-                        <h4 class="text-center">จัดการผู้ใช้งาน</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-12 col-lg-6">
-                                <a href="{{url('/admin/users')}}" class="btn btn-info mt-4">บริหารผู้ใช้งาน</a>
+                <div class="col">
+                    <div class="card mt-4 mr-2">
+                        <div class="card-header card-background text-white">
+                            <h4 class="text-center">จัดการผู้ใช้งาน</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <a href="{{url('/admin/users')}}" class="btn btn-info mt-4">บริหารผู้ใช้งาน</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card mt-4 mr-2">
-                    <div class="card-header card-background text-white">
-                        <h4 class="text-center">การบริหารจัดการเรื่องอื่นๆ</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>กำลังพัฒนา</p>
+                <div class="col">
+                    <div class="card mt-4 mr-2">
+                        <div class="card-header card-background text-white">
+                            <h4 class="text-center">การบริหารจัดการเรื่องอื่นๆ</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>กำลังพัฒนา</p>
+                        </div>
                     </div>
                 </div>
             </div>
