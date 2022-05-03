@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <input type="hidden" id="last_sap" value="{{ $lastinternalsap }}">
                         @csrf
-                        <div class="row mb-2">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- ชนิดของครุภัณฑ์คอมพิวเตอร์ -->
                                  
                                     <label for="type" class="form-label">ชนิด</label>
@@ -55,7 +55,7 @@
                                 
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- รหัสครุภัณฑ์ -->
                                 
                                     <label for="pid" class="form-label">รหัสครุภัณฑ์</label>
@@ -72,7 +72,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- ตึก -->
                                 
                                     <label for="building" class="form-label">ตึก</label>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <input hidden type="number" name="location_id" value="{{ old('location_id') }}"><!--ค่า location_id-->
-                        <div class="row mb-2"> 
+                        <div class="row mb-2 mt-2"> 
                             <div class="col-sm-12 col-lg-6"> <!-- ลักษณะการใช้งาน -->
                                 <div class="form-group">
                                     <label for="is_mobile" class="form-label">ลักษณะการใช้งาน</label><br>
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">    
+                        <div class="row mb-2 mt-2">    
                             <div class="col-sm-12 col-lg-6"> <!-- สถานะของครุภัณฑ์ -->
                                 <div class="form-group">
                                     <label for="asset_status" class="form-label">สถานะของครุภัณฑ์</label><br>
@@ -155,7 +155,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2"> 
+                        <div class="row mb-2 mt-2"> 
                             <div class="col-sm-12 col-lg-3">  <!-- จำนวนผู้ใช้งาน -->
                                 <div class="form-group">
                                     <label for="multi_user" class="form-label">จำนวนผู้ใช้งาน</label>
@@ -194,7 +194,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row mb-2 mt-2">
                             <div class="col-sm-12 col-lg-6"> <!-- หน่วยงาน -->
                                 <div class="form-group">
                                     <label for="section" class="form-label">หน่วยงาน</label>
