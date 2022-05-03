@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <form action="{{url('/admin/add-dataunit')}}" method="post">
                         @csrf
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col-sm-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="name" class="form-label">ชื่อหน่วยวัดปริมาณข้อมูล</label>
