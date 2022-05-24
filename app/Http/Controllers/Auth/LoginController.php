@@ -73,6 +73,7 @@ class LoginController extends Controller
             $request->session()->regenerateToken(); //ล้ม token ของ user ที่ไม่มีสิทธิ
             return redirect('/denied');
             
+            
         }
 
         //แจ้งให้ตรวจสอบ username password
