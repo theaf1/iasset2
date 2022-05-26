@@ -105,12 +105,15 @@ class ClientController extends Controller
     //บันทึกข้อมูลที่ได้รับจากหน้า addcomputer ผ่านทางตัวแปร request
     public function store(Request $request)
     {
-        \Log::debug($request);
+        //\Log::debug($request);
         //$displayCount = request()->input('display_count');
+        
         if (request()->has('displayCount')) {
             $displayCount = request()->input('displayCount');
+            \Log::info($displayCount);
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
+        \Log::info('check');
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
         $client = Client::create($request->all());//บันทึกข้อมูลลงตาราง Clients
         //\Log::info('test');

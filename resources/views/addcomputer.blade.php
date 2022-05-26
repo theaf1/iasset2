@@ -375,7 +375,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
                                 <div class="form-group"> 
                                     <label for="display_count" class="form-label">จำนวนจอที่ใช้งาน</label>
-                                    <select class="form-select @error('display_count') is-invalid @enderror" id="display_count" name="display_count" onchange="displayCountSelected(this)">
+                                    <select class="form-select @error('display_count') is-invalid @enderror" id="display_count" name="display_count" oninput="displayCountSelected(this)">
                                         <option value="" hidden></option>
                                         <option value="1" {{ old('display_count', session()->has('display_count')) == 1 ? 'selected' : ''}}>1</option>
                                         <option value="2" {{ old('display_count', session()->has('display_count')) == 2 ? 'selected' : ''}}>2</option>
@@ -387,6 +387,7 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
+                                    {{session()->has('displayCount')}}
                                 </div> 
                             </div>
                         </div>
