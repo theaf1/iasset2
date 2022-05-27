@@ -113,7 +113,6 @@ class ClientController extends Controller
             \Log::info($displayCount);
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
-        \Log::info('check');
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
         $client = Client::create($request->all());//บันทึกข้อมูลลงตาราง Clients
         //\Log::info('test');
