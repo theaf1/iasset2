@@ -15,6 +15,7 @@ use App\Models\Owner;
 use App\Models\Mobility;
 use App\Models\Position;
 use App\Models\ClientOperate;
+use App\Models\DisplayRatio;
 use App\Models\OsArch;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -65,6 +66,7 @@ class ClientController extends Controller
         $OsArches = OsArch::all();
         $Owners = Owner::all();
         $Mobility = Mobility::all();
+        $DisplayRatios = DisplayRatio::all();
         $lastInternalSapId = Client::where('sapid', 'like', 'MED%')->orderBy('id', 'Desc')->first();
         
         if($lastInternalSapId == null)
@@ -90,6 +92,7 @@ class ClientController extends Controller
             'clientoses'=>$ClientOperates,
             'os_arches'=>$OsArches,
             'dataunits'=>$DataUnits,
+            'displayratios'=>$DisplayRatios,
             'owners'=>$Owners,
             'mobiles'=>$Mobility,
             'lastinternalsap'=>$temp,
@@ -105,6 +108,7 @@ class ClientController extends Controller
     //บันทึกข้อมูลที่ได้รับจากหน้า addcomputer ผ่านทางตัวแปร request
     public function store(Request $request)
     {
+        return $request->all();
         //\Log::debug($request);
         //$displayCount = request()->input('display_count');
         
