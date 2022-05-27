@@ -28,6 +28,7 @@ class CreateClientOperatesTable extends Migration
             ['name'=>'Windows 8'],
             ['name'=>'Windows 8.1'],
             ['name'=>'Windows 10'],
+            ['name'=>'Windows 11'],
         );
 
         //เขียนข้อมูลเบื้องต้นลงตาราง
