@@ -390,44 +390,39 @@
                                 </div> 
                             </div>
                         </div>
-                        @if (session()->has('displayCount')) <!--script จอภาพ-->
-                            <?php $displayCount = session()->get('displayCount') ? session()->get('displayCount') : $client->displays->count() ?>
-                            @for ($i = 0; $i < session()->get('displayCount') ; $i++)
-                                <div class="card mt-2 mb-2">
-                                    <div class="card-header">
-                                        จอภาพที่ {{ $i+1 }}
+                        <div class="card mt-2 mb-2">
+                            <div class="card-header card-background text-white">
+                                จอภาพที่ X
+                            </div>
+                            <div class="card-body pt-2 pb-1" >
+                                <div class="row">   
+                                    <div class="col-sm-12 col-lg-3"> <!--sap จอ-->
+                                        <div class="form-group">
+                                            <label for="display_sapid" class="form-label">SAP จอ</label>
+                                            <input class="form-control" name="display_sapid" id="display_sapid" type="text" value="{{ old('display_sapid') }}">
+                                        </div>
                                     </div>
-                                    <div class="card-body pt-2 pb-1" >
-                                        <div class="row">   
-                                            <div class="col-sm-12 col-lg-3"> <!--sap จอ-->
-                                                <div class="form-group">
-                                                    <label for="display_sapid" class="form-label">SAP จอ</label>
-                                                    <input class="form-control" name="display_sapid[]" id="display_sapid" type="text" value="{{ old('display_sapid.' . $i) }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-lg-3"> <!--ครุภัณฑ์จอ-->
-                                                <div class="form-group">
-                                                    <label for="display_pid" class="form-label">รหัสครุภัณฑ์จอภาพ</label>
-                                                    <input class="form-control" name="display_pid[]" id="display_pid" type="text" value="{{ old('display_pid.' . $i) }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
-                                                <div class="form-group">
-                                                    <label for="display_size" class="form-label">ขนาดจอภาพ (นิ้ว)</label>
-                                                    <input class="form-control" name="display_size[]" id="display_size" type="number" step="0.1" min="0" value="{{ old('display_size.' . $i) }}">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-lg-3">
-                                                <div class="form-group">
-                                                    <label for="display_ratio" class="form-label">สัดส่วนจอภาพ</label>
-                                                    <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" value="{{ old('display_ratio.' . $i) }}">
-                                                </div>
-                                            </div>
+                                    <div class="col-sm-12 col-lg-3"> <!--ครุภัณฑ์จอ-->
+                                        <div class="form-group">
+                                            <label for="display_pid" class="form-label">รหัสครุภัณฑ์จอภาพ</label>
+                                            <input class="form-control" name="display_pid" id="display_pid" type="text" value="{{ old('display_pid') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
+                                        <div class="form-group">
+                                            <label for="display_size" class="form-label">ขนาดจอภาพ (นิ้ว)</label>
+                                            <input class="form-control" name="display_size" id="display_size" type="number" step="0.1" min="0" value="{{ old('display_size') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-lg-3">
+                                        <div class="form-group">
+                                            <label for="display_ratio" class="form-label">สัดส่วนจอภาพ</label>
+                                            <input class="form-control" name="display_ratio" id="display_ratio" type="text" value="{{ old('display_ratio') }}">
                                         </div>
                                     </div>
                                 </div>
-                            @endfor
-                        @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card mt-4">
