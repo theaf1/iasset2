@@ -17,7 +17,7 @@ class Display extends Model
         'display_sapid',
         'display_pid',
         'display_size',
-        'display_ratio',
+        'display_ratio_id',
     ];
     //แสดงความสัมพันธ์กับตาราง Client
     public function client ()
@@ -28,5 +28,9 @@ class Display extends Model
     public function DisplayServer ()
     {
         return $this->belongsTo(Servers::class,'client_id');
+    }
+    public function DisplayDisplayRatio ()
+    {
+        return $this->belongsTo(DisplayRatio::class,'display_ratio_id');
     }
 }

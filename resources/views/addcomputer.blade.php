@@ -375,7 +375,7 @@
                             <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
                                 <div class="form-group"> 
                                     <label for="display_count" class="form-label">จำนวนจอที่ใช้งาน</label>
-                                    <select class="form-select @error('display_count') is-invalid @enderror" id="display_count" name="display_count" onchange="displayCountSelected(this)">
+                                    <select class="form-select @error('display_count') is-invalid @enderror" id="display_count" name="display_count">
                                         <option value="" hidden></option>
                                         <option value="1" {{ old('display_count', session()->has('display_count')) == 1 ? 'selected' : ''}}>1</option>
                                         <option value="2" {{ old('display_count', session()->has('display_count')) == 2 ? 'selected' : ''}}>2</option>
@@ -417,7 +417,12 @@
                                     <div class="col-sm-12 col-lg-3">
                                         <div class="form-group">
                                             <label for="display_ratio" class="form-label">สัดส่วนจอภาพ</label>
-                                            <input class="form-control" name="display_ratio" id="display_ratio" type="text" value="{{ old('display_ratio') }}">
+                                            <select name="display_ratio_id" id="display_ratio" class="form-select">
+                                                <option value="" hidden></option>
+                                                @foreach ($displayratios as $displayratio)
+                                                    <option value="{{$displayratio['id']}}" {{old('display_ratio_id') == $displayratio['id'] ? 'selected' : ''}}>{{$displayratio['name']}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -694,10 +699,10 @@
 <script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
 <script src="{{ url('/js/axios.min.js') }}"></script>
 <script>
-    let hasDisplay = "<?php echo session()->get('displayCount'); ?>";
-    if (hasDisplay > 0) {
-        $('#display_count').focus();
-    }
+    // let hasDisplay = "<?php echo session()->get('displayCount'); ?>";
+    // if (hasDisplay > 0) {
+    //     $('#display_count').focus();
+    // }
     console.log(hasDisplay)
     var room = null;
     $("#room_autocomplete").autocomplete({
@@ -734,12 +739,12 @@
         }
     });
 
-    function displayCountSelected(select) {
-        let displayCount = select.options[select.selectedIndex].value;
-        document.getElementById("computer_form").action = `{{ url('/add-computer?displayCount=${displayCount}')}}`;
-        document.getElementById("computer_form").submit();
-        console.log(displayCount)
-    }
+    // function displayCountSelected(select) {
+    //     let displayCount = select.options[select.selectedIndex].value;
+    //     document.getElementById("computer_form").action = `{{ url('/add-computer?displayCount=${displayCount}')}}`;
+    //     document.getElementById("computer_form").submit();
+    //     console.log(displayCount)
+    // }
     // script generate internal SAP
     function generateInternalSAP() {
         var lastsap = document.getElementById("last_sap").value
