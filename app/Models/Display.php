@@ -29,6 +29,7 @@ class Display extends Model
     {
         return $this->belongsTo(Servers::class,'client_id');
     }
+    //แสดงความสัมพันธ์กับตาราง DisplayRatio
     public function DisplayDisplayRatio ()
     {
         return $this->belongsTo(DisplayRatio::class,'display_ratio_id');

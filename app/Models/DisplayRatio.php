@@ -15,4 +15,9 @@ class DisplayRatio extends Model
     {
         return $this->hasMany(LooseDisplay::class,'display_ratio_id');
     }
+    //แสดงความสัมพันธ์กับตาราง Display
+    public function DisplayRatioDisplay ()
+    {
+        return $this->hasMany(Display::class,'display_ratio_id');
+    }
 }
