@@ -699,10 +699,10 @@
 <script src="{{ url('/js/jquery.autocomplete.min.js') }}"></script>
 <script src="{{ url('/js/axios.min.js') }}"></script>
 <script>
-    // let hasDisplay = "<?php echo session()->get('displayCount'); ?>";
-    // if (hasDisplay > 0) {
-    //     $('#display_count').focus();
-    // }
+    let hasDisplay = "<?php echo session()->get('displayCount'); ?>";
+    if (hasDisplay > 0) {
+        $('#display_count').focus();
+    }
     console.log(hasDisplay)
     var room = null;
     $("#room_autocomplete").autocomplete({
