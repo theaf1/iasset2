@@ -287,7 +287,7 @@
                             <div class="col-sm-6 col-lg-3"><!--HDD สูงสุด-->
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_max" class="form-label">จำนวน Hard Disk สูงสุดที่ยอมรับได้ (ลูก)</label>
-                                    <input class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" value="{{ old('no_of_physical_drive_max') }}">
+                                    <input class="form-control @error('no_of_physical_drive_max') is-invalid @enderror" name="no_of_physical_drive_max" id="no_of_physical_drive_max" type="number" min="1" value="{{ old('no_of_physical_drive_max') }}">
                                     @error('no_of_physical_drive_max')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -298,7 +298,7 @@
                             <div class="col-sm-6 col-lg-3"> <!--จำนวน Hard Disk ที่มีอยู่-->
                                 <div class="form-group">
                                     <label for="no_of_physical_drive_populated" class="form-label">จำนวน Hard Disk ที่มีอยู่ (ลูก)</label>
-                                    <input class="form-control @error('no_of_physical_drive_populated') is-invalid @enderror" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" type="number" min="2" value="{{ old('no_of_physical_drive_populated') }}">
+                                    <input class="form-control @error('no_of_physical_drive_populated') is-invalid @enderror" name="no_of_physical_drive_populated" id="no_of_physical_drive_populated" type="number" min="1" value="{{ old('no_of_physical_drive_populated') }}">
                                     @error('no_of_physical_drive_populated')
                                         <div class="invalid-feedback">
                                             {{ $message }}
