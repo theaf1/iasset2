@@ -107,7 +107,9 @@ class ServerController extends Controller
         //return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว'); //ส่งผลการบันทึกข้อมูลกลับไปยังหน้าเดิม
         if (request()->has('displayCount')) //ตรวจสอบว่า มีค่า displayCount ส่งมาด้วย
         {
+            \Log::info(request()->input('displayCount'));
             $displayCount = request()->input('displayCount');
+            \Log::info($displayCount);
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
         }
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
