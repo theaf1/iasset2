@@ -364,7 +364,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <input class="form-control @error('hdd_total_cap') is-invalid @enderror" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" value="{{ old('hdd_total_cap') }}">
+                                    <input class="form-control @error('hdd_total_cap') is-invalid @enderror" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" step="0.01" value="{{ old('hdd_total_cap') }}">
                                     @error('hdd_total_cap')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -372,7 +372,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
+                            {{-- <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
                                 <div class="form-group"> 
                                     <label for="display_count" class="form-label">จำนวนจอที่ใช้งาน</label>
                                     <select class="form-select @error('display_count') is-invalid @enderror" id="display_count" name="display_count">
@@ -425,7 +425,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

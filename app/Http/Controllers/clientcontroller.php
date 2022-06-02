@@ -108,36 +108,37 @@ class ClientController extends Controller
     //บันทึกข้อมูลที่ได้รับจากหน้า addcomputer ผ่านทางตัวแปร request
     public function store(Request $request)
     {
-        return $request->all();
+        //return $request->all();
         //\Log::debug($request);
         //$displayCount = request()->input('display_count');
         
-        if (request()->has('displayCount')) {
-            $displayCount = request()->input('displayCount');
-            \Log::info($displayCount);
-            return redirect()->back()->with('displayCount', $displayCount)->withInput();
-        }
+        // if (request()->has('displayCount')) {
+        //     $displayCount = request()->input('displayCount');
+        //     \Log::info($displayCount);
+        //     return redirect()->back()->with('displayCount', $displayCount)->withInput();
+        // }
+        //return $request->all();
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
         $client = Client::create($request->all());//บันทึกข้อมูลลงตาราง Clients
         //\Log::info('test');
 
-        $displayCount = request()->input('display_count');
-        for ($i = 0; $i < $displayCount; $i++)
-        {
-            $display =  [ 
-                            'client_id' => $client->id, 
-                            'display_sapid' => request()->input('display_sapid')[$i],
-                            'display_pid' => request()->input('display_pid')[$i],
-                            'display_size' => request()->input('display_size')[$i],
-                            'display_ratio' => request()->input('display_ratio')[$i],
-                        ];
-            Display::create($display); //บันทึกข้อมูลลงตาราง Displays
-        } 
+        // $displayCount = request()->input('display_count');
+        // for ($i = 0; $i < $displayCount; $i++)
+        // {
+        //     $display =  [ 
+        //                     'client_id' => $client->id, 
+        //                     'display_sapid' => request()->input('display_sapid')[$i],
+        //                     'display_pid' => request()->input('display_pid')[$i],
+        //                     'display_size' => request()->input('display_size')[$i],
+        //                     'display_ratio' => request()->input('display_ratio')[$i],
+        //                 ];
+        //     Display::create($display); //บันทึกข้อมูลลงตาราง Displays
+        // } 
 
-        return redirect()->back()->with('displayCount',$displayCount);
+        //return redirect()->back()->with('displayCount',$displayCount);
         //return redirect('/addcomputer')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว')
         
-        //return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว','displayCount',$displayCount);
+        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**
@@ -278,7 +279,6 @@ class ClientController extends Controller
             'hdd_no' => 'required',
             'data_unit_id' =>'required',
             'hdd_total_cap'=>'required',
-            'display_count' => 'required',
             'os_id'=>'required',
             'os_arch_id'=>'required',
             'ms_office_version'=>'required',
@@ -320,7 +320,6 @@ class ClientController extends Controller
             'hdd_no.required'=>'กรุณาระบุจำนวน hard disk ในเครื่อง',
             'data_unit_id.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'hdd_total_cap.required'=>'กรุณาระบุความจุข้อมูลรวมของเครื่อง',
-            'display_count.required'=>'กรุณาระบุจำนวนจอภาพ',
             'os_id.required'=>'กรุณาระบุชื่อระบบปฏิบัติการ',
             'os_arch_id.required'=>'กรุณาระบุโครงสร้างระบบปฏิบัติการ',
             'ms_office_version.required'=>'กรุณาระบุรุ่นโปรแกรม Microsoft Office',
