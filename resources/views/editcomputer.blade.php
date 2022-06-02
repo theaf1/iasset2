@@ -365,7 +365,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <input class="form-control @error('hdd_total_cap') is-invalid @enderror" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" value="{{ old('hdd_total_cap',$client->hdd_total_cap) }}">
+                                    <input class="form-control @error('hdd_total_cap') is-invalid @enderror" name="hdd_total_cap" id="hdd_total_cap" type="number" min="0" step="0.01" value="{{ old('hdd_total_cap',$client->hdd_total_cap) }}">
                                     @error('hdd_total_cap')
                                         <div class="invalid-feedback">
                                             {{ $message }}
