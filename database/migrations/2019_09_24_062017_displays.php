@@ -20,7 +20,7 @@ class Displays extends Migration
             $table->string('display_sapid')->nullable(); //รหัส SAP ของจอ
             $table->string('display_pid')->nullable(); //รหัสครุภัณฑ์ของจอภาพ
             $table->float('display_size',8,1); //ขนาดจอภาพ
-            $table->integer('display_ratio_id'); //สัดส่วนจอภาพ
+            $table->string('display_ratio_id'); //สัดส่วนจอภาพ
             $table->timestamps();
         });
     }
