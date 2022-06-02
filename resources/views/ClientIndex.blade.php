@@ -86,8 +86,8 @@
                                         <td>{{ $client['sapid'] }}</td>
                                         <td>{{ $client['pid'] }}</td>
                                         <td>
-                                            @foreach($client->displays as $display_sapid )
-                                                {{ $display_sapid->display_sapid}}
+                                            @foreach($client->displays as $display )
+                                                {{ $display->display_sapid}}
                                             @endforeach
                                         </td>
                                         <td>
