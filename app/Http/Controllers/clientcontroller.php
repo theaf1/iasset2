@@ -112,33 +112,33 @@ class ClientController extends Controller
         //\Log::debug($request);
         //$displayCount = request()->input('display_count');
         
-        // if (request()->has('displayCount')) {
-        //     $displayCount = request()->input('displayCount');
-        //     \Log::info($displayCount);
-        //     return redirect()->back()->with('displayCount', $displayCount)->withInput();
-        // }
+        if (request()->has('displayCount')) {
+            $displayCount = request()->input('displayCount');
+            \Log::info($displayCount);
+            return redirect()->back()->with('displayCount', $displayCount)->withInput();
+        }
         //return $request->all();
         $this->validateData($request); //ส่งข้อมูลไปตรวจสอบก่อนบันทึกด้วย function validateData
         $client = Client::create($request->all());//บันทึกข้อมูลลงตาราง Clients
         //\Log::info('test');
 
-        // $displayCount = request()->input('display_count');
-        // for ($i = 0; $i < $displayCount; $i++)
-        // {
-        //     $display =  [ 
-        //                     'client_id' => $client->id, 
-        //                     'display_sapid' => request()->input('display_sapid')[$i],
-        //                     'display_pid' => request()->input('display_pid')[$i],
-        //                     'display_size' => request()->input('display_size')[$i],
-        //                     'display_ratio' => request()->input('display_ratio')[$i],
-        //                 ];
-        //     Display::create($display); //บันทึกข้อมูลลงตาราง Displays
-        // } 
+        $displayCount = request()->input('display_count');
+        for ($i = 0; $i < $displayCount; $i++)
+        {
+            $display =  [ 
+                            'client_id' => $client->id, 
+                            'display_sapid' => request()->input('display_sapid')[$i],
+                            'display_pid' => request()->input('display_pid')[$i],
+                            'display_size' => request()->input('display_size')[$i],
+                            'display_ratio' => request()->input('display_ratio')[$i],
+                        ];
+            Display::create($display); //บันทึกข้อมูลลงตาราง Displays
+        } 
 
-        //return redirect()->back()->with('displayCount',$displayCount);
+        return redirect()->back()->with('displayCount',$displayCount);
         //return redirect('/addcomputer')->with('success','บันทึกข้อมูลเรียบร้อยแล้ว')
         
-        return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
+        //return redirect()->back()->with('success','บันทึกข้อมูลเรียบร้อยแล้ว');
     }
 
     /**

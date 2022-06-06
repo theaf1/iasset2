@@ -17,7 +17,7 @@ class Display extends Model
         'display_sapid',
         'display_pid',
         'display_size',
-        'display_ratio_id',
+        'display_ratio',
     ];
     //แสดงความสัมพันธ์กับตาราง Client
     public function client ()

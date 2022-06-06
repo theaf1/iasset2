@@ -372,10 +372,10 @@
                                     @enderror
                                 </div>
                             </div>
-                            {{-- <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
+                            <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
                                 <div class="form-group"> 
                                     <label for="display_count" class="form-label">จำนวนจอที่ใช้งาน</label>
-                                    <select class="form-select @error('display_count') is-invalid @enderror" id="display_count" name="display_count">
+                                    <select class="form-select @error('display_count') is-invalid @enderror" id="display_count" name="display_count" onchange="displayCountSelected(this)">
                                         <option value="" hidden></option>
                                         <option value="1" {{ old('display_count', session()->has('display_count')) == 1 ? 'selected' : ''}}>1</option>
                                         <option value="2" {{ old('display_count', session()->has('display_count')) == 2 ? 'selected' : ''}}>2</option>
@@ -390,44 +390,44 @@
                                 </div> 
                             </div>
                         </div>
-                        <div class="card mt-2 mb-2">
-                            <div class="card-header card-background text-white">
-                                จอภาพที่ X
-                            </div>
-                            <div class="card-body pt-2 pb-1" >
-                                <div class="row">   
-                                    <div class="col-sm-12 col-lg-3"> <!--sap จอ-->
-                                        <div class="form-group">
-                                            <label for="display_sapid" class="form-label">SAP จอ</label>
-                                            <input class="form-control" name="display_sapid" id="display_sapid" type="text" value="{{ old('display_sapid') }}">
+                        @if (session()->has('displayCount')) <!--script จอภาพ-->
+                            <?php $displayCount = session()->get('displayCount') ? session()->get('displayCount') : $client->displays->count() ?>
+                            @for ($i = 0; $i < session()->get('displayCount') ; $i++)
+                                <div class="card mt-2 mb-2">
+                                    <div class="card-header card-background text-white">
+                                        จอภาพที่ {{$i+1}}
+                                    </div>
+                                    <div class="card-body pt-2 pb-1" >
+                                        <div class="row">   
+                                            <div class="col-sm-12 col-lg-3"> <!--sap จอ-->
+                                                <div class="form-group">
+                                                    <label for="display_sapid" class="form-label">SAP จอ</label>
+                                                    <input class="form-control" name="display_sapid[]" id="display_sapid" type="text" value="{{ old('display_sapid.' . $i) }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-lg-3"> <!--ครุภัณฑ์จอ-->
+                                                <div class="form-group">
+                                                    <label for="display_pid" class="form-label">รหัสครุภัณฑ์จอภาพ</label>
+                                                    <input class="form-control" name="display_pid[]" id="display_pid" type="text" value="{{ old('display_pid.' . $i) }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
+                                                <div class="form-group">
+                                                    <label for="display_size" class="form-label">ขนาดจอภาพ (นิ้ว)</label>
+                                                    <input class="form-control" name="display_size[]" id="display_size" type="number" step="0.1" min="0" value="{{ old('display_size.' . $i) }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-lg-3">
+                                                <div class="form-group">
+                                                    <label for="display_ratio" class="form-label">สัดส่วนจอภาพ</label>
+                                                    <input class="form-control" name="display_ratio[]" id="display_ratio" type="text" value="{{ old('display_ratio.' . $i) }}">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-lg-3"> <!--ครุภัณฑ์จอ-->
-                                        <div class="form-group">
-                                            <label for="display_pid" class="form-label">รหัสครุภัณฑ์จอภาพ</label>
-                                            <input class="form-control" name="display_pid" id="display_pid" type="text" value="{{ old('display_pid') }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
-                                        <div class="form-group">
-                                            <label for="display_size" class="form-label">ขนาดจอภาพ (นิ้ว)</label>
-                                            <input class="form-control" name="display_size" id="display_size" type="number" step="0.1" min="0" value="{{ old('display_size') }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-lg-3">
-                                        <div class="form-group">
-                                            <label for="display_ratio" class="form-label">สัดส่วนจอภาพ</label>
-                                            <select name="display_ratio_id" id="display_ratio" class="form-select">
-                                                <option value="" hidden></option>
-                                                @foreach ($displayratios as $displayratio)
-                                                    <option value="{{$displayratio['id']}}" {{old('display_ratio_id') == $displayratio['id'] ? 'selected' : ''}}>{{$displayratio['name']}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                            </div>
-                        </div>
+                                </div>
+                            @endfor
+                        @endif
                     </div>
                 </div>
                 <div class="card mt-4">
@@ -739,12 +739,12 @@
         }
     });
 
-    // function displayCountSelected(select) {
-    //     let displayCount = select.options[select.selectedIndex].value;
-    //     document.getElementById("computer_form").action = `{{ url('/add-computer?displayCount=${displayCount}')}}`;
-    //     document.getElementById("computer_form").submit();
-    //     console.log(displayCount)
-    // }
+    function displayCountSelected(select) {
+        let displayCount = select.options[select.selectedIndex].value;
+        document.getElementById("computer_form").action = `{{ url('/add-computer?displayCount=${displayCount}')}}`;
+        document.getElementById("computer_form").submit();
+        console.log(displayCount)
+    }
     // script generate internal SAP
     function generateInternalSAP() {
         var lastsap = document.getElementById("last_sap").value
