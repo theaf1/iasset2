@@ -111,7 +111,6 @@ class ClientController extends Controller
         //return $request->all();
         //\Log::debug($request);
         //$displayCount = request()->input('display_count');
-        
         if (request()->has('displayCount')) {
             $displayCount = request()->input('displayCount');
             \Log::info($displayCount);
@@ -335,7 +334,6 @@ class ClientController extends Controller
             'mac_address.regex'=>'โปรดตรวจสอบควาามถูกต้องของ MAC address',
             'computer_name.required'=>'กรุณาใส่ชื่อเครื่อง',
         ];
-
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addcomputer หรือส่งข้อมูลไปบันทึก
     }
     protected function filterClient ($section_filter, $per_page)
