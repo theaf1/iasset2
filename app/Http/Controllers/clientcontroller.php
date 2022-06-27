@@ -336,8 +336,9 @@ class ClientController extends Controller
         ];
         return $this->validate($data, $rules, $messages); //ส่งข้อผิดพลาดกลับไปยังหน้า addcomputer หรือส่งข้อมูลไปบันทึก
     }
-    protected function filterClient ($section_filter, $per_page)
+    protected function filterClient ($section_filter, $per_page) //คัดเครื่องคอมพิวเตอร์ตามหน่วยงานและแบ่งหน้าตามต้องการ
     {
+        //ค้นหาข้อมูลและจัดหน้าโดยอาศัยตัวแปร section_id และ per_page
         return Client::where('section_id',$section_filter)->paginate($per_page)->withQueryString([
             'section_filter'=>$section_filter,
             'per_page'=>$per_page,
