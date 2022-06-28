@@ -111,7 +111,8 @@ class ClientController extends Controller
         //return $request->all();
         //\Log::debug($request);
         //$displayCount = request()->input('display_count');
-        if (request()->has('displayCount')) {
+        if (request()->has('displayCount')) 
+        {
             $displayCount = request()->input('displayCount');
             \Log::info($displayCount);
             return redirect()->back()->with('displayCount', $displayCount)->withInput();
@@ -320,7 +321,7 @@ class ClientController extends Controller
             'hdd_no.required'=>'กรุณาระบุจำนวน hard disk ในเครื่อง',
             'data_unit_id.required' => 'กรุณาเลือกหน่วยวัดข้อมูล',
             'hdd_total_cap.required'=>'กรุณาระบุความจุข้อมูลรวมของเครื่อง',
-            'display_count.required'=>'1',
+            'display_count.required'=>'กรุณาระบุจำนวนจอภาพที่ใช้งาน',
             'os_id.required'=>'กรุณาระบุชื่อระบบปฏิบัติการ',
             'os_arch_id.required'=>'กรุณาระบุโครงสร้างระบบปฏิบัติการ',
             'ms_office_version.required'=>'กรุณาระบุรุ่นโปรแกรม Microsoft Office',
