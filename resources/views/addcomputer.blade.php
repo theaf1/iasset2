@@ -415,7 +415,12 @@
                                             <div class="col-sm-12 col-lg-3"> <!--ขนาดจอ-->
                                                 <div class="form-group">
                                                     <label for="display_size" class="form-label">ขนาดจอภาพ (นิ้ว)</label>
-                                                    <input class="form-control" name="display_size[]" id="display_size" type="number" step="0.1" min="0" value="{{ old('display_size.' . $i) }}">
+                                                    <input class="form-control @error('display_size[]') is-invalid @enderror" name="display_size[]" id="display_size" type="number" step="0.1" min="0" value="{{ old('display_size.' . $i) }}">
+                                                    @error('display_size[]')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-lg-3">
@@ -742,9 +747,12 @@
 
     function displayCountSelected(select) {
         let displayCount = select.options[select.selectedIndex].value;
+        // sessionStorage.setItem(displayCount);
         document.getElementById("computer_form").action = `{{ url('/add-computer?displayCount=${displayCount}')}}`;
         document.getElementById("computer_form").submit();
+        // let Testitem = sessionStorage.getItem(displayCount);
         console.log(displayCount)
+        // console.log(Testitem)
     }
     // script generate internal SAP
     function generateInternalSAP() {
