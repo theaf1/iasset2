@@ -387,6 +387,7 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
+                                    {{old('displayCount')}}
                                 </div> 
                             </div>
                         </div>
