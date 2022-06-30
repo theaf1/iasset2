@@ -9,6 +9,15 @@
                     {{ $message }}
                 </div>
             @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="card mt-4">
                 <div class="card-header card-background text-white">
                     <h4>ข้อมูลพื้นฐานของครุภัณฑ์</h4>

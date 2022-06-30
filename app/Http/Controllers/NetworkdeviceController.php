@@ -179,7 +179,7 @@ class NetworkdeviceController extends Controller
     {
         //เงื่อนไข
         $rules = [
-            'sapid'=>'nullable|regex:/^[0-9]{12}+$/',
+            'sapid'=>'required',
             'pid'=>'nullable',
             'location_id' => 'required',
             'mobility_id' => 'required',
@@ -198,7 +198,7 @@ class NetworkdeviceController extends Controller
 
         //ข้อความแสดงข้อผิดพลาด
         $messages = [
-            'sapid.regex' => 'กรุณาตรวจสอบรหัส SAP',
+            'sapid.required' => 'กรุณาตรวจสอบรหัส SAP',
             'location_id.required' => 'กรุณาระบุที่ตั้ง',
             'mobility_id.required' =>'กรุณาระบุลักษณะการติดตั้ง',
             'response_person.required' =>'กรุณาระบุชื่อผู้รับผิดชอบ',
