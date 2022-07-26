@@ -224,4 +224,3 @@ Route::get('/denied',function (){
     return view('/auth/denied');
 });
 Route::get('/pdf','PdfController@pdf');
-//
