@@ -12,6 +12,7 @@ class PdfController extends Controller
 {
     public function pdf()
     {
+        set_time_limit(800);
         $data = array(
             ['name'=>'susan'],
             ['name'=>'debbie'],
