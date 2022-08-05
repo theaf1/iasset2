@@ -1,6 +1,6 @@
 @extends('Layouts.pdf')
 @section('content')
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+{{-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <style>
     @font-face
     {
@@ -30,7 +30,7 @@
         font-weight: bold;
         src: url("{{public_path('/fonts/THSarabun BoldItalic.ttf')}}") format('truetype');
     }
-</style>
+</style> --}}
     <p>TEST</p>
     {{-- @foreach ($data as $name)
         {{$name}}

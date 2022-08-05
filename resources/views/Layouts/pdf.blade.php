@@ -1,7 +1,7 @@
 <html>
     
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html;"charset=utf-8/>
         <title>ระบบติดตามครุภัณฑ์คอมพิวเตอร์ - @yield('title')</title>
         <link rel="stylesheet" href="{{ url('/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">

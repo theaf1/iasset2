@@ -18,6 +18,7 @@ class PdfController extends Controller
             ['name'=>'debbie'],
             ['name'=>'irene'],
         );
+        //return view('/pdf/test');
         $pdf=PDF::loadView('pdf.test',$data);
         return $pdf->stream('test.pdf');
     }
