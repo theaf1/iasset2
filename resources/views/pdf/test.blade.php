@@ -1,7 +1,7 @@
 @extends('Layouts.pdf')
 @section('content')
-{{-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<style>
+<meta http-equiv="Content-Type" content="text/html" charset=utf-8>
+{{-- <style>
     @font-face
     {
         font-family: 'THSarabun';

@@ -1,7 +1,7 @@
 <html>
     
     <head>
-        <meta http-equiv="Content-Type" content="text/html;"charset=utf-8/>
+        <meta http-equiv="Content-Type" content="text/html" charset=utf-8>
         <title>ระบบติดตามครุภัณฑ์คอมพิวเตอร์ - @yield('title')</title>
         <link rel="stylesheet" href="{{ url('/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
@@ -19,14 +19,14 @@
             font-family: 'THSarabun';
             font-style: normal;
             font-weight: bold;
-            src: url("{{asset('/fonts/THSarabun Bold.ttf')}}") format('truetype');
+            src: url("{{public_path('/fonts/THSarabun Bold.ttf')}}") format('truetype');
         }
         @font-face
         {
             font-family: 'THSarabun';
             font-style: italic;
             font-weight: normal;
-            src: url("{{asset('/fonts/THSarabun Italic.ttf')}}") format('truetype');
+            src: url("{{public_path('/fonts/THSarabun Italic.ttf')}}") format('truetype');
         }
         @font-face
         {

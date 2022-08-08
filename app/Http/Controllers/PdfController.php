@@ -19,18 +19,18 @@ class PdfController extends Controller
             ['name'=>'irene'],
         );
         //return view('/pdf/test');
-        // $pdf=PDF::loadView('pdf.test',$data);
-        // return $pdf->stream('test.pdf');
-        $pdf=PDF::loadHTML('
-            <head>
-                <meta http-equiv="Content-Type" content="text/html"; charset=utf-8/>
-            </head>
-            <body>
-                <h1>ทดสอบ</h1>
-                <p>test<p>
-            </body>
-        ');
+        $pdf=PDF::loadView('pdf.test',$data);
         return $pdf->stream('test.pdf');
+        // $pdf=PDF::loadHTML('
+        //     <head>
+        //         <meta http-equiv="Content-Type" content="text/html"; charset=utf-8>
+        //     </head>
+        //     <title>test</title>
+        //     <body>
+        //         <p>test<p>
+        //     </body>
+        // ');
+        // return $pdf->stream('test.pdf');
     }
 
 }
