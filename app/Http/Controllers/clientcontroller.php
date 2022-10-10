@@ -79,8 +79,7 @@ class ClientController extends Controller
         }
             
         //ตัวแปรที่ส่งกลับไปยังหน้า addcomputer
-
-        return view('addcomputer')->with([
+        return view('addcomputernew')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
@@ -97,6 +96,24 @@ class ClientController extends Controller
             'mobiles'=>$Mobility,
             'lastinternalsap'=>$temp,
         ]);
+
+        // return view('addcomputer')->with([
+        //     'asset_statuses'=>$Asset_statuses,
+        //     'asset_use_statuses'=>$Asset_use_statuses,
+        //     'sections'=>$Sections,
+        //     'clienttypes'=>$Clienttypes,
+        //     'opsfunctions'=>$Opsfunctions,
+        //     'multiusers'=>$Multiusers,
+        //     'networkconnections'=>$NetworkConnections,
+        //     'positions'=>$Positions,
+        //     'clientoses'=>$ClientOperates,
+        //     'os_arches'=>$OsArches,
+        //     'dataunits'=>$DataUnits,
+        //     'displayratios'=>$DisplayRatios,
+        //     'owners'=>$Owners,
+        //     'mobiles'=>$Mobility,
+        //     'lastinternalsap'=>$temp,
+        // ]);
     }
 
     /**
