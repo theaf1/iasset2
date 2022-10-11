@@ -366,7 +366,7 @@
                         <div class="col-sm-12 col-lg-6"> <!--จำนวนจอ-->
                             <div class="form-group"> 
                                 <label for="display_count" class="form-label">จำนวนจอที่ใช้งาน</label>
-                                <select class="form-select @error('display_count') is-invalid @enderror" id="display_count" name="display_count">
+                                <select class="form-select @error('display_count') is-invalid @enderror" id="display_count" name="display_count" onchange="displayCountSelected(this)">
                                     <option value="" hidden></option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -381,8 +381,14 @@
                             </div> 
                         </div>
                     </div>
-                    
-                                
+                    @if (session()->has('displayCount')) <!--script จอภาพ-->
+                        <?php $displayCount = session()->get('displayCount') ? session()->get('displayCount') : $client->displays->count() ?>
+                        @for ($i = 0; $i < session()->get('displayCount') ; $i++)
+                            <div class="card mt-2 mb-2">
+                                <div class="card-header card-background text-white">
+                                    จอภาพที่ {{$i+1}}
+                                </div>
+                                <div class="card-body">
                                     <div class="row mb-2 mt-2">   
                                         <div class="col-sm-12 col-lg-3"> <!--sap จอ-->
                                             <div class="form-group">
@@ -407,17 +413,18 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-lg-3">
-                                            <div class="form-group">
-                                                <label for="display_ratio" class="form-label">สัดส่วนจอภาพ</label>
-                                                <input class="form-control" name="display_ratio" id="display_ratio" type="text" value="{{ old('display_ratio')}}">
+                                            <div class="col-sm-12 col-lg-3">
+                                                <div class="form-group">
+                                                    <label for="display_ratio" class="form-label">สัดส่วนจอภาพ</label>
+                                                    <input class="form-control" name="display_ratio" id="display_ratio" type="text" value="{{ old('display_ratio')}}">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                
+                                </div>
                             </div>
-                        
-                    
+                        @endfor
+                    @endif
                 </div>
             </div>
             <div class="card mt-4">
@@ -691,6 +698,7 @@
         if (hasDisplay > 0) {
             $('#display_count').focus();
         }
+        console.log(hasDisplay)
         $("#room_autocomplete").autocomplete({
             paramName: "name",
             serviceUrl: "{{ url('rooms') }}",
@@ -725,6 +733,15 @@
                 $("#location").val('');
             }
         });
+        function displayCountSelected(select) {
+        let displayCount = select.options[select.selectedIndex].value;
+        // sessionStorage.setItem(displayCount);
+        document.getElementById("computer_form").action = `{{ url('/add-computer?displayCount=${displayCount}')}}`;
+        document.getElementById("computer_form").submit();
+        // let Testitem = sessionStorage.getItem(displayCount);
+        console.log(displayCount)
+        // console.log(Testitem)
+    }
 
         // script generate internal SAP
         function generateInternalSAP() {

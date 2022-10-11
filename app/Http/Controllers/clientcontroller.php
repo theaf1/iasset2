@@ -79,7 +79,7 @@ class ClientController extends Controller
         }
             
         //ตัวแปรที่ส่งกลับไปยังหน้า addcomputer
-        return view('addcomputernew')->with([
+        return view('addcomputer')->with([
             'asset_statuses'=>$Asset_statuses,
             'asset_use_statuses'=>$Asset_use_statuses,
             'sections'=>$Sections,
