@@ -79,7 +79,6 @@ class AssetstatusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request->all();
         $this->validateData($request); //ตรวจสอบข้อมูลก่อนการแก้ไข
         Asset_statuses::find($id)->update($request->all()); //ค้นหาและแก้ไขข้อมูล
         return redirect('/admin/assetstatusadmin')->with('success','บันทึกข้อมูลสำเร็จแล้ว'); //เรียกหน้า assetstatusadmin พร้อมกับส่งผลการบันทึกข้อมูล
